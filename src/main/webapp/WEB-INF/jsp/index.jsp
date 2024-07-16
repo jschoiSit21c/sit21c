@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>인덱스인덱스</title>
+<title>나라장터 멘토링 연습</title>
 <link rel="stylesheet" href="/css/font.css" type="text/css">
 </head>
 <body>
