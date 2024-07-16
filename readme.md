@@ -16,9 +16,7 @@ or <a href="https://www.openlogic.com/openjdk-downloads?field_java_parent_versio
 2. github settings -> Developer settings 클릭
 3. Personal access tokens -> Tokens(classic) 클릭
 4. 적당히 체크 후 토큰키 생성(※해당 토큰값이 이클립스 git 연동에 사용될 패스워드임. 생성시에만 볼 수 있으니 분실되지 않도록 주의)
-5. github 계정명 혹은 github 이메일주소 공유
-6. 깃헙 저장소 액세스 수락
-7. 소스 clone 후 작업  
+5. 소스 clone 후 작업  
 
 ### jdk 관련 이슈
 openjdk8버전 같은 경우 인증서 문제로 maven install이 되지 않는 이슈가 있음
