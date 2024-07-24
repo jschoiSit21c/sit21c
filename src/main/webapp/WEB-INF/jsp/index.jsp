@@ -4,21 +4,22 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>나라장터 멘토링 연습</title>
-<link rel="stylesheet" href="/css/font.css" type="text/css">
+<title>나라장터 멘토링 연습 - index</title>
 </head>
 <body>
-<div>인덱스인덱스</div>
-ㅋㅋ
-<br>
-zz
-<br><br><br><br>
-mmh 추가
-1
-
-2024.07.16
-<br><br><br><br>
-jjh추가
-2024.07.18 19:00
+	<!-- 상단 -->
+	<jsp:include page="header.jsp"></jsp:include>
+    <!-- 메인 배너 -->
+    <section id="main-banner">
+        <div class="banner-image">
+            <img src="/img/banner.jpg" alt="메인 배너 이미지">
+            <div class="banner-text">
+                <h1>미래를 위한 DX기술로 세상에 가치를 더합니다</h1>
+                <p>Drive to Excellence</p>
+            </div>
+        </div>
+    </section>
+	<!-- 하단 -->
+	<jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>
