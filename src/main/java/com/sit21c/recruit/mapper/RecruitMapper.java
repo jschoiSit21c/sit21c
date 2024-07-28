@@ -5,9 +5,11 @@ import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.sit21c.common.CamelCaseMap;
+
 @Mapper
 public interface RecruitMapper {
 	/**
 	 * 테스트*/
-	public List<Map<String, Object>> test(Map<String,Object> param);
+	public List<CamelCaseMap> test(Map<String,Object> param);
 }

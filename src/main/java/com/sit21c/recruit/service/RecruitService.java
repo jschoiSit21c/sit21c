@@ -3,7 +3,9 @@ package com.sit21c.recruit.service;
 import java.util.List;
 import java.util.Map;
 
+import com.sit21c.common.CamelCaseMap;
+
 public interface RecruitService {
 	
-	public List<Map<String, Object>> test(Map<String, Object> param);
+	public List<CamelCaseMap> test(Map<String, Object> param);
 }

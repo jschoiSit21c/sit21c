@@ -22,6 +22,7 @@ public class RecruitController {
 		recruitService.test(param).forEach(x -> {
 			System.out.println("T1 = " + x.get("t1"));
 			System.out.println("T2 = " + x.get("t2"));
+			System.out.println("T_TT3 = " + x.get("tTt3"));
 		});
 		
 		return "index";

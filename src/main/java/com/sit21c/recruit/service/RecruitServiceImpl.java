@@ -6,6 +6,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.sit21c.common.CamelCaseMap;
 import com.sit21c.recruit.mapper.RecruitMapper;
 
 @Service("recruitService")
@@ -15,7 +16,7 @@ public class RecruitServiceImpl implements RecruitService {
 	private RecruitMapper recruitMapper;
 	
 	@Override
-	public List<Map<String, Object>> test(Map<String, Object> param) {
+	public List<CamelCaseMap> test(Map<String, Object> param) {
 		return recruitMapper.test(param);
 	}
 
