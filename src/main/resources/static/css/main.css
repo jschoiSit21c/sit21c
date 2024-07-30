@@ -114,3 +114,60 @@ input[type="submit"] {
 input[type="submit"]:hover {
     background-color: #575757;
 }
+
+
+
+
+
+
+
+
+
+
+/* mmh 추가 */
+.horizontal-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    background-color: #333;
+}
+
+.horizontal-nav li {
+    position: relative;
+}
+
+.horizontal-nav a {
+    display: block;
+    padding: 10px 15px;
+    color: white;
+    text-decoration: none;
+}
+
+.horizontal-nav a:hover {
+    background-color: #555;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #444;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    white-space: nowrap; /* 텍스트가 가로로 한 줄에 표시되도록 함 */
+}
+
+.dropdown-content li {
+    display: inline-block;
+}
+
+.dropdown-content a {
+    padding: 12px 16px;
+    white-space: nowrap; /* 개별 링크에서 줄바꿈을 방지 */
+}
+
+.dropdown:hover .dropdown-content {
+    display: block; /* 하위 메뉴를 가로로 한 줄에 배치 */
+}
