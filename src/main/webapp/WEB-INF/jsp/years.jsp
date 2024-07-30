@@ -20,7 +20,7 @@
 
         <!-- History Timeline -->
         <section class="mb-8">
-            <h2 class="text-3xl font-bold mb-4">Timeline</h2>
+            <h2 class="text-3xl font-bold mb-4">Timeline </h2>
             <div class="space-y-8">
                 <div class="bg-white shadow p-4 rounded-lg">
                     <h3 class="text-2xl font-bold">2024</h3>
