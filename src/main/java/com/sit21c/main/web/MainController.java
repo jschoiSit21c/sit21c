@@ -38,4 +38,10 @@ public class MainController {
 		System.out.println("contact 호출");
 		return "contact";
 	}
+	
+	@RequestMapping("/years")
+	public String years(@RequestParam Map<String, Object> map) {
+		System.out.println("years 호출");
+		return "years";
+	}
 }
