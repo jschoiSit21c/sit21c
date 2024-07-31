@@ -33,3 +33,6 @@ build/
 .vscode/
 
 application.properties
+
+#bin 폴더 제외
+bin/
