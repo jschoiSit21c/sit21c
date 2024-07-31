@@ -39,7 +39,7 @@ public class MainController {
 		return "contact";
 	}
 	
-	@RequestMapping("/years")
+	@RequestMapping("/history")
 	public String years(@RequestParam Map<String, Object> map) {
 		System.out.println("years 호출");
 		return "years";
