@@ -9,11 +9,20 @@
 <body>
 	<!-- 상단 -->
 	<jsp:include page="/WEB-INF/jsp/header.jsp"></jsp:include>
-    <!-- 솔루션 섹션 -->
-    <section id="company">
-        <h2>aboutSIT</h2>
-		내용은 로컬개발중입니다
-    </section>
+    <main>
+        <section class="company-overview">
+            <h2>회사소개</h2>
+            <div class="video-container">
+                <iframe src="/video/pro.mp4" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </section>
+        <section class="vision">
+            <h2>경영이념</h2>
+            <div class="vision-chart">
+                <img src="/img/aboutSIT.png" alt="경영이념">
+            </div>
+        </section>
+    </main>
 	<!-- 하단 -->
 	<jsp:include page="/WEB-INF/jsp/footer.jsp"></jsp:include>
 </body>
