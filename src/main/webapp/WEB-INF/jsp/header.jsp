@@ -30,7 +30,13 @@
 		    </li>
 		    <li><a href="/business">BUSINESS</a></li>
 		    <li><a href="/recruit">Recruit</a></li>
-		    <li><a href="/PRCenter">PR Center</a></li>
+		    <li class="dropdown">
+		    	<a class="dropbtn">PR Center</a>
+		  		<ul class="dropdown-content">
+		            <li><a href="/pr/ci">CI</a></li>
+		            <li><a href="/pr/partnership">Partner Ship</a></li>
+		        </ul>
+		    </li>
 		    
 		    
 		    <li><a href="/about">회사소개</a></li>
