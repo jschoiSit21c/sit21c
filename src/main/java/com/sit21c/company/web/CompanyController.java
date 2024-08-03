@@ -31,4 +31,11 @@ public class CompanyController {
 	public String openWriteCEOMessage(@RequestParam Map<String, Object> param) {
 		return "/company/ceo_message_write";
 	}
+	
+	@RequestMapping("/company/location")
+	public String location(@RequestParam Map<String, Object> param) {
+		System.out.println("company/location");
+		
+		return "/company/location";
+	}
 }
