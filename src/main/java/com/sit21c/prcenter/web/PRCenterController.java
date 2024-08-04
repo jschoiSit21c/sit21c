@@ -17,7 +17,7 @@ public class PRCenterController {
 	@RequestMapping("/pr/ci")
 	public String openCi(@RequestParam Map<String, Object> map) {
 		System.out.println("CI 호출");
-		return "index";
+		return "/pr/ci";
 	}
 	
 	/**

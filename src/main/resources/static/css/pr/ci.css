@@ -1,0 +1,17 @@
+@charset "UTF-8";
+#ci {
+    display: flex;
+    justify-content: center; /* 가로 중앙 정렬 */
+    align-items: center; /* 세로 중앙 정렬 (필요시 사용) */
+    min-height: 300px; /* 최소 높이 설정 (필요에 따라 조정) */
+}
+
+.ci-image-container {
+    text-align: center;
+}
+
+.ci-image-container img {
+    max-width: 100%;
+    height: auto;
+    display: inline-block;
+}
