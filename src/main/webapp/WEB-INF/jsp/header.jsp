@@ -39,9 +39,9 @@
 		    </li>
 		    
 		    
-		    <li><a href="/about">회사소개</a></li>
+		    <!-- <li><a href="/about">회사소개</a></li>
             <li><a href="/business">비즈니스</a></li>
-            <li><a href="/solution">솔루션</a></li>
+            <li><a href="/solution">솔루션</a></li> -->
 		    <li><a href="/contact">고객지원</a></li>
 		</ul>
 

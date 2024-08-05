@@ -14,7 +14,7 @@ public class CompanyController {
 	
 	//company 관련 컨트롤러
 	@RequestMapping("/company/aboutSIT")
-	public String test(@RequestParam Map<String, Object> param) {
+	public String openAboutSIT(@RequestParam Map<String, Object> param) {
 		System.out.println("company/aboutSIT");
 		
 		return "/company/aboutSIT";
@@ -37,5 +37,12 @@ public class CompanyController {
 		System.out.println("company/location");
 		
 		return "/company/location";
+	}
+	
+	@RequestMapping("/company/history")
+	public String openHistory(@RequestParam Map<String, Object> param) {
+		System.out.println("company/SIT_History");
+		
+		return "/company/SIT_History";
 	}
 }
