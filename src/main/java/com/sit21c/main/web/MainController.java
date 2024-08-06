@@ -41,7 +41,13 @@ public class MainController {
 	
 	@RequestMapping("/history")
 	public String years(@RequestParam Map<String, Object> map) {
-		System.out.println("years 호출");
-		return "years";
+		System.out.println("history 호출");
+		return "history";
+	}
+	
+	@RequestMapping("/vision")
+	public String vision(@RequestParam Map<String, Object> map) {
+		System.out.println("vision 호출");
+		return "vision";
 	}
 }

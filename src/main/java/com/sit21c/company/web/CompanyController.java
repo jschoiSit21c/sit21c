@@ -45,4 +45,11 @@ public class CompanyController {
 		
 		return "/company/SIT_History";
 	}
+	
+	@RequestMapping("/company/vision")
+	public String openVision(@RequestParam Map<String, Object> param) {
+		System.out.println("company/vision");
+		
+		return "/company/vision";
+	}
 }
