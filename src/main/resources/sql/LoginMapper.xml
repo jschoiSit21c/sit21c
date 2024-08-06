@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sit21c.login.mapper.LoginMapper">
+	<select id="executeLogin" parameterType="com.sit21c.login.vo.LoginVo" resultType="com.sit21c.login.vo.LoginVo">
+		/*로그인할 유저 정보 조회*/
+		SELECT NO
+			 , ID
+			 , PASSWORD
+			 , NAME
+			 , AUTH
+		FROM USER_INFO
+		WHERE ID = #{id}
+		AND PASSWORD = ENCODE(DIGEST(#{password}, 'sha256'), 'hex');
+	</select>
+</mapper>
