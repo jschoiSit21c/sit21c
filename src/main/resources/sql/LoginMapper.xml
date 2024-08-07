@@ -5,7 +5,6 @@
 		/*로그인할 유저 정보 조회*/
 		SELECT NO
 			 , ID
-			 , PASSWORD
 			 , NAME
 			 , AUTH
 		FROM USER_INFO

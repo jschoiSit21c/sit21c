@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <link rel="stylesheet" href="/css/font.css" type="text/css">
 <link rel="stylesheet" href="/css/main.css" type="text/css">
 <header>
@@ -44,7 +44,11 @@
             <li><a href="/solution">솔루션</a></li> -->
 		    <li><a href="/contact">고객지원</a></li>
 		</ul>
-
-        
+		<c:if test="${sessionScope.loginInfo == null}">
+			<a class="logout" href="/login/loginForm">로그인</a>
+		</c:if>
+		<c:if test="${sessionScope.loginInfo != null}">
+			<a class="logout" href="/login/executeLogout">로그아웃</a>
+		</c:if>
     </nav>
 </header>

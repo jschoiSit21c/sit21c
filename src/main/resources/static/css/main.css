@@ -12,35 +12,68 @@ header {
     z-index: 1000;
 }
 
+/* nav { */
+/*     display: flex; */
+/*     justify-content: center; */
+/*     align-items: center; */
+/*     height: 60px; */
+/* } */
+
+/* .horizontal-nav { */
+/*     list-style-type: none; */
+/*     padding: 0; */
+/*     margin: 0; */
+/*     display: flex; */
+/*     background-color: #333; */
+/*     align-items: center; 아이템을 수직 중앙 정렬 */
+/* } */
+
+/* .horizontal-nav li { */
+/*     margin: 0 20px; */
+/* } */
+
+/* .horizontal-nav a { */
+/*     color: white; */
+/*     text-decoration: none; */
+/*     font-size: 18px; */
+/*     padding: 10px; */
+/*     display: block; */
+/* } */
+
+/* .horizontal-nav a:hover { */
+/*     background-color: #575757; */
+/* } */
+
 nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: flex; /* Flex 컨테이너로 설정 */
+    justify-content: space-between; /* 아이템 간 공간을 균등하게 분배 */
+    align-items: center; /* 아이템을 수직 중앙 정렬 */
     height: 60px;
+    padding: 0 20px; /* 좌우 패딩 추가 */
 }
 
 .horizontal-nav {
-    list-style-type: none;
+    list-style: none;
     padding: 0;
     margin: 0;
-    display: flex;
+    display: flex; /* Flex 컨테이너로 설정 */
 }
 
 .horizontal-nav li {
-    margin: 0 20px;
+    position: relative;
 }
 
 .horizontal-nav a {
+    display: block;
+    padding: 10px 15px;
     color: white;
     text-decoration: none;
-    font-size: 18px;
-    padding: 10px;
-    display: block;
 }
 
 .horizontal-nav a:hover {
-    background-color: #575757;
+    background-color: #555;
 }
+
 
 section {
     margin-top: 80px; /* 헤더 높이 + 여백 */
@@ -256,4 +289,21 @@ footer {
     color: white;
     text-align: center;
     padding: 10px 0;
+}
+
+
+
+
+/*로그아웃 관련 추가*/
+.logout {
+    font-size: 14px; /* 다른 메뉴보다 작게 설정 */
+    padding: 5px 10px; /* 다른 메뉴와 구별되도록 패딩 조정 */
+    background-color: #444; /* 배경색으로 다른 메뉴와 구별 */
+    border-radius: 5px; /* 약간의 테두리 반경 추가 */
+    color: white;
+    text-decoration: none;
+}
+
+.logout:hover {
+    background-color: #555; /* 호버 시 색상 변경 */
 }
