@@ -28,7 +28,14 @@
 		            <li><a href="/company/location">오시는길</a></li>
 		        </ul>
 		    </li>
-		    <li><a href="/business">BUSINESS</a></li>
+		    <li class="dropdown">
+		    	<a href="/business">BUSINESS</a>
+			    	<ul class="dropdown-content">
+			            <li><a href="/business/publicDigitalService">공공 디지털서비스</a></li>
+			            <li><a href="/business/iCTInfraService">ICT 인프라서비스</a></li>
+			            <li><a href="/business/itConsultingService">IT 컨설팅서비스</a></li>
+			        </ul>
+		    </li>
 		    <li><a href="/recruit">Recruit</a></li>
 		    <li class="dropdown">
 		    	<a class="dropbtn">PR Center</a>
