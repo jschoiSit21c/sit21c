@@ -30,7 +30,7 @@ public class businessController  {
 	public String iCTInfraService(@RequestParam Map<String,Object> param) {
 		System.out.println("/business/iCTInfraService -컨트롤러 호출");
 		
-		businessServiceImpl.iCTInfraService(param);
+		//businessServiceImpl.iCTInfraService(param);
 		
 		return "/business/iCTInfraService";
 	}
