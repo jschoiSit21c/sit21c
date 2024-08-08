@@ -15,16 +15,38 @@ public class RecruitController {
 	@Autowired
 	private RecruitService recruitService;
 	
-	//채용관련 컨트롤러
-	@RequestMapping("/recruit/test")
-	public String test(@RequestParam Map<String, Object> param) {
-		System.out.println("뭐지");
-		recruitService.test(param).forEach(x -> {
-			System.out.println("T1 = " + x.get("t1"));
-			System.out.println("T2 = " + x.get("t2"));
-			System.out.println("T_TT3 = " + x.get("tTt3"));
-		});
-		
-		return "index";
+	//recruits관련 컨트롤러
+	
+	/**
+	 * 채용정보 & (채용신청서 작성)화면 호출
+	 * @param map
+	 * @return
+	 */
+	@RequestMapping("/recruit/recruitmentInformation")
+	public String recruitmentInformation(@RequestParam Map<String, Object> map) {
+		System.out.println("recruitmentInformation 호출");
+		return "/recruit/recruitmentInformation";
+	}
+	
+	/**
+	 * 인사제도 화면 호출
+	 * @param map
+	 * @return
+	 */
+	@RequestMapping("/recruit/personnelSystem")
+	public String personnelSystem(@RequestParam Map<String, Object> map) {
+		System.out.println("personnelSystem 호출");
+		return "/recruit/personnelSystem";
+	}
+	
+	/**
+	 * 복지현황 화면 호출
+	 * @param map
+	 * @return
+	 */
+	@RequestMapping("/recruit/welfareStatus")
+	public String welfareStatus(@RequestParam Map<String, Object> map) {
+		System.out.println("welfareStatus 호출");
+		return "/recruit/welfareStatus";
 	}
 }

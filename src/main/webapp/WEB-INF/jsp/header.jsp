@@ -36,7 +36,14 @@
 			            <li><a href="/business/itConsultingService">IT 컨설팅서비스</a></li>
 			        </ul>
 		    </li>
-		    <li><a href="/recruit">Recruit</a></li>
+		    <li class="dropdown">
+		    	<a href="/recruit">Recruit</a>
+		    		<ul class="dropdown-content">
+			            <li><a href="/recruit/recruitmentInformation">채용정보 & (채용신청서 작성)</a></li>
+			            <li><a href="/recruit/personnelSystem">인사제도</a></li>
+			            <li><a href="/recruit/welfareStatus">복지현황</a></li>
+			        </ul>
+		    </li>
 		    <li class="dropdown">
 		    	<a class="dropbtn">PR Center</a>
 		  		<ul class="dropdown-content">
