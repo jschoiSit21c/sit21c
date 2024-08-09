@@ -40,7 +40,7 @@ public class businessController  {
 	public String itConsultingService(@RequestParam Map<String,Object> param) {
 		System.out.println("/business/itConsultingService -컨트롤러 호출");
 		
-		businessServiceImpl.itConsultingService(param);
+		//businessServiceImpl.itConsultingService(param);
 		
 		return "/business/itConsultingService";
 	}
