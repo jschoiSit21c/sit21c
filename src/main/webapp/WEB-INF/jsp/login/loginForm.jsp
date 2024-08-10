@@ -30,7 +30,6 @@
             </form>
         </div>
     </section>
-${sessionScope.loginInfo}
 <c:if test="${loginFail == true}">
 <script>
 //로그인 실패시

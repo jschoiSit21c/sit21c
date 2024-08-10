@@ -1,10 +1,14 @@
 package com.sit21c.login.web;
 
+import java.util.Collections;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -46,13 +50,22 @@ public class LoginController {
 	@RequestMapping("/login/executeLogin")
 	public String executeLogin(LoginVo loginVo, ModelMap model, HttpSession session, RedirectAttributes redirectAttributes) {
 		try {
-			
+			System.out.println("여기까지 오긴함?");
 			//로그인 패스워드에 salt값 추가
 			loginVo.setPassword(CommonUtils.addSalt(loginVo.getPassword()));
 			LoginVo loginInfo = loginService.executeLogin(loginVo);
 			System.out.println("성공");
 			if(loginInfo != null) {
 				session.setAttribute("loginInfo", loginInfo);
+				
+				UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(
+						loginInfo.getId(),
+						null,
+						Collections.singletonList(new SimpleGrantedAuthority("ROLE_" + loginInfo.getAuth()))
+						);
+				
+				SecurityContextHolder.getContext().setAuthentication(authenticationToken);
+				
 				return "redirect:/";
 			}else {
 				redirectAttributes.addFlashAttribute("loginFail", true);
@@ -78,6 +91,8 @@ public class LoginController {
 	@RequestMapping("/login/executeLogout")
 	public String executeLogout(LoginVo loginVo, ModelMap model, HttpSession session) {
 			session.setAttribute("loginInfo", null);
+			
+			SecurityContextHolder.clearContext();
 		return "redirect:/";
 	}
 }

@@ -52,11 +52,12 @@
     <section id="company">
 	    <div class="container">
 	        <h2>CEO 메시지 수정</h2>
-	        <form id="ceo-message-form">
+	        <form id="ceo-message-form" onsubmit="return false;">
 	            <div class="form-group">
-	                <textarea id="ceo-message-editor" name="ceoMessage"></textarea>
+	                <textarea id="ceo-message-editor" name="ceoMessage">${item.content}</textarea>
 	            </div>
 	            <div id="save-btn-container">
+	            	<button type="button" onclick="location.href='/company/ceo'" class="btn-custom">이전</button>
 	                <button type="submit" id="save-btn" class="btn-custom">저장</button>
 	            </div>
 	        </form>
@@ -74,14 +75,30 @@
             // 폼 제출 이벤트 핸들러
             $('#ceo-message-form').on('submit', function(e) {
                 e.preventDefault();
-
+				if(!confirm("저장하시겠습니까?")) return;
                 // Summernote의 HTML 콘텐츠를 가져옴
                 var ceoMessageContent = $('#ceo-message-editor').summernote('code');
                 
-                // 서버로 데이터를 전송하거나 다른 처리를 수행할 수 있습니다.
-                console.log(ceoMessageContent);
+                $.ajax({
+                	url: "/company/writeCEO",
+                	type: "POST",
+                	dataType: "json",
+                	contentType: "application/json",
+                	data: JSON.stringify({
+                		content: ceoMessageContent
+                	}),
+                }).done(data => {
+                	if(data.isSuccess){
+                		alert("CEO 메시지가 저장되었습니다.");	
+                		location.href='/company/ceo';
+                	}else{
+                		alert("CEO 메시지 저장에 실패하였습니다.");	
+                	}
+                	
+                }).fail(data => {
+                	alert("CEO 메시지 저장에 실패하였습니다.");
+                })
 
-                alert('CEO 메시지가 저장되었습니다.');
             });
         });
     </script>
