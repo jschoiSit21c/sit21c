@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <link rel="stylesheet" href="/css/font.css" type="text/css">
 <link rel="stylesheet" href="/css/main.css" type="text/css">
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 <header>
     <nav>
         <!-- <ul class="horizontal-nav">
@@ -13,7 +14,9 @@
             <li><a href="/contact">고객지원</a></li>
         </ul> -->
         
-        
+        <a class="navbar-brand" href="/">
+          <img alt="SoftITech" src="/img/sit_logo_eng.png">
+        </a>
         
         <ul class="horizontal-nav">
 		    <li><a href="/">홈</a></li>

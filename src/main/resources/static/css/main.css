@@ -11,6 +11,19 @@ header {
     left: 0;
     z-index: 1000;
 }
+.navbar-brand {
+    display: inline-block;
+    padding-top: 0.3125rem;
+    padding-bottom: 0.3125rem;
+    margin-right: 1.5rem;
+    font-size: 1.25rem;
+    line-height: inherit;
+    white-space: nowrap;
+}
+.navbar-brand img {
+    max-width: 50%; 
+    height: auto;
+}
 
 /* nav { */
 /*     display: flex; */
