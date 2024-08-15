@@ -15,7 +15,7 @@
         </ul> -->
         
         <a class="navbar-brand" href="/">
-          <img alt="SoftITech" src="/img/sit_logo_eng.png">
+          <img alt="소프트아이텍" src="/img/sit_logo_eng.png">
         </a>
         
         <ul class="horizontal-nav">
