@@ -5,7 +5,6 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="/css/layout.css" type="text/css">
-<link rel="stylesheet" href="/css/common.css" type="text/css">
 <!-- 메뉴링크 -->	
 <script type="text/javascript" src="/js/m_menu.js"></script>
 <!-- //메뉴링크 -->
