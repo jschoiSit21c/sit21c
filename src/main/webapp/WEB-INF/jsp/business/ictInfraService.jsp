@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>소프트아이텍 - InfraService</title>
-<link rel="stylesheet" href="/css/business/infraService.css" type="text/css">
+<link rel="stylesheet" href="/css/business/ictInfraService.css" type="text/css">
 </head>
 <body>
 	<!-- 상단 -->
