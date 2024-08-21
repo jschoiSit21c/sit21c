@@ -27,20 +27,20 @@
 		            <li><a href="/company/ceo">CEO 메시지</a></li>
 		            <li><a href="/company/vision">비전</a></li>
 		            <li><a href="/company/history">연혁</a></li>
-		            <li><a href="/company/organization">조직도</a></li>
+		            <!-- <li><a href="/company/organization">조직도</a></li> -->
 		            <li><a href="/company/location">오시는길</a></li>
 		        </ul>
 		    </li>
 		    <li class="dropdown">
-		    	<a href="/business">BUSINESS</a>
+		    	<a href="/business/publicDigitalService">BUSINESS</a>
 			    	<ul class="dropdown-content">
 			            <li><a href="/business/publicDigitalService">공공 디지털서비스</a></li>
-			            <li><a href="/business/iCTInfraService">ICT 인프라서비스</a></li>
+			            <li><a href="/business/ictInfraService">ICT 인프라서비스</a></li>
 			            <li><a href="/business/itConsultingService">IT 컨설팅서비스</a></li>
 			        </ul>
 		    </li>
 		    <li class="dropdown">
-		    	<a href="/recruit">Recruit</a>
+		    	<a href="/recruit/recruitmentInformation">Recruit</a>
 		    		<ul class="dropdown-content">
 			            <li><a href="/recruit/recruitmentInformation">채용정보 & (채용신청서 작성)</a></li>
 			            <li><a href="/recruit/personnelSystem">인사제도</a></li>
@@ -48,7 +48,7 @@
 			        </ul>
 		    </li>
 		    <li class="dropdown">
-		    	<a class="dropbtn">PR Center</a>
+		    	<a class="dropbtn" href="/pr/ci">PR Center</a>
 		  		<ul class="dropdown-content">
 		            <li><a href="/pr/ci">CI</a></li>
 		            <li><a href="/pr/partnership">Partner Ship</a></li>

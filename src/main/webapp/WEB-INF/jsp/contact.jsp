@@ -2,13 +2,13 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+<!-- 상단 -->
+<jsp:include page="header.jsp"></jsp:include>
 <head>
 <meta charset="UTF-8">
 <title>나라장터 멘토링 연습 - solution</title>
 </head>
 <body>
-	<!-- 상단 -->
-	<jsp:include page="header.jsp"></jsp:include>
     <!-- 고객지원 섹션 -->
     <section id="contact">
         <h2>고객지원</h2>
@@ -29,7 +29,7 @@
         <h3>자주 묻는 질문 (FAQ)</h3>
         <p>자주 묻는 질문과 답변을 확인하세요.</p>
     </section>
-	<!-- 하단 -->
-	<jsp:include page="footer.jsp"></jsp:include>
 </body>
+<!-- 하단 -->
+<jsp:include page="footer.jsp"></jsp:include>
 </html>

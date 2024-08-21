@@ -20,19 +20,19 @@ public class businessController  {
 	public String publicDigitalService(@RequestParam Map<String,Object> param) {
 		System.out.println("/business/publicDigitalService -컨트롤러 호출");
 		
-		businessServiceImpl.publicDigitalService(param);
+		//businessServiceImpl.publicDigitalService(param);
 		
 		return "/business/publicDigitalService";
 	}
 	
 	//ICT인프라서비스 화면 호출
-	@RequestMapping("/business/iCTInfraService")
+	@RequestMapping("/business/ictInfraService")
 	public String iCTInfraService(@RequestParam Map<String,Object> param) {
 		System.out.println("/business/iCTInfraService -컨트롤러 호출");
 		
 		//businessServiceImpl.iCTInfraService(param);
 		
-		return "/business/iCTInfraService";
+		return "/business/ictInfraService";
 	}
 	
 	//IT컨설팅서비스

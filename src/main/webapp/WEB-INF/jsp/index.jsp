@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+<!-- 상단 -->
+<jsp:include page="header.jsp"></jsp:include>
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="/css/layout.css" type="text/css">
@@ -161,8 +163,6 @@ $(document).ready(function(){
 <title>나라장터 멘토링 연습 - index</title>
 </head>
 <body>
-	<!-- 상단 -->
-	<jsp:include page="header.jsp"></jsp:include>
     <!-- 메인 배너 -->
     <section id="main-banner">
 		<!-- 비쥬얼영역-->
@@ -257,7 +257,7 @@ $(document).ready(function(){
 		</div>
 		<!-- //오시는길-->
     </section>
-	<!-- 하단 -->
-	<jsp:include page="footer.jsp"></jsp:include>
 </body>
+<!-- 하단 -->
+<jsp:include page="footer.jsp"></jsp:include>
 </html>

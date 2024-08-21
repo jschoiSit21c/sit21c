@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+<!-- 상단 -->
+<jsp:include page="/WEB-INF/jsp/header.jsp"></jsp:include>
 <head>
 <meta charset="UTF-8">
 <title>복지현황 - 소프트아이텍</title>
@@ -30,7 +32,7 @@ main {
     max-width: 1200px; /* 최대 너비 설정 */
 }
 
-.welfareStatus h2 {
+/* .welfareStatus h2 {
     font-size: 2em;
     color: #333;
     margin-bottom: 20px;
@@ -41,12 +43,10 @@ main {
     max-width: 400px; /* 이미지의 최대 너비 설정 */
     height: auto;
     border-radius: 10px;
-}
+} */
 </style>
 </head>
 <body>
-    <!-- 상단 -->
-    <jsp:include page="/WEB-INF/jsp/header.jsp"></jsp:include>
     
     <main>
         <section class="welfareStatus">
@@ -57,7 +57,7 @@ main {
         </section>
     </main>
     
-    <!-- 하단 -->
-    <jsp:include page="/WEB-INF/jsp/footer.jsp"></jsp:include>
 </body>
+<!-- 하단 -->
+<jsp:include page="/WEB-INF/jsp/footer.jsp"></jsp:include>
 </html>
