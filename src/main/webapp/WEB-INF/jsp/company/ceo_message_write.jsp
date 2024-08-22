@@ -3,6 +3,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
+<!-- 상단 -->
+<jsp:include page="/WEB-INF/jsp/header.jsp"></jsp:include>
 <head>
 <meta charset="UTF-8">
 <title>About 소프트아이텍 - CEO 메시지</title>
@@ -39,8 +41,6 @@
     </style>
 </head>
 <body>
-	<!-- 상단 -->
-	<jsp:include page="/WEB-INF/jsp/header.jsp"></jsp:include>
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- Summernote CSS & JS (Lite Version) -->
@@ -102,7 +102,7 @@
             });
         });
     </script>
-	<!-- 하단 -->
-	<jsp:include page="/WEB-INF/jsp/footer.jsp"></jsp:include>
 </body>
+<!-- 하단 -->
+<jsp:include page="/WEB-INF/jsp/footer.jsp"></jsp:include>
 </html>

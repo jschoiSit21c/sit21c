@@ -4,14 +4,14 @@
 <%@ taglib uri="http://www.springframework.org/security/tags" prefix="security" %>
 <!DOCTYPE html>
 <html>
+<!-- 상단 -->
+<jsp:include page="/WEB-INF/jsp/header.jsp"></jsp:include>
 <head>
 <meta charset="UTF-8">
 <title>About 소프트아이텍 - CEO 메시지</title>
 <link rel="stylesheet" href="/css/company/ceo.css" type="text/css">
 </head>
 <body>
-	<!-- 상단 -->
-	<jsp:include page="/WEB-INF/jsp/header.jsp"></jsp:include>
     <!-- 솔루션 섹션 -->
     <section id="company">
 		<div class="content-container">
@@ -25,7 +25,7 @@
 		  </security:authorize>
 		</div>
     </section>
-	<!-- 하단 -->
-	<jsp:include page="/WEB-INF/jsp/footer.jsp"></jsp:include>
 </body>
+<!-- 하단 -->
+<jsp:include page="/WEB-INF/jsp/footer.jsp"></jsp:include>
 </html>
