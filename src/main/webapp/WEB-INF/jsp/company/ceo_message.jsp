@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="security" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,10 +19,10 @@
 		  <div class="ceo-message">
 			${item.content}
 		  </div>
-		  <c:if test="${sessionScope.loginInfo.auth == 'SA'}">
+		  <security:authorize access="hasRole('SA')">
 		  	<!-- 관리자 로그인시에만 보이게끔 수정 -->
 		  	<button class="edit-button" onclick="location.href='/company/openWriteCeo'">수정</button>
-		  </c:if>
+		  </security:authorize>
 		</div>
     </section>
 	<!-- 하단 -->
