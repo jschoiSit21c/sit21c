@@ -19,11 +19,11 @@
 <title>소프트아이텍 - 공공 디지털서비스</title>
 </head>
 <body>
-	
-	<div>
-		<img src="/img/Sit_공공디지털서비스_.png" alt="공공디지털서비스">
-	</div>
-    
+	<section>
+		<div>
+			<img src="/img/Sit_공공디지털서비스_.png" alt="공공디지털서비스">
+		</div>
+	</section>
 </body>
 <!-- 하단 -->
 <jsp:include page="/WEB-INF/jsp/footer.jsp"></jsp:include>

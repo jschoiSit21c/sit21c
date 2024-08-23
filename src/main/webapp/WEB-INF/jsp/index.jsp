@@ -183,28 +183,28 @@ $(document).ready(function(){
 				<span class="t3">We Do</span>
 				<p><img src="/img/we_go.png" width="162" height="23" alt=""/></p>
 				<p class="t4">소프트아이텍의 다양한 <br/>사업 영역을 소개합니다.</p>
-				<p class="bu_more"><a href="business/si_area.html"><img src="/img/btn_more.png" width="28" height="26" alt=""/></a></p>
+				<p class="bu_more"><a href="/business/publicDigitalService"><img src="/img/btn_more.png" width="28" height="26" alt=""/></a></p>
 			  </div>
 			</div>
 			<div class="main_se01" style="border:0;">
 				<div class="se_title">System Integration</div>
 				<div class="se_img"><img src="/img/m_si_img.png" width="244" height="110" alt=""/></div>
 				<div class="b_text">국내 주요 공공기관 및 지자체, 기업 등<br/>다양한 업무환경의 요구에 맞는<br/>최적의 IT시스템을 진단, 설계, 구축,<br/>통합하여 최상의 서비스를 제공합니다. </div>
-				<div class="btn_more"><a href="business/si_area.html"><img src="/img/bu_btn_normal.png" width="64" height="30" alt=""/></a></div>
+				<div class="btn_more"><a href="/business/publicDigitalService"><img src="/img/bu_btn_normal.png" width="64" height="30" alt=""/></a></div>
 	
 			</div>
 			<div class="main_se01">
-				<div class="se_title">System Maintenance</div>
+				<div class="se_title">ICT Infra Service</div>
 				<div class="se_img"><img src="/img/m_sm_img.png" width="244" height="110" alt=""/></div>
 				<div class="b_text">고객 요구에 맞는 전문적인 아웃소싱<br/>서비스를 제공받아 정보시스템을 효율적으로<br/>활용할 수 있습니다 </div>
-				<div class="btn_more"><a href="business/sm_area.html"><img src="/img/bu_btn_normal.png" width="64" height="30" alt=""/></a></div>
+				<div class="btn_more"><a href="/business/ictInfraService"><img src="/img/bu_btn_normal.png" width="64" height="30" alt=""/></a></div>
 	
 			</div>
 			<div class="main_se01" >
 				<div class="se_title">I · T Consulting</div>
 				<div class="se_img"><img src="/img/m_it_img.png" width="244" height="110" alt=""/></div>
 				<div class="b_text">정보화 전략수립(ISP), 정보시스템 현황 조사,<br/>비즈니스 전략 수립, 프로세스 혁신 등 축적<br/>된 노하우와 컨설팅 역량을 바탕으로 최적의 정보시스템을 제공합니다. </div>
-				<div class="btn_more"><a href="business/consulting_area.html"><img src="/img/bu_btn_normal.png" width="64" height="30" alt=""/></a></div>
+				<div class="btn_more"><a href="/business/publicDigitalService"><img src="/img/bu_btn_normal.png" width="64" height="30" alt=""/></a></div>
 	
 			 </div>
 			<div class="move"><a href="#mtop"><img src="/img/main_more.png" width="72" height="35" alt=""/></a></div>
@@ -221,7 +221,7 @@ $(document).ready(function(){
 		<div class="main_vision" id="mtop">
 			<h2>미션&비전</h2>
 			<p>ICMS (Innovation, Creative, Man, Social) 통한  지역사회 초 일류기업으로서의 성장 </p>
-			<div class="all_img"><a href="we/vision.html"><img src="/img/mission_img.png" width="594" height="231" alt="미션"/></a><a href="we/vision.html" ><img src="/img/vision_img.png" width="594" height="231" alt="비"/></a></div>
+			<div class="all_img"><a href="/company/vision"><img src="/img/mission_img.png" width="594" height="231" alt="미션"/></a><a href="/company/vision" ><img src="/img/vision_img.png" width="594" height="231" alt="비"/></a></div>
 		</div>
 		<!-- //비전미션-->	
 		<!-- 홍보영역-->
@@ -230,16 +230,16 @@ $(document).ready(function(){
 				<h2>홍보&채용정보</h2>
 				<p>소프트아이텍의 홍보와 인재채용안내입니다. </p>
 				<div class="pr_area">
-				<a href="we/company.html" ><div class="pr_a">
+				<a href="http://www.sit21c.com/we/company.html" ><div class="pr_a">
 				<p>소프트아이텍 <span>PR</span></p>
 				</div></a>
 				<div class="pr_b">
-					<a href="przone/ci_info.html"><p>브로슈어</p></a>
+					<a href="/pr/ci"><p>브로슈어</p></a>
 				</div>
 				<div class="re_a">
 				<p class="re_title">인재채용</p>
 				<p>소프트아이텍은 미래를 선도하는<br /> 글로벌 리더로 함께 성장해 나갈 인재를<br /> 모집합니다.</p>
-				<a href="recruit/man_info.html"><img src="/img/bu_btn_normal.png" width="64" height="30" alt=""/></a> 
+				<a href="/recruit/recruitmentInformation"><img src="/img/bu_btn_normal.png" width="64" height="30" alt=""/></a> 
 				</div>
 				
 				</div>

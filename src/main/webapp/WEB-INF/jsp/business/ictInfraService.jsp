@@ -11,9 +11,11 @@
 <link rel="stylesheet" href="/css/business/ictInfraService.css" type="text/css">
 </head>
 <body>
-    <div class="infraService-image-container">
-        <img src="/img/Sit_ICT_InfraService1_.png" alt="소프트아이텍 CI">
-    </div>
+	<section>
+	    <div class="infraService-image-container">
+	        <img src="/img/Sit_ICT_InfraService1_.png" alt="소프트아이텍 CI">
+	    </div>
+	</section>
 </body>
 <!-- 하단 -->
 <jsp:include page="/WEB-INF/jsp/footer.jsp"></jsp:include>
