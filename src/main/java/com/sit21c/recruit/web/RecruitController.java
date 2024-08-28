@@ -18,7 +18,7 @@ public class RecruitController {
 	//recruits관련 컨트롤러
 	
 	/**
-	 * 채용정보 & (채용신청서 작성)화면 호출
+	 * 채용정보 & (채용신청서)화면 호출
 	 * @param map
 	 * @return
 	 */
@@ -26,6 +26,17 @@ public class RecruitController {
 	public String recruitmentInformation(@RequestParam Map<String, Object> map) {
 		System.out.println("recruitmentInformation 호출");
 		return "/recruit/recruitmentInformation";
+	}
+	
+	/**
+	 * 채용정보 & (채용신청서 작성)화면 호출
+	 * @param map
+	 * @return
+	 */
+	@RequestMapping("/recruit/recruitmentMain")
+	public String recruitmentMain(@RequestParam Map<String, Object> map) {
+		System.out.println("recruitmentMain 호출");
+		return "/recruit/recruitmentMain";
 	}
 	
 	/**

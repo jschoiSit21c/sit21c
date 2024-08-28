@@ -142,6 +142,24 @@
         }
         .triangle-left{
         	border-left-color:black;
+        }
+        
+       	.btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background-color: #2879ff;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin: 10px 0px;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
     </style>
 <body>
 	
@@ -258,6 +276,7 @@
 			        </div>
 			    </div>
 		    </div>
+		    <div><a class="btn" href="/recruit/recruitmentMain">채용공고이동</a></div>
 		</section>
 		 
 	</main>

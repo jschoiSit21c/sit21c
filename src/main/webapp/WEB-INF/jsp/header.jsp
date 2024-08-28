@@ -1,23 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 <link rel="stylesheet" href="/css/font.css" type="text/css">
 <link rel="stylesheet" href="/css/main.css" type="text/css">
-<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-<header>
+<header class="header">
     <nav>
-        <!-- <ul class="horizontal-nav">
-            <li><a href="/">홈</a></li>
-            <li><a href="/about">회사소개</a></li>
-            <li><a href="/business">비즈니스</a></li>
-            <li><a href="/solution">솔루션</a></li>
-            <li><a href="/contact">고객지원</a></li>
-        </ul> -->
-        
-        <a class="navbar-brand" href="/">
-          <img alt="소프트아이텍" src="/img/sit_logo_eng.png">
+        <ul class="navbar-brand" >
+        <a href="/">
+          <img alt="소프트아이텍" src="/img/sit_logo_eng.png" >
         </a>
-        
+        </ul>
         <ul class="horizontal-nav">
 		    <li><a href="/">홈</a></li>
 		    <li class="dropdown">
@@ -27,7 +20,6 @@
 		            <li><a href="/company/ceo">CEO 메시지</a></li>
 		            <li><a href="/company/vision">비전</a></li>
 		            <li><a href="/company/history">연혁</a></li>
-		            <!-- <li><a href="/company/organization">조직도</a></li> -->
 		            <li><a href="/company/location">오시는길</a></li>
 		        </ul>
 		    </li>
@@ -55,11 +47,6 @@
 		        </ul>
 		    </li>
 		    
-		    
-		    <!-- <li><a href="/about">회사소개</a></li>
-            <li><a href="/business">비즈니스</a></li>
-            <li><a href="/solution">솔루션</a></li>
-		    <li><a href="/contact">고객지원</a></li> -->
 		</ul>
 		<c:if test="${sessionScope.loginInfo == null}">
 			<a class="logout" href="/login/loginForm">로그인</a>
