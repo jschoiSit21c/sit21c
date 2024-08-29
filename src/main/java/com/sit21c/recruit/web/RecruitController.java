@@ -40,6 +40,17 @@ public class RecruitController {
 	}
 	
 	/**
+	 * 직무 채용정보
+	 * @param map
+	 * @return
+	 */
+	@RequestMapping("/recruit/recruinmentPost")
+	public String recruinmentPost(@RequestParam Map<String, Object> map) {
+		System.out.println("recruinmentPost 호출");
+		return "/recruit/recruinmentPost";
+	}
+	
+	/**
 	 * 인사제도 화면 호출
 	 * @param map
 	 * @return

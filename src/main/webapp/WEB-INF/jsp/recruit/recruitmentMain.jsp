@@ -37,50 +37,11 @@
             max-width: 1200px;
             margin: 0 auto;
         }
-
-        /* Header Styles */
-        /* .header {
-            background-color: var(--primary-color);
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
-            z-index: 1000;
-            transition: background-color 0.3s ease;
+        
+        .header nav {
+        	padding: 5px 10px; /* 다른 메뉴와 구별되도록 패딩 조정 */
         }
 
-        .header.scrolled {
-            background-color: rgba(52, 152, 219, 0.9);
-        }
-
-        .nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: white;
-            text-decoration: none;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--secondary-color);
-        }
- */
         /* Hero Section Styles */
         .hero {
             height: 100vh;
@@ -91,6 +52,9 @@
             position: relative;
             overflow: hidden;
         }
+        .hero .bg {
+        	position: absolute;
+        }
 
         .hero::before {
             content: '';
@@ -99,7 +63,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('https://source.unsplash.com/random/1600x900?technology') no-repeat center center/cover;
+            background: url('/img/recruit/sitMainRow.mp4') no-repeat center center/cover;
             opacity: 0.3;
         }
 
@@ -221,30 +185,6 @@
             color: var(--secondary-color);
         }
 
-         /* Footer Styles */
-        /*.footer {
-            background-color: var(--dark-color);
-            color: white;
-            padding: 3rem 0;
-        }
-
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .footer-links a {
-            color: white;
-            text-decoration: none;
-            margin-left: 1.5rem;
-            transition: color 0.3s ease;
-        }
-
-        .footer-links a:hover {
-            color: var(--secondary-color);
-        } */
-
         @media (max-width: 768px) {
             .nav {
                 flex-direction: column;
@@ -261,34 +201,10 @@
             .about-content {
                 flex-direction: column;
             }
-
-           /*  .footer-content {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .footer-links {
-                margin-top: 1rem;
-            }
-
-            .footer-links a {
-                margin: 0 0.75rem;
-            } */
         }
     </style>
 </head>
 <body>
-    <!-- <header class="header">
-        <nav class="nav container">
-            <a href="/" class="logo">FutureWorks</a>
-            <div class="nav-links">
-                <a href="#jobs">채용 공고</a>
-                <a href="#about">회사 소개</a>
-                <a href="/applicant">지원자</a>
-                <a href="/admin">관리자</a>
-            </div>
-        </nav>
-    </header> -->
 
     <section class="hero">
         <div class="container hero-content">
@@ -296,6 +212,11 @@
             <p>FutureWorks에서 당신의 커리어에 날개를 달아보세요</p>
             <a href="#jobs" class="btn">지금 지원하기</a>
         </div>
+        <div class="bg">
+                    <video width="100%" preload="none" loop="" muted="" playsinline="" autoplay="">
+                         <source src="/img/recruit/sitMainRow.mp4" type="video/mp4">
+                    </video>
+               </div>
     </section>
 
     <section id="jobs" class="jobs">
@@ -305,7 +226,8 @@
                 <div class="job-card">
                     <h3>인공지능 엔지니어</h3>
                     <p>AI 기술로 세상을 변화시킬 준비가 되셨나요?</p>
-                    <a href="/jobs/ai-engineer" class="btn">자세히 보기</a>
+                    <a href="/recruit/recruinmentPost" class="btn">자세히 보기</a>
+                    <!-- <a href="/jobs/ai-engineer" class="btn">자세히 보기</a> -->
                 </div>
                 <div class="job-card">
                     <h3>UX/UI 디자이너</h3>
@@ -334,17 +256,6 @@
             </div>
         </div>
     </section>
-
-    <footer class="footer">
-        <div class="container footer-content">
-            <p>&copy; 2024 FutureWorks. All rights reserved.</p>
-            <div class="footer-links">
-                <a href="/privacy">개인정보 처리방침</a>
-                <a href="https://www.linkedin.com/company/futureworks">LinkedIn</a>
-                <a href="https://www.github.com/futureworks">GitHub</a>
-            </div>
-        </div>
-    </footer>
 
     <script>
         // 스크롤에 따른 헤더 스타일 변경
