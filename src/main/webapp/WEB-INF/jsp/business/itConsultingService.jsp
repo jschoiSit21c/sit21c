@@ -20,34 +20,99 @@
             margin: 0 auto;
             padding: 20px;
         }
+        
+         /* IT 컨설팅 서비스 섹션을 위한 추가 스타일 */
+        .it-consulting {
+            margin-bottom: 40px;
+        }
 
-        .header {
+        .it-consulting h1 {
+            color: #0066cc;
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .it-consulting .subtitle {
+            font-size: 18px;
+            margin-top: 0;
+        }
+
+        .service-icons {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+
+        .service-icon {
+            text-align: center;
+            width: 130px;
+            height: 130px;
+            background-color: #f0f0f0;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            font-size: 14px;
+        }
+
+        .service-icon strong {
+            font-size: 18px;
+        }
+
+        .service-details {
+            margin-top: 20px;
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .detail-icon {
+            min-width: 20px;
+            margin-right: 10px;
+            color: #0066cc;
+        }
+
+        .detail-content {
+            flex-grow: 1;
+        }
+
+        .detail-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        /* 기존 스타일 계속 유지 */
+
+        .container .header {
             margin-bottom: 20px;
         }
 
-        .header h1 {
+        .container .header h1 {
             font-size: 3rem;
             font-weight: bold;
         }
 
-        .header nav {
+        .container .header nav {
             margin-top: 10px;
             display: flex;
             justify-content: space-between;
             font-size: 1.2rem;
         }
 
-        .header nav div {
+        .container .header nav div {
             cursor: pointer;
             padding: 10px;
         }
 
-        .header nav div.active {
+        .container .header nav div.active {
             border-bottom: 2px solid #e53e3e;
             font-weight: bold;
         }
 
-        .feature-section {
+        .container .feature-section {
             display: none;
             opacity: 0;
             transition: opacity 0.5s ease, transform 0.5s ease;
@@ -85,17 +150,129 @@
             height: auto;
             border-radius: 5px;
         }
+        .service-icons-wrapper {
+            position: relative;
+            margin: 20px 0;
+            overflow: hidden; /* 내용이 영역을 벗어나지 않도록 */
+        }
+
+        .service-icons-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("/img/business/IT컨설팅_1.jpg");
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+            z-index: 1;
+        }
+
+        .service-icons-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* 50% 투명도의 검은색 */
+            z-index: 2;
+        }
+
+        .service-icons {
+            position: relative;
+            z-index: 3;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .service-icon {
+            text-align: center;
+            width: 130px;
+            height: 130px;
+            background-color: rgba(240, 240, 240, 0.8); /* 약간 투명한 배경 */
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            font-size: 14px;
+            color: #333; /* 텍스트 색상을 어둡게 설정 */
+        }
+
+        .service-icon strong {
+            font-size: 18px;
+        }
     </style>
 </head>
 <body>
 	<section>
 		<div class="container">
-	    	<div id="main_img">
+			<!-- IT 컨설팅 서비스 섹션 추가 -->
+            <div class="it-consulting">
+                <h1>IT 컨설팅 서비스</h1>
+                <p class="subtitle">성공을 위한 디지털 혁신의 첫걸음</p>
+                
+                <h2>왜 IT컨설팅이 필요한가?</h2>
+                <p>빠르게 변화하는 디지털 환경에서 경쟁력을 유지하려면, 가장 빛 기술은 최신 기술을 도입하고 이를 효율적으로 활용할 수 있는 전략이 필요합니다. 소프트아이텍의 IT컨설팅 서비스는 귀하의 비즈니스 목표에 맞는 최적의 IT 솔루션을 제안하여, 효율성을 극대화하고 경쟁력을 강화하는 데 기여합니다.</p>
+                
+                <div class="service-icons-wrapper">
+                    <div class="service-icons-background"></div>
+                    <div class="service-icons-overlay"></div>
+	                <div class="service-icons">
+	                    <div class="service-icon"><strong>MP</strong>Master Plan</div>
+	                    <div class="service-icon"><strong>BPR</strong>Business Process Reengineering</div>
+	                    <div class="service-icon"><strong>ISP</strong>Information Strategy Planning</div>
+	                    <div class="service-icon"><strong>ISMP</strong>Information System Master Plan</div>
+	                    <div class="service-icon"><strong>KSP</strong>Knowledge Sharing Program</div>
+	                </div>
+                </div>
+                
+                <div class="service-details">
+                    <div class="detail-item">
+                        <div class="detail-icon">▶</div>
+                        <div class="detail-content">
+                            <div class="detail-title">성공을 위한 디지털 혁신의 첫걸음</div>
+                            <div>귀하의 비즈니스 목표와 현황을 깊이 이해하여, 필요에 맞는 최적화된 IT 전략 수립 IT 전략 수립을 통한 운영 효율성 극대화 및 비용 절감 실현</div>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-item">
+                        <div class="detail-icon">▶</div>
+                        <div class="detail-content">
+                            <div class="detail-title">최신 기술 도입</div>
+                            <div>최신 기술 동향을 반영하여, 클라우드 컴퓨팅, 인공지능, 데이터 분석 등 최첨단 기술 도입 및 활용방도를 지원, 귀하의 성장적 디지털 트랜스포메이션 추진 지원</div>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-item">
+                        <div class="detail-icon">▶</div>
+                        <div class="detail-content">
+                            <div class="detail-title">리스크 관리</div>
+                            <div>IT 인프라의 안정성과 보안을 최우선으로 고려하여 리스크를 최소화하고, 가관 및 기업의 지속 가능한 성장 지원, 소프트아이텍 전문가들은 다양한 산업에서의 경험을 바탕으로 가장 안전한 솔루션 제공</div>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-item">
+                        <div class="detail-icon">▶</div>
+                        <div class="detail-content">
+                            <div class="detail-title">전문가 네트워크</div>
+                            <div>IT컨설팅 전문가들로 구성된 팀이 최신 기술과 업계 동향을 바탕으로 실질적인 조언과 솔루션 제공, 소프트아이텍의 글로벌 네트워크 활용으로 국제적 표준에 부합하는 전략 제안</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- IT컨설팅 이미지 -->
+	    	<!-- <div id="main_img">
 	    		<img alt="IT-컨설팅서비스" src="/img/Sit_IT-컨설팅서비스_.png">
-	    	</div>
+	    	</div> -->
+	    	
 		    <div id="Features">
 		        <div class="header">
-		            <h1>Features</h1>
 		            <nav>
 		                <div id="infra-tab" class="active">통신/미디어 인프라 구축</div>
 		                <div id="service-tab">고객 채널 서비스 지원</div>
