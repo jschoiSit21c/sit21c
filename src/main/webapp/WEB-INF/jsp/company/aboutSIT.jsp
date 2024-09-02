@@ -121,9 +121,9 @@ footer {
             <h2>"Leading Business Innovation with Advanced IT Development"</h2>
             <h2>"한 발 앞선 IT 개발로 비즈니스 혁신을 선도합니다"</h2>
             
-            <div class="video-container">
-                <iframe src="/video/pro.mp4" frameborder="0" allowfullscreen></iframe>
-            </div>
+<!--             <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/K8r2oBJf4g8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div> -->
         </section>
         
         
