@@ -232,12 +232,12 @@
                 <div class="job-card">
                     <h3>UX/UI 디자이너</h3>
                     <p>사용자 경험을 혁신할 창의적인 디자이너를 찾습니다.</p>
-                    <a href="/jobs/ux-designer" class="btn">자세히 보기</a>
+                    <a href="/recruit/recruinmentPost" class="btn">자세히 보기</a>
                 </div>
                 <div class="job-card">
                     <h3>데이터 사이언티스트</h3>
                     <p>빅데이터로 비즈니스의 미래를 예측하세요.</p>
-                    <a href="/jobs/data-scientist" class="btn">자세히 보기</a>
+                    <a href="/recruit/recruinmentPost" class="btn">자세히 보기</a>
                 </div>
             </div>
         </div>
