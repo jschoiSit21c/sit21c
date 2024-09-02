@@ -394,7 +394,7 @@ $(document).ready(function(){
     
 	<!-- 홍보 & 채용 정보 섹션 -->
 	<section id="promotion" class="promotion">
-	    <h2>PR &amp; 채용 정보</h2>
+	    <h2>About &amp; 채용 정보</h2>
 	    <div class="cards">
 	        <div class="card">
 	                <div class="video-container">
