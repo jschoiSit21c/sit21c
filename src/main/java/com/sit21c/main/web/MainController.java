@@ -15,6 +15,12 @@ public class MainController {
 		return "index";
 	}
 	
+	@RequestMapping({"/testIndex"})
+	public String testIndex(@RequestParam Map<String, Object> map) {
+		System.out.println("testIndex 호출");
+		return "testIndex";
+	}
+	
 	@RequestMapping("/about")
 	public String about(@RequestParam Map<String, Object> map) {
 		System.out.println("about 호출");
