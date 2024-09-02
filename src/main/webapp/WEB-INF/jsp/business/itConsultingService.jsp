@@ -6,7 +6,6 @@
 <jsp:include page="/WEB-INF/jsp/header.jsp"></jsp:include>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>소프트아이텍 - IT 컨설팅서비스</title>
     <style>
   		* {
@@ -232,11 +231,11 @@
                 margin-bottom: 20px;
             }
 
-            .header nav {
+            .container .header nav {
                 flex-direction: column;
             }
 
-            .header nav div {
+            .container .header nav div {
                 text-align: center;
             }
         }
@@ -414,7 +413,7 @@
 
     function showSection(sectionId, element) {
         const sections = document.querySelectorAll('.feature-section');
-        const tabs = document.querySelectorAll('.header nav div');
+        const tabs = document.querySelectorAll('.container .header nav div');
 
         sections.forEach(section => {
             section.classList.remove('active');

@@ -24,7 +24,7 @@
 		        </ul>
 		    </li>
 		    <li class="dropdown">
-		    	<a href="/business/publicDigitalService">BUSINESS</a>
+		    	<a class="dropbtn">BUSINESS</a>
 			    	<ul class="dropdown-content">
 			            <li><a href="/business/publicDigitalService">공공 디지털서비스</a></li>
 			            <li><a href="/business/ictInfraService">ICT 인프라서비스</a></li>
@@ -32,7 +32,7 @@
 			        </ul>
 		    </li>
 		    <li class="dropdown">
-		    	<a href="/recruit/recruitmentInformation">Recruit</a>
+		    	<a class="dropbtn">Recruit</a>
 		    		<ul class="dropdown-content">
 			            <li><a href="/recruit/recruitmentInformation">채용정보 & (채용신청서 작성)</a></li>
 			            <li><a href="/recruit/personnelSystem">인사제도</a></li>
@@ -40,7 +40,7 @@
 			        </ul>
 		    </li>
 		    <li class="dropdown">
-		    	<a class="dropbtn" href="/pr/ci">PR Center</a>
+		    	<a class="dropbtn">PR Center</a>
 		  		<ul class="dropdown-content">
 		            <li><a href="/pr/ci">CI</a></li>
 		            <li><a href="/pr/partnership">Partner Ship</a></li>
