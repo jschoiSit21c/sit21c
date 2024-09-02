@@ -7,6 +7,6 @@
             <a href="terms.html">이용약관</a>
             <a href="social.html">소셜 미디어</a>
         </div>
-        <p>&copy; 2024 회사 이름. All rights reserved.</p>
+        <p>&copy; 2024 소프트아이텍. All rights reserved.</p>
     </div>
 </footer>
