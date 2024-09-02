@@ -3,46 +3,54 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
-<!-- 상단 -->
 <jsp:include page="/WEB-INF/jsp/header.jsp"></jsp:include>
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="/css/business/ictInfraService.css" type="text/css">
-	<title>소프트아이텍 - ICT 인프라서비스</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>소프트아이텍 - ICT 인프라서비스</title>
     <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
         section {
-            max-width: 800px;
-		    margin-left: auto;
-		    margin-right: auto;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 20px;
         }
         .container {
             width: 80%;
             margin: 0 auto;
         }
-		h1, h2 {
+        h1, h2 {
             color: #0056b3;
+        }
+        h1 {
+            font-size: 2em;
+        }
+        h2 {
             font-size: 1.5em;
         }
-		h1, h2, h3, h4, h5, h6 {
-            font-weight: bold;
-        }
-        ul {
-		    list-style-type: disc;
-		}
         .subtitle {
             font-size: 1.2em;
             margin-bottom: 20px;
         }
-        
         .services {
             display: flex;
+            flex-wrap: wrap;
             justify-content: space-between;
             margin-top: 30px;
         }
         .service-item {
+            flex-basis: calc(33.33% - 20px);
+            margin-bottom: 30px;
             text-align: center;
-            width: 30%;
         }
         .service-icon {
             width: 130px;
@@ -87,14 +95,38 @@
         .info-item strong {
             color: #0056b3;
         }
+
+        @media screen and (max-width: 768px) {
+            .services {
+                flex-direction: column;
+            }
+            .service-item {
+                flex-basis: 100%;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            h1 {
+                font-size: 1.5em;
+            }
+            h2 {
+                font-size: 1.2em;
+            }
+            .subtitle {
+                font-size: 1em;
+            }
+            .service-icon {
+                width: 100px;
+                height: 100px;
+            }
+        }
     </style>
 </head>
 <body>
-	<section>
-	    <div class="container">
+    <section>
         <h1>ICT 인프라 서비스</h1>
         <p class="subtitle">맞춤형 IT인프라 솔루션 및 하드웨어의 공급부터 설치까지<br>최적의 IT 환경을 구축해드립니다</p>
-        <p>고객의 비즈니스를 효과적으로 지원하기 위해 그룹 IT Infra를 통합 운영 하고 있으며 조직, 프로세스, 시스템을<br>유기적으로 연계하여 운영 효율성 향상 및 안정적인 IT서비스를 제공합니다.</p>
+        <p>고객의 비즈니스를 효과적으로 지원하기 위해 그룹 IT Infra를 통합 운영 하고 있으며 조직, 프로세스, 시스템을 유기적으로 연계하여 운영 효율성 향상 및 안정적인 IT서비스를 제공합니다.</p>
         
         <div class="services">
             <div class="service-item">
@@ -161,14 +193,7 @@
                 <p>통합된 유지관리 경험과 통합상황관리 등의 시스템을 통해 네트워크를 최적의 상태로 관리합니다.</p>
             </div>
         </div>
-    </div>
     </section>
-	<!-- <section>
-	    <div class="infraService-image-container">
-	        <img src="/img/Sit_ICT_InfraService1_.png" alt="소프트아이텍 CI">
-	    </div>
-	</section> -->
 </body>
-<!-- 하단 -->
 <jsp:include page="/WEB-INF/jsp/footer.jsp"></jsp:include>
 </html>
