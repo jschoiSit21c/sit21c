@@ -21,6 +21,195 @@
 	.Mpop_style { display:none;  position:relative;  width:0 auto; margin-top:60px; padding:20px; text-align:left;  }
 	.b-close2 { color:#3784dc; position :absolute; right:0; top:0; padding:0px;  display:inline-block; cursor:pointer;}
 	* { box-sizing: content-box !important; }
+	        /* 히어로 섹션 */
+        .hero {
+            background-image: url('/img/mv03.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #FFF;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 24px;
+            margin-bottom: 40px;
+        }
+
+        .hero a {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #FFA500;
+            color: #FFF;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        .hero a:hover {
+            background-color: #FF8C00;
+        }
+
+        /* 서비스 섹션 */
+        .services {
+            background-color: #F7FAFC;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .services h2 {
+            font-size: 36px;
+            margin-bottom: 40px;
+        }
+
+        .services .cards {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .services .card {
+            background-color: #FFFFFF;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            width: 300px;
+        }
+
+        .services .card img {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .services .card h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .services .card p {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .services .card a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #1F2937;
+            color: #FFF;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .services .card a:hover {
+            background-color: #333;
+        }
+
+        /* 비전 섹션 */
+        .vision {
+            background-image: url('/img/companyView.png');
+            background-size: cover;
+            background-position: center;
+            padding: 100px 20px;
+            color: #000;
+            text-align: center;
+        }
+
+        .vision h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .vision p {
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* 홍보 & 채용 정보 섹션 */
+.promotion {
+    background-color: #F7FAFC;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.promotion h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+}
+
+.promotion .cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.promotion .card {
+    background-color: #FFFFFF;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+}
+
+.promotion .card img {
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+.promotion .card h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.promotion .card p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.promotion .card a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #1F2937;
+    color: #FFF;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.promotion .card a:hover {
+    background-color: #333;
+}
+
+/* YouTube 비디오 컨테이너 */
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 비율을 유지하기 위한 패딩 */
+    height: 0;
+    overflow: hidden;
+    border-radius: 10px; /* 카드의 나머지 부분과 일치하는 둥근 모서리 */
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    border-radius: 10px; /* 모서리 반경을 iframe에 적용 */
+}
 </style>
 <script type="text/javascript">
 function goPopup() {
@@ -163,100 +352,77 @@ $(document).ready(function(){
 <title>나라장터 멘토링 연습 - index</title>
 </head>
 <body>
-    <!-- 메인 배너 -->
-    <section id="main-banner">
-		<!-- 비쥬얼영역-->
-		<div class="visual_area">
-			<div id="dvImage" class="img_s" >		
-			</div>
-		</div>
-		<!-- //비쥬얼영역-->
-	
-						
-		<!-- // 사업영역 -->
-		<div class="main_area">
-		<div class="main_section">
-			<div class="bu_area">
-			  <div class="text_area" id="mcontainer">
-				<p class="t1">우리가 하는일</p>
-				<p class="t2">What</p>
-				<span class="t3">We Do</span>
-				<p><img src="/img/we_go.png" width="162" height="23" alt=""/></p>
-				<p class="t4">소프트아이텍의 다양한 <br/>사업 영역을 소개합니다.</p>
-				<p class="bu_more"><a href="/business/publicDigitalService"><img src="/img/btn_more.png" width="28" height="26" alt=""/></a></p>
-			  </div>
-			</div>
-			<div class="main_se01" style="border:0;">
-				<div class="se_title">System Integration</div>
-				<div class="se_img"><img src="/img/m_si_img.png" width="244" height="110" alt=""/></div>
-				<div class="b_text">국내 주요 공공기관 및 지자체, 기업 등<br/>다양한 업무환경의 요구에 맞는<br/>최적의 IT시스템을 진단, 설계, 구축,<br/>통합하여 최상의 서비스를 제공합니다. </div>
-				<div class="btn_more"><a href="/business/publicDigitalService"><img src="/img/bu_btn_normal.png" width="64" height="30" alt=""/></a></div>
-	
-			</div>
-			<div class="main_se01">
-				<div class="se_title">ICT Infra Service</div>
-				<div class="se_img"><img src="/img/m_sm_img.png" width="244" height="110" alt=""/></div>
-				<div class="b_text">고객 요구에 맞는 전문적인 아웃소싱<br/>서비스를 제공받아 정보시스템을 효율적으로<br/>활용할 수 있습니다 </div>
-				<div class="btn_more"><a href="/business/ictInfraService"><img src="/img/bu_btn_normal.png" width="64" height="30" alt=""/></a></div>
-	
-			</div>
-			<div class="main_se01" >
-				<div class="se_title">I · T Consulting</div>
-				<div class="se_img"><img src="/img/m_it_img.png" width="244" height="110" alt=""/></div>
-				<div class="b_text">정보화 전략수립(ISP), 정보시스템 현황 조사,<br/>비즈니스 전략 수립, 프로세스 혁신 등 축적<br/>된 노하우와 컨설팅 역량을 바탕으로 최적의 정보시스템을 제공합니다. </div>
-				<div class="btn_more"><a href="/business/publicDigitalService"><img src="/img/bu_btn_normal.png" width="64" height="30" alt=""/></a></div>
-	
-			 </div>
-			<div class="move"><a href="#mtop"><img src="/img/main_more.png" width="72" height="35" alt=""/></a></div>
-		</div>	
-		</div>
-		<!-- // 사업영역 -->						
-		
-		<!-- 섹션빈영역-->	
-		<div class="main_section_bg">
-		</div>
-		<!-- //섹션빈영역-->		
-		
-		<!-- 비전미션-->	
-		<div class="main_vision" id="mtop">
-			<h2>미션&비전</h2>
-			<p>ICMS (Innovation, Creative, Man, Social) 통한  지역사회 초 일류기업으로서의 성장 </p>
-			<div class="all_img"><a href="/company/vision"><img src="/img/mission_img.png" width="594" height="231" alt="미션"/></a><a href="/company/vision" ><img src="/img/vision_img.png" width="594" height="231" alt="비"/></a></div>
-		</div>
-		<!-- //비전미션-->	
-		<!-- 홍보영역-->
-		<div class="main_pr_zone">
-			<div class="main_pr">
-				<h2>홍보&채용정보</h2>
-				<p>소프트아이텍의 홍보와 인재채용안내입니다. </p>
-				<div class="pr_area">
-				<a href="http://www.sit21c.com/we/company.html" ><div class="pr_a">
-				<p>소프트아이텍 <span>PR</span></p>
-				</div></a>
-				<div class="pr_b">
-					<a href="/pr/ci"><p>브로슈어</p></a>
-				</div>
-				<div class="re_a">
-				<p class="re_title">인재채용</p>
-				<p>소프트아이텍은 미래를 선도하는<br /> 글로벌 리더로 함께 성장해 나갈 인재를<br /> 모집합니다.</p>
-				<a href="/recruit/recruitmentInformation"><img src="/img/bu_btn_normal.png" width="64" height="30" alt=""/></a> 
-				</div>
-				
-				</div>
-			</div>
-		</div>
-		<!-- //홍보영역-->		
-		
-		<!-- 오시는길 -->	
-		<div class="m_location">
-			<h2>오시는 길</h2>
-			<p>소프트아이텍 오시는 길 안입니다. </p>
-			<p><span>주소</span>대전광역시 유성구 죽동로 69 (죽동, 소프트아이텍빌딩)   /  Tel. 042-485-8551 /  Fax. 042-486-8551 </p>
-			<div class="map"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5031.031732894268!2d127.33242245211333!3d36.37231037906764!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35654966d0422a7b%3A0xec8d9475c42513cb!2z7IaM7ZSE7Yq47JWE7J207YWN!5e0!3m2!1sko!2skr!4v1544963342159" width="1200px" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-			</div>
-		</div>
-		<!-- //오시는길-->
+    <!-- 히어로 섹션 -->
+    <section class="hero">
+        <div>
+<!--             <h1>혁신적인 IT 솔루션</h1> -->
+<!--             <p>미래를 선도하는 IT 서비스를 제공합니다</p> -->
+            <a href="#services">더 알아보기</a>
+        </div>
     </section>
+
+    <!-- 서비스 섹션 -->
+    <section id="services" class="services">
+        <h2>우리가 제공하는 서비스</h2>
+        <div class="cards">
+            <div class="card">
+                <img src="/img/m_si_img.png" alt="System Integration">
+                <h3>시스템 통합</h3>
+                <p>공공기관 및 다양한 기업 환경에 맞춘 최적의 IT 시스템을 제공합니다.</p>
+                <a href="/business/publicDigitalService">더 알아보기</a>
+            </div>
+            <div class="card">
+                <img src="/img/m_sm_img.png" alt="ICT Infra Service">
+                <h3>ICT 인프라 서비스</h3>
+                <p>전문적인 아웃소싱 서비스를 통해 정보시스템의 효율적 활용을 돕습니다.</p>
+                <a href="/business/ictInfraService">더 알아보기</a>
+            </div>
+            <div class="card">
+                <img src="/img/m_it_img.png" alt="IT Consulting">
+                <h3>IT 컨설팅</h3>
+                <p>정보화 전략 및 비즈니스 전략 수립을 위한 최적의 컨설팅 서비스를 제공합니다.</p>
+                <a href="/business/itConsultingService">더 알아보기</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 비전 섹션 -->
+    <section id="vision" class="vision">
+        <h2>우리의 비전</h2>
+        <p>ICMS (Innovation, Creative, Man, Social)를 통해 지역사회 초 일류기업으로 성장하는 것이 우리의 비전입니다.</p>
+    </section>
+    
+	<!-- 홍보 & 채용 정보 섹션 -->
+	<section id="promotion" class="promotion">
+	    <h2>PR &amp; 채용 정보</h2>
+	    <div class="cards">
+	        <div class="card">
+	                <div class="video-container">
+				        <iframe 
+				            src="https://www.youtube.com/embed/I8MbDbxxmOs" 
+				            frameborder="0"
+				            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+				            allowfullscreen>
+				        </iframe>
+				    </div>
+	            <h3>소프트아이텍 About</h3>
+	            <p>소프트아이텍의 회사 정보를 확인하세요.</p>
+	            <a href="/company/aboutSIT">자세히 보기</a>
+	        </div>
+	        <div class="card">
+	            <img src="/img/bsh_img.png" alt="브로슈어">
+	            <h3>브로슈어</h3>
+	            <p>우리가 제공하는 서비스에 대한 자세한 정보를 확인하세요.</p>
+	            <a href="/pr/ci">자세히 보기</a>
+	        </div>
+	        <div class="card">
+	            <img src="/img/recru_bg.png" alt="채용 정보">
+	            <h3>채용 정보</h3>
+	            <p>소프트아이텍과 함께할 인재를 모집합니다.</p>
+	            <a href="/recruit/recruitmentInformation">자세히 보기</a>
+	        </div>
+	    </div>
+	</section>
 </body>
 <!-- 하단 -->
 <jsp:include page="footer.jsp"></jsp:include>
