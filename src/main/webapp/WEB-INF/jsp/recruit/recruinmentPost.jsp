@@ -2,10 +2,12 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ko">
+<!-- 상단 -->
+<jsp:include page="/WEB-INF/jsp/header.jsp"></jsp:include>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>삼성SDS 채용</title>
+    <title>소프트아이텍 채용</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -18,29 +20,11 @@
         html {
             scroll-behavior: smooth;  /* 부드러운 스크롤 효과를 위해 추가 */
         }
-        
-        
-        body, html {
-            margin: 0;
-            padding: 0;
-            font-family: 'Noto Sans KR', sans-serif;
-            line-height: 1.6;
-            color: var(--dark-gray);
-        }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
-        }
-
-        header {
-            background-color: white;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
         }
 
         nav {
@@ -220,24 +204,10 @@
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <nav>
-                <div class="logo">삼성SDS</div>
-                <ul>
-                    <li><a href="#home">채용공고</a></li>
-                    <li><a href="#about">관계사 소개</a></li>
-                    <li><a href="#guide">지원 가이드</a></li>
-                    <li><a href="#myapp">나의 지원서</a></li>
-                    <li><a href="#campus">캠퍼스리</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
 
     <section class="hero" id="home">
         <div class="container">
-            <h1>삼성SDS와 함께 미래를 만들어가세요</h1>
+            <h1>소프트아이텍과 함께 미래를 만들어가세요</h1>
             <p>IT 기술로 더 나은 세상을 만들어갑니다. 혁신적인 솔루션과 함께 성장할 인재를 찾습니다.</p>
             <a href="#job-listings" class="btn" id="view-jobs">채용 공고 보기</a>
         </div>
@@ -245,7 +215,7 @@
 
     <section class="section business-areas" id="about">
         <div class="container">
-            <h2 class="section-title">삼성SDS 주요 비즈니스</h2>
+            <h2 class="section-title">소프트아이텍 주요 비즈니스</h2>
             <div class="business-grid">
                 <div class="business-item">
                     <img src="/api/placeholder/400/300" alt="클라우드">
@@ -361,4 +331,6 @@
     });
     </script>
 </body>
+<!-- 하단 -->
+<jsp:include page="/WEB-INF/jsp/footer.jsp"></jsp:include>
 </html>

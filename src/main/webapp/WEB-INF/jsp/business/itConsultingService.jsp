@@ -9,8 +9,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>소프트아이텍 - IT 컨설팅서비스</title>
     <style>
-        body {
-            color: #333;
+        section {
+            max-width: 800px;
+		    margin-left: auto;
+		    margin-right: auto;
         }
 
         .container {
