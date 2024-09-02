@@ -45,16 +45,71 @@
         margin-top: 10px;
         line-height: 1.6;
     }
+    
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #ffffff;
+    }
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    .team-image {
+        width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+    }
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1px;
+        background-color: #f0f0f0;
+    }
+    .grid-item {
+        background-color: white;
+        padding: 20px;
+        text-align: center;
+    }
+    h2 {
+        margin-top: 0;
+        font-size: 18px;
+        font-weight: bold;
+    }
+    p {
+        font-size: 14px;
+        line-height: 1.5;
+        margin: 0;
+        text-align: left;
+    }
 </style>
 <title>소프트아이텍 - 인사제도</title>
 </head>
 <body>
 	<section>
-		<div class="container">
+		 <div class="container">
 		    <h1>인재상</h1>
-			<div class="sections">
-				<img src="/img/personnelSystem_main.png" alt="인재상">
-			</div>
+	        <img src="/img/personnelSystem_main.png" alt="비즈니스 팀" class="team-image">
+	        <div class="grid">
+	            <div class="grid-item">
+	                <h2>창조적사고</h2>
+	                <p>타성에 얽매이지 않고 창의적 사고를 바탕으로 업무의 개선과 혁신에 임하려는 자세</p>
+	            </div>
+	            <div class="grid-item">
+	                <h2>혁신적사고</h2>
+	                <p>낡은 사고를 벗어나 혁신적 변화를 통해 업무의 발전을 도모하려는 자세</p>
+	            </div>
+	            <div class="grid-item">
+	                <h2>효율적사고</h2>
+	                <p>정량적인 결과보다 정성적이며, 효율적인 과정을 지향하려는 자세</p>
+	            </div>
+	            <div class="grid-item">
+	                <h2>긍정적사고</h2>
+	                <p>다른 누구에게 의지하려하지 않고, 본인의 의지와 본인의 열정으로 적극적이고 능동적으로 대처하려는 자세</p>
+	            </div>
+	        </div>
+	    </div>
+		<div class="container">
 		    <h1>인사제도</h1>
 		    <p>회사와 직원이 함께 성장할 수 있는 "성과평가제도"를 도입하여 경쟁력 있는 인재를 육성</p>
 			
