@@ -14,14 +14,35 @@
 		    margin-left: auto;
 		    margin-right: auto;
         }
+  		* {
+            box-sizing: border-box;
+        }
 
-        .container {
+        body {
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        section {
             max-width: 1200px;
-            margin: 0 auto;
+            margin-left: auto;
+            margin-right: auto;
             padding: 20px;
         }
-        
-         /* IT 컨설팅 서비스 섹션을 위한 추가 스타일 */
+
+        .container {
+            width: 100%;
+        }
+
+        h1, h2 {
+            color: #0056b3;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: bold;
+        }
+
         .it-consulting {
             margin-bottom: 40px;
         }
@@ -37,22 +58,59 @@
             margin-top: 0;
         }
 
-        .service-icons {
-            display: flex;
-            justify-content: space-between;
+        .service-icons-wrapper {
+            position: relative;
             margin: 20px 0;
+            overflow: hidden;
+            height: 300px;
+        }
+
+        .service-icons-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("/img/business/IT컨설팅_1.jpg");
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+            z-index: 1;
+        }
+
+        .service-icons-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 2;
+        }
+
+        .service-icons {
+            position: relative;
+            z-index: 3;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+            padding: 20px;
         }
 
         .service-icon {
             text-align: center;
             width: 130px;
             height: 130px;
-            background-color: #f0f0f0;
+            background-color: rgba(240, 240, 240, 0.8);
             border-radius: 50%;
             display: flex;
             flex-direction: column;
             justify-content: center;
             font-size: 14px;
+            color: #333;
+            margin-bottom: 10px;
         }
 
         .service-icon strong {
@@ -61,6 +119,8 @@
 
         .service-details {
             margin-top: 20px;
+            border-bottom: 2px #f0f0f0;
+    		border-bottom-style: solid;
         }
 
         .detail-item {
@@ -84,27 +144,18 @@
             margin-bottom: 5px;
         }
 
-        /* 기존 스타일 계속 유지 */
-
-        .container .header {
-            margin-bottom: 20px;
-        }
-
-        .container .header h1 {
-            font-size: 3rem;
-            font-weight: bold;
-        }
-
         .container .header nav {
-            margin-top: 10px;
             display: flex;
+            flex-wrap: wrap;
             justify-content: space-between;
             font-size: 1.2rem;
+            margin-top: 10px;
         }
 
         .container .header nav div {
             cursor: pointer;
             padding: 10px;
+            margin-bottom: 10px;
         }
 
         .container .header nav div.active {
@@ -112,7 +163,7 @@
             font-weight: bold;
         }
 
-        .container .feature-section {
+        .feature-section {
             display: none;
             opacity: 0;
             transition: opacity 0.5s ease, transform 0.5s ease;
@@ -121,13 +172,14 @@
 
         .feature-section.active {
             display: flex;
+            flex-wrap: wrap;
             align-items: flex-start;
             opacity: 1;
             transform: translateX(0);
         }
 
         .feature-text {
-            flex: 1;
+            flex: 1 1 100%;
         }
 
         .feature-text h3 {
@@ -141,8 +193,9 @@
         }
 
         .feature-image {
-            flex: 1;
-            text-align: right;
+            flex: 1 1 100%;
+            text-align: center;
+            margin-top: 20px;
         }
 
         .feature-image img {
@@ -150,61 +203,47 @@
             height: auto;
             border-radius: 5px;
         }
-        .service-icons-wrapper {
-            position: relative;
-            margin: 20px 0;
-            overflow: hidden; /* 내용이 영역을 벗어나지 않도록 */
+
+        @media screen and (min-width: 768px) {
+            .service-icons {
+                flex-wrap: nowrap;
+            }
+
+            .service-icon {
+                margin-bottom: 0;
+            }
+
+            .feature-text, .feature-image {
+                flex: 1 1 48%;
+            }
+
+            .feature-image {
+                margin-top: 0;
+                text-align: right;
+            }
         }
 
-        .service-icons-background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url("/img/business/IT컨설팅_1.jpg");
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-size: cover;
-            z-index: 1;
-        }
+        @media screen and (max-width: 767px) {
+            .service-icons-wrapper {
+                height: auto;
+            }
 
-        .service-icons-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5); /* 50% 투명도의 검은색 */
-            z-index: 2;
-        }
+            .service-icons {
+                flex-direction: column;
+                height: auto;
+            }
 
-        .service-icons {
-            position: relative;
-            z-index: 3;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 100%;
-            padding: 20px;
-            box-sizing: border-box;
-        }
+            .service-icon {
+                margin-bottom: 20px;
+            }
 
-        .service-icon {
-            text-align: center;
-            width: 130px;
-            height: 130px;
-            background-color: rgba(240, 240, 240, 0.8); /* 약간 투명한 배경 */
-            border-radius: 50%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            font-size: 14px;
-            color: #333; /* 텍스트 색상을 어둡게 설정 */
-        }
+            .header nav {
+                flex-direction: column;
+            }
 
-        .service-icon strong {
-            font-size: 18px;
+            .header nav div {
+                text-align: center;
+            }
         }
     </style>
 </head>

@@ -45,8 +45,8 @@
             width: 30%;
         }
         .service-icon {
-            width: 100px;
-            height: 100px;
+            width: 130px;
+            height: 130px;
             margin: 0 auto 15px;
             position: relative;
             overflow: hidden;
