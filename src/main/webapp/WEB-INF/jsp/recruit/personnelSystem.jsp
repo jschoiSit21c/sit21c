@@ -7,10 +7,18 @@
 <head>
 <meta charset="UTF-8">
 <style>
+    
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #ffffff;
+    }
     .container {
         text-align: center;
         padding: 50px;
         background-color: white;
+        max-width: 1200px;
+        margin: 0 auto;
     }
     h1 {
     	display: inline-block;
@@ -45,16 +53,6 @@
         margin-top: 10px;
         line-height: 1.6;
     }
-    
-    body {
-        margin: 0;
-        padding: 0;
-        background-color: #ffffff;
-    }
-    .container {
-        max-width: 1200px;
-        margin: 0 auto;
-    }
     .team-image {
         width: 100%;
         height: auto;
@@ -80,7 +78,7 @@
         font-size: 14px;
         line-height: 1.5;
         margin: 0;
-        text-align: left;
+        text-align: center;
     }
 </style>
 <title>소프트아이텍 - 인사제도</title>
@@ -89,7 +87,7 @@
 	<section>
 		 <div class="container">
 		    <h1>인재상</h1>
-	        <img src="/img/personnelSystem_main.png" alt="비즈니스 팀" class="team-image">
+	        <img src="/img/personnelSystem_main.jpg" alt="비즈니스 팀" class="team-image">
 	        <div class="grid">
 	            <div class="grid-item">
 	                <h2>창조적사고</h2>
