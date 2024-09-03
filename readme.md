@@ -24,9 +24,12 @@ openjdk8버전 같은 경우 인증서 문제로 maven install이 되지 않는 
 
 해당 경우는 %JAVA_HOME%/jre/lib/security/cacerts 파일을 교체해줘야함.
 
+<a href="https://github.com/jschoiSit21c/sit21c/blob/main/cacerts">cacerts 파일 다운로드</a>
+
 ### 콘솔에 DB 로그 깨지는 경우
 1. Run -> Run Configurations... 클릭
 2. 사용중인 서버 선택
 3. Common 클릭 후 Encoding 변경
 
-<a href="https://github.com/jschoiSit21c/sit21c/blob/main/cacerts">cacerts 파일 다운로드</a>
+### 첨부파일 로컬 세팅
+c드라이브 밑에 sit21c/files 폴더 만들어줘야 동작함
