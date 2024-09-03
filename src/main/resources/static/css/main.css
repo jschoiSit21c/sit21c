@@ -111,6 +111,9 @@ nav {
 section {
     margin-top: 80px; /* 헤더 높이 + 여백 */
     padding: 20px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* 메인 배너 스타일 */
@@ -295,4 +298,20 @@ nav ul li a {
 
 nav ul li a:hover {
     color: var(--primary-blue);
+}
+
+.text-mid {
+	text-align: center;
+}
+
+section .title h1 {
+    display: inline-block;
+    font-size: 1.5em;
+    color: #333;
+    border-bottom: 2px solid #F0F0F0;
+    margin-bottom: 10px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
 }

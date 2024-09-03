@@ -5,88 +5,77 @@
 <!-- 상단 -->
 <jsp:include page="/WEB-INF/jsp/header.jsp"></jsp:include>
 <head>
-<meta charset="UTF-8">
-<style>
-    
-    body {
-        margin: 0;
-        padding: 0;
-        background-color: #ffffff;
-    }
-    .container {
-        text-align: center;
-        padding: 50px;
-        background-color: white;
-        max-width: 1200px;
-        margin: 0 auto;
-    }
-    h1 {
-    	display: inline-block;
-    	width: 150px;
-        font-size: 24px;
-        color: #333;
-        border-bottom: 2px solid #F0F0F0;
-        margin-bottom: 10px;
-    }
-    .sections {
-        display: flex;
-        justify-content: space-around;
-        margin-top: 30px;
-    }
-    .section {
-        width: 30%;
-        text-align: center;
-    }
-    .section img {
-    	display: inline-block;
-        width: 140px;
-        height: auto;
-    }
-    .section-title {
-        font-size: 18px;
-        margin-top: 10px;
-        color: #333;
-    }
-    .section-description {
-        font-size: 14px;
-        color: #666;
-        margin-top: 10px;
-        line-height: 1.6;
-    }
-    .team-image {
-        width: 100%;
-        height: auto;
-        margin-bottom: 20px;
-    }
-    .grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 1px;
-        background-color: #f0f0f0;
-    }
-    .grid-item {
-        background-color: white;
-        padding: 20px;
-        text-align: center;
-    }
-    h2 {
-        margin-top: 0;
-        font-size: 18px;
-        font-weight: bold;
-    }
-    p {
-        font-size: 14px;
-        line-height: 1.5;
-        margin: 0;
-        text-align: center;
-    }
-</style>
-<title>소프트아이텍 - 인사제도</title>
+	<meta charset="UTF-8">
+    <title>소프트아이텍 - 인사제도</title>
+	<style>
+	    
+	    .container {
+	        text-align: center;
+	        padding-bottom: 50px;
+	        background-color: white;
+	        max-width: 1200px;
+	        margin: 0 auto;
+	    }
+	    .sections {
+	        display: flex;
+	        justify-content: space-around;
+	        margin-top: 30px;
+	    }
+	    .section {
+	        width: 30%;
+	        text-align: center;
+	    }
+	    .section img {
+	    	display: inline-block;
+	        width: 140px;
+	        height: auto;
+	    }
+	    .section-title {
+	        font-size: 18px;
+	        margin-top: 10px;
+	        color: #333;
+	    }
+	    .section-description {
+	        font-size: 14px;
+	        color: #666;
+	        margin-top: 10px;
+	        line-height: 1.6;
+	    }
+	    .team-image {
+	        width: 100%;
+	        height: auto;
+	        margin-bottom: 20px;
+	    }
+	    .grid {
+	        display: grid;
+	        grid-template-columns: repeat(4, 1fr);
+	        gap: 1px;
+	        background-color: #f0f0f0;
+	    }
+	    .grid-item {
+	        background-color: white;
+	        padding: 20px;
+	        text-align: center;
+	    }
+	    h2 {
+	        margin-top: 0;
+	        font-size: 18px;
+	        font-weight: bold;
+	    }
+	    p {
+	        font-size: 14px;
+	        line-height: 1.5;
+	        margin: 0;
+	        text-align: center;
+	    }
+	</style>
 </head>
 <body>
 	<section>
 		 <div class="container">
-		    <h1>인재상</h1>
+		 	<div class="text-mid title">
+			    <h1>인재상</h1>
+		 	</div>
 	        <img src="/img/personnelSystem_main.jpg" alt="비즈니스 팀" class="team-image">
 	        <div class="grid">
 	            <div class="grid-item">

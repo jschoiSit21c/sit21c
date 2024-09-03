@@ -8,14 +8,16 @@
 <jsp:include page="/WEB-INF/jsp/header.jsp"></jsp:include>
 <head>
 <meta charset="UTF-8">
-<title>About 소프트아이텍 - CEO 메시지</title>
+<title>소프트아이텍 - CEO 메시지</title>
 <link rel="stylesheet" href="/css/company/ceo.css" type="text/css">
 </head>
 <body>
     <!-- 솔루션 섹션 -->
     <section id="company">
 		<div class="content-container">
-		  <div class="ceo-message-title">CEO 메시지</div>
+          <div class="text-mid title">
+          	<h1>CEO 메시지</h1>
+          </div>
 		  <div class="ceo-message">
 			${item.content}
 		  </div>

@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vision 2025</title>
+	<title>소프트아이텍 - 비전</title>
     <style>
 
         .container {
@@ -168,6 +168,9 @@
 </head>
 <body>
 	<section>
+		<div class="text-mid title">
+			<h1>비전</h1>
+		</div>
 	    <div class="container">
 	    	<img alt="" src="/img/companyView.png">
 	        <div class="header">
