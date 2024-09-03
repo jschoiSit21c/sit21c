@@ -295,17 +295,17 @@
 	    		<img alt="IT-컨설팅서비스" src="/img/Sit_IT-컨설팅서비스_.png">
 	    	</div> -->
 	    	
-		    <div id="Features">
+		    <!-- <div id="Features">
 		        <div class="header">
 		            <nav>
 		                <div id="infra-tab" class="active">통신/미디어 인프라 구축</div>
 		                <div id="service-tab">고객 채널 서비스 지원</div>
 		                <div id="solution-tab">특화 솔루션</div>
 		            </nav>
-		        </div>
+		        </div> -->
 		
 		        <!-- 통신/미디어 인프라 구축 섹션 -->
-		        <div id="infra-section" class="feature-section active">
+		        <!-- <div id="infra-section" class="feature-section active">
 		            <div class="feature-text">
 		                <h3>Network Management</h3>
 		                <p>
@@ -329,7 +329,7 @@
 		            <div class="feature-image">
 		                <img src="/img/itConsultingService1.png" alt="itConsultingService">
 		            </div>
-		        </div>
+		        </div> -->
 		
 		        <!-- 고객 채널 서비스 지원 섹션 -->
 		        <!-- <div id="service-section" class="feature-section">
@@ -385,7 +385,7 @@
 		                <img src="/img/itConsultingService3.png" alt="Data Based Marketing Solution Image">
 		            </div>
 		        </div> -->
-		    </div>
+		    <!-- </div> -->
 	    </div>
 	</section>
 </body>

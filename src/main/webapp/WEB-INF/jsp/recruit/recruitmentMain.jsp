@@ -31,6 +31,10 @@
             color: var(--dark-color);
             background-color: var(--light-color);
         }
+        
+        section {
+		    max-width: 100%;
+		}
 
         .container {
             width: 90%;

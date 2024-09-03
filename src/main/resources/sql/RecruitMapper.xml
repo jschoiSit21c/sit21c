@@ -15,12 +15,15 @@
 							, file_path
 							, file_size
 							, file_type
-							, upload_date)
+							, upload_date
+							, file_org_name)
     	VALUES (#{fileName}
     		  , #{filePath}
     	  	, #{fileSize}
     	  	, #{fileType}
-    	  	, now())
+    	  	, now()
+    	  	, #{fileOrgName}
+    	  	)
     	RETURNING file_id
 	</insert>
 	
