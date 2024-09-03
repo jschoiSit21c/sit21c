@@ -1,9 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.util.List" %>
+<%@ page import="com.sit21c.common.vo.NewsScraperVo" %>
+<%@ page import="com.sit21c.common.vo.NewsScraperVo.News" %>
 <!DOCTYPE html>
 <html lang="ko">
 <!-- 상단 -->
 <jsp:include page="/WEB-INF/jsp/header.jsp"></jsp:include>
+<%
+    // NewsScraper 객체를 생성하여 뉴스 데이터를 크롤링합니다.
+    NewsScraperVo scraper = new NewsScraperVo();
+    
+    // scrapeNews 메서드를 호출하여 뉴스 목록을 가져옵니다.
+    List<News> newsList = scraper.scrapeNews();
+%>
 <head>
     <meta charset="UTF-8">
 	<link rel="stylesheet" href="/css/layout.css" type="text/css">
@@ -204,44 +214,51 @@
         }
         
 		.news-container {
-		    display: flex;
-		    justify-content: space-between;
-		    gap: 30px;
-		    margin-top: 40px;
-		}
-		
-		.news-item {
-		    flex: 1;
-		    background-color: white;
-		    border-radius: 10px;
-		    overflow: hidden;
-		    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-		    position: relative;
-		    width: calc(33.333% - 20px);
-		    min-width: 250px;
-		    display: flex;
-		    flex-direction: column;
-		}
-		
-		.news-img {
-		    width: 100%;
-		    padding-top: 56.25%; /* 16:9 Aspect Ratio */
-		    background-repeat: no-repeat;
-		    background-position: center center;
-		    background-size: cover;
-		    border-radius: 10px 10px 0 0;
-		}
-		
-		.news-item h4 {
-		    padding: 15px;
-		    margin: 0;
-		    text-align: center;
-		    background-color: white;
-		    flex-grow: 1;
-		    display: flex;
-		    align-items: center;
-		    justify-content: center;
-		}
+	        display: flex;
+	        flex-wrap: wrap;
+	        gap: 20px;
+	        justify-content: space-between;
+	    }
+	    .news-item {
+	        flex-basis: calc(33.333% - 20px);
+	        background-color: #fff;
+	        border-radius: 10px;
+	        overflow: hidden;
+	        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+	        transition: transform 0.3s ease;
+	        text-decoration: none;
+	        color: inherit;
+	    }
+	    .news-item:hover {
+	        transform: translateY(-5px);
+	    }
+	    .news-img-container {
+	        width: 100%;
+	        height: 200px;
+	        overflow: hidden;
+	    }
+	    .news-img-container img {
+	        width: 100%;
+	        height: 100%;
+	        object-fit: cover;
+	    }
+	    .news-content {
+	        padding: 15px;
+	    }
+	    .news-content h4 {
+	        margin-top: 0;
+	        margin-bottom: 10px;
+	    }
+	    .news-content p {
+	        margin: 0;
+	        font-size: 0.9em;
+	        color: #666;
+	    }
+	    @media (max-width: 768px) {
+	        .news-item {
+	            flex-basis: 100%;
+	        }
+	    }
 		
 		.slogan {
 			font-size: 2.5em;
@@ -354,19 +371,22 @@
             <div class="container">
                 <h2>소프트아이텍 관련 소식</h2>
                 <div class="news-container">
-                    <div class="news-item">
-					    <div class="news-img" style="background-image: url('/img/news1.png');"></div>
-					    <h4>소프트아이텍, 국가암데이터센터 운영시스템 관리용역 사업 수주</h4>
-					</div>
-                    <div class="news-item">
-					    <div class="news-img" style="background-image: url('/img/news2.png');"></div>
-					    <h4>소프트아이텍-에이팩, ‘헴프 분야 스마트 농업 기술 구축’ MOU</h4>
-                    </div>
-                    <div class="news-item">
-					    <div class="news-img" style="background-image: url('/img/news3.png');"></div>
-					    <h4>[인사] 소프트아이텍, 2024년 임원 승진</h4>
-                    </div>
-                </div>
+		            <%
+		                for (News news : newsList) {
+		            %>
+		                <a href="<%= news.getLink() %>" target="_blank" class="news-item">
+		                    <div class="news-img-container">
+		                        <img src="<%= news.getImageUrl() %>" alt="<%= news.getTitle() %>" onerror="this.onerror=null; this.src='/img/default_news_image.jpg';">
+		                    </div>
+		                    <div class="news-content">
+		                        <h4><%= news.getTitle() %></h4>
+		                        <p><%= news.getDescription() %></p>
+		                    </div>
+		                </a>
+		            <%
+		                }
+		            %>
+		        </div>
             </div>
         </section>
     </main>
