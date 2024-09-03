@@ -29,22 +29,12 @@
             width: 100%;
         }
 
-        h1, h2 {
-            color: #0056b3;
-        }
-
         h1, h2, h3, h4, h5, h6 {
             font-weight: bold;
         }
 
         .it-consulting {
             margin-bottom: 40px;
-        }
-
-        .it-consulting h1 {
-            color: #0066cc;
-            font-size: 24px;
-            margin-bottom: 5px;
         }
 
         .it-consulting .subtitle {
@@ -246,9 +236,10 @@
 		<div class="container">
 			<!-- IT 컨설팅 서비스 섹션 추가 -->
             <div class="it-consulting">
-                <h1>IT 컨설팅 서비스</h1>
-                <p class="subtitle">성공을 위한 디지털 혁신의 첫걸음</p>
-                
+            	<div class="text-mid title">
+	                <h1>IT 컨설팅 서비스</h1>
+	                <p class="subtitle">성공을 위한 디지털 혁신의 첫걸음</p>
+                </div>
                 <h2>왜 IT컨설팅이 필요한가?</h2>
                 <p>빠르게 변화하는 디지털 환경에서 경쟁력을 유지하려면, 가장 빛 기술은 최신 기술을 도입하고 이를 효율적으로 활용할 수 있는 전략이 필요합니다. 소프트아이텍의 IT컨설팅 서비스는 귀하의 비즈니스 목표에 맞는 최적의 IT 솔루션을 제안하여, 효율성을 극대화하고 경쟁력을 강화하는 데 기여합니다.</p>
                 
@@ -341,7 +332,7 @@
 		        </div>
 		
 		        <!-- 고객 채널 서비스 지원 섹션 -->
-		        <div id="service-section" class="feature-section">
+		        <!-- <div id="service-section" class="feature-section">
 		            <div class="feature-text">
 		                <h3>Business Support System</h3>
 		                <p>
@@ -361,10 +352,10 @@
 		            <div class="feature-image">
 		                <img src="/img/itConsultingService2.png" alt="Business Support System Image">
 		            </div>
-		        </div>
+		        </div> -->
 		
 		        <!-- 특화 솔루션 섹션 -->
-		        <div id="solution-section" class="feature-section">
+		        <!-- <div id="solution-section" class="feature-section">
 		            <div class="feature-text">
 		                <h3>Data Based Marketing Solution</h3>
 		                <p>
@@ -393,13 +384,13 @@
 		            <div class="feature-image">
 		                <img src="/img/itConsultingService3.png" alt="Data Based Marketing Solution Image">
 		            </div>
-		        </div>
+		        </div> -->
 		    </div>
 	    </div>
 	</section>
 </body>
 <script>
-    document.getElementById('infra-tab').addEventListener('click', function() {
+    /* document.getElementById('infra-tab').addEventListener('click', function() {
         showSection('infra-section', this);
     });
 
@@ -425,7 +416,7 @@
 
         document.getElementById(sectionId).classList.add('active');
         element.classList.add('active');
-    }
+    } */
 </script>
 <!-- 하단 -->
 <jsp:include page="/WEB-INF/jsp/footer.jsp"></jsp:include>

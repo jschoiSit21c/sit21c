@@ -34,7 +34,7 @@
 		    <li class="dropdown">
 		    	<a class="dropbtn">Recruit</a>
 		    		<ul class="dropdown-content">
-			            <li><a href="/recruit/recruitmentInformation">채용정보 & (채용신청서 작성)</a></li>
+			            <li><a href="/recruit/recruitmentMain">채용정보 & (채용신청서 작성)</a></li>
 			            <li><a href="/recruit/personnelSystem">인사제도</a></li>
 			            <li><a href="/recruit/welfareStatus">복지현황</a></li>
 			        </ul>

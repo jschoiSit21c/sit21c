@@ -15,40 +15,8 @@
         }
     </script>
 	<style>
-		body {
-		    font-family: Arial, sans-serif;
-		    margin: 0;
-		    padding: 0;
-		    line-height: 1.6;
-		}
-		
-		#company {
-		    background-color: #f4f4f4;
-		    padding: 20px 0;
-		    border-bottom: 1px solid #ddd;
-		    text-align: center;
-		}
-		
-		#company h1 {
-		    margin: 0;
-		    font-size: 2em;
-		    color: #333;
-		}
-		
-		.container {
-		    width: 100%;
-		    max-width: 1200px;
-		    margin: 0 auto;
-		    padding: 0 15px;
-		}
-		
-		main {
-		    padding: 20px;
-		    background-color: #fff;
-		}
-		
 		.history-section {
-		    max-width: 800px;
+		    max-width: 1200px;
 		    margin: 0 auto;
 		    text-align: center;
 		}
@@ -71,7 +39,7 @@
 		    color: white;
 		    cursor: pointer;
 		    border-radius: 5px;
-		    font-size: 1em;
+		    font-size: 1.2em;
 		    transition: background-color 0.3s ease;
 		}
 		
@@ -85,9 +53,8 @@
 		
 		.timeline-image img {
 		    width: 100%;
-		    max-width: 800px;
+		    max-width: 1200px;
 		    height: auto;
-		    border: 1px solid #ddd;
 		    border-radius: 10px;
 		}
 		
@@ -109,10 +76,10 @@
 	<jsp:include page="/WEB-INF/jsp/header.jsp"></jsp:include>
 	
 	
-	<section id="company">
-	    <div class="container">
-	        <h1>회사 연혁</h1>
-	    </div>
+	<section>
+		<div class="text-mid title">
+			<h1>CEO 메시지</h1>
+		</div>
     </section>
 	
     <main>

@@ -53,7 +53,11 @@
             overflow: hidden;
         }
         .hero .bg {
-        	position: absolute;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
         }
 
         .hero::before {
@@ -67,9 +71,19 @@
             opacity: 0.3;
         }
 
+        .hero .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4); /* 투명한 검은색 오버레이 */
+            z-index: 1;
+        }
+
         .hero-content {
             position: relative;
-            z-index: 1;
+            z-index: 2;
         }
 
         .hero h1 {
@@ -207,16 +221,17 @@
 <body>
 
     <section class="hero">
+        <div class="bg">
+            <video width="100%" preload="none" loop="" muted="" playsinline="" autoplay="">
+                <source src="/img/recruit/sitMainRow.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="overlay"></div>
         <div class="container hero-content">
             <h1>함께 미래를 만들어갑니다</h1>
-            <p>SodtITech에서 당신의 커리어에 날개를 달아보세요</p>
+            <p>SoftITech에서 당신의 커리어에 날개를 달아보세요</p>
             <a href="#jobs" class="btn">지금 지원하기</a>
         </div>
-        <div class="bg">
-                    <video width="100%" preload="none" loop="" muted="" playsinline="" autoplay="">
-                         <source src="/img/recruit/sitMainRow.mp4" type="video/mp4">
-                    </video>
-               </div>
     </section>
 
     <section id="jobs" class="jobs">
@@ -249,9 +264,9 @@
                 <img src="/img/recruit/officeView.png" alt="FutureWorks 사무실">
             </div>
             <div class="about-text">
-                <h2>SodtITech 소개</h2>
-                <p>SodtITech는 혁신적인 기술로 더 나은 미래를 만들어가는 글로벌 테크 기업입니다. 우리는 AI, 빅데이터, 클라우드 등 첨단 기술을 활용하여 산업 전반에 걸친 문제를 해결하고 있습니다.</p>
-                <p>SodtITech와 함께라면, 당신의 아이디어가 세상을 바꿀 수 있습니다. 우리는 직원들의 성장과 혁신을 지원하며, 워크-라이프 밸런스를 중요하게 생각합니다.</p>
+                <h2>SoftITech 소개</h2>
+                <p>SoftITech는 혁신적인 기술로 더 나은 미래를 만들어가는 글로벌 테크 기업입니다. 우리는 AI, 빅데이터, 클라우드 등 첨단 기술을 활용하여 산업 전반에 걸친 문제를 해결하고 있습니다.</p>
+                <p>SoftITech와 함께라면, 당신의 아이디어가 세상을 바꿀 수 있습니다. 우리는 직원들의 성장과 혁신을 지원하며, 워크-라이프 밸런스를 중요하게 생각합니다.</p>
                 <a href="/company/aboutSIT" class="btn">더 알아보기</a>
             </div>
         </div>

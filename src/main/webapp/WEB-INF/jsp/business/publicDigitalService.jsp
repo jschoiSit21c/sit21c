@@ -6,7 +6,7 @@
 <jsp:include page="/WEB-INF/jsp/header.jsp"></jsp:include>
 <head>
     <meta charset="UTF-8">
-    <title>공공 디지털 서비스</title>
+    <title>소프트아이텍 - 공공 디지털 서비스</title>
     <style>
         * {
             box-sizing: border-box;
@@ -22,10 +22,13 @@
             margin-right: auto;
             padding: 20px;
         }
-        h1, h2 {
-            color: #0056b3;
-            font-size: 1.5em;
-        }
+        h1 {
+		    display: inline-block;
+		    font-size: 1.5em;
+		    color: #333;
+		    border-bottom: 2px solid #F0F0F0;
+		    margin-bottom: 10px;
+		}
         h1, h2, h3, h4, h5, h6 {
             font-weight: bold;
         }
@@ -87,7 +90,7 @@
         }
         .service h3 {
             font-size: 1.8em;
-            color: #1a5f7a;
+            color: #0056b3;
         }
         .service ul {
             list-style-type: none;
@@ -149,11 +152,12 @@
 </head>
 <body>
     <section>
-        <h1>Business</h1>
-        <h2>공공 디지털 서비스</h2>
-        <p class="subtitle">소프트아이텍은 공정보화시스템의 설계, 구축부터 운영·유지보수까지<br>
-        전 과정에서 고객이 만족할 수 있는 최상의 서비스를 제공하는 것을 목표로 합니다.</p>
-        <p class="highlight">우리의 경험과 전문성을 바탕으로 정부 및 공공기관의 디지털 전환을 성공적으로 지원하겠습니다.</p>
+    	<div class="text-mid title">
+	        <h1>공공 디지털 서비스</h1>
+	        <p class="subtitle">소프트아이텍은 공정보화시스템의 설계, 구축부터 운영·유지보수까지<br>
+	        전 과정에서 고객이 만족할 수 있는 최상의 서비스를 제공하는 것을 목표로 합니다.</p>
+	        <p class="highlight">우리의 경험과 전문성을 바탕으로 정부 및 공공기관의 디지털 전환을 성공적으로 지원하겠습니다.</p>
+        </div>
         <div class="back-black">
             <div class="experience-expertise-img"></div>
             <div class="experience-expertise">

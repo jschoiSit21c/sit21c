@@ -27,15 +27,19 @@
             width: 80%;
             margin: 0 auto;
         }
-        h1, h2 {
-            color: #0056b3;
-        }
         h1 {
-            font-size: 2em;
-        }
+		    display: inline-block;
+		    font-size: 1.5em;
+		    color: #333;
+		    border-bottom: 2px solid #F0F0F0;
+		    margin-bottom: 10px;
+		}
         h2 {
             font-size: 1.5em;
         }
+        ul {
+		    list-style-type: disc;
+		}
         .subtitle {
             font-size: 1.2em;
             margin-bottom: 20px;
@@ -123,9 +127,11 @@
 </head>
 <body>
     <section>
-        <h1>ICT 인프라 서비스</h1>
-        <p class="subtitle">맞춤형 IT인프라 솔루션 및 하드웨어의 공급부터 설치까지<br>최적의 IT 환경을 구축해드립니다</p>
-        <p>고객의 비즈니스를 효과적으로 지원하기 위해 그룹 IT Infra를 통합 운영 하고 있으며 조직, 프로세스, 시스템을 유기적으로 연계하여 운영 효율성 향상 및 안정적인 IT서비스를 제공합니다.</p>
+		<div class="text-mid title">
+		    <h1>ICT 인프라 서비스</h1>
+		    <p class="subtitle">맞춤형 IT인프라 솔루션 및 하드웨어의 공급부터 설치까지<br>최적의 IT 환경을 구축해드립니다</p>
+		    <p>고객의 비즈니스를 효과적으로 지원하기 위해 그룹 IT Infra를 통합 운영 하고 있으며 조직, 프로세스, 시스템을 유기적으로 연계하여 운영 효율성 향상 및 안정적인 IT서비스를 제공합니다.</p>
+        </div>
         
         <div class="services">
             <div class="service-item">
