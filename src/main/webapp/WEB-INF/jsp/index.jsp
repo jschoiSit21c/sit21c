@@ -38,7 +38,15 @@
             position: relative;
             z-index: 2;
         }
-
+		
+		h1, h2 {
+			font-size: 1.7em;
+		}
+		
+		h3 {
+			font-size: 1.2em
+		}
+		
         h1, h2, h3, h4, h5, h6 {
             font-weight: bold;
         }
@@ -99,7 +107,7 @@
         }
         
         .hero p {
-            font-size: 1.2em;
+            font-size: 1.7em;
             margin-bottom: 30px;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
         }
@@ -164,7 +172,7 @@
         }
         
         .feature-icon {
-            font-size: 48px;
+            font-size: 58px;
             color: var(--dark-blue);
             margin-bottom: 20px;
         }
@@ -190,7 +198,7 @@
         }
         
         .service-icon {
-            font-size: 36px;
+            font-size: 48px;
             color: var(--dark-blue);
             margin-bottom: 15px;
         }
@@ -235,6 +243,10 @@
 		    justify-content: center;
 		}
 		
+		.slogan {
+			font-size: 2.5em;
+		}
+		
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2em;
@@ -265,8 +277,8 @@
             <div class="hero-overlay"></div>
             <div class="container hero-content">
                 <h1>소프트아이텍</h1>
-                <h3>With cutting-edge technology and unwavering trust, we empower your future.</h3>
-                <p>최첨단 기술과 혁신으로 당신의 비전을 실현합니다.</p>
+                <h3 class="slogan">공공의 복리 증진을 위한 Public Digital Service Provider</h3>
+                <p>고객과 전문기업, 그리고 직원이 함께하고 싶어하는 “최강 강소기업嶫”</p>
                 <a href="#benefits" class="cta-button">더 알아보기</a>
             </div>
         </section>
