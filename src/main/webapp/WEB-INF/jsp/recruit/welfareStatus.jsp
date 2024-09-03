@@ -32,6 +32,14 @@ main {
     max-width: 1200px; /* 최대 너비 설정 */
 }
 
+.welfareStatus h1 {
+    color: #0066cc;
+    font-size: 24px;
+    margin-top: 40px; /* 상단 여백 추가 */
+    margin-bottom: 5px;
+    padding-top: 20px; /* 추가적인 패딩을 상단에 설정 */
+}
+
 /* .welfareStatus h2 {
     font-size: 2em;
     color: #333;
@@ -40,17 +48,19 @@ main {
 
 .vision-chart img {
     width: 100%;
-    max-width: 400px; /* 이미지의 최대 너비 설정 */
+    max-width: 400px;
     height: auto;
     border-radius: 10px;
 } */
+
+
 </style>
 </head>
 <body>
     
     <main>
         <section class="welfareStatus">
-            <h2>경영이념</h2>
+            <h1>복지현황</h1>
             <div class="vision-chart">
                 <img src="/img/helth.png" alt="복지현황">
             </div>
