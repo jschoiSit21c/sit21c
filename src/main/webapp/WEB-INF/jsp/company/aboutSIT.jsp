@@ -20,6 +20,26 @@ main {
     background-color: #fff;
 }
 
+
+.company-overview {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.company-overview h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.company-overview p {
+    font-size: 1.2em;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+
+
 .company-info {
     text-align: center;
     margin-bottom: 40px;
@@ -117,17 +137,8 @@ footer {
 	<!-- 상단 -->
 	<jsp:include page="/WEB-INF/jsp/header.jsp"></jsp:include>
     <main>
-        <section class="company-overview">
-            <h2>"Leading Business Innovation with Advanced IT Development"</h2>
-            <h2>"한 발 앞선 IT 개발로 비즈니스 혁신을 선도합니다"</h2>
-            
-<!--             <div class="video-container">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/K8r2oBJf4g8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div> -->
-        </section>
-        
-        
         <section class="company-info">
+        <h1>About 소프트아이텍</h1>
             <h1>Company Info</h1>
             <p>세계 최고의 기술력을 바탕으로 글로벌 IDP 시장을 선도하겠습니다.</p>
             
@@ -175,12 +186,14 @@ footer {
             </div>
         </section>
         
-        <!-- <section class="vision">
-            <h2>경영이념</h2>
-            <div class="vision-chart">
-                <img src="/img/aboutSIT.png" alt="경영이념">
+        <section class="company-overview">
+            <h2>"Leading Business Innovation with Advanced IT Development"</h2>
+            <h2>"한 발 앞선 IT 개발로 비즈니스 혁신을 선도합니다"</h2>
+            
+			<div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/I8MbDbxxmOs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
-        </section> -->
+        </section>
     </main>
 	<!-- 하단 -->
 	<jsp:include page="/WEB-INF/jsp/footer.jsp"></jsp:include>
