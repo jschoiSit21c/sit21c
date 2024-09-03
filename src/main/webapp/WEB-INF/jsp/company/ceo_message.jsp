@@ -21,6 +21,9 @@
 		  <div class="ceo-message">
 			${item.content}
 		  </div>
+		  <div>
+		  	<img alt="CEO 이미지" src="/img/ceo_image.png">
+		  </div>
 		  <security:authorize access="hasRole('SA')">
 		  	<!-- 관리자 로그인시에만 보이게끔 수정 -->
 		  	<button class="edit-button" onclick="location.href='/company/openWriteCeo'">수정</button>
