@@ -6,6 +6,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
@@ -49,20 +50,21 @@ public class RecruitController {
 	 * @param map
 	 * @return
 	 */
-	@RequestMapping("/recruit/recruitmentMain")
-	public String recruitmentMain(@RequestParam Map<String, Object> map) {
-		System.out.println("recruitmentMain 호출");
-		return "/recruit/recruitmentMain";
-	}
+	/*
+	 * @RequestMapping("/recruit/recruitmentMain") public String
+	 * recruitmentMain(@RequestParam Map<String, Object> map) {
+	 * System.out.println("recruitmentMain 호출"); return "/recruit/recruitmentMain";
+	 * }
+	 */
 	
 	/**
 	 * 직무 채용정보
 	 * @param map
 	 * @return
 	 */
-	@RequestMapping("/recruit/recruinmentPost")
+	@RequestMapping("/recruit/recruitmentPost")
 	public String recruinmentPost(@RequestParam Map<String, Object> map) {
-		System.out.println("recruinmentPost 호출");
+		System.out.println("recruitmentPost 호출");
 		return "/recruit/recruinmentPost";
 	}
 	
