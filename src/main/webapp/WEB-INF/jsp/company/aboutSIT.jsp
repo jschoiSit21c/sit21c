@@ -150,8 +150,7 @@ footer {
                     <table>
                         <tr>
                             <th>회사명</th>
-                            <td>(주)소프트아이텍</td>
-                            
+                            <td>(주)소프트아이텍</td>                            
                         </tr>
                         <tr>
                         	<th>설립일</th>
