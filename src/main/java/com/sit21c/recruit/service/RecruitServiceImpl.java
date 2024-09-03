@@ -52,5 +52,10 @@ public class RecruitServiceImpl implements RecruitService {
     public int getTotalJobPostingsCount(String departmentId) {
         return recruitMapper.countByDepartmentId(departmentId);
     }
+    
+    @Override
+    public JobPostingVo getJobPostingById(String jobId) {
+        return recruitMapper.findById(jobId);
+    }
 
 }

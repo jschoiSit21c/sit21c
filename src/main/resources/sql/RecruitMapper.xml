@@ -22,6 +22,12 @@
         WHERE job_posting_department = #{departmentId}
         AND job_posting_is_deleted = false
     </select>
+    
+    <select id="findById" resultType="com.sit21c.recruit.vo.JobPostingVo">
+        SELECT *
+        FROM Job_Postings
+        WHERE job_posting_id = #{jobId}
+    </select>
 
 	<select id="test" parameterType="map" resultType="com.sit21c.common.CamelCaseMap">
 		SELECT T1

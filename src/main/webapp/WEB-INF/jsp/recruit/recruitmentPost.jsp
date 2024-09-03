@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
 <!DOCTYPE html>
 <html lang="ko">
 <!-- 상단 -->
@@ -9,6 +10,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <title>소프트아이텍 채용</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
@@ -207,6 +209,43 @@
             border: 1px solid #4CAF50;
         }
         .pagination a:hover:not(.active) {background-color: #ddd;}
+        
+        .modal {
+	        display: none;
+	        position: fixed;
+	        z-index: 1000;
+	        left: 0;
+	        top: 0;
+	        width: 100%;
+	        height: 100%;
+	        overflow: auto;
+	        background-color: rgba(0,0,0,0.4);
+	    }
+	
+	    .modal-content {
+	        background-color: #fefefe;
+	        margin: 15% auto;
+	        padding: 20px;
+	        border: 1px solid #888;
+	        width: 80%;
+	        max-width: 600px;
+	        border-radius: 5px;
+	    }
+	
+	    .close {
+	        color: #aaa;
+	        float: right;
+	        font-size: 28px;
+	        font-weight: bold;
+	        cursor: pointer;
+	    }
+	
+	    .close:hover,
+	    .close:focus {
+	        color: black;
+	        text-decoration: none;
+	        cursor: pointer;
+	    }
 
         @media (max-width: 992px) {
             .job-grid {
@@ -275,15 +314,15 @@
             <h2 class="section-title">${departmentName} 채용 정보</h2>
             <c:if test="${not empty jobPostings}">
 	            <div class="job-grid">
-	                <c:forEach items="${jobPostings}" var="job">
-	                    <div class="job-item">
-	                        <h3>${job.jobPostingTitle}</h3>
-	                        <p>${job.jobPostingDescription}</p>
-	                        <p>마감일: <fmt:formatDate value="${job.jobPostingEndDate}" pattern="yyyy-MM-dd"/></p>
-	                        <a href="/recruit/jobDetail?id=${job.jobPostingId}" class="btn">자세히 보기</a>
-	                    </div>
-	                </c:forEach>
-	            </div>
+				    <c:forEach items="${jobPostings}" var="job">
+				        <div class="job-item" data-job-id="${job.jobPostingId}">
+				            <h3>${job.jobPostingTitle}</h3>
+				            <p>${job.jobPostingDescription}</p>
+				            <p>마감일: <fmt:formatDate value="${job.jobPostingEndDate}" pattern="yyyy-MM-dd"/></p>
+				            <button class="btn view-job-details">자세히 보기</button>
+				        </div>
+				    </c:forEach>
+				</div>
             </c:if>
 			<c:if test="${empty jobPostings}">
 			    <p>현재 등록된 채용 공고가 없습니다.</p>
@@ -293,6 +332,16 @@
                     <a href="?departmentId=${param.departmentId}&page=${i}" class="${currentPage == i ? 'active' : ''}">${i}</a>
                 </c:forEach>
             </div>
+            <!-- 모달 추가 -->
+			<div id="jobModal" class="modal">
+			    <div class="modal-content">
+			        <span class="close">&times;</span>
+			        <h2 id="modalJobTitle"></h2>
+			        <p id="modalJobDescription"></p>
+			        <p id="modalJobRequirements"></p>
+			        <p id="modalJobEndDate"></p>
+			    </div>
+			</div>
         </div>
     </section>
     
@@ -306,6 +355,53 @@
 	            jobListingsSection.scrollIntoView({
 	                behavior: 'smooth'
 	            });
+	        });
+	    });
+	    
+	    $(document).ready(function() {
+	        const modal = $("#jobModal");
+	        const span = $(".close");
+
+	        // 날짜 포맷팅 함수
+	        function formatDate(dateString) {
+	            const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
+	            return new Date(dateString).toLocaleDateString('ko-KR', options);
+	        }
+
+	        // 자세히 보기 버튼 클릭 이벤트
+	        $(".view-job-details").on("click", function() {
+	            const jobId = $(this).closest(".job-item").data("job-id");
+	            $.ajax({
+	                url: `/recruit/api/job/${jobId}`,
+	                method: 'GET',
+	                success: function(data) {
+	                    $("#modalJobTitle").text(data.jobPostingTitle);
+	                    $("#modalJobDescription").text(data.jobPostingDescription);
+	                    $("#modalJobRequirements").text(data.jobPostingRequirements);
+	                    
+	                    // 날짜 포맷팅 적용
+	                    const formattedDate = formatDate(data.jobPostingEndDate);
+	                    $("#modalJobEndDate").text(`마감일: ${formattedDate}`);
+	                    
+	                    modal.css("display", "block");
+	                },
+	                error: function(xhr, status, error) {
+	                    console.error("Error fetching job details:", error);
+	                    alert("공고 정보를 불러오는데 실패했습니다.");
+	                }
+	            });
+	        });
+
+	        // 모달 닫기
+	        span.on("click", function() {
+	            modal.css("display", "none");
+	        });
+
+	        // 모달 외부 클릭 시 닫기
+	        $(window).on("click", function(event) {
+	            if (event.target == modal[0]) {
+	                modal.css("display", "none");
+	            }
 	        });
 	    });
     </script>

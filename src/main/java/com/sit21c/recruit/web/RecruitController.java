@@ -12,9 +12,11 @@ import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -82,7 +84,17 @@ public class RecruitController {
 		model.addAttribute("totalPages", totalPages);
 		
 		return "/recruit/recruitmentPost";
-		}
+	}
+    @ResponseBody
+    @RequestMapping(value = "/api/job/{jobId}", method = RequestMethod.GET, produces = "text/html;charset=UTF-8")
+    public ResponseEntity<JobPostingVo> getJobDetails(@PathVariable("jobId") String jobId) {
+        JobPostingVo jobPosting = recruitService.getJobPostingById(jobId);
+        if (jobPosting != null) {
+            return ResponseEntity.ok(jobPosting);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
 	
 	/**
 	 * 인사제도 화면 호출

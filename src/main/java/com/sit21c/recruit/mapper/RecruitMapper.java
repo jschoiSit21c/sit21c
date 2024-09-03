@@ -32,4 +32,5 @@ public interface RecruitMapper {
 	public List<JobPostingVo> findByDepartmentId(@Param("departmentId") String departmentId, @Param("offset") int offset, @Param("pageSize") int pageSize);
 	public String findDepartmentNameById(@Param("departmentId") String departmentId);
 	public int countByDepartmentId(@Param("departmentId") String departmentId);
+	public JobPostingVo findById(@Param("jobId") String jobId);
 }

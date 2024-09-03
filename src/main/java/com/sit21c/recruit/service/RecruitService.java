@@ -25,4 +25,6 @@ public interface RecruitService {
 	public String getDepartmentNameById(String departmentId);
 	
 	public int getTotalJobPostingsCount(String departmentId);
+	
+	public JobPostingVo getJobPostingById(String jobId);
 }
