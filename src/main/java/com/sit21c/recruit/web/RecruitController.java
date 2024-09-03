@@ -13,14 +13,17 @@ import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.sit21c.common.vo.AttchFileVo;
 import com.sit21c.recruit.service.RecruitService;
+import com.sit21c.recruit.vo.JobPostingVo;
 import com.sit21c.recruit.vo.RecruitmentApplyVo;
 
 @Controller
@@ -62,11 +65,24 @@ public class RecruitController {
 	 * @param map
 	 * @return
 	 */
-	@RequestMapping("/recruit/recruitmentPost")
-	public String recruinmentPost(@RequestParam Map<String, Object> map) {
-		System.out.println("recruitmentPost 호출");
-		return "/recruit/recruinmentPost";
-	}
+	@RequestMapping(value = "/recruit/recruitmentPost", method = RequestMethod.GET, produces = "text/html;charset=UTF-8")
+	public String showRecruitmentPost(@RequestParam("departmentId") String departmentId,
+            @RequestParam(value = "page", defaultValue = "1") int page, Model model) {
+		int pageSize = 9; // 한 페이지에 표시할 공고 수
+		List<JobPostingVo> jobPostings = recruitService.getJobPostingsByDepartmentId(departmentId, page, pageSize);
+		String departmentName = recruitService.getDepartmentNameById(departmentId);
+		
+		int totalPostings = recruitService.getTotalJobPostingsCount(departmentId);
+		int totalPages = (int) Math.ceil((double) totalPostings / pageSize);
+		
+		model.addAttribute("jobPostings", jobPostings);
+		model.addAttribute("departmentId", departmentId);
+		model.addAttribute("departmentName", departmentName);
+		model.addAttribute("currentPage", page);
+		model.addAttribute("totalPages", totalPages);
+		
+		return "/recruit/recruitmentPost";
+		}
 	
 	/**
 	 * 인사제도 화면 호출

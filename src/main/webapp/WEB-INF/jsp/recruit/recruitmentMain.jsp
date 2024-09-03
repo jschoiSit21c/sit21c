@@ -296,11 +296,6 @@
     <section id="jobs" class="jobs">
         <div class="container">
             <h2 class="section-title">현재 모집 중인 포지션</h2>
-            <security:authorize access="hasRole('SA')">
-                <div>
-                    <button class="btn" onclick="location.href='/company/openWriteCeo'">수정</button>
-                </div>
-            </security:authorize>
             <div class="job-list-container">
 			    <div class="job-list">
 			        <c:forEach items="${departments}" var="dept">
@@ -317,7 +312,7 @@
 			                        </c:otherwise>
 			                    </c:choose>
 			                </p>
-			                <a href="/recruit/recruitmentPost?deptId=${dept.departmentId}" class="btn">자세히 보기</a>
+			                <a href="/recruit/recruitmentPost?departmentId=${dept.departmentId}" class="btn">자세히 보기</a>
 			            </div>
 			        </c:forEach>
 			    </div>

@@ -5,6 +5,7 @@ import java.util.Map;
 
 import com.sit21c.common.CamelCaseMap;
 import com.sit21c.common.vo.AttchFileVo;
+import com.sit21c.recruit.vo.JobPostingVo;
 import com.sit21c.recruit.vo.RecruitmentApplyVo;
 
 public interface RecruitService {
@@ -18,4 +19,10 @@ public interface RecruitService {
 	 * @throws Exception 
 	 */
 	public void executeRecruitmentApply(RecruitmentApplyVo recruitmentApplyVo, AttchFileVo attchFileVo) throws Exception;
+	
+	public List<JobPostingVo> getJobPostingsByDepartmentId(String departmentId, int page, int pageSize);
+	
+	public String getDepartmentNameById(String departmentId);
+	
+	public int getTotalJobPostingsCount(String departmentId);
 }

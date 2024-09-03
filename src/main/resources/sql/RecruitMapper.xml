@@ -1,6 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.sit21c.recruit.mapper.RecruitMapper">
+    <select id="findByDepartmentId" resultType="com.sit21c.recruit.vo.JobPostingVo">
+        SELECT *
+        FROM Job_Postings
+        WHERE job_posting_department = #{departmentId}
+        AND job_posting_is_deleted = false
+        ORDER BY job_posting_end_date DESC
+        LIMIT #{pageSize} OFFSET #{offset}
+    </select>
+
+    <select id="findDepartmentNameById" resultType="string">
+        SELECT department_name
+        FROM Departments
+        WHERE department_id = #{departmentId}::integer
+    </select>
+
+    <select id="countByDepartmentId" resultType="int">
+        SELECT COUNT(*)
+        FROM Job_Postings
+        WHERE job_posting_department = #{departmentId}
+        AND job_posting_is_deleted = false
+    </select>
 
 	<select id="test" parameterType="map" resultType="com.sit21c.common.CamelCaseMap">
 		SELECT T1

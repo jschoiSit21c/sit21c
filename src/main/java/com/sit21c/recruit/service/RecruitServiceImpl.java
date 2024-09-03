@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.sit21c.common.CamelCaseMap;
 import com.sit21c.common.vo.AttchFileVo;
 import com.sit21c.recruit.mapper.RecruitMapper;
+import com.sit21c.recruit.vo.JobPostingVo;
 import com.sit21c.recruit.vo.RecruitmentApplyVo;
 
 @Service("recruitService")
@@ -35,5 +36,21 @@ public class RecruitServiceImpl implements RecruitService {
 		recruitMapper.insertRecruitmentApply(recruitmentApplyVo);
 		
 	}
+	
+	@Override
+    public List<JobPostingVo> getJobPostingsByDepartmentId(String departmentId, int page, int pageSize) {
+		int offset = (page - 1) * pageSize;
+        return recruitMapper.findByDepartmentId(departmentId, offset, pageSize);
+    }
+
+    @Override
+    public String getDepartmentNameById(String departmentId) {
+        return recruitMapper.findDepartmentNameById(departmentId);
+    }
+
+    @Override
+    public int getTotalJobPostingsCount(String departmentId) {
+        return recruitMapper.countByDepartmentId(departmentId);
+    }
 
 }
