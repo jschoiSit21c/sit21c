@@ -218,8 +218,8 @@ input[type="tel"] {
 </head>
 <body>
 <form method="POST" enctype="multipart/form-data" action="/recruit/executeRecruitmentApply">
-<%-- <input type="hidden" name="applicationJobPostingId" value="${param.jobPostingId}"> --%>
-<input type="hidden" name="applicationJobPostingId" value="1">
+<input type="hidden" name="applicationJobPostingId" value="${param.jobPostingId}">
+<!-- <input type="hidden" name="applicationJobPostingId" value="1"> -->
     <section class="section business-areas" id="about">
         <div class="container">
             <h2 class="section-title">입사지원서 제출</h2>
