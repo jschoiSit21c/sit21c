@@ -26,7 +26,7 @@
     .detail-item h3{
     content: '';
     display: block;
-    width: 31px;
+    width: 30px;
     height: 2px;
     background: #fe6001;
     margin: auto;
