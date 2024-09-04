@@ -1,6 +1,7 @@
 package com.sit21c.recruit.vo;
 
-import java.sql.Date;
+
+import java.util.Date;
 import java.util.Objects;
 
 public class JobPostingVo {
@@ -16,6 +17,7 @@ public class JobPostingVo {
     private Date jobPostingEndDate;
     private Date jobPostingCreatedAt;
     private Date jobPostingUpdatedAt;
+    
     private String jobPostingKeyword1;
     private String jobPostingKeyword2;
     private String jobPostingKeyword3;

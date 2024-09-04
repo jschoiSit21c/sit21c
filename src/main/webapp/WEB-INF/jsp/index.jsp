@@ -41,6 +41,11 @@
             line-height: 1.6;
         }
         
+        section {
+       	    margin-top: 80px;
+		    max-width: 100%;
+        }
+        
         .container {
             max-width: 1200px;
             margin: 0 auto;

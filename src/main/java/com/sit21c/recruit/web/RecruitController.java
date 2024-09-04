@@ -6,6 +6,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
@@ -85,8 +86,28 @@ public class RecruitController {
 		
 		return "/recruit/recruitmentPost";
 	}
+	
+	@ResponseBody
+    @RequestMapping(value = "/recruit/api/jobs", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
+    public ResponseEntity<Map<String, Object>> getJobListings(
+            @RequestParam("departmentId") String departmentId,
+            @RequestParam(value = "page", defaultValue = "1") int page) {
+        
+        int pageSize = 9; // 한 페이지에 표시할 공고 수
+        List<JobPostingVo> jobPostings = recruitService.getJobPostingsByDepartmentId(departmentId, page, pageSize);
+        int totalPostings = recruitService.getTotalJobPostingsCount(departmentId);
+        int totalPages = (int) Math.ceil((double) totalPostings / pageSize);
+
+        Map<String, Object> response = new HashMap<>();
+        response.put("jobPostings", jobPostings);
+        response.put("currentPage", page);
+        response.put("totalPages", totalPages);
+
+        return ResponseEntity.ok(response);
+    }
+
     @ResponseBody
-    @RequestMapping(value = "/api/job/{jobId}", method = RequestMethod.GET, produces = "text/html;charset=UTF-8")
+    @RequestMapping(value = "/recruit/api/job/{jobId}", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
     public ResponseEntity<JobPostingVo> getJobDetails(@PathVariable("jobId") String jobId) {
         JobPostingVo jobPosting = recruitService.getJobPostingById(jobId);
         if (jobPosting != null) {
