@@ -2,135 +2,79 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<!-- 상단 -->
-<jsp:include page="/WEB-INF/jsp/header.jsp"></jsp:include>
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>오시는길</title> 
-    <style type="text/css">
-    section{
-    	 width: 100%;        
-         padding: 10px; 
-         margin-bottom: 10px;
-         border-radius: 5px;
-    }
-    h1{   	 
-        font-size: 26px;
-    	color: #333;
-    	font-weight: bold;
-    	margin-bottom: 20px;
-    }
-    h3{
-    	font-weight: bold;	
-    }
-    .detail-item h3{
-    content: '';
-    display: block;
-    width: 31px;
-    height: 2px;
-    background: #fe6001;
-    margin: auto;
-    color: #333;
-    font-weight: 700;  
-    text-align: center;
-    }
-    .sub_text01{
-        line-height: 22px;
-    	font-size: 17px;
-    	color: #666666;
-    	margin-top: 28px;
-    }
-    #company_daejeon{
-    	text-align:center
-    }
-    #map{
-    	width:80%;
-    	height:450px;
-    	margin: 0 auto;
-    }
-    #company_daegu{
-    	text-align:center; 
-    	margin-top:15px;
-    }
-    #map_daegu{
-    	width:80%;
-    	height:450px;
-    	margin: 50px auto;
-    }
-    </style>
 </head>
-<body>
-        <section id="company_daejeon">       
-        	<div class="detail-item">
-        		<h1>오시는 길</h1>      	
-        		<h3>본사</h3>        		      		           	
-            	<p class="sub_text01">주소: 대전광역시 유성구 죽동로 69 (죽동, 소프트아이텍빌딩) / 대표전화: 042-485-8551 / 팩스: 042-486-8551</p>       
-        	</div> 	        		 	           
-        </section>  
-<div id="map"></div> 
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7cfb05a66b408381a264a5bf2326f5a6"></script>
-<script>
-var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-    mapOption = { 
-        center: new kakao.maps.LatLng(36.3722400,127.3339735), // 지도의 중심좌표
-        level: 3 // 지도의 확대 레벨
-    };
+<body class="sub-page">
+<!-- 상단 -->
+<jsp:include page="/WEB-INF/jsp/header.jsp"></jsp:include>
+	<!-- 서브 페이지 1-->
+	<div class="sub-page-content">
+		<h2 class="sub-page-title">오시는길</h2>
 
-var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+		<!-- 인사말 -->
+		<div class="sub-page1-area">
+		<!-- 슬로건 및 설명 -->
+			<h3 class="slogan">소프트아이텍은 고객과의 소통을 위해 언제나 열려있는 파트너입니다</h3>
+			<!-- 이미지와 CEO 인사말 내용 
+			<div class="location-content">
+				<p class="location-text">
+					소프트아이텍은 고객과의 소통을 위해 항상 열려 있습니다.<br>
+				</p>
 
-// 마커가 표시될 위치입니다 
-var markerPosition  = new kakao.maps.LatLng(36.3722400,127.3339735); 
+			</div>-->
+		</div>	
+			
+		<!-- 오시는길  -->
+				<div class="map-section">
+					<div class="map_title">
+						<span id="daejeon-link" onclick="showMap('daejeon')">대전본사</span> | 
+						<span id="daegu-link" onclick="showMap('daegu')">대구지사</span>
+					</div>
+					<div class="map-container">
+						<iframe id="map-iframe" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5031.031732894268!2d127.33242245211333!3d36.37231037906764!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35654966d0422a7b%3A0xec8d9475c42513cb!2z7IaM7ZSE7Yq47JWE7J207YWN!5e0!3m2!1sko!2skr!4v1544963342159" width="100%" height="700" frameborder="0" style="border:0" allowfullscreen></iframe>
+					</div>
+					<div class="contact-info">
+						<h2>문의사항이 있으신가요? 성심껏 답변드리겠습니다.</h2>
+						<p class="address-title">ADDRESS</p>
+						<p class="address">대전광역시 유성구 죽동로 69 (죽동, 소프트아이텍빌딩)</p>
+						<p class="contact">
+							<span>TEL</span> 042. 485. 8551 | <span>FAX</span> 042. 486. 8551
+						</p>
+					</div>
+				</div>
+		<!-- // 오시는길  -->
 
-// 마커를 생성합니다
-var marker = new kakao.maps.Marker({
-    position: markerPosition
-});
+	</div>
 
-// 마커가 지도 위에 표시되도록 설정합니다
-marker.setMap(map);
+	<script>
+	// 오시는길 함수
+	function showMap(location) {
+		const mapIframe = document.getElementById('map-iframe');
+		const address = document.getElementById('address');
+		const daejeonLink = document.getElementById('daejeon-link');
+		const daeguLink = document.getElementById('daegu-link');
 
-// 아래 코드는 지도 위의 마커를 제거하는 코드입니다
-// marker.setMap(null);    
-</script> 
-    <section id="company_daegu"> 
-    	<div class="detail-item">   
-    		<h3>지사</h3>      
-            <p class="sub_text01">주소: 대구광역시 동구 이노밸리로 309, 4층 / 대표전화: 053-960-1813</p> 
-        </div>      	 		
-    </section>
-<div id="map_daegu"></div>
-<script>
-var mapContainerDaegu = document.getElementById('map_daegu'), // 지도를 표시할 div 
-    mapOptionDaegu = { 
-        center: new kakao.maps.LatLng(35.8784963,128.7309867), // 대구지사의 중심좌표
-        level: 3 // 지도의 확대 레벨
-    };
+		// 기본 색상을 검정으로 설정하고, 선택한 항목에 active 클래스 추가
+		daejeonLink.classList.remove('active');
+		daeguLink.classList.remove('active');
 
-var mapDaegu = new kakao.maps.Map(mapContainerDaegu, mapOptionDaegu); // 지도를 생성합니다
+		if (location === 'daejeon') {
+			mapIframe.src = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5031.031732894268!2d127.33242245211333!3d36.37231037906764!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35654966d0422a7b%3A0xec8d9475c42513cb!2z7IaM7ZSE7Yq47JWE7J207YWN!5e0!3m2!1sko!2skr!4v1544963342159";
+			address.textContent = '대전광역시 유성구 죽동로 69 (죽동, 소프트아이텍빌딩)';
+			daejeonLink.classList.add('active');
+		} else if (location === 'daegu') {
+			mapIframe.src = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3262.5005148157323!2d128.6023317!3d35.8722125!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3565e3b1d1aab30b%3A0x1c6fdf8d033a8f88!2z66y47YWU67O17Jew7ISc7Jq466as!5e0!3m2!1sko!2skr!4v1544963342159";
+			address.textContent = '대구광역시 중구 동성로 1가 123 (대구, 소프트아이텍지사)';
+			daeguLink.classList.add('active');
+		}
+	}
 
-// 대구지사의 마커가 표시될 위치입니다 
-var markerPositionDaegu = new kakao.maps.LatLng(35.8784963,128.7309867); 
-
-// 마커를 생성합니다
-var markerDaegu = new kakao.maps.Marker({
-    position: markerPositionDaegu
-});
-
-// 마커가 지도 위에 표시되도록 설정합니다
-markerDaegu.setMap(mapDaegu);
-
-// CustomOverlay를 생성하고 텍스트만 표시합니다
-var customOverlay = new kakao.maps.CustomOverlay({
-    position: markerPositionDaegu,
-    content: '<div style="position: relative; left: -50%; transform: translate(50%, 110%); color: #000; font-size: 12px;">이노밸리로</div>', // 글씨만 표시하도록 설정
-    xAnchor: 0.5, // 중앙 정렬
-    yAnchor: 1.1 // 마커 위에 조금 띄워서 표시
-});
-
-// CustomOverlay를 지도에 표시합니다
-customOverlay.setMap(mapDaegu);
-</script>
+	</script>
+	<!-- 하단 -->
+	<jsp:include page="/WEB-INF/jsp/footer.jsp"></jsp:include>
 </body>
-<!-- 하단 -->
-    <jsp:include page="/WEB-INF/jsp/footer.jsp"></jsp:include>
+
 </html>

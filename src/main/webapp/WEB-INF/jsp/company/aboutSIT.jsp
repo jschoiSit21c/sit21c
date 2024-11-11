@@ -1,200 +1,84 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="security" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>About 소프트아이텍 - company</title>
-<style>
-
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    line-height: 1.6;
-    background-color: #f9f9f9;
-}
-
-main {
-    padding: 20px;
-    background-color: #fff;
-}
-
-
-.company-overview {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.company-overview h1 {
-    font-size: 2.5em;
-    margin-bottom: 10px;
-    color: #333;
-}
-
-.company-overview p {
-    font-size: 1.2em;
-    color: #666;
-    margin-bottom: 20px;
-}
-
-
-
-.company-info {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.company-info h1 {
-    font-size: 2.5em;
-    margin-bottom: 10px;
-    color: #333;
-}
-
-.company-info p {
-    font-size: 1.2em;
-    color: #666;
-    margin-bottom: 20px;
-}
-
-.info-content {
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: flex-start;
-    margin-bottom: 40px;
-    max-width: 1200px; /* 최대 너비 설정 */
-    margin: 0 auto; /* 가운데 정렬 */
-}
-
-.info-image {
-    flex: 0 1 auto;
-    min-width: 300px;
-    margin-right: 20px; /* 간격 설정 */
-    text-align: center;
-}
-
-.info-image img {
-    width: 100%;
-    max-width: 400px;
-    height: auto;
-    border-radius: 10px;
-}
-
-.info-details {
-    flex: 1 1 auto; /* 남은 공간을 차지하도록 설정 */
-    min-width: 300px;
-    text-align: left; /* 텍스트를 왼쪽으로 정렬 */
-}
-
-.info-details table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 0;
-}
-
-.info-details th, .info-details td {
-    border: 1px solid #ddd;
-    padding: 10px;
-    text-align: left;
-    white-space: nowrap; /* 텍스트 줄바꿈 방지 */
-}
-
-.info-details th {
-    background-color: #f4f4f4;
-    font-weight: bold;
-    width: 15%; /* 각 열의 너비를 설정 */
-}
-
-.info-details td {
-    width: 35%; /* 각 열의 너비를 설정 */
-}
-
-.vision {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.vision h2 {
-    font-size: 2em;
-    margin-bottom: 10px;
-    color: #333;
-}
-
-footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 10px 0;
-    position: relative;
-    width: 100%;
-}
-
-
-</style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>소프트아이텍 - About</title>
 </head>
-<body>
-	<!-- 상단 -->
-	<jsp:include page="/WEB-INF/jsp/header.jsp"></jsp:include>
-    <main>
-        <section class="company-info">
-        <h1>About 소프트아이텍</h1>
-            <h1>Company Info</h1>
-            <p>세계 최고의 기술력을 바탕으로 글로벌 IDP 시장을 선도하겠습니다.</p>
-            
-            <div class="info-content">
-                <div class="info-image">
-                    <img src="/img/about_SIT.png" alt="Company Image">
-                </div>
-                <div class="info-details">
-                    <table>
-                        <tr>
-                            <th>회사명</th>
-                            <td>(주)소프트아이텍</td>                            
-                        </tr>
-                        <tr>
-                        	<th>설립일</th>
-                            <td>2000년 9월</td>
-                        </tr>
-                        <tr>
-                            <th>대표자</th>
-                            <td>이학수</td>                      
-                        </tr>
-                        <tr>
-                        	<th>사업분야</th>
-                            <td>SI, SM, IT컨설팅, IT아웃소싱, S/W개발, 패키지/S/W개발 및 공급</td>
-                        </tr>
-                        <tr>
-                            <th>주소</th>
-                            <td colspan="3">대전광역시 유성구 죽동로 69 소프트아이텍빌딩</td>
-                        </tr>
-                        <tr>
-                            <th>전화번호</th>
-                            <td colspan="3">전화 : 042-485-8551, FAX : 042-486-8551</td>
-                        </tr>
-                        <tr>
-                            <th>회사설립연도</th>
-                            <td colspan="3">2000년 9월</td>
-                        </tr>
-                        <tr>
-                            <th>해당부문 종사기간</th>
-                            <td colspan="3">2000년 9월 ~ 2024년 8월 (24년 8개월)</td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-        </section>
-        
-        <section class="company-overview">
-            <h2>"Leading Business Innovation with Advanced IT Development"</h2>
-            <h2>"한 발 앞선 IT 개발로 비즈니스 혁신을 선도합니다"</h2>
-            
-			<div class="video-container">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/I8MbDbxxmOs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-        </section>
-    </main>
-	<!-- 하단 -->
-	<jsp:include page="/WEB-INF/jsp/footer.jsp"></jsp:include>
+<body class="sub-page">
+<!-- 상단 -->
+<jsp:include page="/WEB-INF/jsp/header.jsp"></jsp:include>
+	<!-- 서브 페이지 1-->
+	<div class="sub-page-content">
+		<h2 class="sub-page-title">About</h2>
+
+		<!-- 인사말 -->
+		<div class="sub-page1-area">
+		<!-- 슬로건 및 설명 -->
+			<h3 class="slogan">지속적인 혁신을 통해 세상의 변화를 이끈다.</h3>
+			<!-- 이미지와 CEO 인사말 내용 -->
+			<div class="ceo-message-content">
+				<p class="ceo-message-text">
+					소프트아이텍을 찾아주신 여러분께 감사드립니다. 우리는 AI, 빅데이터, 클라우드 컴퓨팅 등 혁신적인 기술을 통해 고객 맞춤형 디지털 서비스를 제공합니다.
+					<span>우리는 최신 기술을 활용하여 고객의 비즈니스 경쟁력을 강화하고, 디지털 전환을 선도하고 있습니다.</span>
+				</p>
+				<p class="ceo-message-thanks">감사합니다</p>
+			</div>	
+		</div>	
+		<!-- 미션  -->
+		<div class="mission-vision-core">
+			<div class="mission">
+				<h2>MISSION</h2>
+				<p>최고의 IT 솔루션을 통해 고객의 성공과 성장을 지원한다.</p>
+				<p class="sub-text">"Supporting clients' success and growth through top-tier IT solutions."</p>
+			</div>
+			<div class="divider"></div> <!-- 그레이 바 -->
+			<div class="vision">
+				<h2>VISION</h2>
+				<p>디지털 혁신을 선도하며, 신뢰받는 IT 파트너.</p>
+				<p class="sub-text">"Leading digital innovation and becoming a trusted IT partner."</p>
+			</div>
+			<div class="core-value-section">
+				<h2 class="core-value-title">CORE VALUE</h2>
+				<div class="core-values-items">
+					<div class="core-value-box">
+						<img src="/img/ico_com1.png" alt="고객중심 아이콘">
+						<h3>고객중심</h3>
+						<p class="core-value-subtitle">Customer-centric</p>
+						<p>고객의 요구를 최우선으로 고려하며 최적의 솔루션을 제공합니다.</p>
+					</div>
+					<div class="core-value-box">
+						<img src="/img/ico_com2.png" alt="균형사고 아이콘">
+						<h3>책임감</h3>
+						<p class="core-value-subtitle">Responsibility</p>
+						<p>우리는 맡은 일에 책임감을 가지고 신뢰할 수 있는 서비스를 제공합니다.</p>
+					</div>
+					<div class="core-value-box">
+						<img src="/img/ico_com3.png" alt="협업중시 아이콘">
+						<h3>협업</h3>
+						<p class="core-value-subtitle">Collaboration</p>
+						<p>효율적인 협업을 통해 최상의 결과를 창출합니다.</p>
+					</div>
+					<div class="core-value-box">
+						<img src="/img/ico_com4.png" alt="지속학습 아이콘">
+						<h3>지속적인 발전</h3>
+						<p class="core-value-subtitle">Continuous Improvement</p>
+						<p>지속적인 학습과 혁신을 통해 더욱 나은 서비스를 제공합니다.</p>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<!-- // 미션  -->
+
+
+	</div>
+	<!--// 서브 전체내용 1 -->
+<!-- 하단 -->
+<jsp:include page="/WEB-INF/jsp/footer.jsp"></jsp:include>
 </body>
 </html>
