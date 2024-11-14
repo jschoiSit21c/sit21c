@@ -34,7 +34,7 @@
 				<li class="menu-item">
 					<a href="#section3">RECRUIT</a>
 					<div class="submenu">
-						<a href="#recruit-info">채용정보</a>
+						<a href="/recruit/recruitmentMain">채용정보</a>
 						<a href="#hr-system">인사제도</a>
 						<a href="#welfare">복지현황</a>
 					</div>
