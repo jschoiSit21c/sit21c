@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=1280">
-<title>소프트아이텍 - 채용정보</title>
+<title>소프트아이텍 - 인재상</title>
 </head>
 <body class="sub-page">
 <!-- 상단 -->
