@@ -33,7 +33,7 @@
         <section class="consult-section">
             <div class="consult-row">
                 <div class="consult-item">
-                    <img src="../img/emp_img01.png" alt="" class="infra-image">
+                    <img src="../img/emp_img01.png" alt="" class="employ-image">
                 </div>
             </div>
         </section>
