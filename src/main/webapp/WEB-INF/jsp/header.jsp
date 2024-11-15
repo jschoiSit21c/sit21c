@@ -26,17 +26,16 @@
 				<li class="menu-item">
 					<a href="#section2">BUSINESS</a>
 					<div class="submenu">
-						<a href="#public-service">공공디지털서비스</a>
-						<a href="#ict-infra">ICT인프라서비스</a>
-						<a href="#it-consulting">IT컨설팅서비스</a>
+						<a href="/business/publicDigitalService">공공디지털서비스</a>
+						<a href="/business/ictInfraService">ICT인프라서비스</a>
+						<a href="/business/itConsultingService">IT컨설팅서비스</a>
 					</div>
 				</li>
 				<li class="menu-item">
 					<a href="#section3">RECRUIT</a>
 					<div class="submenu">
 						<a href="/recruit/recruitmentMain">채용정보</a>
-						<a href="#hr-system">인사제도</a>
-						<a href="#welfare">복지현황</a>
+						<a href="/recruit/talent">인재상</a>
 					</div>
 				</li>
 				<li class="menu-item">
@@ -79,17 +78,16 @@
 				<li class="menu-item">
 					<a href="#section2">BUSINESS</a>
 					<div class="submenu">
-						<a href="#public-service">공공디지털서비스</a>
-						<a href="#ict-infra">ICT인프라서비스</a>
-						<a href="#it-consulting">IT컨설팅서비스</a>
+						<a href="/business/publicDigitalService">공공디지털서비스</a>
+						<a href="/business/ictInfraService">ICT인프라서비스</a>
+						<a href="/business/itConsultingService">IT컨설팅서비스</a>
 					</div>
 				</li>
 				<li class="menu-item">
 					<a href="#section3">RECRUIT</a>
 					<div class="submenu">
-						<a href="#recruit-info">채용정보</a>
-						<a href="#hr-system">인사제도</a>
-						<a href="#welfare">복지현황</a>
+						<a href="/recruit/recruitmentMain">채용정보</a>
+						<a href="/recruit/talent">인재상</a>
 					</div>
 				</li>
 				<li class="menu-item">
@@ -128,17 +126,16 @@
 			<div class="menu-section">
 				<h2>BUSINESS</h2>
 				<ul>
-					<li><a href="#public-digital">공공디지털서비스</a></li>
-					<li><a href="#ict-infrastructure">ICT인프라서비스</a></li>
-					<li><a href="#it-consulting">IT컨설팅서비스</a></li>
+					<li><a href="/business/publicDigitalService">공공디지털서비스</a></li>
+					<li><a href="/business/ictInfraService">ICT인프라서비스</a></li>
+					<li><a href="/business/itConsultingService">IT컨설팅서비스</a></li>
 				</ul>
 			</div>
 			<div class="menu-section">
 				<h2>RECRUIT</h2>
 				<ul>
-					<li><a href="#jobs">채용정보</a></li>
-					<li><a href="#hr-policy">인사제도</a></li>
-					<li><a href="#benefits">복지현황</a></li>
+					<li><a href="/recruit/recruitmentMain">채용정보</a></li>
+					<li><a href="/recruit/talent">인재상</a></li>
 				</ul>
 			</div>
 			<div class="menu-section">

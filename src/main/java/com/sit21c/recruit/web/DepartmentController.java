@@ -18,8 +18,14 @@ public class DepartmentController {
 
     @RequestMapping("/recruit/recruitmentMain")
     public String showRecruitmentPage(Model model) {
-        List<DepartmentVo> departments = departmentService.getAllDepartments();
-        model.addAttribute("departments", departments);
         return "/recruit/recruitmentMain";
+    }
+    
+    //기존거 백업함 - 다 쓰고 삭제 요.
+    @RequestMapping("/recruit/recruitmentMainOld")
+    public String showRecruitmentPageOld(Model model) {
+    	List<DepartmentVo> departments = departmentService.getAllDepartments();
+    	model.addAttribute("departments", departments);
+    	return "/recruit/recruitmentMainOld";
     }
 }

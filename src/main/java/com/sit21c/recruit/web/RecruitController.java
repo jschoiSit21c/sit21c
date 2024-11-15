@@ -199,4 +199,14 @@ public class RecruitController {
 		
 		return "<script>alert('제출에 성공하였습니다.'); location.href='/recruit/recruinmentPost';</script>";
 	}
+	
+	/**
+	 * 인재상 화면 호출
+	 * @param map
+	 * @return
+	 */
+	@RequestMapping("/recruit/talent")
+	public String openTalent(@RequestParam Map<String, Object> map) {
+		return "/recruit/talent";
+	}
 }
