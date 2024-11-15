@@ -282,7 +282,7 @@
     <section class="hero">
         <div class="bg">
             <video width="100%" preload="none" loop="" muted="" playsinline="" autoplay="">
-                <source src="/img/recruit/sitMainRow.mp4" type="video/mp4">
+                <source src="/static/img/recruit/sitMainRow.mp4" type="video/mp4">
             </video>
         </div>
         <div class="overlay"></div>
@@ -327,7 +327,7 @@
     <section id="about" class="about">
         <div class="container about-content">
             <div class="about-image">
-                <img src="/img/recruit/officeView.png" alt="FutureWorks 사무실">
+                <img src="/static/img/recruit/officeView.png" alt="FutureWorks 사무실">
             </div>
             <div class="about-text">
                 <h2>SoftITech 소개</h2>
