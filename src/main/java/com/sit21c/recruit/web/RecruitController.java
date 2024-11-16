@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.sit21c.common.service.CommonService;
 import com.sit21c.common.vo.AttchFileVo;
 import com.sit21c.recruit.service.RecruitService;
 import com.sit21c.recruit.vo.JobPostingVo;
@@ -37,6 +38,9 @@ public class RecruitController {
 	
 	@Autowired
 	private RecruitService recruitService;
+	
+	@Autowired
+	private CommonService commonService;
 	
 	//recruits관련 컨트롤러
 	
@@ -79,6 +83,9 @@ public class RecruitController {
 	 */
 	@RequestMapping("/recruit/recruitmentWrite")
 	public String showRecruitmentWritePage(Model model) {
+		model.addAttribute("jobCategory", commonService.selectComCode("job_category")); //업무분야코드
+		model.addAttribute("recruitStatus", commonService.selectComCode("recruit_status")); //채용공고상태
+		model.addAttribute("recruitType", commonService.selectComCode("recruit_type")); //채용형태
 		return "/recruit/recruitmentWrite";
 	}
 	

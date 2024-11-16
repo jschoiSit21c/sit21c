@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sit21c.common.mapper.CommonMapper">
+	<select id="selectComCode" parameterType="String" resultType="com.sit21c.common.vo.ComCodeVo">
+		/*공통코드 조회*/
+		SELECT CODE_NO
+			 , CODE_TYPE
+			 , CODE_NAME
+			 , CODE_VALUE
+		FROM TB_COM_CODE
+		WHERE 1=1
+		AND   CODE_TYPE = #{code}
+	</select>
+</mapper>

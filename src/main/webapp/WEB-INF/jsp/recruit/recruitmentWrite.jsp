@@ -31,20 +31,44 @@
 					<label for="content">내용</label>
 					<textarea id="content" name="content"></textarea>
 				</div>
+				<!-- 업무분야 -->
+				<div class="form-group">
+					<label for="field">업무분야</label>
+					<select id="field" name="recruitJobCategoryCode" class="form-control" required>
+						<c:forEach items="${jobCategory}" var="item">
+							<option value="${item.codeNo}">${item.codeValue}</option>
+						</c:forEach>
+					</select>
+				</div>
+				<!-- 채용공고상태 -->
+				<div class="form-group">
+					<label for="field">채용공고상태</label>
+					<select id="field" name="recruitStatusCode" class="form-control" required>
+						<c:forEach items="${recruitStatus}" var="item">
+							<option value="${item.codeNo}" ${item.codeNo == '0002' ? 'selected' : ''}>${item.codeValue}</option>
+						</c:forEach>
+					</select>
+				</div>
+				<!-- 채용형태 -->
+				<div class="form-group">
+					<label for="field">채용형태</label>
+					<select id="field" name="recruit_type_code" class="form-control" required>
+						<c:forEach items="${recruitType}" var="item">
+							<option value="${item.codeNo}">${item.codeValue}</option>
+						</c:forEach>
+					</select>
+				</div>
 				<!-- 게시 기간 -->
 				<div class="form-group">
 					<label for="posting-period">게시기간</label>
 					<input type="date" id="start-date" name="startDate" required> ~ 
 					<input type="date" id="end-date" name="endDate" required>
 				</div>
-				<!-- 업무분야 -->
+				
+				<!-- 제목 -->
 				<div class="form-group">
-					<label for="field">업무분야</label>
-					<select id="field" name="field" class="form-control" required>
-						<option value="개발">개발</option>
-						<option value="디자인">디자인</option>
-						<option value="기획">기획</option>
-					</select>
+					<label for="title">외부링크(사람인)</label>
+					<input type="text" name="recruitExternalUrl" class="form-control">
 				</div>
 				<!-- 버튼 -->
 				<div class="form-buttons">
