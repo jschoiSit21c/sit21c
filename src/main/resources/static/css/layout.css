@@ -391,30 +391,35 @@ textarea { height: 100px; resize: none; }
 .pagination a:hover {	background-color: #1471e7;	color: white; }
 
 /* 채용정보 상세 페이지 */
-.job-detail-page .sub-page-title { font-size: 36px; font-weight: 600; color: #262932; margin-bottom: 30px; text-align: center; } 
-.job-detail-page .job-detail-section { background-color: #f9f9f9; border: 1px solid #ddd; padding: 30px; border-radius: 8px; margin-bottom: 40px; width: 90%; margin-left: auto; margin-right: auto; } 
-.job-detail-page .job-title { font-size: 24px; font-weight: bold; color: #333; margin-bottom: 15px; } 
-.job-detail-page .job-summary { font-size: 16px; color: #666; line-height: 1.6; } 
-.job-detail-page .job-detail-row { margin-bottom: 25px; } 
-.job-detail-page .job-detail-row h4 { font-size: 18px; font-weight: bold; color: #105cbf; margin-bottom: 10px; } 
-.job-detail-page .job-detail-row p { font-size: 16px; color: #333; line-height: 1.6; } 
-.job-detail-page .job-application-section { width: 90%; margin: 0 auto; padding: 30px; border: 1px solid #ddd; border-radius: 8px; background-color: #fcfcfc; } 
-.job-detail-page .job-application-section h3 { font-size: 20px; font-weight: bold; margin-bottom: 20px; color: #262932; text-align: left; }
+.job-detail-page .sub-page-title { font-size: 36px; font-weight: 600; color: #262932; margin-bottom: 30px; text-align: center; } /* 서브페이지 제목 스타일 */
+.job-detail-page .job-detail-section { background-color: #f9f9f9; border: 1px solid #ddd; padding: 30px; border-radius: 8px; margin-bottom: 40px; width: 90%; margin-left: auto; margin-right: auto; } /* 채용 공고 상세 섹션 */
+.job-detail-page .job-title { font-size: 24px; font-weight: bold; color: #333; margin-bottom: 15px; } /* 공고 제목 스타일 */
+/* 공고 내용 부분의 CSS 제거로 .job-summary와 .job-detail-row 관련 스타일 삭제 */
+.job-detail-page .job-application-section { width: 90%; margin: 0 auto; padding: 30px; border: 1px solid #ddd; border-radius: 8px; background-color: #fcfcfc; } /* 지원하기 폼 섹션 */
+.job-detail-page .job-application-section h3 { font-size: 20px; font-weight: bold; margin-bottom: 20px; color: #262932; text-align: left; } /* 지원하기 제목 */
 
-/* 지원하기 폼 스타일 */
-.job-detail-page .job-application-section { width: 90% !important; margin: 0 auto !important; padding: 20px !important; border: 1px solid #ddd !important; background-color: #fcfcfc !important; border-radius: 8px !important; } 
-.job-detail-page .job-application-section .form-row { display: flex !important; flex-wrap: wrap !important; align-items: flex-start !important; gap: 8px !important; margin-bottom: 10px !important; } 
-.job-detail-page .job-application-section .form-row input { width: calc(100% - 10px) !important; padding: 10px !important; border: 1px solid #ccc !important; border-radius: 4px !important; background-color: #f9f9f9 !important; } 
-.job-detail-page .job-application-section .form-buttons { display: flex !important; justify-content: flex-end !important; gap: 10px !important; margin-top: 20px !important; } 
-.job-detail-page .job-application-section .form-cancel { background-color: #f3f3f3 !important; color: #333 !important; border: none !important; padding: 10px 20px !important; border-radius: 4px !important; cursor: pointer !important; } 
-.job-detail-page .job-application-section .form-submit { background-color: #105cbf !important; color: #fff !important; border: none !important; padding: 10px 20px !important; border-radius: 4px !important; cursor: pointer !important; } 
-.job-detail-page .job-application-section .form-submit:hover { background-color: #1471e7 !important; }
-/* 지원하기 섹션과 푸터 사이 여백 추가 */
-.job-detail-page .job-application-section { margin-bottom: 50px !important; } 
+.job-detail-page .job-application-section .form-row { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 8px; margin-bottom: 10px; } /* 지원 폼 행 스타일 */
+.job-detail-page .job-application-section .form-row input { width: calc(100% - 10px); padding: 10px; border: 1px solid #ccc; border-radius: 4px; background-color: #f9f9f9; } /* 입력 필드 */
+.job-detail-page .job-application-section .form-buttons { display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px; } /* 버튼 컨테이너 */
+.job-detail-page .job-application-section .form-cancel { background-color: #f3f3f3; color: #333; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; } /* 취소 버튼 */
+.job-detail-page .job-application-section .form-submit { background-color: #105cbf; color: #fff; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; } /* 제출 버튼 */
+.job-detail-page .job-application-section .form-submit:hover { background-color: #1471e7; } /* 제출 버튼 hover 효과 */
+
+.job-detail-page .job-application-section { margin-bottom: 50px; } /* 지원하기 섹션과 푸터 사이 여백 */
+.job-detail-page .job-admin-buttons { text-align: center; margin-top: 30px; padding: 20px 0; border-top: 1px solid #ddd; } /* 관리자 버튼 */
+.job-detail-page .job-admin-buttons .edit-button { padding: 10px 20px; font-size: 16px; background-color: #105cbf; color: #fff; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s ease; } /* 수정 버튼 */
+.job-detail-page .job-admin-buttons .edit-button:hover { background-color: #1471e7; } /* 수정 버튼 hover */
+
+
 /* 관리자 전용 수정 버튼 - job-detail-page 섹션 내 전용 스타일 */
 .job-detail-page .job-admin-buttons { text-align: center; margin-top: 30px; padding: 20px 0; border-top: 1px solid #ddd; }
 .job-detail-page .job-admin-buttons .edit-button { padding: 10px 20px; font-size: 16px; background-color: #105cbf; color: #fff; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s ease; }
 .job-detail-page .job-admin-buttons .edit-button:hover { background-color: #1471e7; }
+
+.job-detail-page .back-button-container { margin-top: 30px; text-align: center; } /* 뒤로가기 버튼 컨테이너 */
+.job-detail-page .back-button { font-size: 14px; padding: 10px 20px; background-color: #105cbf; color: #fff; border: none; border-radius: 4px; cursor: pointer; transition: background-color 0.3s ease; } /* 뒤로가기 버튼 스타일 */
+.job-detail-page .back-button:hover { background-color: #1471e7; } /* 버튼 hover 효과 */
+
 
 /*로그인 페이지 css*/
 #login { display: flex; justify-content: center; align-items: center; min-height: calc(100vh - 200px); background-color: #f4f4f9; padding: 20px; box-sizing: border-box; } /* 로그인 섹션 전체 스타일 */
@@ -427,3 +432,18 @@ textarea { height: 100px; resize: none; }
 #login .form-group input:focus { border-color: #105cbf; box-shadow: 0 0 4px rgba(16, 92, 191, 0.5); outline: none; } /* 입력 필드 포커스 상태 */
 #login .btn-login { padding: 10px; background-color: #105cbf; color: #fff; border: none; border-radius: 4px; font-size: 16px; font-weight: bold; cursor: pointer; transition: background-color 0.3s ease; } /* 로그인 버튼 스타일 */
 #login .btn-login:hover { background-color: #1471e7; } /* 로그인 버튼 hover 상태 */
+
+
+/* 채용공고 작성 페이지 스타일 */
+#recruitment-form { width: 80%; margin: 20px auto; padding: 20px; border: 1px solid #ddd; background-color: #fff; border-radius: 8px; margin-bottom: 60px; }
+#recruitment-form .form-group { margin-bottom: 20px; }
+#recruitment-form .form-group label { display: block; font-weight: bold; margin-bottom: 5px; }
+#recruitment-form .form-group input, 
+#recruitment-form .form-group select, 
+#recruitment-form .form-group textarea { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+#recruitment-form .form-buttons { text-align: center; }
+#recruitment-form .form-buttons .btn-submit { padding: 10px 20px; font-size: 16px; background-color: #105cbf; color: #fff; border: none; border-radius: 4px; cursor: pointer; }
+#recruitment-form .form-buttons .btn-submit:hover { background-color: #1471e7; }
+
+/* 제목 스타일 조정 */
+.sub-page-title { font-size: 28px; font-weight: 500; margin-bottom: 20px; text-align: center; color: #333; }

@@ -60,15 +60,10 @@
 					<label for="phone">전화번호*</label>
 					<input type="tel" id="phone" name="phone" placeholder="010-1234-5678" required>
 				</div>
-				<!-- 이력서 -->
+				<!-- 이력서 및 포트폴리오 -->
 				<div class="form-row">
 					<label for="resume">이력서*</label>
 					<input type="file" id="resume" name="resume" required>
-				</div>
-				<!-- 포트폴리오 -->
-				<div class="form-row">
-					<label for="portfolio">포트폴리오</label>
-					<input type="file" id="portfolio" name="portfolio">
 				</div>
 				<!-- 개인정보 동의 -->
 				<div class="privacy-agree">
@@ -77,14 +72,20 @@
 				</div>
 				<!-- 버튼 -->
 				<div class="form-buttons">
-					<button type="button" class="form-cancel">취소</button>
 					<button type="submit" class="form-submit">지원하기</button>
 				</div>
 			</form>
 		</section>
-		<div class="job-admin-buttons">
-			<button type="button" onclick="location.href='/job/edit/1'" class="edit-button">공고 수정</button>
+		<!-- 뒤로가기 버튼 -->
+		<div class="back-button-container">
+			<button class="back-button" onclick="location.href='/recruit/recruitmentMain'">목록</button>
 		</div>
+		<security:authorize access="hasRole('SA')">
+			<!-- 관리자만 수정 가능하게끔 -->
+			<div class="job-admin-buttons">
+				<button type="button" onclick="location.href='/job/edit/1'" class="edit-button">공고 수정</button>
+			</div>
+		</security:authorize>
 	</div>
 
 	<!--// 서브 전체내용 1 -->

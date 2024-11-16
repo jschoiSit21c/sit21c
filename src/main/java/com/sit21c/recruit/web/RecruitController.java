@@ -72,6 +72,16 @@ public class RecruitController {
 		return "/recruit/recruitmentDetail";
 	}
 	
+	/**
+	 * 채용공고 작성 화면 호출
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping("/recruit/recruitmentWrite")
+	public String showRecruitmentWritePage(Model model) {
+		return "/recruit/recruitmentWrite";
+	}
+	
 	
 //	/**
 //	 * 직무 채용정보

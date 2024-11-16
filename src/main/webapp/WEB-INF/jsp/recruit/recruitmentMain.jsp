@@ -62,19 +62,19 @@
 					</tbody>
 				</table>
 		
-				<!-- 페이징 영역 -->
-				<div class="pagination">
-					<a href="#">&laquo;</a>
-					<a href="#" class="active">1</a>
-					<a href="#">2</a>
-					<a href="#">3</a>
-					<a href="#">4</a>
-					<a href="#">5</a>
-					<a href="#">&raquo;</a>
-				</div>
+				<!-- 페이징 영역 필요없을거 같아서 뺌-->
+<!-- 				<div class="pagination"> -->
+<!-- 					<a href="#">&laquo;</a> -->
+<!-- 					<a href="#" class="active">1</a> -->
+<!-- 					<a href="#">2</a> -->
+<!-- 					<a href="#">3</a> -->
+<!-- 					<a href="#">4</a> -->
+<!-- 					<a href="#">5</a> -->
+<!-- 					<a href="#">&raquo;</a> -->
+<!-- 				</div> -->
 				<security:authorize access="hasRole('SA')">
 					<!-- 글쓰기 버튼, 관리자 로그인시에만 보임 -->
-					<button class="write-button" onclick="location.href='/jobWrite'">글쓰기</button>
+					<button class="write-button" onclick="location.href='/recruit/recruitmentWrite'">글쓰기</button>
 				</security:authorize>
 			</div>
 		</section>
