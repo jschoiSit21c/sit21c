@@ -52,154 +52,164 @@ public class RecruitController {
 	}
 	
 	/**
-	 * 채용정보 & (채용신청서 작성)화면 호출
+	 * 채용정보 화면 호출
 	 * @param map
 	 * @return
 	 */
-	/*
-	 * @RequestMapping("/recruit/recruitmentMain") public String
-	 * recruitmentMain(@RequestParam Map<String, Object> map) {
-	 * System.out.println("recruitmentMain 호출"); return "/recruit/recruitmentMain";
-	 * }
-	 */
-	
-	/**
-	 * 직무 채용정보
-	 * @param map
-	 * @return
-	 */
-	@RequestMapping(value = "/recruit/recruitmentPost", method = RequestMethod.GET, produces = "text/html;charset=UTF-8")
-	public String showRecruitmentPost(@RequestParam("departmentId") String departmentId,
-            @RequestParam(value = "page", defaultValue = "1") int page, Model model) {
-		int pageSize = 9; // 한 페이지에 표시할 공고 수
-		List<JobPostingVo> jobPostings = recruitService.getJobPostingsByDepartmentId(departmentId, page, pageSize);
-		String departmentName = recruitService.getDepartmentNameById(departmentId);
-		
-		int totalPostings = recruitService.getTotalJobPostingsCount(departmentId);
-		int totalPages = (int) Math.ceil((double) totalPostings / pageSize);
-		
-		model.addAttribute("jobPostings", jobPostings);
-		model.addAttribute("departmentId", departmentId);
-		model.addAttribute("departmentName", departmentName);
-		model.addAttribute("currentPage", page);
-		model.addAttribute("totalPages", totalPages);
-		
-		return "/recruit/recruitmentPost";
-	}
-	
-	@ResponseBody
-    @RequestMapping(value = "/recruit/api/jobs", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
-    public ResponseEntity<Map<String, Object>> getJobListings(
-            @RequestParam("departmentId") String departmentId,
-            @RequestParam(value = "page", defaultValue = "1") int page) {
-        
-        int pageSize = 9; // 한 페이지에 표시할 공고 수
-        List<JobPostingVo> jobPostings = recruitService.getJobPostingsByDepartmentId(departmentId, page, pageSize);
-        int totalPostings = recruitService.getTotalJobPostingsCount(departmentId);
-        int totalPages = (int) Math.ceil((double) totalPostings / pageSize);
-
-        Map<String, Object> response = new HashMap<>();
-        response.put("jobPostings", jobPostings);
-        response.put("currentPage", page);
-        response.put("totalPages", totalPages);
-
-        return ResponseEntity.ok(response);
-    }
-
-    @ResponseBody
-    @RequestMapping(value = "/recruit/api/job/{jobId}", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
-    public ResponseEntity<JobPostingVo> getJobDetails(@PathVariable("jobId") String jobId) {
-        JobPostingVo jobPosting = recruitService.getJobPostingById(jobId);
-        if (jobPosting != null) {
-            return ResponseEntity.ok(jobPosting);
-        } else {
-            return ResponseEntity.notFound().build();
-        }
-    }
-	
-	/**
-	 * 인사제도 화면 호출
-	 * @param map
-	 * @return
-	 */
-	@RequestMapping("/recruit/personnelSystem")
-	public String personnelSystem(@RequestParam Map<String, Object> map) {
-		System.out.println("personnelSystem 호출");
-		return "/recruit/personnelSystem";
-	}
-	
-	/**
-	 * 복지현황 화면 호출
-	 * @param map
-	 * @return
-	 */
-	@RequestMapping("/recruit/welfareStatus")
-	public String welfareStatus(@RequestParam Map<String, Object> map) {
-		System.out.println("welfareStatus 호출");
-		return "/recruit/welfareStatus";
-	}
-	
-	/**
-	 * 입사지원 화면(입사신청) 호출
-	 * @param map
-	 * @return
-	 */
-	@RequestMapping("/recruit/recruitmentApply")
-	public String openRecruitmentApply(@RequestParam Map<String, Object> map) {
-		return "/recruit/recruitmentApply";
+	@RequestMapping("/recruit/recruitmentMain")
+	public String showRecruitmentPage(Model model) {
+		return "/recruit/recruitmentMain";
 	}
 	
 	
 	/**
-	 * 입사지원서 제출
+	 * 채용정보 상세(채용신청서 제출) 화면 호출
+	 * @param model
 	 * @return
 	 */
-	@ResponseBody
-	@RequestMapping("/recruit/executeRecruitmentApply")
-	public String executeRecruitmentApply(@ModelAttribute RecruitmentApplyVo recruitmentApplyVo) {
-		try {
-			//첨부파일 처리
-			MultipartFile file = recruitmentApplyVo.getAttchFile();
-			
-			AttchFileVo attchFileVo = null;
-			if(file != null && !file.isEmpty()) {
-				
-				LocalDate today = LocalDate.now();
-				
-				DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
-				
-				String fmtToday = today.format(formatter);
-				
-				String uuid = UUID.randomUUID().toString();
-				
-				attchFileVo = new AttchFileVo();
-				attchFileVo.setFileName(uuid);
-				attchFileVo.setFileOrgName(file.getOriginalFilename());
-				attchFileVo.setFilePath(uploadDir + "/recruit/" + fmtToday);
-				attchFileVo.setFileSize(file.getSize());
-				attchFileVo.setFileType(file.getContentType());
-				//디렉토리 생성
-				File directory = new File(uploadDir + "/recruit/");
-				
-				if(!directory.exists()) {
-					directory.mkdir();
-				}
-				
-				Path path = Paths.get(attchFileVo.getFilePath() + attchFileVo.getFileName());
-				//파일 저장
-				file.transferTo(new File(path.toUri()));
-			}
-			
-			recruitService.executeRecruitmentApply(recruitmentApplyVo, attchFileVo);
-			
-		}catch(Exception e) {
-			e.printStackTrace();
-			return "<script>alert('제출에 실패하였습니다.'); history.back();</script>";
-		}
-		
-		return "<script>alert('제출에 성공하였습니다.'); location.href='/recruit/recruinmentPost';</script>";
+	@RequestMapping("/recruit/recruitmentDetail")
+	public String showRecruitmentDetailPage(Model model) {
+		return "/recruit/recruitmentDetail";
 	}
 	
+	
+//	/**
+//	 * 직무 채용정보
+//	 * @param map
+//	 * @return
+//	 */
+//	@RequestMapping(value = "/recruit/recruitmentPost", method = RequestMethod.GET, produces = "text/html;charset=UTF-8")
+//	public String showRecruitmentPost(@RequestParam("departmentId") String departmentId,
+//            @RequestParam(value = "page", defaultValue = "1") int page, Model model) {
+//		int pageSize = 9; // 한 페이지에 표시할 공고 수
+//		List<JobPostingVo> jobPostings = recruitService.getJobPostingsByDepartmentId(departmentId, page, pageSize);
+//		String departmentName = recruitService.getDepartmentNameById(departmentId);
+//		
+//		int totalPostings = recruitService.getTotalJobPostingsCount(departmentId);
+//		int totalPages = (int) Math.ceil((double) totalPostings / pageSize);
+//		
+//		model.addAttribute("jobPostings", jobPostings);
+//		model.addAttribute("departmentId", departmentId);
+//		model.addAttribute("departmentName", departmentName);
+//		model.addAttribute("currentPage", page);
+//		model.addAttribute("totalPages", totalPages);
+//		
+//		return "/recruit/recruitmentPost";
+//	}
+//	
+//	@ResponseBody
+//    @RequestMapping(value = "/recruit/api/jobs", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
+//    public ResponseEntity<Map<String, Object>> getJobListings(
+//            @RequestParam("departmentId") String departmentId,
+//            @RequestParam(value = "page", defaultValue = "1") int page) {
+//        
+//        int pageSize = 9; // 한 페이지에 표시할 공고 수
+//        List<JobPostingVo> jobPostings = recruitService.getJobPostingsByDepartmentId(departmentId, page, pageSize);
+//        int totalPostings = recruitService.getTotalJobPostingsCount(departmentId);
+//        int totalPages = (int) Math.ceil((double) totalPostings / pageSize);
+//
+//        Map<String, Object> response = new HashMap<>();
+//        response.put("jobPostings", jobPostings);
+//        response.put("currentPage", page);
+//        response.put("totalPages", totalPages);
+//
+//        return ResponseEntity.ok(response);
+//    }
+//
+//    @ResponseBody
+//    @RequestMapping(value = "/recruit/api/job/{jobId}", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
+//    public ResponseEntity<JobPostingVo> getJobDetails(@PathVariable("jobId") String jobId) {
+//        JobPostingVo jobPosting = recruitService.getJobPostingById(jobId);
+//        if (jobPosting != null) {
+//            return ResponseEntity.ok(jobPosting);
+//        } else {
+//            return ResponseEntity.notFound().build();
+//        }
+//    }
+//	
+//	/**
+//	 * 인사제도 화면 호출
+//	 * @param map
+//	 * @return
+//	 */
+//	@RequestMapping("/recruit/personnelSystem")
+//	public String personnelSystem(@RequestParam Map<String, Object> map) {
+//		System.out.println("personnelSystem 호출");
+//		return "/recruit/personnelSystem";
+//	}
+//	
+//	/**
+//	 * 복지현황 화면 호출
+//	 * @param map
+//	 * @return
+//	 */
+//	@RequestMapping("/recruit/welfareStatus")
+//	public String welfareStatus(@RequestParam Map<String, Object> map) {
+//		System.out.println("welfareStatus 호출");
+//		return "/recruit/welfareStatus";
+//	}
+//	
+//	/**
+//	 * 입사지원 화면(입사신청) 호출
+//	 * @param map
+//	 * @return
+//	 */
+//	@RequestMapping("/recruit/recruitmentApply")
+//	public String openRecruitmentApply(@RequestParam Map<String, Object> map) {
+//		return "/recruit/recruitmentApply";
+//	}
+//	
+//	
+//	/**
+//	 * 입사지원서 제출
+//	 * @return
+//	 */
+//	@ResponseBody
+//	@RequestMapping("/recruit/executeRecruitmentApply")
+//	public String executeRecruitmentApply(@ModelAttribute RecruitmentApplyVo recruitmentApplyVo) {
+//		try {
+//			//첨부파일 처리
+//			MultipartFile file = recruitmentApplyVo.getAttchFile();
+//			
+//			AttchFileVo attchFileVo = null;
+//			if(file != null && !file.isEmpty()) {
+//				
+//				LocalDate today = LocalDate.now();
+//				
+//				DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
+//				
+//				String fmtToday = today.format(formatter);
+//				
+//				String uuid = UUID.randomUUID().toString();
+//				
+//				attchFileVo = new AttchFileVo();
+//				attchFileVo.setFileName(uuid);
+//				attchFileVo.setFileOrgName(file.getOriginalFilename());
+//				attchFileVo.setFilePath(uploadDir + "/recruit/" + fmtToday);
+//				attchFileVo.setFileSize(file.getSize());
+//				attchFileVo.setFileType(file.getContentType());
+//				//디렉토리 생성
+//				File directory = new File(uploadDir + "/recruit/");
+//				
+//				if(!directory.exists()) {
+//					directory.mkdir();
+//				}
+//				
+//				Path path = Paths.get(attchFileVo.getFilePath() + attchFileVo.getFileName());
+//				//파일 저장
+//				file.transferTo(new File(path.toUri()));
+//			}
+//			
+//			recruitService.executeRecruitmentApply(recruitmentApplyVo, attchFileVo);
+//			
+//		}catch(Exception e) {
+//			e.printStackTrace();
+//			return "<script>alert('제출에 실패하였습니다.'); history.back();</script>";
+//		}
+//		
+//		return "<script>alert('제출에 성공하였습니다.'); location.href='/recruit/recruinmentPost';</script>";
+//	}
+//	
 	/**
 	 * 인재상 화면 호출
 	 * @param map

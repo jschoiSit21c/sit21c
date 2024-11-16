@@ -6,6 +6,9 @@
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/layout.css">
     <script src="/js/script.js" defer></script>
+    
+    <!-- jQuery 3.6.4 CDN -->
+	<script src="https://code.jquery.com/jquery-3.6.4.min.js" crossorigin="anonymous"></script>
     <c:choose>
     	<c:when test="${fn:contains(pageContext.request.requestURL, 'index.jsp')}">
         <!-- index Header -->
@@ -149,5 +152,20 @@
 				</ul>
 			</div>
 		</div>
+		<!-- 로그인/로그아웃 섹션 -->
+		<!-- 로그인/로그아웃 섹션 -->
+		<div class="login-logout-section">
+			<c:choose>
+				<c:when test="${sessionScope.loginInfo != null}">
+					<p>${sessionScope.loginInfo.name}님, 환영합니다.</p>
+					<a href="/login/executeLogout">로그아웃</a>
+				</c:when>
+				<c:otherwise>
+					<p>관리자기능</p>
+					<a href="/login/loginForm">로그인</a>
+				</c:otherwise>
+			</c:choose>
+		</div>
+		<!-- //로그인/로그아웃 섹션 -->
 	</div>
 	<!-- //전체 화면 메뉴 -->

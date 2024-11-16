@@ -15,11 +15,6 @@ public class DepartmentController {
 
     @Autowired
     private DepartmentService departmentService;
-
-    @RequestMapping("/recruit/recruitmentMain")
-    public String showRecruitmentPage(Model model) {
-        return "/recruit/recruitmentMain";
-    }
     
     //기존거 백업함 - 다 쓰고 삭제 요.
     @RequestMapping("/recruit/recruitmentMainOld")
