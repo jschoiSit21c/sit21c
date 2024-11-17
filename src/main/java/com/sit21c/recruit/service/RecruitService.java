@@ -7,6 +7,7 @@ import com.sit21c.common.CamelCaseMap;
 import com.sit21c.common.vo.AttchFileVo;
 import com.sit21c.recruit.vo.JobPostingVo;
 import com.sit21c.recruit.vo.RecruitmentApplyVo;
+import com.sit21c.recruit.vo.RecruitmentVo;
 
 public interface RecruitService {
 	
@@ -27,4 +28,11 @@ public interface RecruitService {
 	public int getTotalJobPostingsCount(String departmentId);
 	
 	public JobPostingVo getJobPostingById(String jobId);
+	
+	/**
+	 * 채용공고 저장
+	 * @param recruitmentVo
+	 * @return
+	 */
+	public int saveRecruitment(RecruitmentVo recruitmentVo) throws Exception;
 }

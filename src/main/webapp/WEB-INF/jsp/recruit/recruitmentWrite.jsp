@@ -20,39 +20,30 @@
 	<div class="sub-page-content">
 		<h2 class="sub-page-title">채용공고 작성</h2>
 		<section id="recruitment-form">
-			<form action="/recruit/saveRecruitment" method="post" class="recruitment-form">
+			<form id="recruitmentForm" method="post" class="recruitment-form" onsubmit="return false;">
 				<!-- 제목 -->
 				<div class="form-group">
 					<label for="title">제목</label>
-					<input type="text" id="title" name="title" class="form-control" required>
+					<input type="text" id="recruitTitle" name=recruitTitle class="form-control" required>
 				</div>
 				<!-- 내용 -->
 				<div class="form-group">
-					<label for="content">내용</label>
-					<textarea id="content" name="content"></textarea>
+					<label for="recruitContent">내용</label>
+					<textarea id="recruitContent" name="recruitContent"></textarea>
 				</div>
 				<!-- 업무분야 -->
 				<div class="form-group">
-					<label for="field">업무분야</label>
-					<select id="field" name="recruitJobCategoryCode" class="form-control" required>
+					<label for="recruitJobCategoryCode">업무분야</label>
+					<select id="recruitJobCategoryCode" name="recruitJobCategoryCode" class="form-control" required>
 						<c:forEach items="${jobCategory}" var="item">
 							<option value="${item.codeNo}">${item.codeValue}</option>
 						</c:forEach>
 					</select>
 				</div>
-				<!-- 채용공고상태 -->
-				<div class="form-group">
-					<label for="field">채용공고상태</label>
-					<select id="field" name="recruitStatusCode" class="form-control" required>
-						<c:forEach items="${recruitStatus}" var="item">
-							<option value="${item.codeNo}" ${item.codeNo == '0002' ? 'selected' : ''}>${item.codeValue}</option>
-						</c:forEach>
-					</select>
-				</div>
 				<!-- 채용형태 -->
 				<div class="form-group">
-					<label for="field">채용형태</label>
-					<select id="field" name="recruit_type_code" class="form-control" required>
+					<label for="recruitTypeCode">채용형태</label>
+					<select id="recruitTypeCode" name="recruitTypeCode" class="form-control" required>
 						<c:forEach items="${recruitType}" var="item">
 							<option value="${item.codeNo}">${item.codeValue}</option>
 						</c:forEach>
@@ -60,15 +51,15 @@
 				</div>
 				<!-- 게시 기간 -->
 				<div class="form-group">
-					<label for="posting-period">게시기간</label>
-					<input type="date" id="start-date" name="startDate" required> ~ 
-					<input type="date" id="end-date" name="endDate" required>
+					<label for="recruitStartTime">게시기간</label>
+					<input type="date" id="recruitStartTime" name="recruitStartTime" required> ~ 
+					<input type="date" id="recruitEndTime" name="recruitEndTime" required>
 				</div>
 				
 				<!-- 제목 -->
 				<div class="form-group">
-					<label for="title">외부링크(사람인)</label>
-					<input type="text" name="recruitExternalUrl" class="form-control">
+					<label for="recruitExternalUrl">외부링크(사람인)</label>
+					<input type="text" id="recruitExternalUrl" name="recruitExternalUrl" class="form-control">
 				</div>
 				<!-- 버튼 -->
 				<div class="form-buttons">
@@ -84,8 +75,37 @@
 	
 <script>
 	$(document).ready(function () {
-		$('#content').summernote({
+		//summernote 초기화
+		$('#recruitContent').summernote({
 			height: 300, // 기본 높이 300px
+		});
+		
+		$("#recruitmentForm").on("submit", function(e){
+			$.ajax({
+				url: "/recruit/saveRecruitment",
+				type: "POST",
+				dataType: "json",
+				contentType: "application/json",
+				data: JSON.stringify({
+					recruitTitle : $("#recruitTitle").val(),
+					recruitContent: $('#recruitContent').summernote('code'),
+					recruitJobCategoryCode : $("#recruitJobCategoryCode").val(),
+					recruitTypeCode : $("#recruitTypeCode").val(),
+					recruitStartTime : $("#recruitStartTime").val(),
+					recruitEndTime : $("#recruitEndTime").val(),
+					recruitExternalUrl : $("#recruitExternalUrl").val()
+				}),
+			}).done(data => {
+				if(data.isSuccess){
+					alert("채용 공고가 저장되었습니다.");	
+// 					location.href='/company/ceo';
+				}else{
+					alert("채용 공고 저장에 실패하였습니다.");	
+				}
+				
+			}).fail(data => {
+				alert("채용 공고 저장에 실패하였습니다.");
+			})
 		});
 	});
 </script>

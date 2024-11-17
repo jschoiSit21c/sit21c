@@ -73,4 +73,32 @@
 		)
 		
 	</insert>
+	
+	<!-- 채용공고 저장 -->
+	<insert id="saveRecruitment" parameterType="com.sit21c.recruit.vo.RecruitmentVo"  keyProperty="recruitId" useGeneratedKeys="true">
+		INSERT INTO TB_RECRUITMENT (RECRUIT_TITLE
+								  , RECRUIT_CONTENT
+								  , RECRUIT_JOB_CATEGORY_CODE
+								  , RECRUIT_AUTHOR
+								  , RECRUIT_CREATED_AT
+								  , RECRUIT_UPDATED_BY
+								  , RECRUIT_UPDATED_AT
+								  , RECRUIT_START_TIME
+								  , RECRUIT_END_TIME
+								  , RECRUIT_TYPE_CODE
+								  , RECRUIT_EXTERNAL_URL) 
+		VALUES(#{recruitTitle}
+			 , #{recruitContent}
+			 , #{recruitJobCategoryCode}
+			 , #{recruitAuthor}
+			 , NOW()
+			 , #{recruitAuthor}
+			 , NOW()
+			 , #{recruitStartTime}
+			 , #{recruitEndTime}
+			 , #{recruitTypeCode}
+			 , #{recruitExternalUrl})
+		RETURNING RECRUIT_ID
+
+	</insert>
 </mapper>

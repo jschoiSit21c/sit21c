@@ -11,6 +11,7 @@ import com.sit21c.common.vo.AttchFileVo;
 import com.sit21c.recruit.mapper.RecruitMapper;
 import com.sit21c.recruit.vo.JobPostingVo;
 import com.sit21c.recruit.vo.RecruitmentApplyVo;
+import com.sit21c.recruit.vo.RecruitmentVo;
 
 @Service("recruitService")
 public class RecruitServiceImpl implements RecruitService {
@@ -56,6 +57,14 @@ public class RecruitServiceImpl implements RecruitService {
     @Override
     public JobPostingVo getJobPostingById(String jobId) {
         return recruitMapper.findById(jobId);
+    }
+    
+    /**
+     * 채용공고 저장
+     */
+    @Override
+    public int saveRecruitment(RecruitmentVo recruitmentVo) throws Exception{
+    	return recruitMapper.saveRecruitment(recruitmentVo);
     }
 
 }

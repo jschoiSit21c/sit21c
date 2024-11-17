@@ -11,13 +11,18 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -26,9 +31,12 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.sit21c.common.service.CommonService;
 import com.sit21c.common.vo.AttchFileVo;
+import com.sit21c.common.vo.BoardVo;
+import com.sit21c.login.vo.LoginVo;
 import com.sit21c.recruit.service.RecruitService;
 import com.sit21c.recruit.vo.JobPostingVo;
 import com.sit21c.recruit.vo.RecruitmentApplyVo;
+import com.sit21c.recruit.vo.RecruitmentVo;
 
 @Controller
 public class RecruitController {
@@ -84,9 +92,36 @@ public class RecruitController {
 	@RequestMapping("/recruit/recruitmentWrite")
 	public String showRecruitmentWritePage(Model model) {
 		model.addAttribute("jobCategory", commonService.selectComCode("job_category")); //업무분야코드
-		model.addAttribute("recruitStatus", commonService.selectComCode("recruit_status")); //채용공고상태
 		model.addAttribute("recruitType", commonService.selectComCode("recruit_type")); //채용형태
 		return "/recruit/recruitmentWrite";
+	}
+	
+	//채용공고 저장
+	@SuppressWarnings("finally")
+	@ResponseBody
+	@PostMapping("/recruit/saveRecruitment")
+	public HashMap<String, Object> saveRecruitment(@RequestBody RecruitmentVo recruitmentVo, ModelMap model,HttpSession session){
+		HashMap<String, Object> successMap = new HashMap<>();
+		try {
+			if(recruitmentVo != null && session.getAttribute("loginInfo") != null) {
+				LoginVo loginInfo =  (LoginVo) session.getAttribute("loginInfo");
+				recruitmentVo.setRecruitAuthor(loginInfo.getId());
+				
+				int recruitId = recruitService.saveRecruitment(recruitmentVo);
+				
+				successMap.put("isSuccess", true);
+				successMap.put("recruitId", recruitmentVo.getRecruitId());
+			}else {
+				successMap.put("isSuccess", false);
+			}
+			
+		}catch(Exception e) {
+			successMap.put("isSuccess", false);
+		}finally {
+			return successMap;
+		}
+		
+		
 	}
 	
 	

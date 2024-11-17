@@ -15,7 +15,8 @@ public class SecurityConfig {
 		http
 			.csrf().disable() // CSRF 보호 비활성화
 			.authorizeRequests()
-				.antMatchers("/company/openWriteCeo", "/company/writeCeo")
+//				.antMatchers("/company/openWriteCeo", "/company/writeCeo") //기존내용이라 주석
+				.antMatchers("/recruit/recruitmentWrite")
 					.hasRole("SA")
 				.anyRequest()
 					.permitAll()

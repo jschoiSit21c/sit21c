@@ -10,6 +10,7 @@ import com.sit21c.common.CamelCaseMap;
 import com.sit21c.common.vo.AttchFileVo;
 import com.sit21c.recruit.vo.JobPostingVo;
 import com.sit21c.recruit.vo.RecruitmentApplyVo;
+import com.sit21c.recruit.vo.RecruitmentVo;
 
 @Mapper
 public interface RecruitMapper {
@@ -33,4 +34,11 @@ public interface RecruitMapper {
 	public String findDepartmentNameById(@Param("departmentId") String departmentId);
 	public int countByDepartmentId(@Param("departmentId") String departmentId);
 	public JobPostingVo findById(@Param("jobId") String jobId);
+	
+	/**
+	 * 채용공고 저장
+	 * @param recruitmentVo
+	 * @return
+	 */
+	public int saveRecruitment(RecruitmentVo recruitmentVo);
 }
