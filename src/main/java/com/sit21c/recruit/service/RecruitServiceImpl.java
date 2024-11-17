@@ -75,5 +75,13 @@ public class RecruitServiceImpl implements RecruitService {
     	// TODO Auto-generated method stub
     	return recruitMapper.selectRecruitmentList(recruitmentVo);
     }
+    
+    /**
+     * 채용공고 상세
+     */
+    @Override
+    public RecruitmentVo selectRecruitment(RecruitmentVo recruitmentVo) throws Exception {
+    	return recruitMapper.selectRecruitment(recruitmentVo);
+    }
 
 }

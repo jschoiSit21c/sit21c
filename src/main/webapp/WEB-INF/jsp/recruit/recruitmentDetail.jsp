@@ -19,27 +19,16 @@
 		<!-- 채용 공고 상세 정보 -->
 		<section class="job-detail-section">
 			<div class="job-detail-header">
-				<h1 class="job-title">Java 운영 경력 SM 인재 채용</h1>
-				<p class="job-summary">소프트아이텍의 내부 프로젝트를 이끌어갈 경력직을 찾습니다.</p>
+				<h1 class="job-title">${item.recruitTitle}</h1>
+				<p class="job-summary">소프트아이텍의 함께할 직원을 찾습니다.</p>
 			</div>
 			<div class="job-detail-info">
-				<div class="job-detail-row">
-					<h4>담당 업무</h4>
-					<p>- 당사 솔루션 도입 후 주요 고객사 시스템 유지 및 관리</p>
-				</div>
-				<div class="job-detail-row">
-					<h4>자격 요건</h4>
-					<p>- Java 경력 2년 이상 보유<br>- RESTful API 설계 및 개발 경험<br>- RDBMS 기반의 데이터 모델 설계 능력</p>
-				</div>
-				<div class="job-detail-row">
-					<h4>우대 사항</h4>
-					<p>- 대규모 웹 애플리케이션 개발 경험<br>- HTML, CSS, JavaScript 활용 가능<br>- 고객과의 원활한 커뮤니케이션</p>
-				</div>
-				<div class="job-detail-row">
-					<h4>근무지</h4>
-					<p>서울특별시 강남구</p>
-				</div>
+				${item.recruitContent}
+				<c:if test="${item.recruitExternalUrl != null}">
+					<a href="${item.recruitExternalUrl}" style="color: blue;" target="_blank">사람인으로 지원하기</a>
+				</c:if>
 			</div>
+			
 		</section>
 		
 		<section class="job-application-section">

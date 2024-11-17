@@ -43,4 +43,12 @@ public interface RecruitService {
 	 * @throws Exception
 	 */
 	public List<RecruitmentVo> selectRecruitmentList(RecruitmentVo recruitmentVo) throws Exception;
+	
+	/**
+	 * 채용공고 상세 조회
+	 * @param recruitmentVo
+	 * @return
+	 * @throws Exception
+	 */
+	public RecruitmentVo selectRecruitment(RecruitmentVo recruitmentVo) throws Exception;
 }

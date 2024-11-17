@@ -69,13 +69,12 @@ public class RecruitController {
 	 * @return
 	 */
 	@RequestMapping("/recruit/recruitmentMain")
-	public String showRecruitmentPage(Model model) {
-		RecruitmentVo recruitmentVo = new RecruitmentVo();
+	public String showRecruitmentPage(RecruitmentVo recruitmentVo, Model model) {
 		try {
 			model.addAttribute("list", recruitService.selectRecruitmentList(recruitmentVo));
 		} catch (Exception e) {
 			e.printStackTrace();
-		} //채용형태
+		} 
 		return "/recruit/recruitmentMain";
 	}
 	
@@ -86,7 +85,12 @@ public class RecruitController {
 	 * @return
 	 */
 	@RequestMapping("/recruit/recruitmentDetail")
-	public String showRecruitmentDetailPage(Model model) {
+	public String showRecruitmentDetailPage(RecruitmentVo recruitmentVo, Model model) {
+		try {
+			model.addAttribute("item", recruitService.selectRecruitment(recruitmentVo));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return "/recruit/recruitmentDetail";
 	}
 	

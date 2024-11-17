@@ -48,4 +48,10 @@ public interface RecruitMapper {
 	 * @return
 	 */
 	public List<RecruitmentVo> selectRecruitmentList(RecruitmentVo recruitmentVo);
+	
+	/**채용공고 상세
+	 * @param recruitmentVo
+	 * @return
+	 */
+	public RecruitmentVo selectRecruitment(RecruitmentVo recruitmentVo);
 }
