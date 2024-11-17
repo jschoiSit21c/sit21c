@@ -41,4 +41,11 @@ public interface RecruitMapper {
 	 * @return
 	 */
 	public int saveRecruitment(RecruitmentVo recruitmentVo);
+	
+	/**
+	 * 채용공고 목록 조회
+	 * @param recruitmentVo
+	 * @return
+	 */
+	public List<RecruitmentVo> selectRecruitmentList(RecruitmentVo recruitmentVo);
 }

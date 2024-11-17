@@ -86,7 +86,8 @@
 								  , RECRUIT_START_TIME
 								  , RECRUIT_END_TIME
 								  , RECRUIT_TYPE_CODE
-								  , RECRUIT_EXTERNAL_URL) 
+								  , RECRUIT_EXTERNAL_URL
+								  , RECRUIT_PLACE) 
 		VALUES(#{recruitTitle}
 			 , #{recruitContent}
 			 , #{recruitJobCategoryCode}
@@ -97,8 +98,30 @@
 			 , #{recruitStartTime}
 			 , #{recruitEndTime}
 			 , #{recruitTypeCode}
-			 , #{recruitExternalUrl})
+			 , #{recruitExternalUrl}
+			 , #{recruitPlace})
 		RETURNING RECRUIT_ID
 
 	</insert>
+	
+	<select id="selectRecruitmentList" parameterType="com.sit21c.recruit.vo.RecruitmentVo" resultType="com.sit21c.recruit.vo.RecruitmentVo">
+		SELECT RECRUIT_ID
+			 , RECRUIT_TITLE
+			 , RECRUIT_CONTENT
+			 , RECRUIT_JOB_CATEGORY_CODE
+			 , RECRUIT_AUTHOR
+			 , RECRUIT_CREATED_AT
+			 , RECRUIT_UPDATED_BY
+			 , RECRUIT_UPDATED_AT
+			 , RECRUIT_START_TIME
+			 , RECRUIT_END_TIME
+			 , CASE WHEN REPLACE(RECRUIT_START_TIME, '-', '') > TO_CHAR(NOW(), 'YYYY') THEN '진행전'
+			 		WHEN TO_CHAR(NOW(), 'YYYY') BETWEEN REPLACE(RECRUIT_START_TIME, '-', '') AND REPLACE(RECRUIT_END_TIME, '-', '') THEN '진행중'
+			 		WHEN TO_CHAR(NOW(), 'YYYY') > REPLACE(RECRUIT_START_TIME, '-', '') THEN '마감' END AS RECRUIT_STATUS
+			 , RECRUIT_TYPE_CODE
+			 , RECRUIT_EXTERNAL_URL
+			 , RECRUIT_PLACE
+		FROM TB_RECRUITMENT
+		ORDER BY RECRUIT_ID DESC
+	</select>
 </mapper>

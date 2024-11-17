@@ -35,4 +35,12 @@ public interface RecruitService {
 	 * @return
 	 */
 	public int saveRecruitment(RecruitmentVo recruitmentVo) throws Exception;
+	
+	/**
+	 * 채용공고 목록 조회
+	 * @param recruitmentVo
+	 * @return
+	 * @throws Exception
+	 */
+	public List<RecruitmentVo> selectRecruitmentList(RecruitmentVo recruitmentVo) throws Exception;
 }

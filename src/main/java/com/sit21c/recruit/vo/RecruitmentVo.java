@@ -16,6 +16,7 @@ public class RecruitmentVo extends PagingVo {
 	private String recruitEndTime;
 	private String recruitTypeCode;
 	private String recruitExternalUrl;
+	private String recruitPlace;
 	
 	public int getRecruitId() {
 		return recruitId;
@@ -88,5 +89,11 @@ public class RecruitmentVo extends PagingVo {
 	}
 	public void setRecruitExternalUrl(String recruitExternalUrl) {
 		this.recruitExternalUrl = recruitExternalUrl;
+	}
+	public String getRecruitPlace() {
+		return recruitPlace;
+	}
+	public void setRecruitPlace(String recruitPlace) {
+		this.recruitPlace = recruitPlace;
 	}
 }

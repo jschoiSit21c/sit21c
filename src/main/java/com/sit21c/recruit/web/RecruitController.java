@@ -70,6 +70,12 @@ public class RecruitController {
 	 */
 	@RequestMapping("/recruit/recruitmentMain")
 	public String showRecruitmentPage(Model model) {
+		RecruitmentVo recruitmentVo = new RecruitmentVo();
+		try {
+			model.addAttribute("list", recruitService.selectRecruitmentList(recruitmentVo));
+		} catch (Exception e) {
+			e.printStackTrace();
+		} //채용형태
 		return "/recruit/recruitmentMain";
 	}
 	

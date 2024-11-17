@@ -27,38 +27,27 @@
 
 			</div>	
 		</div>	
-		
 		<section class="job-list-section">
 			<div class="job-table-wrapper">
 				<!-- 채용 목록 테이블 -->
 				<table class="job-table">
 					<thead>
 						<tr>
+							<th>no</th>
 							<th>채용 제목</th>
-							<th>요약</th>
 							<th>근무지</th>
 							<th>상세보기</th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr onclick="location.href='/recruit/recruitmentDetail?id=1'">
-							<td>IT개발 경력 SM 인재 채용</td>
-							<td>Java 운영 경력자를 모집합니다.</td>
-							<td>서울</td>
-							<td><button class="job-apply-button">자세히 보기</button></td>
-						</tr>
-						<tr onclick="location.href='/jobDetail?id=2'">
-							<td>데이터 분석 전문가</td>
-							<td>데이터 기반 인사이트 제공.</td>
-							<td>부산</td>
-							<td><button class="job-apply-button">자세히 보기</button></td>
-						</tr>
-						<tr onclick="location.href='/jobDetail?id=3'">
-							<td>클라우드 인프라 엔지니어</td>
-							<td>AWS 환경 구축 및 운영.</td>
-							<td>대전</td>
-							<td><button class="job-apply-button">자세히 보기</button></td>
-						</tr>
+						<c:forEach items="${list}" var="item" varStatus="status">
+							<tr>
+								<td>${status.count}</td>
+								<td>${item.recruitTitle}</td>
+								<td>${item.recruitPlace}</td>
+								<td><button class="job-apply-button" onclick="location.href='/recruit/recruitmentDetail?recruitId=${item.recruitId}'">자세히 보기</button></td>
+							</tr>
+						</c:forEach>
 					</tbody>
 				</table>
 		

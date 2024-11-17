@@ -49,6 +49,10 @@
 						</c:forEach>
 					</select>
 				</div>
+				<div class="form-group">
+					<label for="recruitPlace">근무지</label>
+					<input type="text" id="recruitPlace" name="recruitPlace" class="form-control">
+				</div>				
 				<!-- 게시 기간 -->
 				<div class="form-group">
 					<label for="recruitStartTime">게시기간</label>
@@ -93,7 +97,8 @@
 					recruitTypeCode : $("#recruitTypeCode").val(),
 					recruitStartTime : $("#recruitStartTime").val(),
 					recruitEndTime : $("#recruitEndTime").val(),
-					recruitExternalUrl : $("#recruitExternalUrl").val()
+					recruitExternalUrl : $("#recruitExternalUrl").val(),
+					recruitPlace: $("#recruitPlace").val(),
 				}),
 			}).done(data => {
 				if(data.isSuccess){

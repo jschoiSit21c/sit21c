@@ -66,5 +66,14 @@ public class RecruitServiceImpl implements RecruitService {
     public int saveRecruitment(RecruitmentVo recruitmentVo) throws Exception{
     	return recruitMapper.saveRecruitment(recruitmentVo);
     }
+    
+    /**
+     * 채용공고 목록 조회
+     */
+    @Override
+    public List<RecruitmentVo> selectRecruitmentList(RecruitmentVo recruitmentVo) throws Exception {
+    	// TODO Auto-generated method stub
+    	return recruitMapper.selectRecruitmentList(recruitmentVo);
+    }
 
 }
