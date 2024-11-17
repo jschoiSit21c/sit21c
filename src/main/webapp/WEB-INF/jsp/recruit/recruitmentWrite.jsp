@@ -24,19 +24,19 @@
 				<!-- 제목 -->
 				<div class="form-group">
 					<label for="title">제목</label>
-					<input type="text" id="recruitTitle" name=recruitTitle class="form-control" required>
+					<input type="text" id="recruitTitle" name=recruitTitle class="form-control" required value="${isWrite ? '' : recruitResult.recruitTitle }">
 				</div>
 				<!-- 내용 -->
 				<div class="form-group">
 					<label for="recruitContent">내용</label>
-					<textarea id="recruitContent" name="recruitContent"></textarea>
+					<textarea id="recruitContent" name="recruitContent">${isWrite ? '' : recruitResult.recruitContent}</textarea>
 				</div>
 				<!-- 업무분야 -->
 				<div class="form-group">
 					<label for="recruitJobCategoryCode">업무분야</label>
 					<select id="recruitJobCategoryCode" name="recruitJobCategoryCode" class="form-control" required>
 						<c:forEach items="${jobCategory}" var="item">
-							<option value="${item.codeNo}">${item.codeValue}</option>
+							<option value="${item.codeNo}" ${isWrite ? '' : (recruitResult.recruitJobCategoryCode == item.codeNo ? 'selected' : '')}>${item.codeValue}</option>
 						</c:forEach>
 					</select>
 				</div>
@@ -45,29 +45,30 @@
 					<label for="recruitTypeCode">채용형태</label>
 					<select id="recruitTypeCode" name="recruitTypeCode" class="form-control" required>
 						<c:forEach items="${recruitType}" var="item">
-							<option value="${item.codeNo}">${item.codeValue}</option>
+							<option value="${item.codeNo}" ${isWrite ? '' : (recruitResult.recruitTypeCode == item.codeNo ? 'selected' : '')}>${item.codeValue}</option>
 						</c:forEach>
 					</select>
 				</div>
 				<div class="form-group">
 					<label for="recruitPlace">근무지</label>
-					<input type="text" id="recruitPlace" name="recruitPlace" class="form-control">
+					<input type="text" id="recruitPlace" name="recruitPlace" class="form-control" value="${isWrite ? '' : recruitResult.recruitPlace }">
 				</div>				
 				<!-- 게시 기간 -->
 				<div class="form-group">
 					<label for="recruitStartTime">게시기간</label>
-					<input type="date" id="recruitStartTime" name="recruitStartTime" required> ~ 
-					<input type="date" id="recruitEndTime" name="recruitEndTime" required>
+					<input type="date" id="recruitStartTime" name="recruitStartTime" required value="${isWrite ? '' : recruitResult.recruitStartTime}"> ~ 
+					<input type="date" id="recruitEndTime" name="recruitEndTime" required value="${isWrite ? '' : recruitResult.recruitEndTime}">
 				</div>
 				
 				<!-- 제목 -->
 				<div class="form-group">
 					<label for="recruitExternalUrl">외부링크(사람인)</label>
-					<input type="text" id="recruitExternalUrl" name="recruitExternalUrl" class="form-control">
+					<input type="text" id="recruitExternalUrl" name="recruitExternalUrl" class="form-control" value="${isWrite ? '' : recruitResult.recruitExternalUrl}">
 				</div>
 				<!-- 버튼 -->
 				<div class="form-buttons">
 					<button type="submit" class="btn-submit">등록하기</button>
+					<button type="button" class="btn-submit" onclick="history.back();">취소</button>
 				</div>
 			</form>
 		</section>
@@ -85,8 +86,11 @@
 		});
 		
 		$("#recruitmentForm").on("submit", function(e){
+			if(!confirm("저장하시겠습니까?")) return;
+			var url = "${isWrite ? '/recruit/saveRecruitment' : '/recruit/modifyRecruitment'}";
+			var recruitId = "${isWrite ? '' : recruitResult.recruitId}";
 			$.ajax({
-				url: "/recruit/saveRecruitment",
+				url: url,
 				type: "POST",
 				dataType: "json",
 				contentType: "application/json",
@@ -99,11 +103,14 @@
 					recruitEndTime : $("#recruitEndTime").val(),
 					recruitExternalUrl : $("#recruitExternalUrl").val(),
 					recruitPlace: $("#recruitPlace").val(),
+					<c:if test="${!isWrite}">
+						recruitId : recruitId,
+					</c:if>
 				}),
 			}).done(data => {
 				if(data.isSuccess){
 					alert("채용 공고가 저장되었습니다.");	
-// 					location.href='/company/ceo';
+					location.href= `/recruit/recruitmentDetail/?recruitId=\${data.recruitId}`;
 				}else{
 					alert("채용 공고 저장에 실패하였습니다.");	
 				}

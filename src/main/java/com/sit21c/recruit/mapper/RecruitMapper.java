@@ -54,4 +54,11 @@ public interface RecruitMapper {
 	 * @return
 	 */
 	public RecruitmentVo selectRecruitment(RecruitmentVo recruitmentVo);
+	
+	/**
+	 * 채용공고 수정
+	 * @param recruitmentVo
+	 * @return
+	 */
+	public int modifyRecruitment(RecruitmentVo recruitmentVo);
 }

@@ -72,7 +72,7 @@
 		<security:authorize access="hasRole('SA')">
 			<!-- 관리자만 수정 가능하게끔 -->
 			<div class="job-admin-buttons">
-				<button type="button" onclick="location.href='/job/edit/1'" class="edit-button">공고 수정</button>
+				<button type="button" onclick="location.href='/recruit/recruitmentUpdate/?recruitId=${param.recruitId}'" class="edit-button">공고 수정</button>
 			</div>
 		</security:authorize>
 	</div>

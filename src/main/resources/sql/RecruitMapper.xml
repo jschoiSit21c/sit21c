@@ -126,6 +126,7 @@
 		ORDER BY RECRUIT_ID DESC
 	</select>
 	
+	<!-- 채용공고 상세 조회 -->
 	<select id="selectRecruitment" parameterType="com.sit21c.recruit.vo.RecruitmentVo" resultType="com.sit21c.recruit.vo.RecruitmentVo">
 			SELECT RECRUIT_ID
 			 , RECRUIT_TITLE
@@ -146,4 +147,21 @@
 		FROM TB_RECRUITMENT
 		WHERE RECRUIT_ID = #{recruitId}
 	</select>
+	
+	<!-- 채용공고 수정 -->
+	<update id="modifyRecruitment" parameterType="com.sit21c.recruit.vo.RecruitmentVo">
+		UPDATE TB_RECRUITMENT
+		SET RECRUIT_UPDATED_BY = #{recruitAuthor}
+		  , RECRUIT_UPDATED_AT = NOW()
+		  , RECRUIT_TITLE = #{recruitTitle}
+		  , RECRUIT_CONTENT = #{recruitContent}
+		  , RECRUIT_JOB_CATEGORY_CODE = #{recruitJobCategoryCode}
+		  , RECRUIT_START_TIME = #{recruitStartTime}
+		  , RECRUIT_END_TIME = #{recruitEndTime}
+		  , RECRUIT_TYPE_CODE = #{recruitTypeCode}
+		  , RECRUIT_EXTERNAL_URL = #{recruitExternalUrl}
+		  , RECRUIT_PLACE = #{recruitPlace}
+		WHERE RECRUIT_ID = #{recruitId}
+	</update>
+	
 </mapper>

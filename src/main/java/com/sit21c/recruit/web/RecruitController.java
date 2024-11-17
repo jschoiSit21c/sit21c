@@ -16,6 +16,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -87,7 +88,14 @@ public class RecruitController {
 	@RequestMapping("/recruit/recruitmentDetail")
 	public String showRecruitmentDetailPage(RecruitmentVo recruitmentVo, Model model) {
 		try {
-			model.addAttribute("item", recruitService.selectRecruitment(recruitmentVo));
+			RecruitmentVo item = recruitService.selectRecruitment(recruitmentVo);
+			
+			if(item == null) {
+				//값이 없을경우 루트로 보내버림.
+				return "redirect:/";
+			}
+			
+			model.addAttribute("item", item);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -99,15 +107,18 @@ public class RecruitController {
 	 * @param model
 	 * @return
 	 */
+	@PreAuthorize("hasRole('SA')")
 	@RequestMapping("/recruit/recruitmentWrite")
 	public String showRecruitmentWritePage(Model model) {
 		model.addAttribute("jobCategory", commonService.selectComCode("job_category")); //업무분야코드
 		model.addAttribute("recruitType", commonService.selectComCode("recruit_type")); //채용형태
+		model.addAttribute("isWrite", true); //등록/수정화면 같이쓰기위한 변수
 		return "/recruit/recruitmentWrite";
 	}
 	
 	//채용공고 저장
 	@SuppressWarnings("finally")
+	@PreAuthorize("hasRole('SA')")
 	@ResponseBody
 	@PostMapping("/recruit/saveRecruitment")
 	public HashMap<String, Object> saveRecruitment(@RequestBody RecruitmentVo recruitmentVo, ModelMap model,HttpSession session){
@@ -118,6 +129,55 @@ public class RecruitController {
 				recruitmentVo.setRecruitAuthor(loginInfo.getId());
 				
 				int recruitId = recruitService.saveRecruitment(recruitmentVo);
+				
+				successMap.put("isSuccess", true);
+				successMap.put("recruitId", recruitmentVo.getRecruitId());
+			}else {
+				successMap.put("isSuccess", false);
+			}
+			
+		}catch(Exception e) {
+			successMap.put("isSuccess", false);
+		}finally {
+			return successMap;
+		}
+		
+		
+	}
+	
+	/**
+	 * 채용공고 수정 화면 호출
+	 * @param model
+	 * @return
+	 */
+	@PreAuthorize("hasRole('SA')")
+	@RequestMapping("/recruit/recruitmentUpdate")
+	public String showRecruitmentUpdatePage(RecruitmentVo recruitmentVo, Model model) {
+		try {
+			RecruitmentVo recruitResult = recruitService.selectRecruitment(recruitmentVo);
+			model.addAttribute("recruitResult", recruitResult);
+			model.addAttribute("jobCategory", commonService.selectComCode("job_category")); //업무분야코드
+			model.addAttribute("recruitType", commonService.selectComCode("recruit_type")); //채용형태
+			model.addAttribute("isWrite", false); //등록/수정화면 같이쓰기위한 변수
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return "/recruit/recruitmentWrite";
+	}
+	
+	//채용공고 수정
+	@SuppressWarnings("finally")
+	@PreAuthorize("hasRole('SA')")
+	@ResponseBody
+	@PostMapping("/recruit/modifyRecruitment")
+	public HashMap<String, Object> modifyRecruitment(@RequestBody RecruitmentVo recruitmentVo, ModelMap model,HttpSession session){
+		HashMap<String, Object> successMap = new HashMap<>();
+		try {
+			if(recruitmentVo != null && session.getAttribute("loginInfo") != null) {
+				LoginVo loginInfo =  (LoginVo) session.getAttribute("loginInfo");
+				recruitmentVo.setRecruitAuthor(loginInfo.getId());
+				
+				int recruitId = recruitService.modifyRecruitment(recruitmentVo);
 				
 				successMap.put("isSuccess", true);
 				successMap.put("recruitId", recruitmentVo.getRecruitId());

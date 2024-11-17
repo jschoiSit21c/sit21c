@@ -67,7 +67,7 @@
 	<header id="s_header">
 		<div class="s_header-left">
 			<a href="/">
-				<img src="../img/logo_color.png" alt="소프트아이텍 로고" class="logo">
+				<img src="/img/logo_color.png" alt="소프트아이텍 로고" class="logo">
 			</a>
 		</div>
 		<nav class="s_header-nav">

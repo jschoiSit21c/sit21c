@@ -83,5 +83,13 @@ public class RecruitServiceImpl implements RecruitService {
     public RecruitmentVo selectRecruitment(RecruitmentVo recruitmentVo) throws Exception {
     	return recruitMapper.selectRecruitment(recruitmentVo);
     }
+    
+    /**
+     * 채용공고 수정
+     */
+    @Override
+    public int modifyRecruitment(RecruitmentVo recruitmentVo) throws Exception {
+    	return recruitMapper.modifyRecruitment(recruitmentVo);
+    }
 
 }
