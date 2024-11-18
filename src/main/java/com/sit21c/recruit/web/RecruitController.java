@@ -29,6 +29,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.sit21c.common.service.CommonService;
 import com.sit21c.common.vo.AttchFileVo;
@@ -36,7 +37,7 @@ import com.sit21c.common.vo.BoardVo;
 import com.sit21c.login.vo.LoginVo;
 import com.sit21c.recruit.service.RecruitService;
 import com.sit21c.recruit.vo.JobPostingVo;
-import com.sit21c.recruit.vo.RecruitmentApplyVo;
+import com.sit21c.recruit.vo.JobApplicationVo;
 import com.sit21c.recruit.vo.RecruitmentVo;
 
 @Controller
@@ -192,6 +193,89 @@ public class RecruitController {
 		}
 		
 		
+	}
+	
+	/**
+	 * 입사지원서 제출
+	 * @param recruitmentApplyVo
+	 * @return
+	 */
+	@RequestMapping("/recruit/submitJobApplication")
+	public String submitJobApplication(@ModelAttribute JobApplicationVo jobApplicationVo, RedirectAttributes redirectAttributes) {
+		try {
+			
+			//첨부파일 처리
+			MultipartFile file = jobApplicationVo.getResumeFile();
+			
+			AttchFileVo attchFileVo = null;
+			if(file != null && !file.isEmpty()) {
+				
+				LocalDate today = LocalDate.now();
+				
+				DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
+				
+				String fmtToday = today.format(formatter);
+				
+				String uuid = UUID.randomUUID().toString();
+				
+				attchFileVo = new AttchFileVo();
+				attchFileVo.setFileName(uuid);
+				attchFileVo.setFileOrgName(file.getOriginalFilename());
+				attchFileVo.setFilePath(uploadDir + "/recruit/" + fmtToday); //경로에 날짜 추가
+				attchFileVo.setFileSize(file.getSize());
+				attchFileVo.setFileType(file.getContentType());
+				//디렉토리 생성
+//				File directory = new File(uploadDir + "/recruit/");
+				File directory = new File(attchFileVo.getFilePath());
+				
+				if(!directory.exists()) {
+					directory.mkdirs();
+				}
+				
+				Path path = Paths.get(attchFileVo.getFilePath(), attchFileVo.getFileName());
+				//파일 저장
+				file.transferTo(new File(path.toUri()));
+			}
+			
+			recruitService.submitJobApplication(jobApplicationVo, attchFileVo);
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+			redirectAttributes.addFlashAttribute("submitJobApplicationMsg", "입사 지원에 실패하였습니다.");
+			return "redirect:/recruit/recruitmentDetail?recruitId=" + jobApplicationVo.getRecruitId();
+		}
+		redirectAttributes.addFlashAttribute("submitJobApplicationMsg", "입사 지원이 성공적으로 제출되었습니다.");
+		return "redirect:/recruit/recruitmentDetail?recruitId=" + jobApplicationVo.getRecruitId();
+	}
+	
+	/**
+	 * 입사지원자 목록 조회 //비동기
+	 * @param jobApplicationVo
+	 * @return
+	 */
+	@PreAuthorize("hasRole('SA')")
+	@ResponseBody
+	@RequestMapping("/recruit/selectApplicants")
+	public Map<String, Object> selectApplicants(@ModelAttribute JobApplicationVo jobApplicationVo) {
+		Map<String, Object> resultMap = new HashMap<>();
+		// 시작 레코드 계산
+		jobApplicationVo.setStartRecord((jobApplicationVo.getCurrentPage() - 1) * jobApplicationVo.getPageSize());
+		try {
+			List<JobApplicationVo> list = recruitService.selectApplicants(jobApplicationVo);
+			
+			// 총 레코드 및 페이지 계산
+			if (!list.isEmpty()) {
+				jobApplicationVo.setTotalRecords(list.get(0).getTotalRecords());
+				jobApplicationVo.calculatePaging();
+			}
+			resultMap.put("list", list);
+			resultMap.put("paging", jobApplicationVo);
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return resultMap;
 	}
 	
 	

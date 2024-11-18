@@ -447,3 +447,17 @@ textarea { height: 100px; resize: none; }
 
 /* 제목 스타일 조정 */
 .sub-page-title { font-size: 28px; font-weight: 500; margin-bottom: 20px; text-align: center; color: #333; }
+
+/*채용정보 상세 지원자현황*/
+#admin-applicants-container { margin: 20px auto; padding: 20px; border: 1px solid #ddd; background-color: #f9f9f9; border-radius: 8px; width: 90%; max-width: 1200px; }
+.admin-applicants-title { font-size: 24px; font-weight: bold; margin-bottom: 20px; text-align: center; color: #333; }
+#admin-applicants-table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+#admin-applicants-table th, #admin-applicants-table td { padding: 10px; text-align: left; border: 1px solid #ddd; }
+#admin-applicants-table th { background-color: #f4f4f4; font-weight: bold; }
+#admin-applicants-table tr:hover { background-color: #f9f9f9; cursor: pointer; }
+#admin-applicants-pagination { display: flex; justify-content: center; margin-top: 20px; }
+#admin-applicants-pagination .pagination-link { padding: 5px 10px; border: 1px solid #ddd; margin: 0 5px; color: #105cbf; text-decoration: none; border-radius: 4px; cursor: pointer; }
+#admin-applicants-pagination .pagination-link.active { background-color: #105cbf; color: white; border-color: #105cbf; }
+#admin-applicants-table a.download-link { display: inline-block; color: #ffffff; background-color: #007bff; padding: 5px 10px; border-radius: 5px; font-size: 14px; text-decoration: none; transition: background-color 0.3s ease, box-shadow 0.3s ease; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);}
+#admin-applicants-table a.download-link:hover {background-color: #0056b3; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);}
+#admin-applicants-table a.download-link:before {content: "\1F4BE"; /* Unicode for floppy disk icon */ display: inline-block; margin-right: 5px;font-size: 14px;}

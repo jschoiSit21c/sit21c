@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.sit21c.common.CamelCaseMap;
 import com.sit21c.common.vo.AttchFileVo;
 import com.sit21c.recruit.mapper.RecruitMapper;
+import com.sit21c.recruit.vo.JobApplicationVo;
 import com.sit21c.recruit.vo.JobPostingVo;
 import com.sit21c.recruit.vo.RecruitmentApplyVo;
 import com.sit21c.recruit.vo.RecruitmentVo;
@@ -27,16 +28,16 @@ public class RecruitServiceImpl implements RecruitService {
 	/**
 	 *입사지원
 	 */
-	@Override
-	public void executeRecruitmentApply(RecruitmentApplyVo recruitmentApplyVo, AttchFileVo attchFileVo) throws Exception{
-		// 
-		if(attchFileVo != null) {
-			recruitMapper.insertAttchFile(attchFileVo);
-			recruitmentApplyVo.setAttchFileId(attchFileVo.getFileId());	
-		}
-		recruitMapper.insertRecruitmentApply(recruitmentApplyVo);
-		
-	}
+//	@Override
+//	public void executeRecruitmentApply(RecruitmentApplyVo recruitmentApplyVo, AttchFileVo attchFileVo) throws Exception{
+//		// 
+//		if(attchFileVo != null) {
+//			recruitMapper.insertAttchFile(attchFileVo);
+//			recruitmentApplyVo.setAttchFileId(attchFileVo.getFileId());	
+//		}
+//		recruitMapper.insertRecruitmentApply(recruitmentApplyVo);
+//		
+//	}
 	
 	@Override
     public List<JobPostingVo> getJobPostingsByDepartmentId(String departmentId, int page, int pageSize) {
@@ -90,6 +91,24 @@ public class RecruitServiceImpl implements RecruitService {
     @Override
     public int modifyRecruitment(RecruitmentVo recruitmentVo) throws Exception {
     	return recruitMapper.modifyRecruitment(recruitmentVo);
+    }
+    
+    @Override
+    public void submitJobApplication(JobApplicationVo applicationVo, AttchFileVo attchFileVo) throws Exception {
+    	// TODO Auto-generated method stub
+		if(attchFileVo != null) {
+			recruitMapper.insertAttchFile(attchFileVo);
+			applicationVo.setFileId(attchFileVo.getFileId());
+		}
+		recruitMapper.submitJobApplication(applicationVo);
+    }
+    
+    /**
+     * 입사지원자 목록 조회
+     */
+    @Override
+    public List<JobApplicationVo> selectApplicants(JobApplicationVo jobApplicationVo) throws Exception {
+    	return recruitMapper.selectApplicants(jobApplicationVo);
     }
 
 }

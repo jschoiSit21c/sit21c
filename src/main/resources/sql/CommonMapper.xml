@@ -11,4 +11,17 @@
 		WHERE 1=1
 		AND   CODE_TYPE = #{code}
 	</select>
+	
+	<!-- 파일정보 조회 -->
+	<select id="selectFileInfo" parameterType="int" resultType="com.sit21c.common.vo.AttchFileVo">
+		SELECT FILE_ID
+			 , FILE_NAME
+			 , FILE_PATH
+			 , FILE_SIZE
+			 , FILE_TYPE
+			 , UPLOAD_DATE
+			 , FILE_ORG_NAME
+		FROM TB_ATTCH
+		WHERE FILE_ID = #{fileId}
+	</select>
 </mapper>
