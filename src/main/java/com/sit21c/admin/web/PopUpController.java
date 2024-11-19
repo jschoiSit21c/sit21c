@@ -41,20 +41,18 @@ public class PopUpController {
 		}
 		int perPageNum = 10;
 		int tempEndPage = (int)(Math.ceil((count)/(double) perPageNum ));
+		System.out.println(tempEndPage+"템엔페");
 		int endPage = (int)(Math.ceil((currentPage)/(double) perPageNum ))*perPageNum;
+		System.out.println(endPage+"엔페");
+		
 		if (endPage > tempEndPage) {
 			endPage = tempEndPage;
 		}
+		System.out.println(endPage+"엔페2");
 //		int tempStartPage = (endPage - 10) + 1;
 //		int startPage = count / 10;
-		int startPage;
-		
-		if (count / currentPage < 10) {
-			startPage = 1;
-				
-		}else {
-			startPage = (currentPage - 10) + 1;
-		}
+		int startPage  = ((int)(Math.ceil((currentPage)/(double) perPageNum ))*perPageNum) - 9;
+		System.out.println(startPage+"스페");
 		
 		boolean prev = startPage == 1 ? false : true ;
 		

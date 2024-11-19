@@ -55,66 +55,9 @@
 		//summernote 초기화
 		$('#popUpContent').summernote({
 			height: 600, // 기본 높이 300px
-	        callbacks : {
-	            // 파일 업로드
-	            onImageUpload : function (files) {
-	                for(let i=0; i < files.length; i++){
-	                    // 이미지가 여러개일 경우
-	                    imageUploader(files[i]);
-	                }
-	            },
-	            // 파일 삭제
-	            onMediaDelete: function ($target){
-	                if(confirm("이미지를 삭제하시겠습니까?")){
-	                    let fileName = $target.attr('src').split('/').pop();
-	                    deleteFile(fileName);
-	                }
-	            }
-	        }
 		});
 		
 		
-		function imageUploader(file, el) {
-			var formData = new FormData();
-			formData.append('file', file);
-
-		    $.ajax({
-		       url : "/popup/imageUpload",
-		       type : "POST",
-		       data : formData,
-		        // contentType, processData 설정 안하면 TypeError: Illegal invocation 오류가 발생한다
-		        contentType: false,
-		        processData: false,
-		       encType : "multipart/form-data",
-		       success : function (data) {
-		           // 글에 이미지 넣기
-		           $("#popUpContent").summernote("insertImage","/uploadPath/"+data.reFileName,function($image) {
-		        	   //이미지 넓이 설정
-						$image.css('width', "30%");
-					});
-		           
-		           
-		       },
-		        error(e){
-		           console.log("error : "+ e);
-		        }
-		    });
-		}
-		// 이미지 삭제
-		function deleteFile(fileName) {
-		    let formData = new FormData();
-		    formData.append("file", fileName);
-
-		    $.ajax({
-		        url : "/popup/imageDelete",
-		        type : "POST",
-		        data : formData,
-		        // contentType, processData 설정 안하면 TypeError: Illegal invocation 오류가 발생한다
-		        contentType: false,
-		        processData: false,
-		        encType : "multipart/form-data"
-		    });
-		}
 		
 		$("#popUpForm").on("submit", function(e){
 			

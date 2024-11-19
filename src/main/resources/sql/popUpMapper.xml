@@ -11,19 +11,23 @@
 	</select>
 	
 	<select id="selectPopUpList" parameterType="com.sit21c.admin.vo.PopUpVo" resultType="com.sit21c.admin.vo.PopUpVo">
-		select a.*
+		select b.*
 		from (
-			select (ROW_NUMBER() OVER()) AS ROWNUM,
-					pop_up_id,
-				   title,
-				   COALESCE(update_at,create_at) as create_At,
-				   pop_start,
-				   pop_end 
-			from tb_popup_main
-			where 1=1 
-		) a 
+			select (ROW_NUMBER() OVER()) AS ROWNUM,a.*
+			from (
+				select 
+						pop_up_id,
+					   title,
+					   COALESCE(update_at,create_at) as create_At,
+					   pop_start,
+					   pop_end 
+				from tb_popup_main
+				where 1=1
+				order by create_At desc 
+			) a 
+		) b
 		where rownum between  #{startNum} and #{endNum}
-		order by create_At desc
+		
 	</select>
 	
 	<select id="selectPopUpListForUser" resultType="com.sit21c.admin.vo.PopUpVo">
