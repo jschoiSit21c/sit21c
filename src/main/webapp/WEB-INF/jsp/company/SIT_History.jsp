@@ -38,7 +38,7 @@
 						<div class="year-content" data-year="2024">
 							<div class="year-title">2024</div>
 							<div class="year-details">
-								<p>2024 연혁추가 필요</p>
+								<p>2024 연혁추가 필요 mmh</p>
 							</div>
 						</div>
 						<div class="year-content" data-year="2023">
