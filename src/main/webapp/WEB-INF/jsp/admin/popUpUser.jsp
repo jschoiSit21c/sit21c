@@ -10,7 +10,8 @@
 <script>
 //팝업 시작
 $(document).ready(function () {
-  window.open("https://dart.fss.or.kr/html/search/SearchCompanyIR_M.html?textCrpNM=소프트아이텍", "", "status=yes, toolbar=no, resizable=no, scrollbars=yes, width=750, height=720");
+	//불필요
+//   window.open("https://dart.fss.or.kr/html/search/SearchCompanyIR_M.html?textCrpNM=소프트아이텍", "", "status=yes, toolbar=no, resizable=no, scrollbars=yes, width=750, height=720");
    
 	$.ajax({
 		url: "/admin/selectPopUpListForUser",

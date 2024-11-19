@@ -73,7 +73,29 @@ public class RecruitController {
 	@RequestMapping("/recruit/recruitmentMain")
 	public String showRecruitmentPage(RecruitmentVo recruitmentVo, Model model) {
 		try {
-			model.addAttribute("list", recruitService.selectRecruitmentList(recruitmentVo));
+			// 페이징 계산을 위한 기본값 설정
+			if (recruitmentVo.getCurrentPage() <= 0) {
+				recruitmentVo.setCurrentPage(1);
+			}
+			if (recruitmentVo.getPageSize() <= 0) {
+				recruitmentVo.setPageSize(10);
+			}
+
+			// 시작 레코드 계산
+			recruitmentVo.setStartRecord((recruitmentVo.getCurrentPage() - 1) * recruitmentVo.getPageSize() + 1);
+
+			// 데이터 조회
+			List<RecruitmentVo> list = recruitService.selectRecruitmentList(recruitmentVo);
+
+			// 총 레코드 수를 첫 번째 데이터에서 가져옴
+			if (!list.isEmpty()) {
+				recruitmentVo.setTotalRecords(list.get(0).getTotalRecords());
+				recruitmentVo.calculatePaging(); // 페이징 계산
+			}
+
+			// 모델에 데이터 추가
+			model.addAttribute("list", list);
+			model.addAttribute("paging", recruitmentVo); // 페이징 정보 전달
 		} catch (Exception e) {
 			e.printStackTrace();
 		} 
@@ -286,7 +308,7 @@ public class RecruitController {
 //	 */
 //	@RequestMapping(value = "/recruit/recruitmentPost", method = RequestMethod.GET, produces = "text/html;charset=UTF-8")
 //	public String showRecruitmentPost(@RequestParam("departmentId") String departmentId,
-//            @RequestParam(value = "page", defaultValue = "1") int page, Model model) {
+//			@RequestParam(value = "page", defaultValue = "1") int page, Model model) {
 //		int pageSize = 9; // 한 페이지에 표시할 공고 수
 //		List<JobPostingVo> jobPostings = recruitService.getJobPostingsByDepartmentId(departmentId, page, pageSize);
 //		String departmentName = recruitService.getDepartmentNameById(departmentId);
@@ -304,34 +326,34 @@ public class RecruitController {
 //	}
 //	
 //	@ResponseBody
-//    @RequestMapping(value = "/recruit/api/jobs", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
-//    public ResponseEntity<Map<String, Object>> getJobListings(
-//            @RequestParam("departmentId") String departmentId,
-//            @RequestParam(value = "page", defaultValue = "1") int page) {
-//        
-//        int pageSize = 9; // 한 페이지에 표시할 공고 수
-//        List<JobPostingVo> jobPostings = recruitService.getJobPostingsByDepartmentId(departmentId, page, pageSize);
-//        int totalPostings = recruitService.getTotalJobPostingsCount(departmentId);
-//        int totalPages = (int) Math.ceil((double) totalPostings / pageSize);
+//	@RequestMapping(value = "/recruit/api/jobs", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
+//	public ResponseEntity<Map<String, Object>> getJobListings(
+//			@RequestParam("departmentId") String departmentId,
+//			@RequestParam(value = "page", defaultValue = "1") int page) {
+//		
+//		int pageSize = 9; // 한 페이지에 표시할 공고 수
+//		List<JobPostingVo> jobPostings = recruitService.getJobPostingsByDepartmentId(departmentId, page, pageSize);
+//		int totalPostings = recruitService.getTotalJobPostingsCount(departmentId);
+//		int totalPages = (int) Math.ceil((double) totalPostings / pageSize);
 //
-//        Map<String, Object> response = new HashMap<>();
-//        response.put("jobPostings", jobPostings);
-//        response.put("currentPage", page);
-//        response.put("totalPages", totalPages);
+//		Map<String, Object> response = new HashMap<>();
+//		response.put("jobPostings", jobPostings);
+//		response.put("currentPage", page);
+//		response.put("totalPages", totalPages);
 //
-//        return ResponseEntity.ok(response);
-//    }
+//		return ResponseEntity.ok(response);
+//	}
 //
-//    @ResponseBody
-//    @RequestMapping(value = "/recruit/api/job/{jobId}", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
-//    public ResponseEntity<JobPostingVo> getJobDetails(@PathVariable("jobId") String jobId) {
-//        JobPostingVo jobPosting = recruitService.getJobPostingById(jobId);
-//        if (jobPosting != null) {
-//            return ResponseEntity.ok(jobPosting);
-//        } else {
-//            return ResponseEntity.notFound().build();
-//        }
-//    }
+//	@ResponseBody
+//	@RequestMapping(value = "/recruit/api/job/{jobId}", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
+//	public ResponseEntity<JobPostingVo> getJobDetails(@PathVariable("jobId") String jobId) {
+//		JobPostingVo jobPosting = recruitService.getJobPostingById(jobId);
+//		if (jobPosting != null) {
+//			return ResponseEntity.ok(jobPosting);
+//		} else {
+//			return ResponseEntity.notFound().build();
+//		}
+//	}
 //	
 //	/**
 //	 * 인사제도 화면 호출

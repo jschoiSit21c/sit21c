@@ -1,6 +1,7 @@
 package com.sit21c.common.vo;
 
 public class PagingVo {
+	private int no = 1;
     private int currentPage = 1;  // 현재 페이지
     private int pageSize = 10;    // 한 페이지에 보여줄 데이터 수
     private int totalRecords;     // 전체 레코드 수
@@ -16,6 +17,15 @@ public class PagingVo {
             this.endRecord = Math.min(currentPage * pageSize, totalRecords);
         }
     }
+    
+    
+	public int getNo() {
+		return no;
+	}
+
+	public void setNo(int no) {
+		this.no = no;
+	}
 
 	public int getCurrentPage() {
 		return currentPage;
