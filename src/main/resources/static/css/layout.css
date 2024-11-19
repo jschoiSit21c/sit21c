@@ -445,6 +445,16 @@ textarea { height: 100px; resize: none; }
 #recruitment-form .form-buttons .btn-submit { padding: 10px 20px; font-size: 16px; background-color: #105cbf; color: #fff; border: none; border-radius: 4px; cursor: pointer; }
 #recruitment-form .form-buttons .btn-submit:hover { background-color: #1471e7; }
 
+/* 팝업 작성 페이지 스타일 */
+#popUp-form { width: 80%; margin: 20px auto; padding: 20px; border: 1px solid #ddd; background-color: #fff; border-radius: 8px; margin-bottom: 60px; }
+#popUp-form .form-group { margin-bottom: 20px; }
+#popUp-form .form-group label { display: block; font-weight: bold; margin-bottom: 5px; }
+#popUp-form .form-group input, 
+#popUp-form .form-group select, 
+#popUp-form .form-group textarea { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+#popUp-form .form-buttons { text-align: center; }
+#popUp-form .form-buttons .btn-submit { padding: 10px 20px; font-size: 16px; background-color: #105cbf; color: #fff; border: none; border-radius: 4px; cursor: pointer; }
+#popUp-form .form-buttons .btn-submit:hover { background-color: #1471e7; }
 /* 제목 스타일 조정 */
 .sub-page-title { font-size: 28px; font-weight: 500; margin-bottom: 20px; text-align: center; color: #333; }
 

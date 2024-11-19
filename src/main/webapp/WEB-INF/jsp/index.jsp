@@ -31,11 +31,15 @@
 			daeguLink.classList.add('active');
 		}
 	}
-
+	
+	
 	</script>
 </head>
 <body id="index-container">
 <jsp:include page="/WEB-INF/jsp/header.jsp"></jsp:include>
+<jsp:include page="/WEB-INF/jsp/admin/popUpUser.jsp"></jsp:include>
+
+
    	<!-- //전체 콘텐츠 -->
     <main>
 		<!-- main visual -->
