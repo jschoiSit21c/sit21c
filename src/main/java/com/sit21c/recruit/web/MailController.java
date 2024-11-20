@@ -22,7 +22,7 @@ public class MailController {
         try {
             SimpleMailMessage message = new SimpleMailMessage();
             message.setTo("sitmento@gmail.com");
-            message.setSubject("[채용지원] " + name + "님의 지원서");
+            message.setSubject("[채용 지원] " + name + "님의 지원서");
             message.setText("지원자 정보:\n\n"
                     + "이름: " + name + "\n"
                     + "이메일: " + email + "\n"
