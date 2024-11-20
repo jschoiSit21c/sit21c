@@ -61,4 +61,12 @@ public interface PopUpService {
 	 * @throws Exception
 	 */
 	public List<PopUpVo> selectPopUpListForUser() throws Exception;
+	
+	/**
+	 * 팝업 크기 및 위치정보 저장
+	 * @param popUpVo
+	 * @return
+	 * @throws Exception
+	 */
+	public int updatePopUpPosition(PopUpVo popUpVo) throws Exception;
  }

@@ -51,6 +51,10 @@ public class PopUpServiceImpl implements PopUpService {
 	public List<PopUpVo> selectPopUpListForUser() throws Exception {
 		return popUpMapper.selectPopUpListForUser();
 	}
+	@Override
+	public int updatePopUpPosition(PopUpVo popUpVo) throws Exception {
+		return popUpMapper.updatePopUpPosition(popUpVo);
+	}
 
 	
 }

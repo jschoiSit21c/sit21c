@@ -176,20 +176,44 @@ public class PopUpController {
 	}
 	
 	//유저게시용 팝업 목록 조회
-		@SuppressWarnings("finally")
-		@ResponseBody
-		@PostMapping("/admin/selectPopUpListForUser")
-		public List<PopUpVo> selectPopUpListForUser( ModelMap model,HttpSession session){
-			List<PopUpVo> popList = new ArrayList<PopUpVo>();
-			try {
+	@SuppressWarnings("finally")
+	@ResponseBody
+	@PostMapping("/admin/selectPopUpListForUser")
+	public List<PopUpVo> selectPopUpListForUser( ModelMap model,HttpSession session){
+		List<PopUpVo> popList = new ArrayList<PopUpVo>();
+		try {
 
-				popList = popUpService.selectPopUpListForUser();
-			}catch(Exception e) {
-				popList = null;
-			}finally {
-				return popList;
-			}
+			popList = popUpService.selectPopUpListForUser();
+		}catch(Exception e) {
+			popList = null;
+		}finally {
+			return popList;
 		}
+	}
+		
+	//팝업 위치 수정
+	@SuppressWarnings("finally")
+	@ResponseBody
+	@PostMapping("/admin/updatePopUpPosition")
+	public HashMap<String, Object> updatePopUpPosition(@RequestBody PopUpVo popUpVo, ModelMap model,HttpSession session){
+		HashMap<String, Object> successMap = new HashMap<>();
+		try {
+			if(popUpVo != null && session.getAttribute("loginInfo") != null) {
+				LoginVo loginInfo =  (LoginVo) session.getAttribute("loginInfo");
+				popUpVo.setWriterId(loginInfo.getId());
+
+				int popUpId = popUpService.updatePopUpPosition(popUpVo);
+				successMap.put("isSuccess", true);
+			}else {
+				successMap.put("isSuccess", false);
+			}
+			
+		}catch(Exception e) {
+			successMap.put("isSuccess", false);
+		}finally {
+			return successMap;
+		}
+	}
 		
 }
 

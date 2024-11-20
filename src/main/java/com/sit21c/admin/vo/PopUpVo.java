@@ -13,6 +13,11 @@ public class PopUpVo {
 	private String writerId;
 	private String popupImgid;
 	private String imagePath;
+	private String popWidth;
+	private String popHeight;
+	private String popLeftRatio;
+	private String popTopRatio;
+	
 	private int startNum;
 	private int endNum;
 	
@@ -87,6 +92,30 @@ public class PopUpVo {
 	}
 	public void setEndNum(int endNum) {
 		this.endNum = endNum;
+	}
+	public String getPopWidth() {
+		return popWidth;
+	}
+	public void setPopWidth(String popWidth) {
+		this.popWidth = popWidth;
+	}
+	public String getPopHeight() {
+		return popHeight;
+	}
+	public void setPopHeight(String popHeight) {
+		this.popHeight = popHeight;
+	}
+	public String getPopLeftRatio() {
+		return popLeftRatio;
+	}
+	public void setPopLeftRatio(String popLeftRatio) {
+		this.popLeftRatio = popLeftRatio;
+	}
+	public String getPopTopRatio() {
+		return popTopRatio;
+	}
+	public void setPopTopRatio(String popTopRatio) {
+		this.popTopRatio = popTopRatio;
 	}
 
 	

@@ -50,6 +50,16 @@ public interface PopUpMapper {
 	 * @return
 	 */
 	public int updatePopUp(PopUpVo popUpVO);
-	
+	/**
+	 * 유저용 팝업 목록조회
+	 * @return
+	 */
 	public List<PopUpVo> selectPopUpListForUser();
+	
+	/**
+	 * 팝업 위치및 크기정보 저장
+	 * @param popUpVo
+	 * @return
+	 */
+	public int updatePopUpPosition(PopUpVo popUpVo);
 }

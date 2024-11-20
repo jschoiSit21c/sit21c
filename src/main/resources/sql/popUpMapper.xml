@@ -33,6 +33,10 @@
 	<select id="selectPopUpListForUser" resultType="com.sit21c.admin.vo.PopUpVo">
 			select pop_up_id,
 				   COALESCE(update_at,create_at) as creat_At
+				   	,pop_width
+					,pop_height
+					,pop_left_ratio
+					,pop_top_ratio
 			from tb_popup_main
 			where 1=1 
 		and NOW() between  to_date(pop_start,'yyyy-MM-dd') and to_date(pop_end,'yyyy-MM-dd')+interval '23 hours 59minute 59second'
@@ -49,6 +53,10 @@
 					,writer_id
 					,pop_start
 					,pop_end
+					,pop_width
+					,pop_height
+					,pop_left_ratio
+					,pop_top_ratio
 			from tb_popup_main
 			where 1=1 
 			and pop_up_id = #{popUpId}
@@ -87,6 +95,15 @@
 				pop_start='${popStart}',
 				pop_end='${popEnd}',
 				update_at=NOW()
+		where pop_up_id = #{popUpId}
+	</update>
+	
+	<update id="updatePopUpPosition" parameterType="com.sit21c.admin.vo.PopUpVo">
+		update tb_popup_main
+				set pop_width = '${popWidth}',
+					pop_height = '${popHeight}',
+					pop_left_ratio = '${popLeftRatio}',
+					pop_top_ratio = '${popTopRatio}'
 		where pop_up_id = #{popUpId}
 	</update>
 </mapper>
