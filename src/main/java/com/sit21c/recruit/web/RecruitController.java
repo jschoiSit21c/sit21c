@@ -16,6 +16,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -28,6 +29,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.sit21c.common.service.CommonService;
 import com.sit21c.common.vo.AttchFileVo;
@@ -35,7 +37,7 @@ import com.sit21c.common.vo.BoardVo;
 import com.sit21c.login.vo.LoginVo;
 import com.sit21c.recruit.service.RecruitService;
 import com.sit21c.recruit.vo.JobPostingVo;
-import com.sit21c.recruit.vo.RecruitmentApplyVo;
+import com.sit21c.recruit.vo.JobApplicationVo;
 import com.sit21c.recruit.vo.RecruitmentVo;
 
 @Controller
@@ -71,7 +73,29 @@ public class RecruitController {
 	@RequestMapping("/recruit/recruitmentMain")
 	public String showRecruitmentPage(RecruitmentVo recruitmentVo, Model model) {
 		try {
-			model.addAttribute("list", recruitService.selectRecruitmentList(recruitmentVo));
+			// 페이징 계산을 위한 기본값 설정
+			if (recruitmentVo.getCurrentPage() <= 0) {
+				recruitmentVo.setCurrentPage(1);
+			}
+			if (recruitmentVo.getPageSize() <= 0) {
+				recruitmentVo.setPageSize(10);
+			}
+
+			// 시작 레코드 계산
+			recruitmentVo.setStartRecord((recruitmentVo.getCurrentPage() - 1) * recruitmentVo.getPageSize() + 1);
+
+			// 데이터 조회
+			List<RecruitmentVo> list = recruitService.selectRecruitmentList(recruitmentVo);
+
+			// 총 레코드 수를 첫 번째 데이터에서 가져옴
+			if (!list.isEmpty()) {
+				recruitmentVo.setTotalRecords(list.get(0).getTotalRecords());
+				recruitmentVo.calculatePaging(); // 페이징 계산
+			}
+
+			// 모델에 데이터 추가
+			model.addAttribute("list", list);
+			model.addAttribute("paging", recruitmentVo); // 페이징 정보 전달
 		} catch (Exception e) {
 			e.printStackTrace();
 		} 
@@ -87,7 +111,14 @@ public class RecruitController {
 	@RequestMapping("/recruit/recruitmentDetail")
 	public String showRecruitmentDetailPage(RecruitmentVo recruitmentVo, Model model) {
 		try {
-			model.addAttribute("item", recruitService.selectRecruitment(recruitmentVo));
+			RecruitmentVo item = recruitService.selectRecruitment(recruitmentVo);
+			
+			if(item == null) {
+				//값이 없을경우 루트로 보내버림.
+				return "redirect:/";
+			}
+			
+			model.addAttribute("item", item);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -99,15 +130,18 @@ public class RecruitController {
 	 * @param model
 	 * @return
 	 */
+	@PreAuthorize("hasRole('SA')")
 	@RequestMapping("/recruit/recruitmentWrite")
 	public String showRecruitmentWritePage(Model model) {
 		model.addAttribute("jobCategory", commonService.selectComCode("job_category")); //업무분야코드
 		model.addAttribute("recruitType", commonService.selectComCode("recruit_type")); //채용형태
+		model.addAttribute("isWrite", true); //등록/수정화면 같이쓰기위한 변수
 		return "/recruit/recruitmentWrite";
 	}
 	
 	//채용공고 저장
 	@SuppressWarnings("finally")
+	@PreAuthorize("hasRole('SA')")
 	@ResponseBody
 	@PostMapping("/recruit/saveRecruitment")
 	public HashMap<String, Object> saveRecruitment(@RequestBody RecruitmentVo recruitmentVo, ModelMap model,HttpSession session){
@@ -134,6 +168,138 @@ public class RecruitController {
 		
 	}
 	
+	/**
+	 * 채용공고 수정 화면 호출
+	 * @param model
+	 * @return
+	 */
+	@PreAuthorize("hasRole('SA')")
+	@RequestMapping("/recruit/recruitmentUpdate")
+	public String showRecruitmentUpdatePage(RecruitmentVo recruitmentVo, Model model) {
+		try {
+			RecruitmentVo recruitResult = recruitService.selectRecruitment(recruitmentVo);
+			model.addAttribute("recruitResult", recruitResult);
+			model.addAttribute("jobCategory", commonService.selectComCode("job_category")); //업무분야코드
+			model.addAttribute("recruitType", commonService.selectComCode("recruit_type")); //채용형태
+			model.addAttribute("isWrite", false); //등록/수정화면 같이쓰기위한 변수
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return "/recruit/recruitmentWrite";
+	}
+	
+	//채용공고 수정
+	@SuppressWarnings("finally")
+	@PreAuthorize("hasRole('SA')")
+	@ResponseBody
+	@PostMapping("/recruit/modifyRecruitment")
+	public HashMap<String, Object> modifyRecruitment(@RequestBody RecruitmentVo recruitmentVo, ModelMap model,HttpSession session){
+		HashMap<String, Object> successMap = new HashMap<>();
+		try {
+			if(recruitmentVo != null && session.getAttribute("loginInfo") != null) {
+				LoginVo loginInfo =  (LoginVo) session.getAttribute("loginInfo");
+				recruitmentVo.setRecruitAuthor(loginInfo.getId());
+				
+				int recruitId = recruitService.modifyRecruitment(recruitmentVo);
+				
+				successMap.put("isSuccess", true);
+				successMap.put("recruitId", recruitmentVo.getRecruitId());
+			}else {
+				successMap.put("isSuccess", false);
+			}
+			
+		}catch(Exception e) {
+			successMap.put("isSuccess", false);
+		}finally {
+			return successMap;
+		}
+		
+		
+	}
+	
+	/**
+	 * 입사지원서 제출
+	 * @param recruitmentApplyVo
+	 * @return
+	 */
+	@RequestMapping("/recruit/submitJobApplication")
+	public String submitJobApplication(@ModelAttribute JobApplicationVo jobApplicationVo, RedirectAttributes redirectAttributes) {
+		try {
+			
+			//첨부파일 처리
+			MultipartFile file = jobApplicationVo.getResumeFile();
+			
+			AttchFileVo attchFileVo = null;
+			if(file != null && !file.isEmpty()) {
+				
+				LocalDate today = LocalDate.now();
+				
+				DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
+				
+				String fmtToday = today.format(formatter);
+				
+				String uuid = UUID.randomUUID().toString();
+				
+				attchFileVo = new AttchFileVo();
+				attchFileVo.setFileName(uuid);
+				attchFileVo.setFileOrgName(file.getOriginalFilename());
+				attchFileVo.setFilePath(uploadDir + "/recruit/" + fmtToday); //경로에 날짜 추가
+				attchFileVo.setFileSize(file.getSize());
+				attchFileVo.setFileType(file.getContentType());
+				//디렉토리 생성
+//				File directory = new File(uploadDir + "/recruit/");
+				File directory = new File(attchFileVo.getFilePath());
+				
+				if(!directory.exists()) {
+					directory.mkdirs();
+				}
+				
+				Path path = Paths.get(attchFileVo.getFilePath(), attchFileVo.getFileName());
+				//파일 저장
+				file.transferTo(new File(path.toUri()));
+			}
+			
+			recruitService.submitJobApplication(jobApplicationVo, attchFileVo);
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+			redirectAttributes.addFlashAttribute("submitJobApplicationMsg", "입사 지원에 실패하였습니다.");
+			return "redirect:/recruit/recruitmentDetail?recruitId=" + jobApplicationVo.getRecruitId();
+		}
+		redirectAttributes.addFlashAttribute("submitJobApplicationMsg", "입사 지원이 성공적으로 제출되었습니다.");
+		return "redirect:/recruit/recruitmentDetail?recruitId=" + jobApplicationVo.getRecruitId();
+	}
+	
+	/**
+	 * 입사지원자 목록 조회 //비동기
+	 * @param jobApplicationVo
+	 * @return
+	 */
+	@PreAuthorize("hasRole('SA')")
+	@ResponseBody
+	@RequestMapping("/recruit/selectApplicants")
+	public Map<String, Object> selectApplicants(@ModelAttribute JobApplicationVo jobApplicationVo) {
+		Map<String, Object> resultMap = new HashMap<>();
+		// 시작 레코드 계산
+		jobApplicationVo.setStartRecord((jobApplicationVo.getCurrentPage() - 1) * jobApplicationVo.getPageSize());
+		try {
+			List<JobApplicationVo> list = recruitService.selectApplicants(jobApplicationVo);
+			
+			// 총 레코드 및 페이지 계산
+			if (!list.isEmpty()) {
+				jobApplicationVo.setTotalRecords(list.get(0).getTotalRecords());
+				jobApplicationVo.calculatePaging();
+			}
+			resultMap.put("list", list);
+			resultMap.put("paging", jobApplicationVo);
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return resultMap;
+	}
+	
 	
 //	/**
 //	 * 직무 채용정보
@@ -142,7 +308,7 @@ public class RecruitController {
 //	 */
 //	@RequestMapping(value = "/recruit/recruitmentPost", method = RequestMethod.GET, produces = "text/html;charset=UTF-8")
 //	public String showRecruitmentPost(@RequestParam("departmentId") String departmentId,
-//            @RequestParam(value = "page", defaultValue = "1") int page, Model model) {
+//			@RequestParam(value = "page", defaultValue = "1") int page, Model model) {
 //		int pageSize = 9; // 한 페이지에 표시할 공고 수
 //		List<JobPostingVo> jobPostings = recruitService.getJobPostingsByDepartmentId(departmentId, page, pageSize);
 //		String departmentName = recruitService.getDepartmentNameById(departmentId);
@@ -160,34 +326,34 @@ public class RecruitController {
 //	}
 //	
 //	@ResponseBody
-//    @RequestMapping(value = "/recruit/api/jobs", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
-//    public ResponseEntity<Map<String, Object>> getJobListings(
-//            @RequestParam("departmentId") String departmentId,
-//            @RequestParam(value = "page", defaultValue = "1") int page) {
-//        
-//        int pageSize = 9; // 한 페이지에 표시할 공고 수
-//        List<JobPostingVo> jobPostings = recruitService.getJobPostingsByDepartmentId(departmentId, page, pageSize);
-//        int totalPostings = recruitService.getTotalJobPostingsCount(departmentId);
-//        int totalPages = (int) Math.ceil((double) totalPostings / pageSize);
+//	@RequestMapping(value = "/recruit/api/jobs", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
+//	public ResponseEntity<Map<String, Object>> getJobListings(
+//			@RequestParam("departmentId") String departmentId,
+//			@RequestParam(value = "page", defaultValue = "1") int page) {
+//		
+//		int pageSize = 9; // 한 페이지에 표시할 공고 수
+//		List<JobPostingVo> jobPostings = recruitService.getJobPostingsByDepartmentId(departmentId, page, pageSize);
+//		int totalPostings = recruitService.getTotalJobPostingsCount(departmentId);
+//		int totalPages = (int) Math.ceil((double) totalPostings / pageSize);
 //
-//        Map<String, Object> response = new HashMap<>();
-//        response.put("jobPostings", jobPostings);
-//        response.put("currentPage", page);
-//        response.put("totalPages", totalPages);
+//		Map<String, Object> response = new HashMap<>();
+//		response.put("jobPostings", jobPostings);
+//		response.put("currentPage", page);
+//		response.put("totalPages", totalPages);
 //
-//        return ResponseEntity.ok(response);
-//    }
+//		return ResponseEntity.ok(response);
+//	}
 //
-//    @ResponseBody
-//    @RequestMapping(value = "/recruit/api/job/{jobId}", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
-//    public ResponseEntity<JobPostingVo> getJobDetails(@PathVariable("jobId") String jobId) {
-//        JobPostingVo jobPosting = recruitService.getJobPostingById(jobId);
-//        if (jobPosting != null) {
-//            return ResponseEntity.ok(jobPosting);
-//        } else {
-//            return ResponseEntity.notFound().build();
-//        }
-//    }
+//	@ResponseBody
+//	@RequestMapping(value = "/recruit/api/job/{jobId}", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
+//	public ResponseEntity<JobPostingVo> getJobDetails(@PathVariable("jobId") String jobId) {
+//		JobPostingVo jobPosting = recruitService.getJobPostingById(jobId);
+//		if (jobPosting != null) {
+//			return ResponseEntity.ok(jobPosting);
+//		} else {
+//			return ResponseEntity.notFound().build();
+//		}
+//	}
 //	
 //	/**
 //	 * 인사제도 화면 호출

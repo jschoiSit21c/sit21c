@@ -385,15 +385,25 @@ textarea { height: 100px; resize: none; }
 .job-apply-button {	padding: 5px 10px;	background-color: #105cbf;	color: #fff;	border: none;	border-radius: 4px;	cursor: pointer;	font-size: 14px; } 
 .job-apply-button:hover {	background-color: #1471e7; } 
 /* 페이징 스타일 */ 
-.pagination {	display: flex;	justify-content: center;	margin-top: 20px; } 
-.pagination a {	color: #105cbf;	padding: 8px 12px;	text-decoration: none;	border: 1px solid #ddd;	margin: 0 5px;	border-radius: 4px; } 
-.pagination a.active {	background-color: #105cbf;	color: white;	border: 1px solid #105cbf; } 
-.pagination a:hover {	background-color: #1471e7;	color: white; }
+#recruitmentMain .pagination { display: flex; justify-content: center; align-items: center; gap: 10px; margin-top: 20px; padding: 10px; border-radius: 8px; max-width: 90%; margin: 20px auto; }
+#recruitmentMain .pagination button { padding: 8px 12px; font-size: 14px; font-weight: bold; color: #105cbf; background-color: #ffffff; border: 1px solid #ddd; border-radius: 4px; cursor: pointer; transition: all 0.3s ease; text-align: center; }
+#recruitmentMain .pagination button:hover { background-color: #1471e7; color: #ffffff; border-color: #1471e7; }
+#recruitmentMain .pagination button.active { background-color: #105cbf; color: white; border-color: #105cbf; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); }
+#recruitmentMain .pagination button.prev-page, #recruitmentMain .pagination button.next-page { font-size: 16px; font-weight: bold; padding: 8px 16px; color: #333; background-color: #ffffff; border: 1px solid #ddd; border-radius: 4px; }
+#recruitmentMain .pagination button.prev-page:hover, #recruitmentMain .pagination button.next-page:hover { background-color: #e4e4e4; color: #105cbf; border-color: #bbb; }
+
 
 /* 채용정보 상세 페이지 */
 .job-detail-page .sub-page-title { font-size: 36px; font-weight: 600; color: #262932; margin-bottom: 30px; text-align: center; } /* 서브페이지 제목 스타일 */
-.job-detail-page .job-detail-section { background-color: #f9f9f9; border: 1px solid #ddd; padding: 30px; border-radius: 8px; margin-bottom: 40px; width: 90%; margin-left: auto; margin-right: auto; } /* 채용 공고 상세 섹션 */
-.job-detail-page .job-title { font-size: 24px; font-weight: bold; color: #333; margin-bottom: 15px; } /* 공고 제목 스타일 */
+.job-detail-page .job-detail-section { width: 90%; max-width: 1200px; margin: 20px auto; padding: 20px; border-radius: 8px; background-color: #f9f9f9; border: 1px solid #ddd; } 
+.job-detail-page .job-title { font-size: 20px; font-weight: bold; color: #333; margin-bottom: 15px; text-align: center; } 
+.job-detail-page .job-detail-meta { font-size: 14px; color: #666; margin-bottom: 15px; text-align: center; } 
+.job-detail-page .job-detail-info { font-size: 16px; color: #333; line-height: 1.8; text-align: left; } 
+body.sub-page div.job-detail-section div.job-detail-apply a.apply-button { padding: 6px 10px; font-size: 12px; background-color: #105cbf; color: #ffffff; border-radius: 4px; text-decoration: none; font-weight: 600; display: inline-block; float: right; margin-top: 10px; margin-right: 20px; transition: background-color 0.3s ease; } 
+body.sub-page div.job-detail-section div.job-detail-apply a.apply-button:hover { background-color: #1471e7; }
+
+
+
 /* 공고 내용 부분의 CSS 제거로 .job-summary와 .job-detail-row 관련 스타일 삭제 */
 .job-detail-page .job-application-section { width: 90%; margin: 0 auto; padding: 30px; border: 1px solid #ddd; border-radius: 8px; background-color: #fcfcfc; } /* 지원하기 폼 섹션 */
 .job-detail-page .job-application-section h3 { font-size: 20px; font-weight: bold; margin-bottom: 20px; color: #262932; text-align: left; } /* 지원하기 제목 */
@@ -445,5 +455,29 @@ textarea { height: 100px; resize: none; }
 #recruitment-form .form-buttons .btn-submit { padding: 10px 20px; font-size: 16px; background-color: #105cbf; color: #fff; border: none; border-radius: 4px; cursor: pointer; }
 #recruitment-form .form-buttons .btn-submit:hover { background-color: #1471e7; }
 
+/* 팝업 작성 페이지 스타일 */
+#popUp-form { width: 80%; margin: 20px auto; padding: 20px; border: 1px solid #ddd; background-color: #fff; border-radius: 8px; margin-bottom: 60px; }
+#popUp-form .form-group { margin-bottom: 20px; }
+#popUp-form .form-group label { display: block; font-weight: bold; margin-bottom: 5px; }
+#popUp-form .form-group input, 
+#popUp-form .form-group select, 
+#popUp-form .form-group textarea { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+#popUp-form .form-buttons { text-align: center; }
+#popUp-form .form-buttons .btn-submit { padding: 10px 20px; font-size: 16px; background-color: #105cbf; color: #fff; border: none; border-radius: 4px; cursor: pointer; }
+#popUp-form .form-buttons .btn-submit:hover { background-color: #1471e7; }
 /* 제목 스타일 조정 */
 .sub-page-title { font-size: 28px; font-weight: 500; margin-bottom: 20px; text-align: center; color: #333; }
+
+/*채용정보 상세 지원자현황*/
+#admin-applicants-container { margin: 20px auto; padding: 20px; border: 1px solid #ddd; background-color: #f9f9f9; border-radius: 8px; width: 90%; max-width: 1200px; }
+.admin-applicants-title { font-size: 24px; font-weight: bold; margin-bottom: 20px; text-align: center; color: #333; }
+#admin-applicants-table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+#admin-applicants-table th, #admin-applicants-table td { padding: 10px; text-align: left; border: 1px solid #ddd; }
+#admin-applicants-table th { background-color: #f4f4f4; font-weight: bold; }
+#admin-applicants-table tr:hover { background-color: #f9f9f9; cursor: pointer; }
+#admin-applicants-pagination { display: flex; justify-content: center; margin-top: 20px; }
+#admin-applicants-pagination .pagination-link { padding: 5px 10px; border: 1px solid #ddd; margin: 0 5px; color: #105cbf; text-decoration: none; border-radius: 4px; cursor: pointer; }
+#admin-applicants-pagination .pagination-link.active { background-color: #105cbf; color: white; border-color: #105cbf; }
+#admin-applicants-table a.download-link { display: inline-block; color: #ffffff; background-color: #007bff; padding: 5px 10px; border-radius: 5px; font-size: 14px; text-decoration: none; transition: background-color 0.3s ease, box-shadow 0.3s ease; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);}
+#admin-applicants-table a.download-link:hover {background-color: #0056b3; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);}
+#admin-applicants-table a.download-link:before {content: "\1F4BE"; /* Unicode for floppy disk icon */ display: inline-block; margin-right: 5px;font-size: 14px;}

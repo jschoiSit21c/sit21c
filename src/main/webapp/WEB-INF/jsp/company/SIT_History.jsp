@@ -31,10 +31,16 @@
 		<div class="sub-page4-area">
 				<div class="history-section">
 					<div class="history-left" id="left-year-range">
-						<div class="timeline-year">현재~2023</div>
+						<div class="timeline-year">현재~2024</div>
 						<p>INNOVATION STAGE (혁신단계)</p>
 					</div>
 					<div class="history-right">
+						<div class="year-content" data-year="2024">
+							<div class="year-title">2024</div>
+							<div class="year-details">
+								<p>2024 연혁추가 필요 mmh</p>
+							</div>
+						</div>
 						<div class="year-content" data-year="2023">
 							<div class="year-title">2023</div>
 							<div class="year-details">
@@ -151,7 +157,7 @@
 
 							if (scrollY < 500) {
 								document.getElementById("left-year-range").innerHTML = `
-									<div class="timeline-year">현재~2023</div>
+									<div class="timeline-year">현재~2024</div>
 									<p>INNOVATION STAGE (혁신단계)</p>
 								`;
 							} else if (scrollY >= 500 && scrollY < 1000) {

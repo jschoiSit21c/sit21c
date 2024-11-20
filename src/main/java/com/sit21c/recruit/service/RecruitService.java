@@ -7,6 +7,7 @@ import com.sit21c.common.CamelCaseMap;
 import com.sit21c.common.vo.AttchFileVo;
 import com.sit21c.recruit.vo.JobPostingVo;
 import com.sit21c.recruit.vo.RecruitmentApplyVo;
+import com.sit21c.recruit.vo.JobApplicationVo;
 import com.sit21c.recruit.vo.RecruitmentVo;
 
 public interface RecruitService {
@@ -19,7 +20,7 @@ public interface RecruitService {
 	 * @param attchFileVo
 	 * @throws Exception 
 	 */
-	public void executeRecruitmentApply(RecruitmentApplyVo recruitmentApplyVo, AttchFileVo attchFileVo) throws Exception;
+//	public void executeRecruitmentApply(RecruitmentApplyVo recruitmentApplyVo, AttchFileVo attchFileVo) throws Exception;
 	
 	public List<JobPostingVo> getJobPostingsByDepartmentId(String departmentId, int page, int pageSize);
 	
@@ -51,4 +52,27 @@ public interface RecruitService {
 	 * @throws Exception
 	 */
 	public RecruitmentVo selectRecruitment(RecruitmentVo recruitmentVo) throws Exception;
+	
+	/**
+	 * 채용공고 수정
+	 * @param recruitmentVo
+	 * @return
+	 * @throws Exception
+	 */
+	public int modifyRecruitment(RecruitmentVo recruitmentVo) throws Exception;
+	
+	/**
+	 * 입사지원서 제출
+	 * @param applicationVo
+	 * @throws Exception
+	 */
+	public void submitJobApplication(JobApplicationVo applicationVo, AttchFileVo attchFileVo) throws Exception;
+	
+	/**
+	 * 입사지원자 목록 조회
+	 * @param recruitId
+	 * @return
+	 * @throws Exception
+	 */
+	public List<JobApplicationVo> selectApplicants(JobApplicationVo jobApplicationVo) throws Exception;
 }

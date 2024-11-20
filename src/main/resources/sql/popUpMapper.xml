@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sit21c.admin.mapper.PopUpMapper">
+
+	<!-- 팝업 목록 조회 -->
+	
+	<select id="selectCountPopUpList" parameterType="com.sit21c.admin.vo.PopUpVo" resultType="int">
+		select count(*)
+		from tb_popup_main
+		where 1=1
+	</select>
+	
+	<select id="selectPopUpList" parameterType="com.sit21c.admin.vo.PopUpVo" resultType="com.sit21c.admin.vo.PopUpVo">
+		select b.*
+		from (
+			select (ROW_NUMBER() OVER()) AS ROWNUM,a.*
+			from (
+				select 
+						pop_up_id,
+					   title,
+					   COALESCE(update_at,create_at) as create_At,
+					   pop_start,
+					   pop_end 
+				from tb_popup_main
+				where 1=1
+				order by create_At desc 
+			) a 
+		) b
+		where rownum between  #{startNum} and #{endNum}
+		
+	</select>
+	
+	<select id="selectPopUpListForUser" resultType="com.sit21c.admin.vo.PopUpVo">
+			select pop_up_id,
+				   COALESCE(update_at,create_at) as creat_At
+				   	,pop_width
+					,pop_height
+					,pop_left_ratio
+					,pop_top_ratio
+			from tb_popup_main
+			where 1=1 
+		and NOW() between  to_date(pop_start,'yyyy-MM-dd') and to_date(pop_end,'yyyy-MM-dd')+interval '23 hours 59minute 59second'
+		order by create_At desc
+	</select>
+	
+	<select id="selectPopUpDetail" parameterType="com.sit21c.admin.vo.PopUpVo" resultType="com.sit21c.admin.vo.PopUpVo">
+
+			select pop_up_id
+					,title
+					,content
+					,create_at
+					,update_at
+					,writer_id
+					,pop_start
+					,pop_end
+					,pop_width
+					,pop_height
+					,pop_left_ratio
+					,pop_top_ratio
+			from tb_popup_main
+			where 1=1 
+			and pop_up_id = #{popUpId}
+		
+	</select>
+	
+	
+	<!-- 팝업 저장 -->
+	
+	<insert id="savePopUp"  parameterType="com.sit21c.admin.vo.PopUpVo" keyProperty="popUpId" useGeneratedKeys="true">
+		insert into tb_popup_main (	create_at
+									,pop_start
+									,pop_end
+									,title
+									,content
+									,writer_id )
+		values (NOW()
+				,#{popStart}
+				,#{popEnd}
+				,#{title}
+				,#{content}
+				,#{writerId}
+		)
+		returning pop_up_id
+	</insert>
+	
+	<delete id="deletePopUp" parameterType="String">
+	delete from tb_popup_main
+	where pop_up_id = #{popUpId}
+	</delete>
+	
+	<update id="updatePopUp" parameterType="com.sit21c.admin.vo.PopUpVo">
+		update tb_popup_main
+				set title='${title}',
+				content='${content}',
+				pop_start='${popStart}',
+				pop_end='${popEnd}',
+				update_at=NOW()
+		where pop_up_id = #{popUpId}
+	</update>
+	
+	<update id="updatePopUpPosition" parameterType="com.sit21c.admin.vo.PopUpVo">
+		update tb_popup_main
+				set pop_width = '${popWidth}',
+					pop_height = '${popHeight}',
+					pop_left_ratio = '${popLeftRatio}',
+					pop_top_ratio = '${popTopRatio}'
+		where pop_up_id = #{popUpId}
+	</update>
+</mapper>

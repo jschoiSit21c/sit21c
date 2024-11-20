@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="security" %>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/layout.css">
     <script src="/js/script.js" defer></script>
@@ -49,6 +50,14 @@
 						<a href="#news">News</a>
 					</div>
 				</li>
+				<security:authorize access="hasRole('SA')">
+					<li class="menu-item">
+						<a href="#section5">ADMIN</a>
+						<div class="submenu">
+							<a href="/admin/popUpList">팝업 관리</a>
+						</div>
+					</li>
+				</security:authorize>
 			</ul>
 		</nav>
 	<div class="header-right">
@@ -67,7 +76,7 @@
 	<header id="s_header">
 		<div class="s_header-left">
 			<a href="/">
-				<img src="../img/logo_color.png" alt="소프트아이텍 로고" class="logo">
+				<img src="/img/logo_color.png" alt="소프트아이텍 로고" class="logo">
 			</a>
 		</div>
 		<nav class="s_header-nav">
@@ -103,6 +112,14 @@
 						<a href="#news">News</a>
 					</div>
 				</li>
+				<security:authorize access="hasRole('SA')">
+					<li class="menu-item">
+						<a href="#section5">ADMIN</a>
+						<div class="submenu">
+							<a href="/admin/popUpList">팝업 관리</a>
+						</div>
+					</li>
+				</security:authorize>
 			</ul>
 		</nav>
 	<div class="header-right">
@@ -151,6 +168,14 @@
 					<li><a href="#news">News</a></li>
 				</ul>
 			</div>
+			<security:authorize access="hasRole('SA')">
+				<div class="menu-section">
+					<h2>ADMIN</h2>
+					<ul>
+						<li><a href="/admin/popUpList">팝업 관리</a></li>
+					</ul>
+				</div>
+			</security:authorize>
 		</div>
 		<!-- 로그인/로그아웃 섹션 -->
 		<!-- 로그인/로그아웃 섹션 -->

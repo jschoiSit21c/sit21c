@@ -8,6 +8,7 @@ public class RecruitmentVo extends PagingVo {
 	private String recruitTitle;
 	private String recruitContent;
 	private String recruitJobCategoryCode;
+	private String recruitJobCategoryValue;
 	private String recruitAuthor;
 	private String recruitCreated_at;
 	private String recruitUpdated_by;
@@ -17,6 +18,7 @@ public class RecruitmentVo extends PagingVo {
 	private String recruitTypeCode;
 	private String recruitExternalUrl;
 	private String recruitPlace;
+	private String recruitStatus;
 	
 	public int getRecruitId() {
 		return recruitId;
@@ -41,6 +43,12 @@ public class RecruitmentVo extends PagingVo {
 	}
 	public void setRecruitJobCategoryCode(String recruitJobCategoryCode) {
 		this.recruitJobCategoryCode = recruitJobCategoryCode;
+	}
+	public String getRecruitJobCategoryValue() {
+		return recruitJobCategoryValue;
+	}
+	public void setRecruitJobCategoryValue(String recruitJobCategoryValue) {
+		this.recruitJobCategoryValue = recruitJobCategoryValue;
 	}
 	public String getRecruitAuthor() {
 		return recruitAuthor;
@@ -96,4 +104,11 @@ public class RecruitmentVo extends PagingVo {
 	public void setRecruitPlace(String recruitPlace) {
 		this.recruitPlace = recruitPlace;
 	}
+	public String getRecruitStatus() {
+		return recruitStatus;
+	}
+	public void setRecruitStatus(String recruitStatus) {
+		this.recruitStatus = recruitStatus;
+	}
+	
 }

@@ -106,44 +106,101 @@
 	
 	<!-- 채용공고 목록 -->
 	<select id="selectRecruitmentList" parameterType="com.sit21c.recruit.vo.RecruitmentVo" resultType="com.sit21c.recruit.vo.RecruitmentVo">
-		SELECT RECRUIT_ID
+		SELECT ROW_NUMBER() OVER (ORDER BY RECRUIT_ID DESC) AS NO
+			 , RECRUIT_ID
 			 , RECRUIT_TITLE
 			 , RECRUIT_CONTENT
 			 , RECRUIT_JOB_CATEGORY_CODE
+			 , (SELECT CODE_VALUE FROM TB_COM_CODE WHERE A.RECRUIT_JOB_CATEGORY_CODE = CODE_NO AND CODE_TYPE = 'job_category') AS RECRUIT_JOB_CATEGORY_VALUE
 			 , RECRUIT_AUTHOR
 			 , RECRUIT_CREATED_AT
 			 , RECRUIT_UPDATED_BY
 			 , RECRUIT_UPDATED_AT
 			 , RECRUIT_START_TIME
 			 , RECRUIT_END_TIME
-			 , CASE WHEN REPLACE(RECRUIT_START_TIME, '-', '') > TO_CHAR(NOW(), 'YYYY') THEN '진행전'
-			 		WHEN TO_CHAR(NOW(), 'YYYY') BETWEEN REPLACE(RECRUIT_START_TIME, '-', '') AND REPLACE(RECRUIT_END_TIME, '-', '') THEN '진행중'
-			 		WHEN TO_CHAR(NOW(), 'YYYY') > REPLACE(RECRUIT_START_TIME, '-', '') THEN '마감' END AS RECRUIT_STATUS
+			 , CASE WHEN REPLACE(RECRUIT_START_TIME, '-', '') > TO_CHAR(NOW(), 'YYYYMMDD') THEN '진행전'
+			 		WHEN TO_CHAR(NOW(), 'YYYYMMDD') BETWEEN REPLACE(RECRUIT_START_TIME, '-', '') AND REPLACE(RECRUIT_END_TIME, '-', '') THEN '진행중'
+			 		WHEN TO_CHAR(NOW(), 'YYYYMMDD') > REPLACE(RECRUIT_START_TIME, '-', '') THEN '마감' END AS RECRUIT_STATUS
 			 , RECRUIT_TYPE_CODE
 			 , RECRUIT_EXTERNAL_URL
 			 , RECRUIT_PLACE
-		FROM TB_RECRUITMENT
+			 , COUNT(*) OVER() AS TOTAL_RECORDS
+		FROM TB_RECRUITMENT A
 		ORDER BY RECRUIT_ID DESC
+		LIMIT #{pageSize} OFFSET #{startRecord} - 1
 	</select>
 	
+	<!-- 채용공고 상세 조회 -->
 	<select id="selectRecruitment" parameterType="com.sit21c.recruit.vo.RecruitmentVo" resultType="com.sit21c.recruit.vo.RecruitmentVo">
 			SELECT RECRUIT_ID
 			 , RECRUIT_TITLE
 			 , RECRUIT_CONTENT
 			 , RECRUIT_JOB_CATEGORY_CODE
+			 , (SELECT CODE_VALUE FROM TB_COM_CODE WHERE A.RECRUIT_JOB_CATEGORY_CODE = CODE_NO AND CODE_TYPE = 'job_category') AS RECRUIT_JOB_CATEGORY_VALUE
 			 , RECRUIT_AUTHOR
 			 , RECRUIT_CREATED_AT
 			 , RECRUIT_UPDATED_BY
 			 , RECRUIT_UPDATED_AT
 			 , RECRUIT_START_TIME
 			 , RECRUIT_END_TIME
-			 , CASE WHEN REPLACE(RECRUIT_START_TIME, '-', '') > TO_CHAR(NOW(), 'YYYY') THEN '진행전'
-			 		WHEN TO_CHAR(NOW(), 'YYYY') BETWEEN REPLACE(RECRUIT_START_TIME, '-', '') AND REPLACE(RECRUIT_END_TIME, '-', '') THEN '진행중'
-			 		WHEN TO_CHAR(NOW(), 'YYYY') > REPLACE(RECRUIT_START_TIME, '-', '') THEN '마감' END AS RECRUIT_STATUS
+			 , CASE WHEN REPLACE(RECRUIT_START_TIME, '-', '') > TO_CHAR(NOW(), 'YYYYMMDD') THEN '진행전'
+			 		WHEN TO_CHAR(NOW(), 'YYYYMMDD') BETWEEN REPLACE(RECRUIT_START_TIME, '-', '') AND REPLACE(RECRUIT_END_TIME, '-', '') THEN '진행중'
+			 		WHEN TO_CHAR(NOW(), 'YYYYMMDD') > REPLACE(RECRUIT_START_TIME, '-', '') THEN '마감' END AS RECRUIT_STATUS
 			 , RECRUIT_TYPE_CODE
 			 , RECRUIT_EXTERNAL_URL
 			 , RECRUIT_PLACE
-		FROM TB_RECRUITMENT
+		FROM TB_RECRUITMENT A
 		WHERE RECRUIT_ID = #{recruitId}
 	</select>
+	
+	<!-- 채용공고 수정 -->
+	<update id="modifyRecruitment" parameterType="com.sit21c.recruit.vo.RecruitmentVo">
+		UPDATE TB_RECRUITMENT
+		SET RECRUIT_UPDATED_BY = #{recruitAuthor}
+		  , RECRUIT_UPDATED_AT = NOW()
+		  , RECRUIT_TITLE = #{recruitTitle}
+		  , RECRUIT_CONTENT = #{recruitContent}
+		  , RECRUIT_JOB_CATEGORY_CODE = #{recruitJobCategoryCode}
+		  , RECRUIT_START_TIME = #{recruitStartTime}
+		  , RECRUIT_END_TIME = #{recruitEndTime}
+		  , RECRUIT_TYPE_CODE = #{recruitTypeCode}
+		  , RECRUIT_EXTERNAL_URL = #{recruitExternalUrl}
+		  , RECRUIT_PLACE = #{recruitPlace}
+		WHERE RECRUIT_ID = #{recruitId}
+	</update>
+	
+	<!-- 입사지원서 제출 -->
+	<insert id="submitJobApplication" parameterType="com.sit21c.recruit.vo.JobApplicationVo" useGeneratedKeys="true" keyProperty="jobApplicationId">
+		INSERT INTO TB_JOB_APPLICATION(RECRUIT_ID
+									 , JOB_APPLICATION_NAME
+									 , JOB_APPLICATION_EMAIL
+									 , JOB_APPLICATION_PHONE
+									 , FILE_ID
+									 , JOB_APPLICATION_DATE)
+		VALUES (#{recruitId}
+			  , #{jobApplicationName}
+			  , #{jobApplicationEmail}
+			  , #{jobApplicationPhone}
+			  , #{fileId}
+			  , now()
+		)
+		RETURNING JOB_APPLICATION_ID
+	</insert>
+	
+	<!-- 지원자목록조회 -->
+	<select id="selectApplicants" parameterType="com.sit21c.recruit.vo.JobApplicationVo" resultType="com.sit21c.recruit.vo.JobApplicationVo">
+		SELECT JOB_APPLICATION_ID
+			  , RECRUIT_ID
+			  , JOB_APPLICATION_NAME
+			  , JOB_APPLICATION_EMAIL
+			  , JOB_APPLICATION_PHONE
+			  , FILE_ID
+			  , JOB_APPLICATION_DATE
+			  , COUNT(*) OVER () AS TOTAL_RECORDS
+		FROM TB_JOB_APPLICATION
+		WHERE RECRUIT_ID = #{recruitId}
+		ORDER BY JOB_APPLICATION_DATE DESC
+		LIMIT #{pageSize} OFFSET #{startRecord}
+	</select>
+	
 </mapper>
