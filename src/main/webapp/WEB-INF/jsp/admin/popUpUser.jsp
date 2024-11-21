@@ -11,15 +11,6 @@
 //팝업 시작
 $(document).ready(function () {
 	
-// 		function getCookie(name){
-// 			var value = ';${document.cookie};';
-// 			var parts = value.split('; ${name}=');
-// 			if(parts.length === 2){
-// 				return part.pop().split(';').shift();
-// 			}else{
-// 				return null
-// 			}
-// 		}
 		
 		
 			//불필요
@@ -41,17 +32,7 @@ $(document).ready(function () {
 		var fHeight = window.screen.height;
 		var leftOpenPostion = fWidth * lRatio;
 		var topOpenPostion = fHeight * tRatio;
-		var temp = 'popUpforUser'+data[i].popUpId;
-// 		console.log(temp+"<--템쁘")
-// 		try{
-// 			var popYn = getCookie(temp);
-// 		}catch(e){
-			
-// 		}
-// 		if(popYn !='N'){
-// 			window.open("/admin/popUpDetailForUser?popUpId="+data[i].popUpId , "", "status=no, titlebar=no,toolbar=no,  menubar=no, scrollbars=yes,height="+data[i].popHeight+",width="+data[i].popWidth+",left="+leftOpenPostion +",top="+topOpenPostion+";");
-// 		}
-			window.open("/admin/popUpDetailForUser?popUpId="+data[i].popUpId , "", "status=no, titlebar=no,toolbar=no,  menubar=no, scrollbars=yes,height="+data[i].popHeight+",width="+data[i].popWidth+",left="+leftOpenPostion +",top="+topOpenPostion+";");
+		window.open("/admin/popUpDetailForUser?popUpId="+data[i].popUpId , "", "status=no, titlebar=no,toolbar=no,  menubar=no, scrollbars=yes,height="+data[i].popHeight+",width="+data[i].popWidth+",left="+leftOpenPostion +",top="+topOpenPostion+";");
 
 		}
 	}).fail(data => {
