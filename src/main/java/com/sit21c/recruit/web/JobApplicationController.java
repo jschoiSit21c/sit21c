@@ -50,7 +50,6 @@ public class JobApplicationController {
         if (!resumeFile.isEmpty()) {
             helper.addAttachment(resumeFile.getOriginalFilename(), resumeFile);
         }
-
         mailSender.send(message);
     }
 }
