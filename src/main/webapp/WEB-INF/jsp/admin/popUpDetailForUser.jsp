@@ -83,9 +83,9 @@ $(document).ready(function () {
 			</div>
 		</section>
 		<div class="job-admin-buttons">
-<%-- 		<security:authorize access="!hasRole('SA')"> --%>
-<!-- 			<input type="checkbox" name="notToday" id="notToday"/> 하루동안 이 창을 열지 않음 -->
-<%-- 		</security:authorize> --%>
+		<security:authorize access="!hasRole('SA')">
+			<input type="checkbox" name="notToday" id="notToday"/> 하루동안 이 창을 열지 않음
+		</security:authorize>
 			<a class="back-button href="#" id="close" name="close">닫기</a>
 			<security:authorize access="hasRole('SA')">
 				<button type="button" onclick="javascript:popUpAdjust();"class="edit-button">위치조정</button>

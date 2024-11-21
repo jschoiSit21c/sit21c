@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -179,11 +181,24 @@ public class PopUpController {
 	@SuppressWarnings("finally")
 	@ResponseBody
 	@PostMapping("/admin/selectPopUpListForUser")
-	public List<PopUpVo> selectPopUpListForUser( ModelMap model,HttpSession session){
+	public List<PopUpVo> selectPopUpListForUser( ModelMap model,HttpSession session,HttpServletRequest request){
 		List<PopUpVo> popList = new ArrayList<PopUpVo>();
+		Cookie[] list = request.getCookies();
 		try {
 
 			popList = popUpService.selectPopUpListForUser();
+			
+			for(Cookie cookie : list) {
+				for(int i = 0; i < popList.size(); i++) {
+					if(cookie.getName().equals("popUpforUser"+popList.get(i).getPopUpId())) {
+						if(cookie.getValue().equals("N")) {
+							popList.remove(i);
+						}
+						
+					}
+					
+				}
+			}
 		}catch(Exception e) {
 			popList = null;
 		}finally {
@@ -214,6 +229,7 @@ public class PopUpController {
 			return successMap;
 		}
 	}
+	
 		
 }
 
