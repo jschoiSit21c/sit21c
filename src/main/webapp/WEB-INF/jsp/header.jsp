@@ -45,9 +45,8 @@
 				<li class="menu-item">
 					<a href="#section4">PR CENTER</a>
 					<div class="submenu">
-						<a href="#ci">CI 소개</a>
-						<a href="#partnership">Partnership</a>
-						<a href="#news">News</a>
+						<a href="/pr/ci">CI 소개</a>
+						<a href="/pr/partnership">Partnership</a>
 					</div>
 				</li>
 				<security:authorize access="hasRole('SA')">
@@ -107,9 +106,8 @@
 				<li class="menu-item">
 					<a href="#section4">PR CENTER</a>
 					<div class="submenu">
-						<a href="#ci">CI 소개</a>
-						<a href="#partnership">Partnership</a>
-						<a href="#news">News</a>
+						<a href="/pr/ci">CI 소개</a>
+						<a href="/pr/partnership">Partnership</a>
 					</div>
 				</li>
 				<security:authorize access="hasRole('SA')">
@@ -163,9 +161,8 @@
 			<div class="menu-section">
 				<h2>PR CENTER</h2>
 				<ul>
-					<li><a href="#ci">CI 소개</a></li>
-					<li><a href="#partnership">Partner ship</a></li>
-					<li><a href="#news">News</a></li>
+					<li><a href="/pr/ci">CI 소개</a></li>
+					<li><a href="/pr/partnership">Partner ship</a></li>
 				</ul>
 			</div>
 			<security:authorize access="hasRole('SA')">

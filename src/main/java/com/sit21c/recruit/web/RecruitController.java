@@ -263,9 +263,12 @@ public class RecruitController {
 				}
 				
 				Path path = Paths.get(attchFileVo.getFilePath(), attchFileVo.getFileName());
+				sendEmail(jobApplicationVo.getJobApplicationName(), jobApplicationVo.getJobApplicationEmail(), jobApplicationVo.getJobApplicationPhone(), file);
 				//파일 저장
 				file.transferTo(new File(path.toUri()));
 			}
+			
+			
 			
 			recruitService.submitJobApplication(jobApplicationVo, attchFileVo);
 			
@@ -308,23 +311,23 @@ public class RecruitController {
 		return resultMap;
 	}
 	
-	// 지원 메일 발송
-	@PostMapping("/recruit/submitJobApplication")
-    public String submitApplication(
-            @RequestParam("jobApplicationName") String name,
-            @RequestParam("jobApplicationEmail") String email,
-            @RequestParam("jobApplicationPhone") String phone,
-            @RequestParam("resumeFile") MultipartFile resumeFile,
-            @RequestParam("recruitId") String recruitId) {
-
-        try {
-            sendEmail(name, email, phone, resumeFile);
-            return "redirect:/recruit/recruitmentMain?success=true";
-        } catch (Exception e) {
-            e.printStackTrace();
-            return "redirect:/recruit/recruitmentMain?success=false";
-        }
-    }
+	// 지원 메일 발송 // 불필요. 삭제
+//	@PostMapping("/recruit/submitJobApplication")
+//    public String submitApplication(
+//            @RequestParam("jobApplicationName") String name,
+//            @RequestParam("jobApplicationEmail") String email,
+//            @RequestParam("jobApplicationPhone") String phone,
+//            @RequestParam("resumeFile") MultipartFile resumeFile,
+//            @RequestParam("recruitId") String recruitId) {
+//
+//        try {
+//            sendEmail(name, email, phone, resumeFile);
+//            return "redirect:/recruit/recruitmentMain?success=true";
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            return "redirect:/recruit/recruitmentMain?success=false";
+//        }
+//    }
 
     private void sendEmail(String name, String email, String phone, MultipartFile resumeFile) throws MessagingException, IOException {
         MimeMessage message = mailSender.createMimeMessage();

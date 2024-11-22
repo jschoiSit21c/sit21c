@@ -481,3 +481,46 @@ body.sub-page div.job-detail-section div.job-detail-apply a.apply-button:hover {
 #admin-applicants-table a.download-link { display: inline-block; color: #ffffff; background-color: #007bff; padding: 5px 10px; border-radius: 5px; font-size: 14px; text-decoration: none; transition: background-color 0.3s ease, box-shadow 0.3s ease; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);}
 #admin-applicants-table a.download-link:hover {background-color: #0056b3; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);}
 #admin-applicants-table a.download-link:before {content: "\1F4BE"; /* Unicode for floppy disk icon */ display: inline-block; margin-right: 5px;font-size: 14px;}
+
+
+/* PR 센터 */
+.pr-message-content{ width: 100vw; height: 50vh; display: flex; align-items: center; justify-content: center; flex-direction: column; background-image: url('../img/pr_bg01.png'); background-size: cover; background-position: center; color: white; text-align: center; padding: 20px; box-sizing: border-box; }
+
+.pr2-message-content{ width: 100vw; height: 50vh; display: flex; align-items: center; justify-content: center; flex-direction: column; background-image: url('../img/pr_bg02.png'); background-size: cover; background-position: center; color: white; text-align: center; padding: 20px; box-sizing: border-box; }
+
+
+.pr-section { display: flex; flex-direction: column; align-items: center; gap: 20px; padding: 100px 0; box-sizing: border-box; }
+.pr-text { text-align: center;  margin: 0 auto; }
+.pr-text.top-text h1 { font-size: 2.5rem; font-weight: 600; margin: 0; }
+.pr-text.top-text h2 { font-size: 1.2rem; color: #555; margin: 5px 0; }
+.pr-row { display: flex; width: calc(80% - 20px); justify-content: center; margin: 0 auto; }
+.pr-item { display: flex; justify-content: center; align-items: center; background-color: #f7f7f7; width:88%; height: 300px; border-radius: 6px; border: 1px solid #d8d8d8; }
+.pr-image { max-height: 100px; max-width: 100%; }
+.pr-text.bottom-text p {width: 100%;font-size: 1.3rem; line-height: 1.4; color: #333; margin: 5px 0; }
+
+.pr-section .banner-container { display: grid;grid-template-columns: repeat(4, 1fr); gap: 50px; justify-items: center; padding: 20px; margin-left: auto; margin-right: auto; margin:20px 0; }
+.banner-image { width: 328px; height: 88px; border-radius: 4px; }
+
+.download-button { display: inline-block; margin-top: 20px; padding: 15px 30px; font-size: 1.2rem; font-weight: 400; color: white; background-color: #1471e7; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s ease; }
+.download-button:hover { background-color: #0056b3; }
+
+.logo-type { display: flex; justify-content: center; align-items: flex-start; gap:100px !important; margin-top: 40px; }
+.logo-item { display: flex; flex-direction: column; align-items: center; }
+.logo-box { display: flex; justify-content: center; align-items: center; width: 450px; height: 200px; padding: 20px 60px; background-color: #fff; border-radius: 6px; border: 1px solid #d8d8d8; }
+.logo-box img { max-width: 100%; max-height: 100%; object-fit: contain; }
+.logo-item p { font-size: 1rem; color: #555; text-align: center; margin: 10px 0 0; }
+
+
+.ci-info-section { text-align: center; padding: 40px;  margin: 0 auto; width: calc(75% - 25px);  margin-top:60px; }
+.ci-info-section h2 { font-size: 2.5rem; font-weight: bold; margin: 0;  margin-bottom: 20px; color: #000; letter-spacing: -0.5px; }
+.ci-description { font-size: 1.3rem; line-height: 1.4; color: #333; margin-bottom: 40px; }
+.logo-type { display: flex; justify-content: center; gap: 200px; margin-bottom: 40px; }
+.logo-item { text-align: center; }
+.logo-item img { max-width: 100%; height: auto; margin-bottom: 10px; }
+.logo-item p { font-size: 1.4rem; color: #333; }
+.color-system { margin-top: 100px; }
+.color-system h3 { font-size: 2.5rem; font-weight: bold; margin-bottom: 40px; }
+.color-items { display: flex; justify-content: center; gap: 40px; }
+.color-item { width: 368px; height: 150px; display: flex; justify-content: flex-start; align-items: flex-end; color: #fff; font-size: 1rem; font-weight: 400; border-radius: 8px;  padding: 10px; }
+
+.color-item span { display:inline-block; padding-left:30px; }
