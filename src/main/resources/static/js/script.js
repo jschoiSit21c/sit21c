@@ -103,6 +103,16 @@ if(document.querySelectorAll("#index-container").length != 0){
 if(document.querySelectorAll("#index-container").length != 0){
 	// 메인화면 비쥬얼 //
 	document.addEventListener("DOMContentLoaded", function() {
+		const video = document.getElementById('background-video');
+		let videoEnded = false;
+		
+		video.addEventListener('ended', function() {
+			video.style.opacity = 0;
+			videoEnded = true;
+			// 첫 이미지와 텍스트 바로 표시
+			showImageAndText();
+		});
+		
 	    const images = document.querySelectorAll(".background-image");
 	    const texts = document.querySelectorAll(".hero-text");
 	    let currentIndex = 0;
@@ -118,31 +128,31 @@ if(document.querySelectorAll("#index-container").length != 0){
 	        texts.forEach((text) => {
 	            text.style.opacity = 0;
 	        });
-	
-	        // 현재 이미지와 텍스트 보여주기
-	        const currentImage = images[currentIndex];
-	        const currentText = texts[currentIndex];
-	        currentImage.style.opacity = 1;
-	        currentImage.style.transform = 'translate(-50%, -50%) scale(1)'; // 화면에 맞게 줄어듦
-	        currentImage.style.transition = 'transform 2s ease, opacity 2s ease'; // 트랜지션 설정
-	
-	        // 현재 텍스트 표시
-	        currentText.style.opacity = 1;
-	
-	        // 3초 동안 고정된 상태 유지
-	        setTimeout(() => {
-	            currentImage.style.opacity = 0; // 이미지 서서히 사라짐
-	            currentText.style.opacity = 0; // 텍스트도 함께 사라짐
-	        }, 8000); // 3초 동안 유지 후 페이드 아웃 시작
-	
-	        // 다음 인덱스로 변경
-	        currentIndex = (currentIndex + 1) % images.length;
+
+			//video 종료 후 이미지 노출
+			if(videoEnded){
+		        // 현재 이미지와 텍스트 보여주기
+		        const currentImage = images[currentIndex];
+		        const currentText = texts[currentIndex];
+		        currentImage.style.opacity = 1;
+		        currentImage.style.transform = 'translate(-50%, -50%) scale(1)'; // 화면에 맞게 줄어듦
+		        currentImage.style.transition = 'transform 2s ease, opacity 2s ease'; // 트랜지션 설정
+		
+		        // 현재 텍스트 표시
+		        currentText.style.opacity = 1;
+		
+		        // 3초 동안 고정된 상태 유지
+		        setTimeout(() => {
+		            currentImage.style.opacity = 0; // 이미지 서서히 사라짐
+		            currentText.style.opacity = 0; // 텍스트도 함께 사라짐
+		        }, 8000); // 3초 동안 유지 후 페이드 아웃 시작
+		
+		        // 다음 인덱스로 변경
+		        currentIndex = (currentIndex + 1) % images.length;
+			}
 	    }
-	
-	    // 첫 이미지와 텍스트 바로 표시
-	    showImageAndText();
-	
-	    // 이후 6초마다 showImageAndText 함수 실행
-	    setInterval(showImageAndText, 9000); // 6초마다 다음 이미지로 전환
+		
+	    // 이후 9초마다 showImageAndText 함수 실행
+	    setInterval(showImageAndText, 9000); // 9초마다 다음 이미지로 전환
 	});
 }

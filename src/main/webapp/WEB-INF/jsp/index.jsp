@@ -9,6 +9,21 @@
 	<link rel="stylesheet" href="/css/style.css">
 	<link rel="stylesheet" href="/css/layout.css">
 	<script src="/js/script.js" defer></script>
+	<style>
+		
+		#background-video {
+		    position: absolute;
+		    top: 50%;
+		    left: 50%;
+		    min-width: 100%;
+		    min-height: 100%;
+		    width: auto;
+		    height: auto;
+		    transform: translate(-50%, -50%);
+		    object-fit: cover;
+		    z-index: -1;
+		}
+	</style>
 	<script>
 	// 오시는길 함수
 	function showMap(location) {
@@ -45,6 +60,9 @@
 		<!-- main visual -->
 		<section id="section1" class="section">
 			<div id="background-container">
+				<video autoplay muted playsinline id="background-video">
+			        <source src="/img/sitMainRowShort.mp4" type="video/mp4">
+			    </video>
 				<img src="/img/mv01.png" alt="배경 이미지 1" class="background-image">
 				<img src="/img/mv02.png" alt="배경 이미지 2" class="background-image">
 			</div>
