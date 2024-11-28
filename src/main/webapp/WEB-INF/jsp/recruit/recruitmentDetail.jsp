@@ -29,12 +29,13 @@
 			<div class="job-detail-content">
 				${item.recruitContent} <!-- WYSIWYG 에디터로 작성된 콘텐츠 -->
 			</div>
-			<c:if test="${item.recruitExternalUrl != null}">
-				<div class="job-detail-apply">
-					<a href="${item.recruitExternalUrl}" class="apply-button" target="_blank">사람인으로 지원하기</a>
-				</div>
-			</c:if>
 		</section>
+		
+		<c:if test="${item.recruitExternalUrl != null}">
+			<div class="job-detail-apply">
+				<a href="${item.recruitExternalUrl}" class="apply-button" target="_blank">사람인으로 지원하기</a>
+			</div>
+		</c:if>
 		<security:authorize access="!hasRole('SA')">
 		<!-- 관리자 아닐때만 -->
 			<section class="job-application-section">
