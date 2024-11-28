@@ -1,3 +1,38 @@
+document.addEventListener("scroll", function () {
+    const headers = [document.getElementById("header"), document.getElementById("s_header")]; // 두 개의 헤더 선택
+
+    headers.forEach(header => {
+        if (header) { // header가 존재하는 경우에만 실행
+            if (window.scrollY > 100) {
+                header.style.top = "-100px"; // 스크롤 시 헤더 숨기기
+            } else {
+                header.style.top = "0"; // 최상단에서 헤더 보이기
+            }
+        }
+    });
+});
+
+
+if(document.querySelectorAll(".history-right").length != 0){
+	document.querySelector(".history-right").addEventListener("scroll", function () {
+	    const yearContents = document.querySelectorAll(".year-content");
+	    const timelineYears = document.querySelectorAll(".timeline-year");
+	
+	    // 화면 기준, 세로의 상단에서 약 25% 지점
+	    const triggerPoint = window.innerHeight * 0.25;
+	
+	    yearContents.forEach((content, index) => {
+	        const rect = content.getBoundingClientRect();
+	
+	        // 콘텐츠의 상단이 triggerPoint에 도달했을 때 활성화
+	        if (rect.top <= triggerPoint && rect.bottom > triggerPoint) {
+	            timelineYears.forEach(year => year.classList.remove("active")); // 모든 연도의 active 제거
+	            timelineYears[index].classList.add("active"); // 현재 콘텐츠와 매칭된 연도에 active 추가
+	        }
+	    });
+	});
+}
+
 if(document.querySelectorAll("#s_header").length != 0){
 	window.addEventListener('scroll', function() {
 	    const header = document.getElementById('s_header');

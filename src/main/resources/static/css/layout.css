@@ -3,7 +3,7 @@
 
 
 /* 상단 Top(메뉴&유틸) 영역 */
-#header { position: fixed; top: 0; width: 100%; height: 100px; color: white; display: flex; align-items: center; justify-content: space-between; padding: 0 50px; z-index: 10; background-color: rgba(0, 0, 0, 0.2); backdrop-filter: blur(10px); box-sizing: border-box; }
+#header { position: fixed; top: 0; width: 100%; height: 100px; color: white; display: flex; align-items: center; justify-content: space-between; padding: 0 50px; z-index: 10; background-color: rgba(0, 0, 0, 0.2); backdrop-filter: blur(10px); box-sizing: border-box; transition: top 0.3s ease; }
 .header-left .logo { height: 40px; }
 
 /* 메인 상단 중앙 대메뉴 */
@@ -193,7 +193,7 @@
 
 /*서브-소개페이지 -비주얼 및 텍스트 */
 .ceo-message-content{ width: 100vw; height: 50vh; display: flex; align-items: center; justify-content: center; flex-direction: column; background-image: url('../img/are_01.png'); background-size: cover; background-position: center; color: white; text-align: center; padding: 20px; box-sizing: border-box; }
-.ceo-message-text { max-width: 800px; margin: 0 auto; font-size: 28px; line-height: 1.2; padding: 20px; border-radius: 8px; color: #fff; font-weight: 300; text-align: center; }
+.ceo-message-text { max-width: 1000px; margin: 0 auto; font-size: 22px; line-height: 1.4; padding: 20px; border-radius: 8px; color: rgb(215, 233, 251, 0.8); font-weight: 400; text-align: center; letter-spacing: -0.5px; }
 .ceo-message-text span { display: inline-block; margin-top: 20px; font-size: 18px; }
 
 .ceo-message-thanks { font-size: 36px; font-weight: 400; color: #fff; margin-top: 30px; text-align: center; }
@@ -227,18 +227,22 @@
 .digi_divider {  height: 1px; background: #ddd; margin: 30px auto; width: 100%; }
 
 
-/* 비전&미션 */
-.mission-vision-core { text-align: center; padding: 40px 0 0 0; margin: 0 auto; margin-top:40px;  }
-.mission{margin-bottom:40px; }
-.mission h2, .vision h2, .core-values h2 { color:#000; font-size: 33px; font-weight: 500; margin-bottom: 10px; }
-.mission p, .vision p { font-size: 18px; font-weight: 400; margin-top: 5px; color: #555; }
-.sub-text { font-size: 14px; color: #888; margin-top: 5px; }
-.divider {  height: 1px; background: #ddd; margin: 30px auto; width: 100%; }
+/* 비전&미션 11/29일 */
+.mission-vision-core { padding: 60px 0; margin: 0 auto; width: 80%; }
+.innovation-section { display: flex; justify-content: center; align-items: flex-start; gap: 72px; margin-bottom: 50px; }
+.innovation, .prosperity { width: 45%; text-align: left; }
+.innovation h2, .prosperity h2 { font-size: 46px; font-weight: 600; color: #000; margin-bottom: 10px;  text-align: center;}
+.innovation .subtitle, .prosperity .subtitle { font-size: 50px; font-weight: 600; color: #ddd; text-align: center; }
+.innovation .description, .prosperity .description { font-size: 16px; color: #333; line-height: 1.8; margin-top: 10px; }
+.innovation .description span, .prosperity .description span { display:inline-block; font-size: 26px;  font-weight: 600; color: #333; line-height: 1.8; margin-top: 10px; }
 
-.core-value-section { background-color: #f5f5f5; padding: 60px 0; text-align: center; margin-top: 50px; }
-.core-value-title { font-size: 33px; font-weight: 500; color: #333; margin-bottom: 40px; }
-.core-values-items { display: flex; justify-content: center; gap: 20px;  margin: 0 auto; flex-wrap: wrap; }
-.core-value-box { background-color: #fff; padding: 20px; border-radius: 2px; width: 300px; text-align: center; height:320px; padding-top:80px; }
+.core-value-section { background-color: #f5f5f5; padding: 60px 0 0 0; text-align: center; margin-top: 50px; border-radius: 8px; border:1px; height:675px; }
+.core-value-section p { display:inline-block; font-size: 46px;  font-weight: 600; color: #ddd; margin-bottom:50px;}
+.core-value-title { font-size: 46px; font-weight: 600; color: #000; }
+
+
+.core-values-items { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+.core-value-box { background-color: #fff; padding: 20px; border-radius: 2px; width: 300px; text-align: center; height: 320px; padding-top: 80px; }
 .core-value-box img { width: 100px; height: 100px; margin-bottom: 15px; }
 .core-value-box h3 { font-size: 26px; font-weight: 400; color: #333; margin-bottom: 5px; }
 .core-value-subtitle { font-size: 14px; color: #777; margin-bottom: 10px; }
@@ -251,21 +255,20 @@
 .years-text { max-width: 800px; margin: 0 auto; font-size: 28px; line-height: 1.2; padding: 20px; border-radius: 8px; color: #fff; font-weight: 300; text-align: center; }
 .years-text span { display: inline-block; margin-top: 20px; font-size: 18px; }
 .years_info { display: flex; flex-wrap: wrap; justify-content: center; gap: 140px; max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
-.history-section { display: flex; height: 100vh; overflow: hidden; }
-.history-left {width: 50%;background-color: #f5f5f5;display: flex;flex-direction: column-reverse;align-items: center;justify-content: flex-end;padding: 20px;position: sticky;top: 0;height: 100vh;flex-wrap: wrap;}
-.timeline-year { font-size: 5.1em; font-weight: 500; letter-spacing: -1.5px; color: #333; line-height:80px; }
-.history-left p { font-size: 1.5em; font-weight: 400; letter-spacing: 0.5px; color: #e20c4e; line-height:60px; }
-.history-right { width: 50%; height: 100vh; overflow-y: scroll; padding: 20px; }
-.timeline-item { display: flex; flex-direction: column; align-items: flex-start; margin-bottom: 40px; position: relative; }
-.year-title { font-size: 2.5em; font-weight: bold; color: #e20c4e; margin-bottom: 10px; }
-.year-details { font-size: 1em; color: #333; line-height: 1.5em; padding-left: 80px; border-left: 2px solid #e20c4e; width: 100%; box-sizing: border-box; margin-left: 70px;  padding-bottom:70px;}
-.year-details p { font-size: 1em; margin: 0; color: #333;  }
-.year-title { font-size: 2.8em; font-weight: bold; color: #262932; }
-.year-content p { font-size: 1.2em; font-weight: 400; letter-spacing: 0.5px; color: #262932; line-height: 26px; padding-bottom:5px; }
+
+.history-section { display: flex; max-width: 1200px; margin: 0 auto; position: relative; height: 100vh; overflow: hidden; margin-top:60px; margin-bottom:60px; }
+.history-left { width: 25%; position: sticky; top: 0; height: 100vh; background-color: #f9f9f9; padding: 20px; overflow-y: hidden; }
+.timeline-year { font-size: 1.5rem; color: #aaa; margin-bottom: 20px; transition: color 0.3s ease, font-weight 0.3s ease; }
+.timeline-year.active { color: #08406e; font-weight: bold; }
+.history-right { width: 75%; overflow-y: scroll; padding: 0 20px; height: 100%; }
+.year-content { margin-bottom: 40px; padding: 20px 0; border-bottom: 1px solid #ddd; }
+.year-title { font-size: 4rem; color: #08406e; font-weight:600; margin-bottom: 10px; }
+.year-details p { font-size: 1.2rem; color: #333; line-height: 1.4; margin: 5px 0; }
 
 
 
 /* 인증서 */
+.cerfi-content { width: 100vw; height: 50vh; display: flex; align-items: center; justify-content: center; flex-direction: column; background-image: url('../img/are_02_1.png'); background-size: cover; background-position: center; color: white; text-align: center; padding: 20px; box-sizing: border-box; }
 .s_title { text-align:center; font-size: 52px; font-weight: 700; color: #262932; margin: 70px 0 20px 5px; position: relative; } 
 
 .sub-page3-area{width: 100%; margin: 50px auto; text-align: left; padding: 0 20px;}
@@ -465,8 +468,6 @@ body.sub-page div.job-detail-section div.job-detail-apply a.apply-button:hover {
 #popUp-form .form-buttons { text-align: center; }
 #popUp-form .form-buttons .btn-submit { padding: 10px 20px; font-size: 16px; background-color: #105cbf; color: #fff; border: none; border-radius: 4px; cursor: pointer; }
 #popUp-form .form-buttons .btn-submit:hover { background-color: #1471e7; }
-/* 제목 스타일 조정 */
-.sub-page-title { font-size: 28px; font-weight: 500; margin-bottom: 20px; text-align: center; color: #333; }
 
 /*채용정보 상세 지원자현황*/
 #admin-applicants-container { margin: 20px auto; padding: 20px; border: 1px solid #ddd; background-color: #f9f9f9; border-radius: 8px; width: 90%; max-width: 1200px; }

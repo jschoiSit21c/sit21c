@@ -22,8 +22,9 @@
 				<li class="menu-item">
 					<a href="#section1">COMPANY</a>
 					<div class="submenu">
-						<a href="/company/aboutSIT">About</a>
+						<a href="/company/aboutSIT">회사소개</a>
 						<a href="/company/history">연혁</a>
+						<a href="/company/certifi">인증/수상</a>
 						<a href="/company/location">오시는길</a>
 					</div>
 				</li>
@@ -83,8 +84,9 @@
 				<li class="menu-item">
 					<a href="#section1">COMPANY</a>
 					<div class="submenu">
-						<a href="/company/aboutSIT">About</a>
+						<a href="/company/aboutSIT">회사소개</a>
 						<a href="/company/history">연혁</a>
+						<a href="/company/certifi">인증/수상</a>
 						<a href="/company/location">오시는길</a>
 					</div>
 				</li>
@@ -138,8 +140,9 @@
 			<div class="menu-section">
 				<h2>COMPANY</h2>
 				<ul>
-					<li><a href="/company/aboutSIT">About</a></li>
+					<li><a href="/company/aboutSIT">회사소개</a></li>
 					<li><a href="/company/history">연혁</a></li>
+					<li><a href="/company/certifi">인증/수상</a></li>
 					<li><a href="/company/location">오시는길</a></li>
 				</ul>
 			</div>

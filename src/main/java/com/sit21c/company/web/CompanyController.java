@@ -96,4 +96,14 @@ public class CompanyController {
 		
 		return "/company/vision";
 	}
+	
+	/**
+	 * 인증/수상
+	 * @param param
+	 * @return
+	 */
+	@RequestMapping("/company/certifi")
+	public String openCertifi(@RequestParam Map<String, Object> param) {
+		return "/company/certifi";
+	}
 }

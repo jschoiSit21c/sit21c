@@ -12,7 +12,7 @@
 <jsp:include page="/WEB-INF/jsp/header.jsp"></jsp:include>
 	<!-- 서브 페이지 1-->
 	<div class="sub-page-content">
-		<h2 class="sub-page-title">History</h2>
+		<h2 class="sub-page-title">연혁</h2>
 
 		<!-- 인사말 -->
 		<div class="sub-page1-area">
@@ -20,27 +20,31 @@
 			<h3 class="slogan">끊임없는 발전과 혁신을 통해 미래를 선도하는 소프트아이텍의 도전 역사</h3>
 			<!-- 이미지와 CEO 인사말 내용 -->
 			<div class="years-content">
-				<p class="years-text">
-					소프트아이텍은 고객의 비즈니스 성장을 지원하며,<br> 신뢰받는 IT 파트너로 고객과 함께 성장하며 새로운 역사를 만들어가겠습니다.
-				</p>
 
 			</div>	
 		</div>	
 			
 		<!-- 연혁  -->
 		<div class="sub-page4-area">
+			<div class="s_title">주요연혁</div>
 				<div class="history-section">
-					<div class="history-left" id="left-year-range">
-						<div class="timeline-year">현재~2024</div>
-						<p>INNOVATION STAGE (혁신단계)</p>
+					<div class="history-left">
+						<div class="timeline-year">2023</div>
+						<div class="timeline-year">2022</div>
+						<div class="timeline-year">2021</div>
+						<div class="timeline-year">2020</div>
+						<div class="timeline-year">2019</div>
+						<div class="timeline-year">2018</div>
+						<div class="timeline-year">2017</div>
+						<div class="timeline-year">2015</div>
+						<div class="timeline-year">2013</div>
+						<div class="timeline-year">2011</div>
+						<div class="timeline-year">2010</div>
+						<div class="timeline-year">2009</div>
+						<div class="timeline-year">2002</div>
+						<div class="timeline-year">2000</div>
 					</div>
 					<div class="history-right">
-						<div class="year-content" data-year="2024">
-							<div class="year-title">2024</div>
-							<div class="year-details">
-								<p>2024 연혁추가 필요 mmh</p>
-							</div>
-						</div>
 						<div class="year-content" data-year="2023">
 							<div class="year-title">2023</div>
 							<div class="year-details">
@@ -149,76 +153,12 @@
 								<p>소프트웨어 사업 등록</p>
 							</div>
 						</div>
-					</div>						
-					<!-- 연혁 년도 변화 스크립트 -->
-					<script>
-						document.querySelector(".history-right").addEventListener("scroll", function () {
-							const scrollY = this.scrollTop;
-
-							if (scrollY < 500) {
-								document.getElementById("left-year-range").innerHTML = `
-									<div class="timeline-year">현재~2024</div>
-									<p>INNOVATION STAGE (혁신단계)</p>
-								`;
-							} else if (scrollY >= 500 && scrollY < 1000) {
-								document.getElementById("left-year-range").innerHTML = `
-									<div class="timeline-year">2011~2019</div>
-									<p>GROWTH STAGE (성장단계)</p>
-								`;
-							} else if (scrollY >= 1000) {
-								document.getElementById("left-year-range").innerHTML = `
-									<div class="timeline-year">2000~2010</div>
-									<p>FOUNDATION STAGE (설립단계)</p>
-								`;
-							}
-						});
-					</script>
-
-
+					</div>
+				</div>
 
 	</div>
 	<!--// 서브 전체내용 1 -->
-		<!-- 인증서 -->			
-		<div class="sub-page3-area">
-			<div class="s_title">인증서, 주요수상경력</div>
-			<p>"당신의 비즈니스 성장을 위한 든든한 파트너, 소프트아이텍의 다년간 축적된경험, 인증 및 수상의 발자취 입니다. "</p>
-				<div class="certificate-container">
-					<div class="certificate-item">
-						<img src="/img/cer_01.png" alt="ISO/IEC 20000-1: 2018 인증">
-						<p>ISO/IEC 20000-1: 2018 인증</p>
-					</div>
-					<div class="certificate-item">
-						<img src="/img/cer_02.png" alt="ISO/IEC 27001: 2014 인증">
-						<p>ISO/IEC 27001: 2014 인증</p>
-					</div>
-					<div class="certificate-item">
-						<img src="/img/cer_03.png" alt="ISO9001 2015 인증 획득">
-						<p>ISO9001 2015 인증 획득</p>
-					</div>
-					<div class="certificate-item">
-						<img src="/img/cer_04.png" alt="기술혁신형 중소기업 확인서">
-						<p>기술혁신형 중소기업 확인서</p>
-					</div>
-					<div class="certificate-item">
-						<img src="/img/cer_05.png" alt="기업부설연구소 인정서">
-						<p>기업부설연구소 인정서</p>
-					</div>
-					<div class="certificate-item">
-						<img src="/img/certif_01.png" alt="ISO9001 2015 인증 획득">
-						<p>이백억원 매출의탑 </p>
-					</div>
-					<div class="certificate-item">
-						<img src="/img/certif_02.png" alt="기술혁신형 중소기업 확인서">
-						<p>사백억원 매출의탑 </p>
-					</div>
-					<div class="certificate-item">
-						<img src="/img/certif_03.png" alt="기업부설연구소 인정서">
-						<p>육백억원 매출의탑 </p>
-					</div>
-				</div>		
-
-		</div>
-		<!-- //인증서 -->
+	</div>
     <!-- 하단 -->
 	<jsp:include page="/WEB-INF/jsp/footer.jsp"></jsp:include>
 </body>
