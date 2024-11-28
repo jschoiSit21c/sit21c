@@ -392,8 +392,65 @@ textarea { height: 100px; resize: none; }
 #recruitmentMain .pagination button { padding: 8px 12px; font-size: 14px; font-weight: bold; color: #105cbf; background-color: #ffffff; border: 1px solid #ddd; border-radius: 4px; cursor: pointer; transition: all 0.3s ease; text-align: center; }
 #recruitmentMain .pagination button:hover { background-color: #1471e7; color: #ffffff; border-color: #1471e7; }
 #recruitmentMain .pagination button.active { background-color: #105cbf; color: white; border-color: #105cbf; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); }
-#recruitmentMain .pagination button.prev-page, #recruitmentMain .pagination button.next-page { font-size: 16px; font-weight: bold; padding: 8px 16px; color: #333; background-color: #ffffff; border: 1px solid #ddd; border-radius: 4px; }
-#recruitmentMain .pagination button.prev-page:hover, #recruitmentMain .pagination button.next-page:hover { background-color: #e4e4e4; color: #105cbf; border-color: #bbb; }
+/*2024.11.29 맹민호 주석처리*/
+/* #recruitmentMain .pagination button.prev-page, #recruitmentMain .pagination button.next-page { font-size: 16px; font-weight: bold; padding: 8px 16px; color: #333; background-color: #ffffff; border: 1px solid #ddd; border-radius: 4px; }
+#recruitmentMain .pagination button.prev-page:hover, #recruitmentMain .pagination button.next-page:hover { background-color: #e4e4e4; color: #105cbf; border-color: #bbb; } */
+
+
+/*2024.11.29 맹민호 상단 2줄 주석처리후 css 추가*/
+/* 1. 전체 페이지네이션 감싸는 컨테이너 중앙 정렬 */
+.page-wrapper {
+    display: flex;
+    justify-content: center; /* 수평 중앙 정렬 */
+    align-items: center; /* 필요시 수직 정렬 */
+    width: 100%; /* 부모 요소 전체 너비 */
+    margin-top: 20px; /* 페이지네이션 상단 여백 */
+}
+
+/* 2. 페이지네이션 리스트 스타일 */
+.page .pagination {
+    display: flex;
+    justify-content: center; /* 내부 항목 수평 정렬 */
+    list-style: none; /* 기본 리스트 스타일 제거 */
+    padding: 0; /* 내부 여백 제거 */
+    margin: 0; /* 외부 여백 제거 */
+    gap: 8px; /* 리스트 항목 간격 */
+}
+
+/* 3. 페이지네이션 버튼 스타일 */
+.page .pagination .prev,
+.page .pagination .next,
+.page .pagination .num {
+    font-size: 16px;
+    font-weight: bold;
+    padding: 8px 12px;
+    color: #333;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    text-decoration: none; /* 링크 밑줄 제거 */
+    cursor: pointer;
+}
+
+/* 4. 버튼 호버 스타일 */
+.page .pagination .prev:hover,
+.page .pagination .next:hover,
+.page .pagination .num:hover {
+    background-color: #e4e4e4;
+    color: #105cbf;
+    border-color: #bbb;
+}
+
+/* 5. 현재 페이지(active) 스타일 */
+.page .pagination .active a.num {
+    background-color: #105cbf;
+    color: #ffffff;
+    border-color: #105cbf;
+}
+
+
+
+
 
 
 /* 채용정보 상세 페이지 */

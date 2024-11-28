@@ -104,24 +104,34 @@ cursor: pointer;
 
 					</tbody>
 				</table>
-				<div>
-				 <div class="page">
-				 	<ul class="pagination modal">
-				 		<c:if test="${prev }">
-				 			<li><a class="prev" onclick="location.href='/admin/popUpList?currentPage=${startPage - 1 }'">이전</a></li>
-				 		</c:if>
-				 		<c:forEach begin="${startPage }" end ="${endPage }" var="index">
-				 			<li <c:out value="${currentPage == index ? 'class=active' : '' }"/>>
-				 				<a class="num" onclick="location.href='/admin/popUpList?currentPage=${index }'">${index }</a>
-				 			</li>
-				 		</c:forEach>
-				 		<c:if test="${next && endPage > 0 }">
-				 			<li><a class="next" onclick="location.href='/admin/popUpList?currentPage=${endPage + 1 }'">다음</a></li>
-				 		</c:if>
-				 	</ul>
-				 </div>
+				<div class="page-wrapper">
+				    <div class="page">
+				        <ul class="pagination modal">
+				            <!-- 이전 버튼 -->
+				            <c:if test="${prev}">
+				                <li>
+				                    <a class="prev" onclick="location.href='/admin/popUpList?currentPage=${startPage - 1 }'">이전</a>
+				                </li>
+				            </c:if>
+				            
+				            <!-- 페이지 번호 -->
+				            <c:forEach begin="${startPage}" end="${endPage}" var="index">
+				                <li <c:out value="${currentPage == index ? 'class=active' : '' }"/>>
+				                    <a class="num" onclick="location.href='/admin/popUpList?currentPage=${index }'">${index}</a>
+				                </li>
+				            </c:forEach>
+				            
+				            <!-- 다음 버튼 -->
+				            <c:if test="${next && endPage > 0}">
+				                <li>
+				                    <a class="next" onclick="location.href='/admin/popUpList?currentPage=${endPage + 1 }'">다음</a>
+				                </li>
+				            </c:if>
+				        </ul>
+				    </div>
 				</div>
-					<button class="write-button" onclick="location.href='/admin/popUpWrite'">글쓰기</button>
+
+				<button class="write-button" onclick="location.href='/admin/popUpWrite'">글쓰기</button>
 			</div>
 		</section>
 
