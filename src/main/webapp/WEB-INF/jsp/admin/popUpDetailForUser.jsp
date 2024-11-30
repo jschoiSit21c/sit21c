@@ -87,7 +87,7 @@ $(document).ready(function () {
 		document.cookie = name + "=" + escape(value) + "; path=/; expires=" + today.toGMTString()+";";
 	}
 	
-	$("#close").click(function(){
+	$("#closePop").click(function(){
 		if($('#notToday').is(":checked")) {
 			setCookie("popUpforUser${result.popUpId}","N",1);
 		}
@@ -108,7 +108,7 @@ $(document).ready(function () {
 			<div id="popUpButtons">
 				<input type="checkbox" name="notToday" id="notToday"/> <span id="nToday">하루동안 이 창을 열지 않음</span>
 <%-- 			</security:authorize> --%>
-			<a class="closePop" href="#"  >닫기</a>
+			<a class="closePop" id="closePop"href="#"  >닫기</a>
 			<security:authorize access="hasRole('SA')">
 				<button class="Padjust" type="button" onclick="javascript:popUpAdjust();">위치조정</button>
 			</security:authorize>
