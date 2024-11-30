@@ -11,6 +11,14 @@
 <title>소프트아이텍 - 팝업수정</title>
 <!-- summernoteCSS -->
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/summernote-lite.min.css" rel="stylesheet">
+<style>
+.btn-cancel{
+ padding: 10px 20px; font-size: 16px; background-color: #105cbf; color: #fff; border: none; border-radius: 4px; cursor: pointer; 
+}
+.btn-cancel:hover{
+ background-color: #1471e7; 
+}
+</style>
 </head>
 <body class="sub-page">
 <!-- 상단 -->
@@ -46,13 +54,12 @@
 				<!-- 버튼 -->
 				<div class="form-buttons">
 					<button type="submit" class="btn-submit">수정하기</button>
-					<button class="btn-cancel" onclick="history.go(-1);">취소</button>
+					<button type="button" class="btn-cancel" onclick="location.href='/admin/popUpDetail?popUpId=${result.popUpId }'">취소</button>
 				</div>
 			</form>
 		</section>
 
 	</div>
-
 	<!--// 서브 전체내용 1 -->
 	
 	

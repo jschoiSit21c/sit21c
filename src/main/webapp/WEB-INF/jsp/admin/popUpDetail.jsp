@@ -77,7 +77,7 @@
 		</section>
 		<!-- 뒤로가기 버튼 -->
 		<div class="job-admin-buttons">
-			<button class="back-button" onclick="history.go(-1);">목록</button>
+			<button class="back-button" onclick="location.href='/admin/popUpList'">목록</button>
 			<button type="button" onclick='javascript:openPopUp();' class="edit-button">팝업위치조정</button>
 			<button type="button" onclick="location.href='/admin/popUpUpdate?popUpId=${result.popUpId}'" class="edit-button">수정</button>
 			<button type="button" onclick="javascript:deletePop();" class="edit-button">삭제</button>

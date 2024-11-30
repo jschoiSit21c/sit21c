@@ -8,6 +8,31 @@
 <title></title>
 <link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="/css/layout.css">
+<style>
+#popUpButtons{
+text-align: right;
+}
+#popContent{
+background:white;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+}
+.Padjust{
+ padding:2px; font-size: 13px; background-color:#105cbf; color: #fff;  border-radius: 4px; cursor: pointer; 
+}
+.Padjust:hover{
+ background-color:#1471e7; 
+}
+.closePop{
+ padding-right:5px;padding-left:5px; font-size: 15px; background-color:#105cbf; color: #fff;  border-radius: 4px; cursor: pointer; 
+}
+.closePop:hover{
+ background-color:#1471e7; 
+}
+#nToday{
+padding-right:5px;padding-left:5px;font-size: 15px; right:0;
+}
+</style>
 </head>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js" crossorigin="anonymous"></script>
 <script>
@@ -71,26 +96,26 @@ $(document).ready(function () {
 });
 </script>
 <body>
-<div class="sub-page-content job-detail-page">
-		<section class="job-detail-section">
-			<div class="job-detail-header">
-				<h1 class="job-title">${result.title }</h1>
-			</div>
-			<div class="job-detail-info">
+<div class="job-detail-page">
+<!-- 			<div class="job-detail-header"> -->
+<%-- 				<h1 class="job-title">${result.title }</h1> --%>
+<!-- 			</div> -->
+			<div id="popContent">
 				<div class="job-detail-row">
 					<p>${result.content }</p>
 				</div>
-			</div>
-		</section>
-		<div class="job-admin-buttons">
-		<security:authorize access="!hasRole('SA')">
-			<input type="checkbox" name="notToday" id="notToday"/> 하루동안 이 창을 열지 않음
-		</security:authorize>
-			<a class="back-button href="#" id="close" name="close">닫기</a>
+<%-- 			<security:authorize access="!hasRole('SA')"> --%>
+			<div id="popUpButtons">
+				<input type="checkbox" name="notToday" id="notToday"/> <span id="nToday">하루동안 이 창을 열지 않음</span>
+<%-- 			</security:authorize> --%>
+			<a class="closePop" href="#"  >닫기</a>
 			<security:authorize access="hasRole('SA')">
-				<button type="button" onclick="javascript:popUpAdjust();"class="edit-button">위치조정</button>
+				<button class="Padjust" type="button" onclick="javascript:popUpAdjust();">위치조정</button>
 			</security:authorize>
-		</div>		
+			</div>
+			</div>
+<!-- 		<div class="job-admin-buttons"> -->
+<!-- 		</div>		 -->
 	</div>
 </body>
 </html>

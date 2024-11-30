@@ -32,7 +32,7 @@ $(document).ready(function () {
 		var fHeight = window.screen.height;
 		var leftOpenPostion = fWidth * lRatio;
 		var topOpenPostion = fHeight * tRatio;
-		window.open("/admin/popUpDetailForUser?popUpId="+data[i].popUpId , "", "status=no, titlebar=no,toolbar=no,  menubar=no, scrollbars=yes,height="+data[i].popHeight+",width="+data[i].popWidth+",left="+leftOpenPostion +",top="+topOpenPostion+";");
+		window.open("/admin/popUpDetailForUser?popUpId="+data[i].popUpId , "", "status=no,location=no, titlebar=no,toolbar=no,  menubar=no, scrollbars=yes , menubar=no,resizeable=no ,height="+data[i].popHeight+",width="+data[i].popWidth+",left="+leftOpenPostion +",top="+topOpenPostion+";");
 
 		}
 	}).fail(data => {
