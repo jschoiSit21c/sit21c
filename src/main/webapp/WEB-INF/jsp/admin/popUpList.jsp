@@ -68,7 +68,6 @@ cursor: pointer;
 </style>
 	<!-- 서브 페이지 1 -->
 	<div class="sub-page-content">
-			<h2 class="sub-page-title">팝업목록</h2>
 	<!-- 인사말 -->
 <!-- 		<div class="sub-page1-area"> -->
 		<!-- 슬로건 및 설명 -->
@@ -76,10 +75,12 @@ cursor: pointer;
 <!-- 			<div class="ceo-message-content"> -->
 <!-- 			</div>	 -->
 <!-- 		</div>	 -->
-		<section class="job-list-section">
+		<section class="employ-section">
+			<br/>
+			<h2 class="employ-title">팝업목록</h2>
 			<div class="job-table-wrapper">
 				<!-- 채용 목록 테이블 -->
-				<table class="job-table">
+				<table class="employ-table">
 					<thead>
 						<tr>
 							<th>제목</th>
@@ -90,14 +91,14 @@ cursor: pointer;
 					</thead>
 					<tbody>
 						<c:forEach var="p" items="${list }">
-							<tr onclick="location.href='/admin/popUpDetail?popUpId=${p.popUpId }'">
+							<tr>
 								<td>${p.title }</td>
 								<td>${p.popStart }&nbsp;~&nbsp;${p.popEnd }</td>
 								<td>
 								<fmt:parseDate value="${p.createAt }" pattern="yyyy-MM-dd" var='tempDate'/>
 								<fmt:formatDate value="${tempDate }" pattern="yyyy-MM-dd" />
 								</td>
-								<td><button class="job-apply-button">자세히 보기</button></td>
+								<td><button class="detail-button" onclick="location.href='/admin/popUpDetail?popUpId=${p.popUpId }'">></button></td>
 							</tr>
 						
 						</c:forEach>
