@@ -47,7 +47,6 @@
 		}
 	}
 	
-	
 	</script>
 </head>
 <body id="index-container">
