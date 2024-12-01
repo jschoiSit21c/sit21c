@@ -16,69 +16,28 @@
 	<div class="sub-page-content job-detail-page">
 		<h2 class="sub-page-title">채용공고 상세</h2>
 
-		<!-- 채용 공고 상세 정보 -->
-		<section class="job-detail-section">
-			<div class="job-detail-header">
-				<h1 class="job-title">[${item.recruitStatus}] ${item.recruitTitle}</h1>
-			</div>
-			<div class="job-detail-meta">
-				<p><strong>업무분야:</strong> ${item.recruitJobCategoryValue}</p>
-				<p><strong>지원기간:</strong> ${item.recruitStartTime} ~ ${item.recruitEndTime}</p>
-				<p><strong>근무지:</strong> ${item.recruitPlace}</p>
-			</div>
-			<div class="job-detail-content">
-				${item.recruitContent} <!-- WYSIWYG 에디터로 작성된 콘텐츠 -->
+	<!--//ICT 인프라서비스 -->    	
+        <section class="employ-section">
+            <h2 class="employ-title">채용</h2>
+            <div class="employ-intro">
+                <h3>${item.recruitTitle}</h3>
+                <div class="employ-buttons">
+                    <button class="saramin-button" onclick="window.open('${item.recruitExternalUrl}');">saramin 지원하기</button>
+                    <button class="saramin-button" onclick="location.href='/recruit/recruitmentApply?recruitId=${recruitId}'">채용지원서 작성</button>
+                </div>
+
+            </div>
+			<div class="view_area">
+				${item.recruitContent}
+<!-- 			<img src="/img/Job_Notice.png"> -->
+			
 			</div>
 			
-			<br/><br/>
-			<c:if test="${item.recruitExternalUrl != null}">
-			<div class="job-detail-apply">
-				<a href="${item.recruitExternalUrl}" class="apply-button" target="_blank">사람인으로 지원하기</a>
-			</div>
-			</c:if>
-		</section>
-		
+                <div class="form-buttons">
+                    <button type="button" class="form-submit" onclick="location.href='/recruit/recruitmentMain'">목록</button>
+                </div>
+        </section>
 
-		<security:authorize access="!hasRole('SA')">
-		<!-- 관리자 아닐때만 -->
-			<section class="job-application-section">
-				<h3>지원하기</h3>
-				<form action="/recruit/submitJobApplication" method="post" enctype="multipart/form-data" ${item.recruitStatus == '진행중' ? '' : 'onsubmit="return false;"' }>
-					<input type="hidden" name="recruitId" value="${param.recruitId}" /> 
-					<!-- 성명 -->
-					<div class="form-row">
-						<label for="jobApplicationName">성명*</label>
-						<input type="text" id="jobApplicationName" name="jobApplicationName" required>
-					</div>
-					<!-- 이메일 -->
-					<div class="form-row">
-						<label for="jobApplicationEmail">이메일*</label>
-						<input type="email" id="jobApplicationEmail" name="jobApplicationEmail" required>
-					</div>
-					<!-- 전화번호 -->
-					<div class="form-row">
-						<label for="jobApplicationPhone">전화번호*</label>
-						<input type="tel" id="jobApplicationPhone" name="jobApplicationPhone" placeholder="010-1234-5678" required>
-					</div>
-					<!-- 이력서 및 포트폴리오 -->
-					<div class="form-row">
-						<label for="resumeFile">이력서*</label>
-						<input type="file" id="resumeFile" name="resumeFile" required>
-					</div>
-					<!-- 개인정보 동의 -->
-					<div class="privacy-agree">
-						<input type="checkbox" id="jobApplicationAgree" name="jobApplicationAgree" required>
-						<label for="agree">개인정보처리방침에 동의합니다.</label>
-					</div>
-					<!-- 버튼 -->
-					<div class="form-buttons">
-						<c:if test="${item.recruitStatus == '진행중'}">
-							<button type="submit" class="form-submit">지원하기</button>
-						</c:if>
-					</div>
-				</form>
-			</section>
-		</security:authorize>
 		<security:authorize access="hasRole('SA')">
 			<!-- 관리자만 -->
 			<div id="admin-applicants-container">
@@ -103,10 +62,6 @@
 				</div>
 			</div>
 		</security:authorize>
-		<!-- 뒤로가기 버튼 -->
-		<div class="back-button-container">
-			<button class="back-button" onclick="location.href='/recruit/recruitmentMain'">목록</button>
-		</div>
 		<security:authorize access="hasRole('SA')">
 			<!-- 관리자만 수정 가능하게끔 -->
 			<div class="job-admin-buttons">

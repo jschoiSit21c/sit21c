@@ -14,6 +14,7 @@
 <jsp:include page="/WEB-INF/jsp/header.jsp"></jsp:include>
 	<!-- 서브 페이지 1-->
 	<div class="sub-page-content">
+	
 		<h2 class="sub-page-title">채용정보</h2>
 
 		<!-- 인사말 -->
@@ -27,35 +28,44 @@
 
 			</div>	
 		</div>	
-		<section class="job-list-section">
-			<div class="job-table-wrapper">
-				<!-- 채용 목록 테이블 -->
-				<table class="job-table">
-					<thead>
-						<tr>
-							<th>no</th>
-							<th>진행상태</th>
-							<th>업무분야</th>
-							<th>채용 제목</th>
-							<th>근무지</th>
-							<th>지원기간</th>
-							<th>상세보기</th>
-						</tr>
-					</thead>
-					<tbody>
+		
+	<!-- 채용 정보 및 작성 -->
+       
+        <section class="consult-section">
+            <div class="consult-row">
+                <div class="consult-item">
+                    <img src="/img/emp1_img02.png" alt="" class="infra-image">
+                </div>
+            </div>
+        </section>
+        
+		
+<section class="employ-section">
+    <h2 class="employ-title">채용</h2>
+    
+    <table class="employ-table">
+        <thead>
+            <tr>
+                <th>채용상태</th>
+                <th>채용내용</th>
+                <th>직군</th>
+                <th>경력</th>
+                <th>상세보기</th>
+            </tr>
+        </thead>
+        <tbody>
 						<c:forEach items="${list}" var="item">
 							<tr>
-								<td>${item.no}</td>
 								<td>${item.recruitStatus}</td>
-								<td>${item.recruitJobCategoryValue}</td>
 								<td>${item.recruitTitle}</td>
-								<td>${item.recruitPlace}</td>
-								<td>${item.recruitStartTime} ~ ${item.recruitEndTime}</td>
-								<td><button class="job-apply-button" onclick="location.href='/recruit/recruitmentDetail?recruitId=${item.recruitId}'">자세히 보기</button></td>
+								<td>${item.recruitJobCategoryValue}</td>
+								<td>경력 이거채워야함</td>
+								<td><button class="detail-button" onclick="location.href='/recruit/recruitmentDetail?recruitId=${item.recruitId}'">></button></td>
 							</tr>
 						</c:forEach>
-					</tbody>
-				</table>
+        </tbody>
+    </table>
+</section>
 		
 <!-- 페이징 영역 -->
 <div class="pagination">

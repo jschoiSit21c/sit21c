@@ -112,7 +112,7 @@ public class RecruitController {
 	
 	
 	/**
-	 * 채용정보 상세(채용신청서 제출) 화면 호출
+	 * 채용정보 상세 화면 호출
 	 * @param model
 	 * @return
 	 */
