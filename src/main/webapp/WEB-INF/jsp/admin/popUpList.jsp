@@ -65,9 +65,16 @@ border-radius: 100%;
 background-color: #2e9cdf;
 cursor: pointer;
 }
+.page-wrapper{
+text-align: right;
+}
+/* 글쓰기 버튼 */ 
+.pop-write-button {position:absolute; right:20px; padding: 10px 15px; background-color: #105cbf; color: white; border: none; border-radius: 50px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); font-size: 14px; cursor: pointer; transition: background-color 0.3s ease, box-shadow 0.3s ease; }
+.pop-write-button:hover { background-color: #1471e7; box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); }
 </style>
 	<!-- 서브 페이지 1 -->
 	<div class="sub-page-content">
+			<h2 class="sub-page-title"></h2>
 	<!-- 인사말 -->
 <!-- 		<div class="sub-page1-area"> -->
 		<!-- 슬로건 및 설명 -->
@@ -76,7 +83,6 @@ cursor: pointer;
 <!-- 			</div>	 -->
 <!-- 		</div>	 -->
 		<section class="employ-section">
-			<br/>
 			<h2 class="employ-title">팝업목록</h2>
 			<div class="job-table-wrapper">
 				<!-- 채용 목록 테이블 -->
@@ -130,9 +136,9 @@ cursor: pointer;
 				            </c:if>
 				        </ul>
 				    </div>
+				<button class="pop-write-button" onclick="location.href='/admin/popUpWrite'">글쓰기</button>
 				</div>
 
-				<button class="write-button" onclick="location.href='/admin/popUpWrite'">글쓰기</button>
 			</div>
 		</section>
 
