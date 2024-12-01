@@ -1,7 +1,6 @@
 package com.sit21c.recruit.web;
 
 import java.io.File;
-import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDate;
@@ -42,7 +41,7 @@ import com.sit21c.recruit.vo.RecruitmentVo;
 
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
-import javax.mail.MessagingException;
+
 import javax.mail.internet.MimeMessage;
 
 @Controller
@@ -143,6 +142,7 @@ public class RecruitController {
 	public String showRecruitmentWritePage(Model model) {
 		model.addAttribute("jobCategory", commonService.selectComCode("job_category")); //업무분야코드
 		model.addAttribute("recruitType", commonService.selectComCode("recruit_type")); //채용형태
+		model.addAttribute("recruitExperience", commonService.selectComCode("experience")); //경력
 		model.addAttribute("isWrite", true); //등록/수정화면 같이쓰기위한 변수
 		return "/recruit/recruitmentWrite";
 	}
@@ -189,6 +189,7 @@ public class RecruitController {
 			model.addAttribute("recruitResult", recruitResult);
 			model.addAttribute("jobCategory", commonService.selectComCode("job_category")); //업무분야코드
 			model.addAttribute("recruitType", commonService.selectComCode("recruit_type")); //채용형태
+			model.addAttribute("recruitExperience", commonService.selectComCode("experience")); //경력
 			model.addAttribute("isWrite", false); //등록/수정화면 같이쓰기위한 변수
 		}catch(Exception e) {
 			e.printStackTrace();
@@ -263,7 +264,7 @@ public class RecruitController {
 				}
 				
 				Path path = Paths.get(attchFileVo.getFilePath(), attchFileVo.getFileName());
-				sendEmail(jobApplicationVo.getJobApplicationName(), jobApplicationVo.getJobApplicationEmail(), jobApplicationVo.getJobApplicationPhone(), file);
+				sendEmail(jobApplicationVo, file);
 				//파일 저장
 				file.transferTo(new File(path.toUri()));
 			}
@@ -329,15 +330,25 @@ public class RecruitController {
 //        }
 //    }
 
-    private void sendEmail(String name, String email, String phone, MultipartFile resumeFile) throws MessagingException, IOException {
+    private void sendEmail(JobApplicationVo jobApplicationVo, MultipartFile resumeFile) throws Exception {
+    	
+    	RecruitmentVo recruitmentVo = new RecruitmentVo();
+    	recruitmentVo.setRecruitId(jobApplicationVo.getRecruitId());
+    	RecruitmentVo result = recruitService.selectRecruitment(recruitmentVo);
+    	
+    	//String name, String email, String phone, MultipartFile resumeFile
         MimeMessage message = mailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(message, true, "UTF-8");
 
         helper.setTo("sitmento@gmail.com"); // 지원서가 전송될 이메일 주소
-        helper.setSubject("새로운 채용 지원서 제출");
+        helper.setSubject("새로운 채용 지원서 제출 - " + result.getRecruitTitle());
         helper.setText(
-                String.format("지원자 정보:\n이름: %s\n이메일: %s\n전화번호: %s", name, email, phone),
-                false
+                String.format("지원자 정보:\n이름: %s\n이메일: %s\n전화번호: %s\n경력:%s", jobApplicationVo.getJobApplicationName()
+                																, jobApplicationVo.getJobApplicationEmail()
+                																, jobApplicationVo.getJobApplicationPhone()
+                																, jobApplicationVo.getRecruitExperience() == "0001" ? "신입" : "경력"
+                																)
+                ,false
         );
 
         // 첨부파일 추가

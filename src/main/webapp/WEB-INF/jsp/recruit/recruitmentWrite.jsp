@@ -49,6 +49,15 @@
 						</c:forEach>
 					</select>
 				</div>
+				<!-- 경력 -->
+				<div class="form-group">
+					<label for="recruitExperience">채용형태</label>
+					<select id="recruitExperience" name="recruitExperience" class="form-control" required>
+						<c:forEach items="${recruitExperience}" var="item">
+							<option value="${item.codeNo}" ${isWrite ? '' : (recruitResult.recruitExperience == item.codeNo ? 'selected' : '')}>${item.codeValue}</option>
+						</c:forEach>
+					</select>
+				</div>
 				<div class="form-group">
 					<label for="recruitPlace">근무지</label>
 					<input type="text" id="recruitPlace" name="recruitPlace" class="form-control" value="${isWrite ? '' : recruitResult.recruitPlace }">
@@ -103,6 +112,7 @@
 					recruitEndTime : $("#recruitEndTime").val(),
 					recruitExternalUrl : $("#recruitExternalUrl").val(),
 					recruitPlace: $("#recruitPlace").val(),
+					recruitExperience : $("#recruitExperience").val(),
 					<c:if test="${!isWrite}">
 						recruitId : recruitId,
 					</c:if>

@@ -87,7 +87,8 @@
 								  , RECRUIT_END_TIME
 								  , RECRUIT_TYPE_CODE
 								  , RECRUIT_EXTERNAL_URL
-								  , RECRUIT_PLACE) 
+								  , RECRUIT_PLACE
+								  , RECRUIT_EXPERIENCE) 
 		VALUES(#{recruitTitle}
 			 , #{recruitContent}
 			 , #{recruitJobCategoryCode}
@@ -99,7 +100,8 @@
 			 , #{recruitEndTime}
 			 , #{recruitTypeCode}
 			 , #{recruitExternalUrl}
-			 , #{recruitPlace})
+			 , #{recruitPlace}
+			 , #{recruitExperience})
 		RETURNING RECRUIT_ID
 
 	</insert>
@@ -124,6 +126,8 @@
 			 , RECRUIT_TYPE_CODE
 			 , RECRUIT_EXTERNAL_URL
 			 , RECRUIT_PLACE
+			 , RECRUIT_EXPERIENCE
+			 , (SELECT CODE_VALUE FROM TB_COM_CODE WHERE A.RECRUIT_EXPERIENCE = CODE_NO AND CODE_TYPE = 'experience') AS RECRUIT_EXPERIENCE_VALUE
 			 , COUNT(*) OVER() AS TOTAL_RECORDS
 		FROM TB_RECRUITMENT A
 		ORDER BY RECRUIT_ID DESC
@@ -149,6 +153,8 @@
 			 , RECRUIT_TYPE_CODE
 			 , RECRUIT_EXTERNAL_URL
 			 , RECRUIT_PLACE
+			 , RECRUIT_EXPERIENCE
+			 , (SELECT CODE_VALUE FROM TB_COM_CODE WHERE A.RECRUIT_EXPERIENCE = CODE_NO AND CODE_TYPE = 'experience') AS RECRUIT_EXPERIENCE_VALUE
 		FROM TB_RECRUITMENT A
 		WHERE RECRUIT_ID = #{recruitId}
 	</select>
@@ -166,6 +172,7 @@
 		  , RECRUIT_TYPE_CODE = #{recruitTypeCode}
 		  , RECRUIT_EXTERNAL_URL = #{recruitExternalUrl}
 		  , RECRUIT_PLACE = #{recruitPlace}
+		  , RECRUIT_EXPERIENCE = #{recruitExperience}
 		WHERE RECRUIT_ID = #{recruitId}
 	</update>
 	
@@ -176,28 +183,32 @@
 									 , JOB_APPLICATION_EMAIL
 									 , JOB_APPLICATION_PHONE
 									 , FILE_ID
-									 , JOB_APPLICATION_DATE)
+									 , JOB_APPLICATION_DATE
+									 , RECRUIT_EXPERIENCE)
 		VALUES (#{recruitId}
 			  , #{jobApplicationName}
 			  , #{jobApplicationEmail}
 			  , #{jobApplicationPhone}
 			  , #{fileId}
 			  , now()
+			  , #{recruitExperience}
 		)
 		RETURNING JOB_APPLICATION_ID
 	</insert>
 	
 	<!-- 지원자목록조회 -->
 	<select id="selectApplicants" parameterType="com.sit21c.recruit.vo.JobApplicationVo" resultType="com.sit21c.recruit.vo.JobApplicationVo">
-		SELECT JOB_APPLICATION_ID
-			  , RECRUIT_ID
-			  , JOB_APPLICATION_NAME
-			  , JOB_APPLICATION_EMAIL
-			  , JOB_APPLICATION_PHONE
-			  , FILE_ID
-			  , JOB_APPLICATION_DATE
-			  , COUNT(*) OVER () AS TOTAL_RECORDS
-		FROM TB_JOB_APPLICATION
+		SELECT A.JOB_APPLICATION_ID
+			 , A.RECRUIT_ID
+			 , A.JOB_APPLICATION_NAME
+			 , A.JOB_APPLICATION_EMAIL
+			 , A.JOB_APPLICATION_PHONE
+			 , A.FILE_ID
+			 , A.JOB_APPLICATION_DATE
+			 , RECRUIT_EXPERIENCE
+			 , (SELECT CODE_VALUE FROM TB_COM_CODE WHERE A.RECRUIT_EXPERIENCE = CODE_NO AND CODE_TYPE = 'experience') AS RECRUIT_EXPERIENCE_VALUE
+			 , COUNT(*) OVER () AS TOTAL_RECORDS
+		FROM TB_JOB_APPLICATION A
 		WHERE RECRUIT_ID = #{recruitId}
 		ORDER BY JOB_APPLICATION_DATE DESC
 		LIMIT #{pageSize} OFFSET #{startRecord}

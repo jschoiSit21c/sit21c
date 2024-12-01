@@ -13,7 +13,7 @@
 <!-- 상단 -->
 <jsp:include page="/WEB-INF/jsp/header.jsp"></jsp:include>
 	<!-- 서브 페이지 1-->
-	<div class="sub-page-content">
+	<div class="sub-page-content" style="position: relative;">
 	
 		<h2 class="sub-page-title">채용정보</h2>
 
@@ -59,7 +59,7 @@
 								<td>${item.recruitStatus}</td>
 								<td>${item.recruitTitle}</td>
 								<td>${item.recruitJobCategoryValue}</td>
-								<td>경력 이거채워야함</td>
+								<td>${item.recruitExperienceValue}</td>
 								<td><button class="detail-button" onclick="location.href='/recruit/recruitmentDetail?recruitId=${item.recruitId}'">></button></td>
 							</tr>
 						</c:forEach>

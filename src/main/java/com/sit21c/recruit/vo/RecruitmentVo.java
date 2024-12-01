@@ -19,6 +19,8 @@ public class RecruitmentVo extends PagingVo {
 	private String recruitExternalUrl;
 	private String recruitPlace;
 	private String recruitStatus;
+	private String recruitExperience;
+	private String recruitExperienceValue;
 	
 	public int getRecruitId() {
 		return recruitId;
@@ -110,5 +112,17 @@ public class RecruitmentVo extends PagingVo {
 	public void setRecruitStatus(String recruitStatus) {
 		this.recruitStatus = recruitStatus;
 	}
-	
+	public String getRecruitExperience() {
+		return recruitExperience;
+	}
+	public void setRecruitExperience(String recruitExperience) {
+		this.recruitExperience = recruitExperience;
+	}
+	public String getRecruitExperienceValue() {
+		return recruitExperienceValue;
+	}
+	public void setRecruitExperienceValue(String recruitExperienceValue) {
+		this.recruitExperienceValue = recruitExperienceValue;
+	}
+
 }

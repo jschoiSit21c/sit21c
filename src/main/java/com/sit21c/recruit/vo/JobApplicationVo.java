@@ -14,6 +14,8 @@ public class JobApplicationVo extends PagingVo{
 	private long fileId;                 // 이력서 파일 ID
 	private String jobApplicationDate;  // 지원 날짜 (문자열)
 	private MultipartFile resumeFile;   // 업로드된 이력서 파일
+	private String recruitExperience;
+	private String recruitExperienceValue;
 	
 	public int getJobApplicationId() {
 		return jobApplicationId;
@@ -62,6 +64,18 @@ public class JobApplicationVo extends PagingVo{
 	}
 	public void setResumeFile(MultipartFile resumeFile) {
 		this.resumeFile = resumeFile;
+	}
+	public String getRecruitExperience() {
+		return recruitExperience;
+	}
+	public void setRecruitExperience(String recruitExperience) {
+		this.recruitExperience = recruitExperience;
+	}
+	public String getRecruitExperienceValue() {
+		return recruitExperienceValue;
+	}
+	public void setRecruitExperienceValue(String recruitExperienceValue) {
+		this.recruitExperienceValue = recruitExperienceValue;
 	}
 	
 	
