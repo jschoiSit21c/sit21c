@@ -21,12 +21,48 @@
             <h2 class="employ-title">채용</h2>
             <div class="employ-intro">
                 <h3>${item.recruitTitle}</h3>
-                <div class="employ-buttons">
-                    <button class="saramin-button" onclick="window.open('${item.recruitExternalUrl}');">saramin 지원하기</button>
-                    <button class="saramin-button" onclick="location.href='/recruit/recruitmentApply?recruitId=${recruitId}'">채용지원서 작성</button>
-                </div>
-
+				<!-- 관리자 아닐때만 -->
+                <c:if test="${item.recruitStatus == '진행중'}">
+	                <div class="employ-buttons">
+	                    <button class="saramin-button" onclick="window.open('${item.recruitExternalUrl}');">saramin 지원하기</button>
+	                    <button class="saramin-button" onclick="openApplicationModal()">채용지원서 작성</button>
+	                </div>
+                </c:if>
             </div>
+            
+            <!-- 채용지원서 모달 다이얼로그 추가 -->
+		    <div id="applicationModal" class="modal">
+		        <div class="modal-content">
+		            <span class="close-button" onclick="closeApplicationModal()">&times;</span>
+		            <h2>채용지원서</h2>
+		            <form id="applicationForm" class="application-form" onsubmit="submitApplication(event)">
+		                <input type="hidden" name="recruitId" value="${param.recruitId}">
+		                <div class="form-row">
+		                    <label for="name">이름 *</label>
+		                    <input type="text" id="name" name="jobApplicationName" required>
+		                </div>
+		                <div class="form-row">
+		                    <label for="email">이메일 *</label>
+		                    <input type="email" id="email" name="jobApplicationEmail" required>
+		                </div>
+		                <div class="form-row">
+		                    <label for="phone">전화번호 *</label>
+		                    <input type="tel" id="phone" name="jobApplicationPhone" required>
+		                </div>
+		                <div class="form-row">
+		                    <label for="resume">이력서 첨부 *</label>
+		                    <input type="file" id="resume" name="resumeFile" accept=".pdf,.doc,.docx" required>
+		                </div>
+						<!-- 개인정보 동의 -->
+						<div class="privacy-agree">
+							<input type="checkbox" id="jobApplicationAgree" name="jobApplicationAgree" required>
+							<label for="agree">개인정보처리방침에 동의합니다.</label>
+						</div>
+		                <button type="submit" class="submit-button">지원하기</button>
+		            </form>
+		        </div>
+		    </div>
+            
 			<div class="view_area">
 				${item.recruitContent}
 <!-- 			<img src="/img/Job_Notice.png"> -->
@@ -75,6 +111,48 @@
 	alert("${submitJobApplicationMsg}");
 </c:if>
 </script>
+<!-- JavaScript 추가 -->
+    <script>
+        function openApplicationModal() {
+            document.getElementById('applicationModal').style.display = 'block';
+        }
+
+        function closeApplicationModal() {
+            document.getElementById('applicationModal').style.display = 'none';
+        }
+
+        // 모달 외부 클릭 시 닫기
+        window.onclick = function(event) {
+            var modal = document.getElementById('applicationModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        function submitApplication(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(document.getElementById('applicationForm'));
+            
+            fetch('/recruit/submitJobApplication', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('지원이 완료되었습니다.');
+                    closeApplicationModal();
+                } else {
+                    alert(data.message || '지원 중 오류가 발생했습니다.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('지원 중 오류가 발생했습니다.');
+            });
+        }
+    </script>
 <security:authorize access="hasRole('SA')">
 <script>
 	$(document).ready(function () {
