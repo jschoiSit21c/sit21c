@@ -41,7 +41,7 @@
 			address.textContent = '대전광역시 유성구 죽동로 69 (죽동, 소프트아이텍빌딩)';
 			daejeonLink.classList.add('active');
 		} else if (location === 'daegu') {
-			mapIframe.src = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3262.5005148157323!2d128.6023317!3d35.8722125!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3565e3b1d1aab30b%3A0x1c6fdf8d033a8f88!2z66y47YWU67O17Jew7ISc7Jq466as!5e0!3m2!1sko!2skr!4v1544963342159";
+			mapIframe.src = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3233.0112822331384!2d128.5931877756437!3d35.87324037252595!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3565e3db6661fd31%3A0xf69e34dd6d6de201!2z64yA6rWs6rSR7Jet7IucIOykkeq1rCDrj5nshLHroZwx6rCA!5e0!3m2!1sko!2skr!4v1733044306434!5m2!1sko!2skr";
 			address.textContent = '대구광역시 중구 동성로 1가 123 (대구, 소프트아이텍지사)';
 			daeguLink.classList.add('active');
 		}
