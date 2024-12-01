@@ -1,6 +1,8 @@
 package com.sit21c.common.web;
 
 import java.io.FileNotFoundException;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
@@ -35,9 +37,9 @@ public class CommonController {
 			if(!resource.exists()) {
 				throw new FileNotFoundException("파일이 존재하지 않습니다.");
 			}
-			
+			String encodedFileName = URLEncoder.encode(fileVo.getFileOrgName(), StandardCharsets.UTF_8.toString()).replace("+", "%20");
 			return ResponseEntity.ok()
-					.header(HttpHeaders.CONTENT_DISPOSITION, "attchment; filename=\"" + fileVo.getFileOrgName() + "\"")
+					.header(HttpHeaders.CONTENT_DISPOSITION, "attchment; filename=\"" + encodedFileName + "\"")
 					.body(resource);
 			
 		}catch(Exception e) {
