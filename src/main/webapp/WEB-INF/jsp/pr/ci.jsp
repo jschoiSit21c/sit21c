@@ -45,7 +45,7 @@
                 기술 혁신과 사람 중심의 접근을 결합한 전체적인 조형은 SIT 그룹이 축하는 핵심 가치입니다.<br>
                 물결치는 듯한 동적인 이미지는 빠르게 변화하는 IT 세계에서 변함없이 성장하는 SIT의 기상을 표현합니다.</p>
             </div>
-           <button class="download-button">CI 다운로드</button>
+           <button class="download-button"><a href="/img/ci_logo01.png" download style="color: #fff">CI 다운로드</a></button>
         </section>        
 
         <div class="ci-info-section">
