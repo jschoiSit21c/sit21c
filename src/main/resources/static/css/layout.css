@@ -291,17 +291,17 @@
 /* 채용정보 콘텐츠 */
 
 .consult-section { display: flex; flex-direction: column; align-items: center; gap: 40px; padding: 40px 0; box-sizing: border-box; }
-.consult-row {display: flex; justify-content: space-between;/* width: 100%; */margin: 0;padding: 0; gap: 0;  }
+.consult-row {display: flex; justify-content: space-between;/* width: 100%; */margin-top:50px;padding: 0; gap: 0;  }
 .consult-item { flex: 1; text-align: center; margin: 0; padding: 0; background-color: #ffffff; }
 .consult-image { margin:0 auto;}
 @media (max-width: 768px) { .infra-row { flex-direction: column; gap: 20px; } }
 
 .employ-image { max-width: 100% }
 
-.employ-section { width: 90%; margin: 0 auto; padding: 40px 20px;text-align: center; }
+.employ-section { width: 80%; margin: 0 auto; padding: 40px 20px;text-align: center; }
 .employ-title { font-size: 40px; font-weight: bold; margin-bottom: 30px; }
 .employ-intro { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; padding-bottom:20px;border-bottom: 1px solid #ddd;  }
-.employ-intro h3 { font-size: 24px; font-weight: 500; text-align: left; flex: 2; }
+.employ-intro h3 { font-size: 27px; font-weight: 500; text-align: left; flex: 2; }
 .employ-buttons { flex: 1; display: flex; justify-content: flex-end; gap: 10px; }
 .saramin-button, .apply-button { padding: 15px 25px; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s ease, color 0.3s ease;  font-size:18px;}
 .saramin-button { background-color: #105cbf; color: #fff; }
@@ -310,7 +310,17 @@
 .apply-button:hover { background-color: #105bb5; color: #fff; }
 
 
-.employ-details { display: flex; justify-content: space-between; margin-top: 30px; gap: 20px; }
+.employ_view-table { width: 100%; border-collapse: collapse; margin-top: 20px; border: 1px solid #ddd; } 
+.employ_view-left { width: 20%; background-color: #f0f0f0; font-weight: bold; padding: 10px; vertical-align: top; border: 1px solid #ddd; } 
+.employ_view-right { width: 80%; background-color: #ffffff; padding: 10px; vertical-align: top; border: 1px solid #ddd; font-size: 16px; line-height: 1.8; }
+
+.employ_view-table th { width: 20%; background-color: #f0f0f0; font-weight: bold; text-align: left; padding: 10px; border: 1px solid #ddd; vertical-align: top; } 
+.employ_view-table td { width: 80%; background-color: #ffffff; padding: 10px; border: 1px solid #ddd; vertical-align: top; font-size: 16px; line-height: 1.8; text-align: left; }
+.view_area{border-bottom:1px solid #ddd; padding-top:60px; line-height:50px; margin:50px 0;}
+.view_area img{padding-bottom:50px;}
+
+
+.employ-details { display: flex; justify-content: space-between; margin-top: 30px; gap: 20px; border-bottom: 1px solid #ddd; padding-bottom:30px;}
 .employ-column { flex: 1; text-align: left; }
 .employ-column h4 { font-size: 20px; font-weight: bold; margin-bottom: 10px; }
 .employ-column ul { list-style-type: none; padding: 0; margin: 0; }
@@ -360,11 +370,20 @@ textarea { height: 100px; resize: none; }
 
 .welfare-container { display: flex; flex-wrap: wrap; gap: 10px; justify-content: flex-start; width: calc(80% - 20px); margin: 0 auto; }
 .welfare-card { width: calc(22% - 21px); padding: 20px 20px 10px 20px; border: 1px solid #ddd; border-radius: 6px; height: 150px; background-color: #fff; text-align: left; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); position: relative; transition: all 0.3s ease; }
-.welfare-card:hover { border-color: #105cbf; box-shadow: 0 4px 10px rgba(226, 12, 78, 0.2); background: #1471e7; color:#fff;}
+.welfare-card:hover { border-color: #eff5fc; box-shadow: 0 4px 10px rgba(226, 12, 78, 0.2); border:1px solid #1471e7; color:#000;}
 .welfare-title { font-size: 22px;  font-weight: 500; letter-spacing: -0.5px; margin: 0 0 5px; }
-.welfare-text { font-size: 14px; line-height: 1.4; }
-.welfare-icon-circle { width: 70px; height: 70px; border-radius: 50%; background-color: #f5f5f5; display: flex; align-items: center; justify-content: center; position: absolute; bottom: 10px; right: 10px; }
+.welfare-text {font-size: 14px;line-height: 1.4;position: absolute;right: 2%;top: 23%;}
+.welfare-icon-circle {width: 120px;height: 120px;border-radius: 50%;background-color: #ffffff;display: flex;align-items: center;justify-content: center;position: absolute;bottom: 14px;left: 18px;}
 .welfare-icon-circle img { width: 50px; height: 50px; }
+
+/* 복지현황 2 */
+.welfare-container { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px; max-width: 1230px; margin: 50px auto; } 
+.welfare-card {/* display: flex; */align-items: center;background: #fff;border: 1px solid #dadada;border-radius: 4px;box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);padding: 3px;width: calc(33.333% - 20px);box-sizing: border-box;transition: all 0.3s ease;} 
+.welfare-card:hover {transform: translateY(-5px);box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);} 
+.icon-circle { width: 60px; height: 60px; border-radius: 50%; background-color: #f0f0f0; display: flex; justify-content: center; align-items: center; margin-right: 20px; } 
+.icon-circle img { width: 40px; height: 40px; } 
+.welfare-text h3 { font-size: 18px; font-weight: bold; margin: 0 0 5px; } 
+.welfare-text p {font-size: 14px;margin: 0;color: #666;width: 200px;}
 
 /* footer 개인정보처리방침,이용약관 Modal 추가 */
 .privacy-modal { display: none; position: fixed; z-index: 100; left: 0; top: 0; width: 100%; height: 100%; overflow: hidden; background-color: rgba(0, 0, 0, 0.5); }
@@ -374,19 +393,10 @@ textarea { height: 100px; resize: none; }
 .privacy-modal-content { position: relative; background-color: #fff; margin: 5% auto; padding: 20px; border: 1px solid #888; width: 60%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); text-align: left; font-size: 16px; line-height: 1.6; max-height: 80%; display: flex; flex-direction: column; }
 
 
-/*채용정보 목록*/
-/* 테이블과 버튼을 포함한 컨테이너 */ 
-.job-table-wrapper {	position: relative;	width: 100%;	margin: 20px auto;	padding-bottom: 50px; } 
 /* 글쓰기 버튼 */ 
 .write-button {	position: absolute;	bottom: 0;	right: 20px;	padding: 10px 15px;	background-color: #105cbf;	color: white;	border: none;	border-radius: 50px;	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);	font-size: 14px;	cursor: pointer;	transition: background-color 0.3s ease, box-shadow 0.3s ease; } 
 .write-button:hover {	background-color: #1471e7;	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); } 
-/* 테이블 스타일 */ 
-.job-table {	width: 100%;	border-collapse: collapse;	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);	margin-bottom: 20px;	margin-top: 40px; } 
-.job-table th, .job-table td {	padding: 15px;	text-align: left;	border: 1px solid #ddd; } 
-.job-table th {	background-color: #f4f4f4;	font-weight: bold; } 
-.job-table tr:hover {	background-color: #f9f9f9;	cursor: pointer; } 
-.job-apply-button {	padding: 5px 10px;	background-color: #105cbf;	color: #fff;	border: none;	border-radius: 4px;	cursor: pointer;	font-size: 14px; } 
-.job-apply-button:hover {	background-color: #1471e7; } 
+
 /* 페이징 스타일 */ 
 #recruitmentMain .pagination { display: flex; justify-content: center; align-items: center; gap: 10px; margin-top: 20px; padding: 10px; border-radius: 8px; max-width: 90%; margin: 20px auto; }
 #recruitmentMain .pagination button { padding: 8px 12px; font-size: 14px; font-weight: bold; color: #105cbf; background-color: #ffffff; border: 1px solid #ddd; border-radius: 4px; cursor: pointer; transition: all 0.3s ease; text-align: center; }
@@ -462,20 +472,6 @@ textarea { height: 100px; resize: none; }
 body.sub-page div.job-detail-section div.job-detail-apply a.apply-button { padding: 6px 10px; font-size: 12px; background-color: #105cbf; color: #ffffff; border-radius: 4px; text-decoration: none; font-weight: 600; display: inline-block; float: right; margin-top: 10px; margin-right: 20px; transition: background-color 0.3s ease; } 
 body.sub-page div.job-detail-section div.job-detail-apply a.apply-button:hover { background-color: #1471e7; }
 
-
-
-/* 공고 내용 부분의 CSS 제거로 .job-summary와 .job-detail-row 관련 스타일 삭제 */
-.job-detail-page .job-application-section { width: 90%; margin: 0 auto; padding: 30px; border: 1px solid #ddd; border-radius: 8px; background-color: #fcfcfc; } /* 지원하기 폼 섹션 */
-.job-detail-page .job-application-section h3 { font-size: 20px; font-weight: bold; margin-bottom: 20px; color: #262932; text-align: left; } /* 지원하기 제목 */
-
-.job-detail-page .job-application-section .form-row { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 8px; margin-bottom: 10px; } /* 지원 폼 행 스타일 */
-.job-detail-page .job-application-section .form-row input { width: calc(100% - 10px); padding: 10px; border: 1px solid #ccc; border-radius: 4px; background-color: #f9f9f9; } /* 입력 필드 */
-.job-detail-page .job-application-section .form-buttons { display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px; } /* 버튼 컨테이너 */
-.job-detail-page .job-application-section .form-cancel { background-color: #f3f3f3; color: #333; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; } /* 취소 버튼 */
-.job-detail-page .job-application-section .form-submit { background-color: #105cbf; color: #fff; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; } /* 제출 버튼 */
-.job-detail-page .job-application-section .form-submit:hover { background-color: #1471e7; } /* 제출 버튼 hover 효과 */
-
-.job-detail-page .job-application-section { margin-bottom: 50px; } /* 지원하기 섹션과 푸터 사이 여백 */
 .job-detail-page .job-admin-buttons { text-align: center; margin-top: 30px; padding: 20px 0; border-top: 1px solid #ddd; } /* 관리자 버튼 */
 .job-detail-page .job-admin-buttons .edit-button { padding: 10px 20px; font-size: 16px; background-color: #105cbf; color: #fff; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s ease; } /* 수정 버튼 */
 .job-detail-page .job-admin-buttons .edit-button:hover { background-color: #1471e7; } /* 수정 버튼 hover */
@@ -582,3 +578,25 @@ body.sub-page div.job-detail-section div.job-detail-apply a.apply-button:hover {
 .color-item { width: 368px; height: 150px; display: flex; justify-content: flex-start; align-items: flex-end; color: #fff; font-size: 1rem; font-weight: 400; border-radius: 8px;  padding: 10px; }
 
 .color-item span { display:inline-block; padding-left:30px; }
+
+
+/* 인재상 */
+.talent-info { width: 100%; margin: 2px auto;  }
+.talent-info h2 { font-size: 65px; font-weight: bold; margin-bottom: 20px; margin-top:20px; color:#000; width:100%; text-align:center; display: inline-block; letter-spacing:-1px;}
+.talent-info .slogan { font-size: 28px; color: #000; line-height: 1.4; margin-bottom: 10px; font-weight:500;display: inline-block; text-align:center; width:100%; letter-spacing:-1px;}
+.talent-info .description { font-size: 22px; color: #000; font-weight:400; line-height: 1.6; letter-spacing:-1px; text-align:center; width:70%; margin:0 auto; }
+
+
+
+/*   채용테이블1 */
+.employ-table {font-size: 20px; margin: 0 auto;width: 100%;} 
+.employ-table th { text-align:center; padding: 15px;  border-bottom: 1px solid #eaeaea; border-top: 1px solid #eaeaea;} 
+.employ-table td { text-align:center; padding: 15px;  border-bottom: 1px solid #eaeaea; border-top: 1px solid #eaeaea; } 
+.employ-table th { background-color: #f9f9f9; font-weight: bold; } 
+.employ-table td.ctd { text-align:left; padding-left:20px;} 
+.status-button { background-color: #007bff; color: white; border: none; padding: 5px 10px; border-radius: 20px; font-size: 14px; cursor: pointer; } 
+.status-button:hover { background-color: #0056b3; } 
+.detail-button { background-color: #007bff; color: #fff;  border-radius: 50%; width: 35px; height: 35px; font-size: 16px; text-align: center; line-height: 28px; cursor: pointer; } 
+.detail-button:hover { border-color: #007bff; color: #fff; }
+.closed-button { background-color: #333; color: #fff; border: none; padding: 5px 10px; border-radius: 20px; font-size: 14px; cursor: not-allowed; } 
+.closed-button:hover { background-color: #c0c0c0; }
