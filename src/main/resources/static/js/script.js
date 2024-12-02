@@ -1,16 +1,12 @@
 document.addEventListener("scroll", function () {
-    const headers = [document.getElementById("header"), document.getElementById("s_header")]; // 두 개의 헤더 선택
-
+    const headers = [document.getElementById("header"), document.getElementById("s_header")];
     headers.forEach(header => {
-        if (header) { // header가 존재하는 경우에만 실행
-            if (window.scrollY > 100) {
-                header.style.top = "-100px"; // 스크롤 시 헤더 숨기기
-            } else {
-                header.style.top = "0"; // 최상단에서 헤더 보이기
-            }
+        if (header) {
+            header.style.top = "0"; // 항상 상단에 고정
         }
     });
 });
+
 
 
 if(document.querySelectorAll(".history-right").length != 0){

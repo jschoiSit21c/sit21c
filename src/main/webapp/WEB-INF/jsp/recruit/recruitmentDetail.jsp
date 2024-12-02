@@ -23,7 +23,9 @@
                 <h3>${item.recruitTitle}</h3>
                 <c:if test="${item.recruitStatus == '진행중'}">
 	                <div class="employ-buttons">
+	                <c:if test="${item.recruitExternalUrl != ''}">
 	                    <button class="saramin-button" onclick="window.open('${item.recruitExternalUrl}');">saramin 지원하기</button>
+	                </c:if>
 	                    <button class="saramin-button" onclick="openModal()">채용지원서 작성</button>
 	                </div>
 				</c:if>

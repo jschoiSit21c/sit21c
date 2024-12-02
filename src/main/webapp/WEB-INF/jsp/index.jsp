@@ -99,7 +99,7 @@
 					<div class="text-overlay">
 						<h3>공공디지털서비스</h3>
 						<p>소프트아이텍은 정보화시스템의 설계, 구축부터 운영·유지보수까지 전 과정에서 고객이 만족할 수 있는 최상의 서비스를 제공합니다.</p>
-						<a href="#" class="details-link">자세히보기</a>
+						<a href="/business/publicDigitalService" class="details-link">자세히보기</a>
 					</div>
 				</div>
 				<div id="image2" class="service-image">
@@ -107,7 +107,7 @@
 					<div class="text-overlay">
 					<h3>ICT 인프라서비스</h3>
 					<p>ICT 인프라 서비스는 최신 기술을 기반으로 안정적이고 효율적인 IT 환경을 구축합니다.</p>
-					<a href="#" class="details-link">자세히보기</a>
+					<a href="/business/ictInfraService" class="details-link">자세히보기</a>
                     </div>
 				</div>
 				<div id="image3" class="service-image">
@@ -115,7 +115,7 @@
 					<div class="text-overlay">  
 					<h3>IT 컨설팅서비스</h3>
 					<p>IT 환경 분석, 시스템 아키텍처 설계, 프로세스 개선 등을 통해 고객의 경쟁력을 강화합니다.</p>
-					<a href="#" class="details-link">자세히보기</a>
+					<a href="/business/itConsultingService" class="details-link">자세히보기</a>
                     </div> 
 				</div>
 			</div>
@@ -130,28 +130,28 @@
 			</div>
             <div class="stats-container">
                 <div class="stat-box s3bg1">
-                    <img src="/img/ico_info01.png" alt="기술업적 아이콘" class="stat-icon">
-                    <div class="stat-number">11</div>
-                    <div class="stat-label">기술업적</div>
+                    <img src="/img/ico_info01.png" alt="회사업력 아이콘" class="stat-icon">
+                    <div class="stat-number">20</div>
+                    <div class="stat-label">회사업력</div>
                 </div>
                 <div class="stat-box s3bg2">
                     <img src="/img/ico_info02.png" alt="고객사 아이콘" class="stat-icon">
-                    <div class="stat-number">31</div>
+                    <div class="stat-number">50+</div>
                     <div class="stat-label">고객사</div>
                 </div>
                 <div class="stat-box s3bg3">
                     <img src="/img/ico_info03.png" alt="구축레퍼런스 아이콘" class="stat-icon">
-                    <div class="stat-number">100</div>
+                    <div class="stat-number">300+</div>
                     <div class="stat-label">구축레퍼런스</div>
                 </div>
                 <div class="stat-box s3bg4">
                     <img src="/img/ico_info04.png" alt="연매출 아이콘" class="stat-icon">
-                    <div class="stat-number">800억</div>
+                    <div class="stat-number">673억</div>
                     <div class="stat-label">연매출</div>
                 </div>
                 <div class="stat-box s3bg5">
                     <img src="/img/ico_info05.png" alt="직원현황 아이콘" class="stat-icon">
-                    <div class="stat-number">300명</div>
+                    <div class="stat-number">218명</div>
                     <div class="stat-label">직원현황</div>
                 </div>
             </div>
@@ -193,8 +193,8 @@
 				<p class="subtitle">소프트아이텍 오시는 길을 알려드립니다. </p>
 			</div>
             <div class="map_title">
-                <span id="daejeon-link" onclick="showMap('daejeon')">대전본사</span> | 
-                <span id="daegu-link" onclick="showMap('daegu')">대구지사</span>
+                <span id="daejeon-link" onclick="showMap('daejeon')">대전본사</span>
+                <!-- <span id="daegu-link" onclick="showMap('daegu')">대구지사</span> -->
             </div>
             <div class="map-container">
                 <iframe id="map-iframe" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5031.031732894268!2d127.33242245211333!3d36.37231037906764!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35654966d0422a7b%3A0xec8d9475c42513cb!2z7IaM7ZSE7Yq47JWE7J207YWN!5e0!3m2!1sko!2skr!4v1544963342159" width="100%" height="500" frameborder="0" style="border:0" allowfullscreen></iframe>

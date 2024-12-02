@@ -36,8 +36,8 @@
         <!-- 오시는길 -->
         <div class="map-section">
             <div class="map_title">
-                <span id="daejeon-link" onclick="showMap('daejeon')">대전본사</span> | 
-                <span id="daegu-link" onclick="showMap('daegu')">대구지사</span>
+                <span id="daejeon-link" onclick="showMap('daejeon')">대전본사</span>
+                <!-- <span id="daegu-link" onclick="showMap('daegu')">대구지사</span> -->
             </div>
             <div class="map-container">
                 <iframe id="map-iframe" 
