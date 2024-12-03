@@ -167,6 +167,7 @@
 				<ul>
 					<li><a href="/pr/ci">CI 소개</a></li>
 					<li><a href="/pr/partnership">Partner ship</a></li>
+					<li><a href="/pr/eDisclosureMain">전자공시</a></li>
 				</ul>
 			</div>
 			<security:authorize access="hasRole('SA')">
