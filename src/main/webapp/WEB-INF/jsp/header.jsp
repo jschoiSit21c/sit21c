@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/layout.css">
     <script src="/js/script.js" defer></script>
-    
     <!-- jQuery 3.6.4 CDN -->
 	<script src="https://code.jquery.com/jquery-3.6.4.min.js" crossorigin="anonymous"></script>
     <c:choose>
@@ -62,11 +61,6 @@
 			</ul>
 		</nav>
 	<div class="header-right">
-		<div class="hamburger" onclick="toggleMenu()">
-			<div></div>
-			<div></div>
-			<div></div>
-		</div>
 	</div>	
 	</header>
     <!-- //Header -->
@@ -135,9 +129,14 @@
     <!-- //Header -->
 	        	</c:otherwise>
     </c:choose>
+	<div class="hamburger" onclick="toggleMenu()">
+		<div></div>
+		<div></div>
+		<div></div>
+	</div>
 	<!-- 전체 화면 메뉴 -->
 	<div id="fullscreen-menu" class="fullscreen-menu">
-		<div class="close-btn" onclick="toggleMenu()">✕</div>
+		
 		<div class="menu-content">
 			<div class="menu-section">
 				<h2>COMPANY</h2>

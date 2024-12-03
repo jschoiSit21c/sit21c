@@ -32,14 +32,16 @@
 
 
 /* 메인 햄버거 메뉴 X 아이콘 변환 */
-.hamburger { display: flex; flex-direction: column; cursor: pointer;  }
-.hamburger div { height: 2px;  margin: 3px 0; }
+.hamburger { position: fixed; display: flex; flex-direction: column; top: 35px; right: 50px; z-index: 21; cursor: pointer;  width: 30px; height: 24px;}
+.hamburger div { width: 30px; height: 2px;  margin: 3px 0px; transition: transform 0.3s ease-in-out, opacity 0.2s ease-in-out; background-color: white;}
 .hamburger div:nth-child(1) { width: 30px; } /* 첫 번째 막대 */
 .hamburger div:nth-child(2) { width: 30px; } /* 두 번째 막대 */
 .hamburger div:nth-child(3) { width: 30px; } /* 세 번째 막대 */
-.hamburger.active div:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.hamburger.active { justify-content: space-between; }
+.hamburger.active div { background-color: white !important; margin: 0px;}
+.hamburger.active div:nth-child(1) { transform: translateY(11px) rotate(45deg); }
 .hamburger.active div:nth-child(2) { opacity: 0; }
-.hamburger.active div:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+.hamburger.active div:nth-child(3) { transform: translateY(-11px) rotate(-45deg); }
 .close-btn { position: absolute; top: 20px; right: 50px; font-size: 36px !important; cursor: pointer; padding: 10px; }
 
 

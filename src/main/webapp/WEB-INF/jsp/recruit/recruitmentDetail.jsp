@@ -7,6 +7,27 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=1280">
+<style>
+    .form-row {
+        margin-bottom: 15px;
+    }
+
+    .form-row label {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .form-row label.required::after {
+        content: " *";
+        color: red; /* 빨간색으로 표시 */
+    }
+
+    .form-row .inline-options {
+        display: flex;
+        align-items: center;
+        gap: 10px; /* 간격 조정 */
+    }
+</style>
 <title>소프트아이텍 - 채용정보</title>
 </head>
 <body class="sub-page">
@@ -49,33 +70,39 @@
             <h2>지원하기</h2>
             <p>소프트아이텍과 함께 하실 인재를 모집합니다.</p>
         </div>
-        <div class="application-form">
-            <form action="/recruit/submitJobApplication" method="post" enctype="multipart/form-data" ${item.recruitStatus == '진행중' ? '' : 'onsubmit="return false;"' }>
-            	<input type="hidden" name="recruitId" value="${param.recruitId}">
-                <div class="form-row">
-                    <label>구분*</label>
-                    <div>
-                        <input type="radio" id="experience" name="recruitExperience" value="0002" required>
-                        <label for="experience">경력</label>
-                        <input type="radio" id="newcomer" name="recruitExperience" value="0001" required>
-                        <label for="newcomer">신입</label>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <label for="jobApplicationName">성명*</label>
-                    <input type="text" id="jobApplicationName" name="jobApplicationName" required>
-                    <label for="jobApplicationEmail">이메일*</label>
-                    <input type="email" id="jobApplicationEmail" name="jobApplicationEmail" required>
-                </div>
-                <div class="form-row">
-                    <label for="jobApplicationPhone">전화번호*</label>
-                    <input type="tel" id="jobApplicationPhone" name="jobApplicationPhone" required>
-                    <label for="resumeFile">이력서*</label>
-                    <input type="file" id="resumeFile" name="resumeFile" required>
-                </div>
-                <div class="form-row">
-                    <label for="privacy">개인정보처리방침*</label>
-                    <textarea id="privacy" readonly>
+		 <div class="application-form">
+		    <form action="/recruit/submitJobApplication" method="post" enctype="multipart/form-data" ${item.recruitStatus == '진행중' ? '' : 'onsubmit="return false;"'}>
+		        <input type="hidden" name="recruitId" value="${param.recruitId}">
+		
+		        <!-- 상단 섹션 -->
+		        <div class="form-row">
+		            <label class="required">구분</label>
+		            <div class="inline-options">
+		                <input type="radio" id="experience" name="recruitExperience" value="0002" required>
+		                <label for="experience">경력</label>
+		                <input type="radio" id="newcomer" name="recruitExperience" value="0001" required>
+		                <label for="newcomer">신입</label>
+		            </div>
+		        </div>
+		        <div class="form-row">
+		            <label for="jobApplicationName" class="required">성명</label>
+		            <input type="text" id="jobApplicationName" name="jobApplicationName" required style="width: 50px;">
+		        </div>
+		        <div class="form-row">
+		            <label for="jobApplicationEmail" class="required">이메일</label>
+		            <input type="email" id="jobApplicationEmail" name="jobApplicationEmail" required>
+		        </div>
+		        <div class="form-row">
+		            <label for="jobApplicationPhone" class="required">전화번호</label>
+		            <input type="tel" id="jobApplicationPhone" name="jobApplicationPhone" required>
+		        </div>
+		        <div class="form-row">
+		            <label for="resumeFile" class="required">이력서</label>
+		            <input type="file" id="resumeFile" name="resumeFile" required>
+		        </div>
+		        <div class="form-row">
+		            <label for="privacy" class="required">개인정보처리방침</label>
+		            <textarea id="privacy" readonly>
 개인정보처리방침
 제1조(개인정보의 처리 목적)
 (주)소프트아이텍(이하 "회사")은 개인정보를 다음의 목적을 위해 처리하며, 이 외의 용도로는 사용하지 않습니다. 회원 가입 및 관리: 회원 가입의사 확인, 본인 식별·인증, 회원자격 유지·관리, 서비스 부정 이용 방지 등을 목적으로 개인정보를 처리합니다. 서비스 제공: 서비스 제공과 관련된 콘텐츠 제공, 맞춤 서비스 제공, 본인 인증 등을 목적으로 개인정보를 처리합니다. 고객 문의 처리: 고객의 문의·불만 처리, 공지사항 전달 등을 목적으로 개인정보를 처리합니다. 마케팅 및 광고 활용: 신규 서비스 개발, 이벤트 정보 및 참여 기회 제공, 접속 빈도 분석 또는 회원의 서비스 이용 분석 등을 목적으로 개인정보를 처리합니다.
@@ -95,17 +122,22 @@
 회사는 개인정보 처리에 관한 업무를 총괄해서 책임지고, 개인정보 처리와 관련한 정보주체의 불만처리 및 피해구제를 위해 개인정보 보호책임자를 지정하고 있습니다. 개인정보 보호책임자: 성명: [이름] 직책: [직책] 연락처: [연락처]
 제9조(개인정보 처리방침 변경)
 이 개인정보 처리방침은 2024년 11월 15일부터 적용됩니다. 개인정보처리방침 내용의 추가, 삭제, 수정이 있을 경우 변경사항의 시행 7일 전부터 홈페이지 공지사항을 통해 알릴 것입니다.
-                    </textarea>
-                </div>
-                <div class="form-row privacy-agree">                    
-                    <label for="agree"><input type="checkbox" id="agree" name="agree" required>개인정보처리방침에 동의</label>
-                </div>
-                <div class="form-buttons">
-                    <button type="button" class="form-cancel" onclick="closeModal()">닫기</button>
-                    <button type="submit" class="form-submit">지원하기</button>
-                </div>
-            </form>
-        </div>
+		            </textarea>
+		        </div>
+		
+		        <!-- 하단 섹션 -->
+		        <div class="form-row privacy-agree">
+		            <label for="agree">
+		                <input type="checkbox" id="agree" name="agree" required>
+		                개인정보처리방침에 동의
+		            </label>
+		        </div>
+		        <div class="form-buttons">
+		            <button type="button" class="form-cancel" onclick="closeModal()">닫기</button>
+		            <button type="submit" class="form-submit">지원하기</button>
+		        </div>
+		    </form>
+		</div>
     </div>
 </div>
 

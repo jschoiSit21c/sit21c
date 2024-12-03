@@ -63,13 +63,19 @@ function toggleMenu() {
     const fullscreenMenu = document.getElementById("fullscreen-menu");
     const hamburger = document.querySelector(".hamburger");
     
-    console.log("Fullscreen Menu:", fullscreenMenu); // 선택 확인
-    console.log("Hamburger:", hamburger); // 선택 확인
+    // 디버깅 로그는 제거
     
+    // 메뉴 토글
     fullscreenMenu.classList.toggle("active");
     hamburger.classList.toggle("active");
+    
+    // body 스크롤 제어 추가
+    if (fullscreenMenu.classList.contains("active")) {
+        document.body.style.overflow = "hidden";
+    } else {
+        document.body.style.overflow = "";
+    }
 }
-
 
 window.addEventListener("beforeunload", function () {
     window.scrollTo(0, 0); // 페이지 새로고침 시 스크롤 위치를 맨 위로 초기화
