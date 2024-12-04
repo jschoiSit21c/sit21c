@@ -131,7 +131,7 @@
             <div class="stats-container">
                 <div class="stat-box s3bg1">
                     <img src="/img/ico_info01.png" alt="회사업력 아이콘" class="stat-icon">
-                    <div class="stat-number">20</div>
+                    <div class="stat-number">24</div>
                     <div class="stat-label">회사업력</div>
                 </div>
                 <div class="stat-box s3bg2">
