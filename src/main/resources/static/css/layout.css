@@ -199,8 +199,8 @@
 .sub-page1-area { width: 100%; margin: 0 auto; padding-top: 20px;  box-sizing: border-box; }
 .s_title { font-size: 40px; font-weight: 700; color: #262932; margin: 10px 0 20px 120px; position: relative; } 
 
-.slogan { font-size: 30px; font-weight: 500; color: #262932; margin: 0 auto 40px; text-align: center; letter-spacing: -1px; } 
-.slogan-description { font-size: 20px; line-height: 1.4; color: #555; text-align: center; margin: 20px auto; width: 90%; max-width: 1000px; } 
+.slogan { font-size: 27px; font-weight: 500; color: #262932; margin: 0 auto 40px; text-align: center; letter-spacing: -1px; } 
+.slogan-description { font-size: 20px; line-height: 1.2; color: #555; text-align: center; margin: 20px auto; width: 90%; max-width: 1000px; }  
 
 
 /*서브-소개페이지 -비주얼 및 텍스트 */

@@ -28,12 +28,11 @@
 		<!-- 미션  -->
 		<div class="digital_info">
 			<div class="digital">
-				<p><img src="../img/bu_sm1.png" alt="" class=""></p>
-				<p><img src="../img/bu_sm2.png" alt="" class=""></p>
+				<p><img src="/img/bu_sm1.png" alt="" class=""></p>
+				<p><img src="/img/bu_sm2.png" alt="" class=""></p>
 			</div>
 			<div class="digi_divider"></div> <!-- 그레이 바 -->
-				<p><img src="../img/bu_sm3.png" alt="" class=""></p>
-
+				<p><img src="/img/bu_sm3.png" alt="" class=""></p>
 		</div>
 		<!-- // 미션  -->
 
