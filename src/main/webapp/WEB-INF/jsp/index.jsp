@@ -31,7 +31,6 @@
 			daeguLink.classList.add('active');
 		}
 	}
-	
 	</script>
 </head>
 <body id="index-container">
