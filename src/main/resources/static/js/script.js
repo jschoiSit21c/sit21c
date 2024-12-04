@@ -140,7 +140,7 @@ if(document.querySelectorAll("#index-container").length != 0){
 if(document.querySelectorAll("#index-container").length != 0){
 	// 메인화면 비쥬얼 //
 	document.addEventListener("DOMContentLoaded", function() {
-		const video = document.getElementById('background-video');
+		const video = document.getElementById('main-background-video');
 		let videoEnded = false;
 		
 		video.addEventListener('ended', function() {
