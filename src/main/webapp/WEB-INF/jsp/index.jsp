@@ -9,21 +9,6 @@
 	<link rel="stylesheet" href="/css/style.css">
 	<link rel="stylesheet" href="/css/layout.css">
 	<script src="/js/script.js" defer></script>
-	<style>
-		
-		#background-video {
-		    position: absolute;
-		    top: 50%;
-		    left: 50%;
-		    min-width: 100%;
-		    min-height: 100%;
-		    width: auto;
-		    height: auto;
-		    transform: translate(-50%, -50%);
-		    object-fit: cover;
-		    z-index: -1;
-		}
-	</style>
 	<script>
 	// 오시는길 함수
 	function showMap(location) {
@@ -59,7 +44,7 @@
 		<!-- main visual -->
 		<section id="section1" class="section">
 			<div id="background-container">
-				<video autoplay muted playsinline id="background-video">
+				<video autoplay muted playsinline id="main-background-video">
 			        <source src="/img/sitMainRowShort.mp4" type="video/mp4">
 			    </video>
 				<img src="/img/mv01.png" alt="배경 이미지 1" class="background-image">
@@ -165,22 +150,30 @@
 				<p class="subtitle">소프트아이텍은 파트너와 함께 성장할 수 있는 건강한 <br>생태계를 만들어 갑니다. </p>
 			</div>
             <div class="banner-container">
-                <img src="/img/m_banner01.png" alt="파트너 배너 1" class="banner-image">
-                <img src="/img/m_banner02.png" alt="파트너 배너 2" class="banner-image">
-                <img src="/img/m_banner03.png" alt="파트너 배너 3" class="banner-image">
-                <img src="/img/m_banner04.png" alt="파트너 배너 4" class="banner-image">
-                <img src="/img/m_banner05.png" alt="파트너 배너 5" class="banner-image">
-                <img src="/img/m_banner06.png" alt="파트너 배너 6" class="banner-image">
-                <img src="/img/m_banner07.png" alt="파트너 배너 7" class="banner-image">
-                <img src="/img/m_banner08.png" alt="파트너 배너 8" class="banner-image">
-                <img src="/img/m_banner09.png" alt="파트너 배너 9" class="banner-image">
-                <img src="/img/m_banner10.png" alt="파트너 배너 10" class="banner-image">
-                <img src="/img/m_banner11.png" alt="파트너 배너 11" class="banner-image">
-                <img src="/img/m_banner12.png" alt="파트너 배너 12" class="banner-image">
-                <img src="/img/m_banner13.png" alt="파트너 배너 13" class="banner-image">
-                <img src="/img/m_banner14.png" alt="파트너 배너 14" class="banner-image">
-                <img src="/img/m_banner15.png" alt="파트너 배너 15" class="banner-image">
-                <img src="/img/m_banner16.png" alt="파트너 배너 16" class="banner-image">
+	            <div class="banner-slider">
+	            <div class="banner-wrapper">
+	                <img src="/img/m_banner01.png" alt="파트너 배너 1" class="banner-image">
+	                <img src="/img/m_banner02.png" alt="파트너 배너 2" class="banner-image">
+	                <img src="/img/m_banner03.png" alt="파트너 배너 3" class="banner-image">
+	                <img src="/img/m_banner04.png" alt="파트너 배너 4" class="banner-image">
+	                <img src="/img/m_banner05.png" alt="파트너 배너 5" class="banner-image">
+	                <img src="/img/m_banner06.png" alt="파트너 배너 6" class="banner-image">
+	                <img src="/img/m_banner07.png" alt="파트너 배너 7" class="banner-image">
+	                <img src="/img/m_banner08.png" alt="파트너 배너 8" class="banner-image">
+	                </div>
+	            <div class="banner-wrapper">
+	                <img src="/img/m_banner09.png" alt="파트너 배너 9" class="banner-image">
+	                <img src="/img/m_banner10.png" alt="파트너 배너 10" class="banner-image">
+	                <img src="/img/m_banner11.png" alt="파트너 배너 11" class="banner-image">
+	                <img src="/img/m_banner12.png" alt="파트너 배너 12" class="banner-image">
+	                <img src="/img/m_banner13.png" alt="파트너 배너 13" class="banner-image">
+	                <img src="/img/m_banner14.png" alt="파트너 배너 14" class="banner-image">
+	                <img src="/img/m_banner15.png" alt="파트너 배너 15" class="banner-image">
+	                <img src="/img/m_banner16.png" alt="파트너 배너 16" class="banner-image">
+	                </div>
+                </div>
+	            <div class="banner-slider">
+                </div>
             </div>
             
         </section>		
