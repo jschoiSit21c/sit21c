@@ -47,6 +47,7 @@
 					<div class="submenu">
 						<a href="/pr/ci">CI 소개</a>
 						<a href="/pr/partnership">Partnership</a>
+						<a href="/pr/eDisclosureMain">전자공시</a>
 					</div>
 				</li>
 				<security:authorize access="hasRole('SA')">
@@ -104,6 +105,7 @@
 					<div class="submenu">
 						<a href="/pr/ci">CI 소개</a>
 						<a href="/pr/partnership">Partnership</a>
+						<a href="/pr/eDisclosureMain">전자공시</a>
 					</div>
 				</li>
 				<security:authorize access="hasRole('SA')">
@@ -165,6 +167,7 @@
 				<ul>
 					<li><a href="/pr/ci">CI 소개</a></li>
 					<li><a href="/pr/partnership">Partner ship</a></li>
+					<li><a href="/pr/eDisclosureMain">전자공시</a></li>
 				</ul>
 			</div>
 			<security:authorize access="hasRole('SA')">

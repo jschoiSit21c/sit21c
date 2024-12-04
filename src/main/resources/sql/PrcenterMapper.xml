@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sit21c.prcenter.mapper.PrcenterMapper">
+	
+	<!-- 전자공시 목록 -->
+	<select id="selectprcenterList" parameterType="com.sit21c.prcenter.vo.EDisclosureVo" resultType="com.sit21c.prcenter.vo.EDisclosureVo">
+		SELECT ROW_NUMBER() OVER (ORDER BY id DESC) AS NO
+			 , company_name
+			 , report_name
+			 , submitter
+			 , TO_CHAR(submission_date, 'YYYY/MM/DD') as submission_date
+			 , COUNT(*) OVER() AS TOTAL_RECORDS
+			 , id
+		FROM edisclosure A
+		ORDER BY id DESC
+		LIMIT #{pageSize} OFFSET #{startRecord} - 1
+	</select>
+	
+	<!-- 전자공시 상세 조회 -->
+	<select id="selectEDisclosure" parameterType="com.sit21c.prcenter.vo.EDisclosureVo" resultType="com.sit21c.prcenter.vo.EDisclosureVo">
+			SELECT company_name
+			 , report_name
+			 , submitter
+			 , submission_date
+			 , id
+		FROM edisclosure A
+		WHERE id = #{id}
+	</select>
+	
+	
+	<!-- 전자공시 저장 -->
+	<insert id="saveEDisclosure" parameterType="com.sit21c.prcenter.vo.EDisclosureVo"  keyProperty="id" useGeneratedKeys="true">
+		INSERT INTO edisclosure (
+		report_name
+		, submitter
+		, submission_date
+		) 
+		VALUES(
+		#{reportName}
+		, #{submitter}
+		, NOW()
+		)
+		RETURNING id
+
+	</insert>
+	
+	
+	<!-- 전자공시 수정 -->
+	<update id="modifyEDisclosure" parameterType="com.sit21c.prcenter.vo.EDisclosureVo">
+		UPDATE edisclosure
+		SET submitter = #{submitter}
+		  , updated_at = NOW()
+		  , report_name = #{reportName}
+		WHERE id = #{id}
+	</update>
+	
+</mapper>
