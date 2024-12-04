@@ -43,7 +43,7 @@
 					</div>
 				</li>
 				<li class="menu-item">
-					<a href="#section4">PR CENTER</a>
+					<a href="#section4">PR/IR</a>
 					<div class="submenu">
 						<a href="/pr/ci">CI 소개</a>
 						<a href="/pr/partnership">Partnership</a>
@@ -101,7 +101,7 @@
 					</div>
 				</li>
 				<li class="menu-item">
-					<a href="#section4">PR CENTER</a>
+					<a href="#section4">PR/IR</a>
 					<div class="submenu">
 						<a href="/pr/ci">CI 소개</a>
 						<a href="/pr/partnership">Partnership</a>
@@ -163,7 +163,7 @@
 				</ul>
 			</div>
 			<div class="menu-section">
-				<h2>PR CENTER</h2>
+				<h2>PR/IR</h2>
 				<ul>
 					<li><a href="/pr/ci">CI 소개</a></li>
 					<li><a href="/pr/partnership">Partner ship</a></li>
