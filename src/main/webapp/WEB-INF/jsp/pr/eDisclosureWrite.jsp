@@ -14,7 +14,8 @@
 <body class="sub-page">
 <!-- 상단 -->
 <jsp:include page="/WEB-INF/jsp/header.jsp"></jsp:include>
-
+<!-- Summernote JS CDN -->
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/summernote-lite.min.js"></script>
 	<!-- 서브 페이지 1-->
 	<div class="sub-page-content">
 		<h2 class="sub-page-title">전자공시 등록</h2>
@@ -23,9 +24,15 @@
 
 				<!-- 제목 -->
 				<div class="form-group">
-					<label for="reportName">제목 / ${eDisclosureResult.reportName } / ${isWrite}</label>
+					<label for="reportName">제목</label>
 					<input type="text" id="reportName" name=reportName class="form-control" required value="${isWrite ? '' : eDisclosureResult.reportName }">
 				</div>
+
+				<div class="form-group">
+					<label for="disclosureContent">내용</label>
+					<textarea id="disclosureContent" name="disclosureContent">${isWrite ? '' : eDisclosureResult.disclosureContent}</textarea>
+				</div>
+
 
 				<!-- 버튼 -->
 				<div class="form-buttons">
@@ -43,12 +50,17 @@
 <script>
 	$(document).ready(function () {
 		
+		//summernote 초기화
+		$('#disclosureContent').summernote({
+			height: 300, // 기본 높이 300px
+		});
+		
 		$("#eDisclosureWriteForm").on("submit", function(e){
 			if(!confirm("저장하시겠습니까?")) return;
 			var url = "${isWrite ? '/pr/saveEDisclosure' : '/pr/modifyEDisclosure'}";
-			alert("1 ^^ url : " + url);
+
 			var id = "${isWrite ? '' : eDisclosureResult.id}";
-			alert("2 ^^ id : " + id +"\n" +"isWrite : " + ${isWrite});
+
 			$.ajax({
 				url: url,
 				type: "POST",
@@ -56,6 +68,7 @@
 				contentType: "application/json",
 				data: JSON.stringify({
 					reportName : $("#reportName").val(),
+					disclosureContent : $("#disclosureContent").val(),
 					<c:if test="${!isWrite}">
 						id : id,
 					</c:if>

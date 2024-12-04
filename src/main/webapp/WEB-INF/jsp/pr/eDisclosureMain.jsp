@@ -19,7 +19,7 @@
         
 		
 <section class="employ-section">
-    <h2 class="employ-title">test구현</h2>
+    <!-- <h2 class="employ-title">test구현</h2> -->
     
     <table class="employ-table">
         <thead>
@@ -29,9 +29,7 @@
                 <th>보고서명</th>
                 <!-- <th>제출인</th> -->
                 <th>접수일자</th>
-                <security:authorize access="hasRole('SA')">
-                <th>수정</th>
-                </security:authorize>
+                <th>상세보기</th>
             </tr>
         </thead>
         <tbody>
@@ -42,9 +40,7 @@
 				<td>${item.reportName}</td>
 				<%-- <td>${item.submitter}</td> --%>
 				<td>${item.submissionDate}</td>
-				<security:authorize access="hasRole('SA')">
-				<td><button class="detail-button" onclick="location.href='/pr/eDisclosureUpdate?id=${item.id}'">></button></td>
-				</security:authorize>
+				<td><button class="detail-button" onclick="location.href='/pr/eDisclosureDetail?id=${item.id}'">></button></td>
 			</tr>
 		</c:forEach>
         </tbody>

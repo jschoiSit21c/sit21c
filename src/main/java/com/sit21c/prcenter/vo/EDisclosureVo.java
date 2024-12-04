@@ -11,6 +11,8 @@ public class EDisclosureVo extends PagingVo {
 	private String submissionDate;
 	private String createdAt;
 	private String updatedAt;
+	private String disclosureContent;
+	
 	
 	public int getId() {
 		return id;
@@ -53,6 +55,12 @@ public class EDisclosureVo extends PagingVo {
 	}
 	public void setUpdatedAt(String updatedAt) {
 		this.updatedAt = updatedAt;
+	}
+	public String getDisclosureContent() {
+		return disclosureContent;
+	}
+	public void setDisclosureContent(String disclosureContent) {
+		this.disclosureContent = disclosureContent;
 	}
 	
 

@@ -11,6 +11,7 @@
 			 , TO_CHAR(submission_date, 'YYYY/MM/DD') as submission_date
 			 , COUNT(*) OVER() AS TOTAL_RECORDS
 			 , id
+			 , disclosure_content
 		FROM edisclosure A
 		ORDER BY id DESC
 		LIMIT #{pageSize} OFFSET #{startRecord} - 1
@@ -23,6 +24,7 @@
 			 , submitter
 			 , submission_date
 			 , id
+			 , disclosure_content
 		FROM edisclosure A
 		WHERE id = #{id}
 	</select>
@@ -34,11 +36,13 @@
 		report_name
 		, submitter
 		, submission_date
+		, disclosure_content
 		) 
 		VALUES(
 		#{reportName}
 		, #{submitter}
 		, NOW()
+		, #{disclosureContent}
 		)
 		RETURNING id
 
@@ -51,6 +55,7 @@
 		SET submitter = #{submitter}
 		  , updated_at = NOW()
 		  , report_name = #{reportName}
+		  , disclosure_content = #{disclosureContent}
 		WHERE id = #{id}
 	</update>
 	

@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.sit21c.login.vo.LoginVo;
 import com.sit21c.prcenter.service.PrcenterService;
 import com.sit21c.prcenter.vo.EDisclosureVo;
+import com.sit21c.recruit.vo.RecruitmentVo;
 
 @Controller
 public class PRCenterController {
@@ -101,6 +102,29 @@ public class PRCenterController {
 		System.out.println("전자공시 작성 화면 호출");
 		model.addAttribute("isWrite", true); //등록/수정화면 같이쓰기위한 변수
 		return "/pr/eDisclosureWrite";
+	}
+	
+	
+	/**
+	 * 채용정보 상세 화면 호출
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping("/pr/eDisclosureDetail")
+	public String showEDisclosureDetailPage(EDisclosureVo eDisclosureVo, Model model) {
+		try {
+			EDisclosureVo item = prcenterService.selectEDisclosure(eDisclosureVo);
+			
+			if(item == null) {
+				//값이 없을경우 루트로 보내버림.
+				return "redirect:/";
+			}
+			
+			model.addAttribute("item", item);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return "/pr/eDisclosureDetail";
 	}
 	
 	
